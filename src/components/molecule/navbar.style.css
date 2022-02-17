@@ -1,0 +1,11 @@
+.logo{
+    height: 30px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.nav{
+    background-color: gray;
+    display: inline-block;
+    width: 100%;
+}

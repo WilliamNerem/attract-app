@@ -1,0 +1,10 @@
+.dropdown{
+    position: absolute;
+    right: 0;
+}
+
+.hamburger{
+    display: inline-block;
+    position: absolute;
+    right: 0;
+}
