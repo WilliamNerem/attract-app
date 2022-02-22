@@ -1,5 +1,5 @@
 import React from 'react';
-import './hamburgerItem.style.css'
+import '../../styles/navbar.style.css'
 import {Link, useLocation} from "react-router-dom";
 
 interface hamburgerItemProps {

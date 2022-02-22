@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { HamburgerItem } from "../atoms/hamburgerItem";
 import Hamburger from 'hamburger-react'
-import './hamburger.style.css'
+import '../../styles/navbar.style.css'
 import AnimateHeight from "react-animate-height";
 
 interface hamburgerProps {
@@ -17,10 +17,8 @@ export const HamburgerMenu = ({
         <div className='hamburger' onClick={onClick}>
             <Hamburger onToggle={toggled => {
                 if (toggled) {
-                    //setIsOpen(true);
                     setHeight(150);
                 } else {
-                    //setIsOpen(false);
                     setHeight(0)
                 }
             }} />

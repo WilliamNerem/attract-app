@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { HamburgerMenu } from "./hamburger";
 import Acc_Logo_Black_Purple_RGB from '../../images/Acc_Logo_Black_Purple_RGB.png'
-import './navbar.style.css'
+import '../../styles/navbar.style.css'
 import Backdrop from '@mui/material/Backdrop';
 
 export const Navbar = () => {
