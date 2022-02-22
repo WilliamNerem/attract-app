@@ -12,6 +12,21 @@ a.hamburgerItemLink:hover, a.hamburgerItemLink:active {
     background-color: white;
 }
 
+a.hamburgerItemLinkActive:link, a.hamburgerItemLinkActive:visited {
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: list-item;
+    width: 150px;
+    border-bottom: 1px solid gray;
+    color: black;
+    background-color: #e6e6dc;
+}
+
+a.hamburgerItemLinkActive:hover, a.hamburgerItemLinkActive:active {
+    background-color: white;
+}
+
 .hamburgerItems{
     position: absolute;
     right: 0;
