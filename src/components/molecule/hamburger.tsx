@@ -29,9 +29,9 @@ export const HamburgerMenu = ({
                 height={height}
                 className='hamburgerItems'
             >
-                <HamburgerItem itemText={'Link 1'}/>
-                <HamburgerItem itemText={'Link 2'}/>
-                <HamburgerItem itemText={'Link 3'}/>
+                <HamburgerItem itemText={'Home'} link={'/'}/>
+                <HamburgerItem itemText={'Valgomat'} link={'/valgomat'}/>
+                <HamburgerItem itemText={'NoPage'} link={'/noPage'}/>
             </AnimateHeight>
 
         </div>

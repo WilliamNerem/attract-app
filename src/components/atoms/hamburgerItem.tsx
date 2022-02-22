@@ -1,16 +1,17 @@
 import React from 'react';
 import './hamburgerItem.style.css'
+import { Link } from "react-router-dom";
 
 interface hamburgerItemProps {
     itemText: string
+    link: string
 }
 
 export const HamburgerItem = ({
-    itemText
+    itemText,
+    link
 }: hamburgerItemProps) => {
     return (
-        <a href={'/'}>
-            {itemText}
-        </a>
+        <Link to={link} className='hamburgerItemLink' >{itemText}</Link>
     );
 };

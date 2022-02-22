@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Button } from "./components/atoms/button";
-import { Navbar } from "./components/molecule/navbar";
-ReactDOM.render(
-  <React.StrictMode>
-      <Navbar />
-    <App />
-    <Button buttonTest={'Button'}/>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import NoPage from "./pages/noPage";
 
-reportWebVitals();
+import Valgomat from "./pages/valgomat";
+import Home from "./pages/home";
+
+export default function App() {
+
+    return (
+        <div className="test">
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />}>
+                </Route>
+                <Route path="valgomat" element={<Valgomat />} />
+                <Route path="*" element={<NoPage />} />
+            </Routes>
+        </BrowserRouter>
+        </div>
+    );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
+
