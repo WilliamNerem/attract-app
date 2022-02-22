@@ -11,7 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-a:link, a:visited {
+a.start:link, a.start:visited {
   background-color: green;
   color: white;
   padding: 14px 25px;
@@ -22,6 +22,6 @@ a:link, a:visited {
 
 
 
-a:hover, a:active {
+a.start:hover, a.start:active {
   background-color: red;
 }

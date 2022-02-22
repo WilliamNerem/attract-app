@@ -1,21 +1,12 @@
-import {Link, Outlet} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Navbar } from "../components/molecule/navbar";
 
 const Home = () => {
     return (
         <>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/valgomat" className="btn btn-primary">til valgomat</Link>
-                    </li>
-                    <li>
-                        <Link to="/" className="btn btn-primary">gå tilbake til forsiden</Link>
-                    </li>
-                </ul>
-            </nav>
-            <Outlet />
+            <Navbar/>
             <h1>Forside</h1>
-            <Link to="/valgomat" className="btn btn-primary">START VALGOMAT</Link>
+            <Link to="/valgomat" className='start' >START VALGOMAT</Link>
         </>
     )
 };
