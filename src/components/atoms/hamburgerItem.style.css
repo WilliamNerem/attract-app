@@ -1,13 +1,20 @@
 a:link, a:visited {
-    background-color: gray;
-    color: white;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
     display: list-item;
     width: 150px;
+    border-bottom: 1px solid gray;
+    color: black;
 }
 
 a:hover, a:active {
-    background-color: #7500c0;
+    background-color: white;
+}
+
+.hamburgerItems{
+    position: absolute;
+    right: 0;
+    margin-top: 3px;
+    background-color: white;
 }

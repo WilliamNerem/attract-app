@@ -4,25 +4,30 @@ import Hamburger from 'hamburger-react'
 import './hamburger.style.css'
 import AnimateHeight from "react-animate-height";
 
-export const HamburgerMenu = () => {
-    const [isOpen, setIsOpen] = useState(false);
+interface hamburgerProps {
+    onClick: any
+}
+
+export const HamburgerMenu = ({
+    onClick
+}: hamburgerProps) => {
     const [height, setHeight] = useState(0);
-    const handleClick= () => setIsOpen(!isOpen);
 
     return(
-        <div className='hamburger'>
-            <Hamburger color='#7500c0' onToggle={toggled => {
+        <div className='hamburger' onClick={onClick}>
+            <Hamburger onToggle={toggled => {
                 if (toggled) {
-                    handleClick();
-                    setHeight(150)
+                    //setIsOpen(true);
+                    setHeight(150);
                 } else {
-                    handleClick();
+                    //setIsOpen(false);
                     setHeight(0)
                 }
             }} />
             <AnimateHeight
                 duration={300}
                 height={height}
+                className='hamburgerItems'
             >
                 <HamburgerItem itemText={'Link 1'}/>
                 <HamburgerItem itemText={'Link 2'}/>

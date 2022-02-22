@@ -1,10 +1,7 @@
-.dropdown{
-    position: absolute;
-    right: 0;
-}
-
 .hamburger{
     display: inline-block;
     position: absolute;
     right: 0;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
