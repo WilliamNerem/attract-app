@@ -1,0 +1,11 @@
+.btn{
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid #000000;
+    text-decoration: none;
+    color: #000000;
+}
+.btn:hover{
+    color: #96968c;
+    border-color: #96968c;
+}

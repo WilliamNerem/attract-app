@@ -1,0 +1,74 @@
+.result{
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    width: 100vw;
+    text-align: center;
+    height: 93vh;
+}
+
+.btn{
+    bottom: 0;
+}
+
+.gradientDiv{
+    height: 300px;
+    padding-top: 100px;
+    background-image: url("../images/Accenture_Gradient1.jpg");
+    background-size: cover;
+}
+
+.resultText{
+    color: white;
+}
+
+div.singlePallet{
+    width: 50px;
+    position: absolute;
+    display: inline-block;
+}
+
+#first{
+    left: 51px;
+    bottom: 0;
+}
+
+#second{
+    left: 0;
+    bottom: 0;
+}
+
+#second .singlePalletDiv{
+    margin-right: 1px;
+}
+
+#third{
+    right: 0;
+    bottom: 0;
+}
+
+#third .singlePalletDiv{
+    margin-left: 1px;
+}
+
+.singlePalletPlacement{
+    margin: 0;
+    color: white;
+}
+
+.singlePalletDiv{
+    background-color: white;
+    width: 50px;
+}
+
+.percent{
+    color: white;
+    margin: 0;
+}
+
+.pallet{
+    height: 146px;
+    width: 151px;
+    position: relative;
+    display: inline-block;
+}
