@@ -6,7 +6,7 @@ const valgomat = () => {
         <>
             <Navbar/>
             <h1>VALGOMAT!!</h1>
-            <LikertScale/>
+            <LikertScale storageKey='Q1'/>
         </>
     );
 };

@@ -2,8 +2,12 @@ import React from 'react';
 import '../../styles/likertScale.style.css'
 import { useGetSetState } from "../../hooks/getSetState";
 
-export const LikertScale = () => {
-    const [value, setValue] = useGetSetState({key: 'Q1', defaultValue: false});
+interface likertScaleProps {
+    storageKey: string
+}
+
+export const LikertScale = ({storageKey}: likertScaleProps) => {
+    const [value, setValue] = useGetSetState({key: storageKey, defaultValue: false});
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.currentTarget.value)
