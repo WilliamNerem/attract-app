@@ -1,0 +1,62 @@
+.likertScale{
+    position: relative;
+    width: 85vw;
+    margin: auto;
+}
+.likertInput{
+    display: none;
+}
+.likertLabel{
+    display: inline-block;
+    width: 10vw;
+    padding-bottom: 10vw;
+    margin: 0 2.5vw;
+    border: 1vw solid #96968c;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#slider{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 7vw;
+    padding-bottom: 7vw;
+    margin: 2.5vw 0 0 5vw;
+    background: #a100ff;
+    border-radius: 50%;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    transition: 0.5s left 0.1s ease-in-out;
+}
+#stronglyDisagree:checked  ~ #slider{ animation-name: stronglyDisagree; left:0; }
+#moderatelyDisagree:checked  ~ #slider{ animation-name: moderatelyDisagree; left:17vw; }
+#neutral:checked  ~ #slider{ animation-name: neutral; left:34vw; }
+#moderatelyAgree:checked  ~ #slider{ animation-name: moderatelyAgree; left:51vw; }
+#stronglyAgree:checked  ~ #slider{ animation-name: stronglyAgree; left:68vw; }
+
+@keyframes stronglyDisagree{ 30%, 70% { transform: scale(0.7); } }
+@keyframes moderatelyDisagree{ 30%, 70% { transform: scale(0.7); } }
+@keyframes neutral{ 30%, 70% { transform: scale(0.7); } }
+@keyframes moderatelyAgree{ 30%, 70% { transform: scale(0.7); } }
+@keyframes stronglyAgree{ 30%, 70% { transform: scale(0.7); } }
+
+.likertText {
+    position: relative;
+    width: 90vw;
+    margin: auto;
+}
+
+.text {
+    position: relative;
+    display: inline-block;
+    width: 22vw;
+    text-align: center;
+    font-size: 15px;
+}
+
+.textDivider {
+    position: relative;
+    display: inline-block;
+    width: 12vw;
+}
