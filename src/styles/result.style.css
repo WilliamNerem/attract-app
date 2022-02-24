@@ -7,10 +7,6 @@
     height: 93vh;
 }
 
-.btn{
-    bottom: 0;
-}
-
 .gradientDiv{
     height: 300px;
     padding-top: 100px;
@@ -71,4 +67,12 @@ div.singlePallet{
     width: 151px;
     position: relative;
     display: inline-block;
+}
+
+.btn{
+    position: absolute;
+    bottom: 2em;
+    margin: auto;
+    left: 0;
+    right: 0;
 }
