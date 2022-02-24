@@ -1,15 +1,18 @@
 import React from 'react';
+import '../../styles/button.style.css';
 
 interface testInterface {
-    buttonTest: string
+    text: string
+    href: string
 }
 
 export const Button = ({
-    buttonTest
+    text,
+    href
 }: testInterface) => {
     return(
-        <button>
-            {buttonTest}
-        </button>
+        <a href={href} className='btn'>
+            {text}
+        </a>
     );
 };
