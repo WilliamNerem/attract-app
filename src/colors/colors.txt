@@ -1,0 +1,17 @@
+Core purples:
+    Core purple 1 = #a100ff
+    Core purple 2 = #7500c0
+    Core purple 3 = #460073
+
+Accent purples:
+    Accent purple 1 = #b455aa
+    Accent purple 2 = #a055f5
+    Accent purple 3 = #be82ff
+    Accent purple 4 = #dcafff
+    Accent purple 5 = #e6dcff
+
+Neutrals:
+    Black = #000000
+    Dark gray = #96968c
+    Light gray = #e6e6dc
+    White = #ffffff

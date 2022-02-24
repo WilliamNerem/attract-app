@@ -1,0 +1,22 @@
+.infoCard{
+    width: 17em;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -2em;
+    padding: 1em;
+    border: 1px solid #96968c;
+    background-color: white;
+    text-align: left;
+}
+
+.infoCardHeading{
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    font-family: "Graphik Black", "Arial Black", sans-serif;
+}
+
+.infoCardHeading:hover{
+    text-decoration: underline;
+    color: blue;
+}
