@@ -1,3 +1,10 @@
 .questionLayout{
-    margin: 5%
+    margin: 5%;
+    font-size: large;
+}
+
+.valgomatQuestion{
+    font-size: large;
+    padding: 16px;
+    padding-bottom: 80px;
 }

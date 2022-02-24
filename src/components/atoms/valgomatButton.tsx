@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/valgomatButton.css'
 
 
 interface ValgomatButtonProps {
@@ -15,10 +16,10 @@ export const ValgomatButton = ({
 
 
     return (
-        <p>
-            <button onClick={decreaseCounter}>Forrige spørsmål</button>
-            <button onClick={increaseCounter}>Neste spørsmål</button>
-        </p>
+        <div className="valgomatButtons">
+            <button id="qBack" onClick={decreaseCounter}>Forrige spørsmål</button>
+            <button id="qForward" onClick={increaseCounter}>Neste spørsmål</button>
+        </div>
     );
 
 

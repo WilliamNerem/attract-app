@@ -14,6 +14,8 @@ export const Questions = ({
 }: QuestionsProps) => {
 
     return (
-        <p>{questionNumber} : {questionTxt}</p>
+        <div className="valgomatQuestion">
+            {questionNumber} : {questionTxt}
+        </div>
     )
 }
