@@ -19,7 +19,7 @@ export const LikertScale = ({questionNumber}: likertScaleProps) => {
     };
 
     const handleDefaultCheked = (radioValue: number) => {
-        if (state[questionNumber-1] == null){
+        if (state.length < questionNumber){
             return true
         } else {
             return handleChecked(radioValue)
