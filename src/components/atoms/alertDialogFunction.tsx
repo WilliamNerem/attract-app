@@ -11,19 +11,17 @@ import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 
 export const AlertDialog = () => {
-    const [open, setOpen] = React.useState(true);
     const dispatch = useDispatch();
     const {increaseCounter} = bindActionCreators(actionCreators, dispatch);
 
     const handleClose = () => {
-        setOpen(false);
         increaseCounter();
     };
 
     return (
         <div>
             <Dialog
-                open={open}
+                open={true}
                 onClose={handleClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"

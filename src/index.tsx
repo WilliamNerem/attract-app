@@ -15,7 +15,7 @@ export default function App() {
                 <Routes>
                     <Route path="/" element={<Home />}>
                     </Route>
-                    <Route path="valgomat" element={<Valgomat/>} />
+                    <Route path="valgomat" element={<Valgomat />} />
                     <Route path="*" element={<NoPage />} />
                 </Routes>
             </BrowserRouter>

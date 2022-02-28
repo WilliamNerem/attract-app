@@ -62,7 +62,7 @@ const Valgomat = () => {
             <Result/>
         )
     }
-    return (<> </>)
+    return null;
 }
 
 
