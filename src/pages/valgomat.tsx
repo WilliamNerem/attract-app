@@ -6,22 +6,18 @@ import {useState} from "react";
 import {LikertScale} from "../components/atoms/likertScale";
 import {AlertDialog} from "../components/atoms/alertDialogFunction";
 import * as React from "react";
+import {State, actionCreators} from "../redux";
+import {useDispatch, useSelector} from "react-redux";
+import {bindActionCreators} from "redux";
 
 
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
 
-    const increaseCounter = () => {
-        setCounter(counter+1);
-    }
-    const decreaseCounter = () => {
-        setCounter(counter-1);
-    }
-        if(counter == 0) {
+
+    if(counter == 0) {
             return (
-                <>
-            <AlertDialog increaseCounter={increaseCounter}/>
-                </>
+            <AlertDialog />
         )
         }
 
@@ -31,7 +27,7 @@ const Valgomat = () => {
                     <Navbar/>
                     <Questions questionNumber={1} questionTxt={"Dette er et kjempegodt spm!"}/>
                     <LikertScale storageKey={"Q1"}/>
-                    <ValgomatButton increaseCounter={increaseCounter} decreaseCounter={decreaseCounter}/>
+                    <ValgomatButton/>
                     <ProgressBar completed={50}/>
                 </>
             );
@@ -41,7 +37,7 @@ const Valgomat = () => {
                     <Navbar/>
                     <Questions questionNumber={2} questionTxt={"Dette er et kjempegodt spm også!!!"}/>
                     <LikertScale storageKey={"Q2"}/>
-                    <ValgomatButton increaseCounter={increaseCounter} decreaseCounter={decreaseCounter}/>
+                    <ValgomatButton/>
                     <ProgressBar completed={100}/>
                 </>
             );

@@ -6,16 +6,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {bindActionCreators} from "redux";
+import {actionCreators} from "../../redux";
 
-interface Props {
-    increaseCounter: any,
-}
-
-export const AlertDialog = ({
-    increaseCounter
-}: Props) => {
+export const AlertDialog = () => {
     const [open, setOpen] = React.useState(true);
-
+    const dispatch = useDispatch();
+    const {increaseCounter} = bindActionCreators(actionCreators, dispatch);
 
     const handleClose = () => {
         setOpen(false);
