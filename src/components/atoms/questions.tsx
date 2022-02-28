@@ -7,7 +7,6 @@ interface QuestionsProps {
     questionTxt: string
 }
 
-
 export const Questions = ({
     questionNumber,
     questionTxt
