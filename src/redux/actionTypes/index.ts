@@ -1,4 +1,5 @@
 export enum QuestionActionType {
     INCREASE = 'increase',
-    DECREASE = 'decrease'
+    DECREASE = 'decrease',
+    RESET = 'reset'
 }

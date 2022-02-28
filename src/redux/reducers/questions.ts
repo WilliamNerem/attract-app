@@ -1,5 +1,4 @@
-import { QuestionAction } from '..';
-import { QuestionActionType } from "../actionTypes";
+import {QuestionAction, QuestionActionType} from '..';
 
 const initialState = 1;
 
@@ -9,6 +8,8 @@ export const questionCounterReducer = (state: number = initialState, action: Que
             return state + action.payload;
         case QuestionActionType.DECREASE:
             return state - action.payload;
+        case QuestionActionType.RESET:
+            return 1;
         default:
             return state
     }

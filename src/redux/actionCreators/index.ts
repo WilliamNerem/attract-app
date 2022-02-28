@@ -19,3 +19,12 @@ export const decreaseCounter = () => {
         })
     }
 };
+
+export const resetCounter = () => {
+    return (dispatch: Dispatch<QuestionAction>) => {
+        dispatch({
+            type: QuestionActionType.RESET,
+            payload: 1
+        })
+    }
+};
