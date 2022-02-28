@@ -14,7 +14,7 @@ const Valgomat = () => {
     const decreaseCounter = () => {
         setCounter(counter-1);
     }
-        if(counter == 1) {
+        if(counter === 1) {
             return (
                 <>
                     <Navbar/>

@@ -14,7 +14,7 @@ export const HamburgerItem = ({
     const location = useLocation();
     let className = 'hamburgerItemLink';
 
-    if (location.pathname == link){
+    if (location.pathname === link){
         className = 'hamburgerItemLinkActive'
     }
 
