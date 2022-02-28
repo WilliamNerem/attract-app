@@ -37,14 +37,14 @@ const Valgomat = () => {
     const state = useSelector((state: State) => state.likertAnswer);
 
 
-    if (counter == 0) {
+    if (counter === 0) {
         return (
             <AlertDialog/>
         )
     }
 
     for (let questions of QuestionsData) {
-        if (counter == questions.questionNumber) {
+        if (counter === questions.questionNumber) {
             return (
                 <>
                     <Navbar/>
@@ -57,7 +57,7 @@ const Valgomat = () => {
             )
         }
     }
-    if (counter == QuestionsData.length+1) {
+    if (counter === QuestionsData.length+1) {
         return (
             <Result/>
         )
