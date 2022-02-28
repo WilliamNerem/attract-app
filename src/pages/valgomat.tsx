@@ -8,7 +8,7 @@ import { State } from "../redux";
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
 
-    if(counter == 1) {
+    if(counter === 1) {
         return (
             <>
                 <Navbar/>
