@@ -9,7 +9,7 @@ import * as React from "react";
 
 
 const Valgomat = () => {
-    const [counter, setCounter] = useState(1);
+    const counter = useSelector((state: State) => state.questionCounter);
 
     const increaseCounter = () => {
         setCounter(counter+1);
