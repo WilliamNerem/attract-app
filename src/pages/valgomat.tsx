@@ -8,6 +8,7 @@ import * as React from "react";
 import {State} from "../redux";
 import {useSelector} from "react-redux";
 import {Result} from "../components/organisms/result";
+import {AlgorithmActionType} from '../redux/index'
 
 export const QuestionsData = [
     {
@@ -30,7 +31,7 @@ export const QuestionsData = [
         questionTxt: "Dette er spørsmål 4?",
         progress: 100
     },
-]
+];
 
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
@@ -50,7 +51,7 @@ const Valgomat = () => {
                     <Navbar/>
                     <h1>{state[questions.questionNumber-1]}</h1>
                     <Questions questionNumber={questions.questionNumber} questionTxt={questions.questionTxt}/>
-                    <LikertScale questionNumber={questions.questionNumber}/>
+                    <LikertScale questionNumber={questions.questionNumber} characteristic={AlgorithmActionType.SOCIAL}/> {/*finn ut hvordan vi gjør dette*/}
                     <ValgomatButton/>
                     <ProgressBar completed={questions.progress}/>
                 </>
@@ -63,7 +64,7 @@ const Valgomat = () => {
         )
     }
     return null;
-}
+};
 
 
 

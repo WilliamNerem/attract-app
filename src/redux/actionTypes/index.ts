@@ -11,3 +11,9 @@ export enum LikertActionType {
     MODERATLY_AGREE = 'moderatly_agree',
     STRONGLY_AGREE = 'strongly_agree'
 }
+
+export enum AlgorithmActionType {
+    SOCIAL = 'social',
+    CREATIVE = 'creative',
+    PRACTICAL = 'practical'
+}

@@ -6,6 +6,7 @@ import {actionCreators, State} from "../../redux";
 
 interface likertScaleProps {
     questionNumber: number
+    characteristic: string
 }
 
 export const LikertScale = ({questionNumber}: likertScaleProps) => {
@@ -20,7 +21,7 @@ export const LikertScale = ({questionNumber}: likertScaleProps) => {
 
     const handleDefaultCheked = (radioValue: number) => {
         if (state.length < questionNumber){
-            neutral(questionNumber)
+            neutral(questionNumber);
             return true
         } else {
             return handleChecked(radioValue)
