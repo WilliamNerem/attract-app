@@ -8,28 +8,32 @@ import * as React from "react";
 import {State} from "../redux";
 import {useSelector} from "react-redux";
 import {Result} from "../components/organisms/result";
-import {AlgorithmActionType} from '../redux/index'
+import {AlgorithmActionType} from '../redux'
 
 export const QuestionsData = [
     {
         questionNumber: 1,
-        questionTxt: "Dette er spørsmål 1?",
-        progress: 25
+        questionTxt: "Dette er spørsmål 1? SOSIAL",
+        progress: 25,
+        characteristic: AlgorithmActionType.SOCIAL
     },
     {
         questionNumber: 2,
-        questionTxt: "Dette er spørsmål 2?",
-        progress: 50
+        questionTxt: "Dette er spørsmål 2? KREATIV",
+        progress: 50,
+        characteristic: AlgorithmActionType.CREATIVE
     },
     {
         questionNumber: 3,
-        questionTxt: "Dette er spørsmål 3?",
-        progress: 75
+        questionTxt: "Dette er spørsmål 3? PRAKTISK",
+        progress: 75,
+        characteristic: AlgorithmActionType.PRACTICAL
     },
     {
         questionNumber: 4,
-        questionTxt: "Dette er spørsmål 4?",
-        progress: 100
+        questionTxt: "Dette er spørsmål 4? SOSIAL",
+        progress: 100,
+        characteristic: AlgorithmActionType.SOCIAL
     },
 ];
 
@@ -60,7 +64,7 @@ const Valgomat = () => {
                     <Navbar/>
                     <h1>{state[questions.questionNumber-1]}</h1>
                     <Questions questionNumber={questions.questionNumber} questionTxt={questions.questionTxt}/>
-                    <LikertScale questionNumber={questions.questionNumber} characteristic={char}/> {/*finn ut hvordan vi gjør dette*/}
+                    <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic}/> {/*finn ut hvordan vi gjør dette*/}
                     <ValgomatButton/>
                     <ProgressBar completed={questions.progress}/>
                 </>
