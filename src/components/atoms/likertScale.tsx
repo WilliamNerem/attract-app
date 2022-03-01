@@ -2,44 +2,31 @@ import React from 'react';
 import '../../styles/likertScale.style.css'
 import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
-import {actionCreators, AlgorithmActionType, State} from "../../redux";
+import {actionCreators, State} from "../../redux";
 
 interface likertScaleProps {
     questionNumber: number
-    characteristic: string
+    characteristic: Function
 }
 
 export const LikertScale = ({questionNumber, characteristic}: likertScaleProps) => {
 
     const likertState = useSelector((state: State) => state.likertAnswer);
     const dispatch = useDispatch();
-    const { stronglyDisagree, moderatlyDisagree, neutral, moderatlyAgree, stronglyAgree, social, creative, practical } = bindActionCreators(actionCreators, dispatch);
+    const {
+        stronglyDisagree,
+        moderatlyDisagree,
+        neutral,
+        moderatlyAgree,
+        stronglyAgree,
+    } = bindActionCreators(actionCreators, dispatch);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value: number = +e.target.value;
+    const handleChange = (answer: Function) => {
         const lastChecked = likertState[questionNumber-1];
-        if (value === 1) {
-            stronglyDisagree(questionNumber)
-        } else if (value === 2) {
-            moderatlyDisagree(questionNumber)
-        } else if (value === 3) {
-            neutral(questionNumber)
-        } else if (value === 4) {
-            moderatlyAgree(questionNumber)
-        } else {
-            stronglyAgree(questionNumber)
-        }
-
-        if (characteristic == AlgorithmActionType.SOCIAL){
-            social(-(lastChecked-3));
-            social(value-3)
-        } else if (characteristic == AlgorithmActionType.CREATIVE){
-            creative(-(lastChecked-3));
-            creative(value-3)
-        } else {
-            practical(-(lastChecked-3));
-            practical(value-3)
-        }
+        answer(questionNumber);
+        const currChecked = likertState[questionNumber-1];
+        characteristic(-(lastChecked-3));
+        characteristic(currChecked-3);
     };
 
     const handleChecked = (radioValue: number) => {
@@ -66,7 +53,7 @@ export const LikertScale = ({questionNumber, characteristic}: likertScaleProps) 
                     type="radio"
                     value='1'
                     checked={handleChecked(1)}
-                    onChange={handleChange}
+                    onChange={() => handleChange(stronglyDisagree)}
                 />
 
                 <label className='likertLabel' htmlFor="moderatelyDisagree"/>
@@ -77,7 +64,7 @@ export const LikertScale = ({questionNumber, characteristic}: likertScaleProps) 
                     type="radio"
                     value='2'
                     checked={handleChecked(2)}
-                    onChange={handleChange}
+                    onChange={() => handleChange(moderatlyDisagree)}
                 />
                 <label className='likertLabel' htmlFor="neutral"/>
                 <input
@@ -87,7 +74,7 @@ export const LikertScale = ({questionNumber, characteristic}: likertScaleProps) 
                     type="radio"
                     value='3'
                     checked={handleDefaultCheked(3)}
-                    onChange={handleChange}
+                    onChange={() => handleChange(neutral)}
                 />
                 <label className='likertLabel' htmlFor="moderatelyAgree"/>
                 <input
@@ -97,7 +84,7 @@ export const LikertScale = ({questionNumber, characteristic}: likertScaleProps) 
                     type="radio"
                     value='4'
                     checked={handleChecked(4)}
-                    onChange={handleChange}
+                    onChange={() => handleChange(moderatlyAgree)}
                 />
                 <label className='likertLabel' htmlFor="stronglyAgree"/>
                 <input
@@ -107,7 +94,7 @@ export const LikertScale = ({questionNumber, characteristic}: likertScaleProps) 
                     type="radio"
                     value='5'
                     checked={handleChecked(5)}
-                    onChange={handleChange}
+                    onChange={() => handleChange(stronglyAgree)}
                 />
                 <span id="slider"/>
             </div>
