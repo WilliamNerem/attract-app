@@ -1,0 +1,35 @@
+.imageDiv{
+    background-image: url("../images/background_city.jpg");
+    height: 250px;
+    padding-top: 150px;
+    background-size: cover;
+    background-position: 50% 100%;
+    position: relative;
+}
+
+.startWrapper{
+    border: 2px solid #05f0a5;
+    width: 170px;
+    height: 50px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.start{
+    position: absolute;
+    width: 165px;
+    height: 45px;
+    line-height: 45px;
+    background-color: #05f0a5;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

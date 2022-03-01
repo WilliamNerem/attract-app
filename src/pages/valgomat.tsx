@@ -30,7 +30,7 @@ export const QuestionsData = [
         questionTxt: "Dette er spørsmål 4?",
         progress: 100
     },
-]
+];
 
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
@@ -63,7 +63,7 @@ const Valgomat = () => {
         )
     }
     return null;
-}
+};
 
 
 
