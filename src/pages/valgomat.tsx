@@ -13,6 +13,7 @@ import {bindActionCreators} from "redux";
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
     const state = useSelector((state: State) => state.likertAnswer);
+    const algoArray = useSelector((state: State) => state.algorithm);
     const dispatch = useDispatch();
     const { social, creative, practical } = bindActionCreators(actionCreators, dispatch);
 
@@ -43,6 +44,58 @@ const Valgomat = () => {
         },
     ];
 
+    const departments = [
+        {
+            name: 'S&T',
+            social: 9,
+            creative: 3,
+            practical: 5
+        },
+        {
+            name: 'Technology',
+            social: 3,
+            creative: 5,
+            practical: 7
+        },
+        {
+            name: 'Interactive',
+            social: 1,
+            creative: 7,
+            practical: 3
+        },
+    ];
+
+    function checkDepartment() {
+        let oldDifference = 1000;
+        let difference = 0;
+        let chosenDepartment = null;
+        for (let dep of departments) {
+            difference = 0;
+            if(dep.social == algoArray[0].points) {
+                difference += 0;
+            }
+            else {
+                difference += 1;
+            }
+            if(dep.creative == algoArray[1].points) {
+                difference += 0;
+            }
+            else {
+                difference += 1;
+            }
+            if(dep.practical == algoArray[2].points) {
+                difference += 0;
+            }
+            else {
+                difference += 1;
+            }
+            if (difference < oldDifference) {
+                chosenDepartment = dep.name;
+                oldDifference = difference;
+            }
+        }
+        return chosenDepartment;
+    }
     if (counter === 0) {
         return (
             <AlertDialog/>
@@ -65,7 +118,10 @@ const Valgomat = () => {
     }
     if (counter === QuestionsData.length+1) {
         return (
+            <>
+                <h1> {checkDepartment() }</h1>
             <Result/>
+            </>
         )
     }
     return null;
