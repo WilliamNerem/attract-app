@@ -44,14 +44,23 @@ const Valgomat = () => {
         )
     }
 
+    let char = AlgorithmActionType.PRACTICAL;
+
     for (let questions of QuestionsData) {
+        if (counter === 1){
+            char = AlgorithmActionType.SOCIAL
+        } else if (counter === 2){
+            char = AlgorithmActionType.CREATIVE
+        } else if (counter === 3){
+            char = AlgorithmActionType.SOCIAL
+        }
         if (counter === questions.questionNumber) {
             return (
                 <>
                     <Navbar/>
                     <h1>{state[questions.questionNumber-1]}</h1>
                     <Questions questionNumber={questions.questionNumber} questionTxt={questions.questionTxt}/>
-                    <LikertScale questionNumber={questions.questionNumber} characteristic={AlgorithmActionType.SOCIAL}/> {/*finn ut hvordan vi gjør dette*/}
+                    <LikertScale questionNumber={questions.questionNumber} characteristic={char}/> {/*finn ut hvordan vi gjør dette*/}
                     <ValgomatButton/>
                     <ProgressBar completed={questions.progress}/>
                 </>

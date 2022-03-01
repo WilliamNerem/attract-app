@@ -20,10 +20,15 @@ export const initialState = {
 export const algorithmReducer = (state: {name: string, points: number}[] = initialState.algoritmArr, action: AlgorithmAction) => {
     switch (action.type) {
         case AlgorithmActionType.SOCIAL:
-            return state[0].points = state[0].points + action.payload;
+            state[0].points = state[0].points + action.payload;
+            return [...state];
         case AlgorithmActionType.CREATIVE:
-            return state[1].points = state[1].points + action.payload;
+            state[1].points = state[1].points + action.payload;
+            return [...state];
         case AlgorithmActionType.PRACTICAL:
-            return state[2].points = state[2].points + action.payload;
+            state[2].points = state[2].points + action.payload;
+            return [...state];
+        default:
+            return state
     }
 };
