@@ -66,29 +66,14 @@ const Valgomat = () => {
     ];
 
     function checkDepartment() {
-        let oldDifference = 1000;
+        let oldDifference = 1000; // Big number so that the first new difference is always below the default
         let difference = 0;
         let chosenDepartment = null;
         for (let dep of departments) {
             difference = 0;
-            if(dep.social == algoArray[0].points) {
-                difference += 0;
-            }
-            else {
-                difference += 1;
-            }
-            if(dep.creative == algoArray[1].points) {
-                difference += 0;
-            }
-            else {
-                difference += 1;
-            }
-            if(dep.practical == algoArray[2].points) {
-                difference += 0;
-            }
-            else {
-                difference += 1;
-            }
+            difference += Math.abs(dep.social - algoArray[0].points);
+            difference += Math.abs(dep.creative - algoArray[1].points);
+            difference += Math.abs(dep.practical - algoArray[2].points);
             if (difference < oldDifference) {
                 chosenDepartment = dep.name;
                 oldDifference = difference;
