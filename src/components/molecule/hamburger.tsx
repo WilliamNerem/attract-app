@@ -14,12 +14,14 @@ export const HamburgerMenu = ({
     const [height, setHeight] = useState(0);
 
     return(
-        <div className='hamburger' onClick={onClick}>
+        <div className='hamburger'>
             <Hamburger onToggle={toggled => {
                 if (toggled) {
                     setHeight(150);
+                    onClick();
                 } else {
-                    setHeight(0)
+                    setHeight(0);
+                    onClick();
                 }
             }} />
             <AnimateHeight
