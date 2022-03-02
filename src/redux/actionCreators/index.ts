@@ -1,7 +1,14 @@
-import {AlgorithmActionType, LikertActionType, QuestionActionType, ResetStatesActionType} from "../actionTypes";
+import {
+    AlgorithmActionType,
+    LikertActionType,
+    QuestionActionType,
+    ResetStatesActionType,
+    StatementOrderActionType
+} from "../actionTypes";
 import {Dispatch} from "redux";
 import {AlgorithmAction, LikertAction, QuestionAction} from "..";
 import {ResetStatesAction} from "../actions/resetStatesAction";
+import {StatementOrderAction} from "..";
 
 export const increaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
@@ -102,6 +109,24 @@ export const resetStates = () => {
     return (dispatch: Dispatch<ResetStatesAction>) => {
         dispatch({
             type: ResetStatesActionType.RESET_STATES
+        })
+    }
+};
+
+export const increaseStatementOrder = (id: number) => {
+    return (dispatch: Dispatch<StatementOrderAction>) => {
+        dispatch({
+            type: StatementOrderActionType.INCREASE,
+            payload: id
+        })
+    }
+};
+
+export const decreaseStatementOrder = (id: number) => {
+    return (dispatch: Dispatch<StatementOrderAction>) => {
+        dispatch({
+            type: StatementOrderActionType.DECREASE,
+            payload: id
         })
     }
 };
