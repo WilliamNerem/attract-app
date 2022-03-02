@@ -1,6 +1,7 @@
-import {AlgorithmActionType, LikertActionType, QuestionActionType} from "../actionTypes";
+import {AlgorithmActionType, LikertActionType, QuestionActionType, ResetStatesActionType} from "../actionTypes";
 import {Dispatch} from "redux";
 import {AlgorithmAction, LikertAction, QuestionAction} from "..";
+import {ResetStatesAction} from "../actions/resetStatesAction";
 
 export const increaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
@@ -15,15 +16,6 @@ export const decreaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
         dispatch({
             type: QuestionActionType.DECREASE,
-            payload: 1
-        })
-    }
-};
-
-export const resetCounter = () => {
-    return (dispatch: Dispatch<QuestionAction>) => {
-        dispatch({
-            type: QuestionActionType.RESET,
             payload: 1
         })
     }
@@ -102,6 +94,14 @@ export const practical = (points: number) => {
         dispatch({
             type: AlgorithmActionType.PRACTICAL,
             payload: points
+        })
+    }
+};
+
+export const resetStates = () => {
+    return (dispatch: Dispatch<ResetStatesAction>) => {
+        dispatch({
+            type: ResetStatesActionType.RESET_STATES
         })
     }
 };

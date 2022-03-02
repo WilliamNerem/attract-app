@@ -22,7 +22,6 @@ export const likertAnswerReducer = (state: number[] = initialState.answers, acti
             return [...state, action.payload];
         case LikertActionType.NEUTRAL:
             if (action.questionNumber <= state.length){
-                console.log(state.length);
                 state[action.questionNumber-1] = action.payload;
                 return [...state]
             }

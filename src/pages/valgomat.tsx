@@ -22,9 +22,9 @@ const Valgomat = () => {
         let chosenDepartment = null;
         for (let dep of departments) {
             difference = 0;
-            difference += Math.abs(dep.social - algoArray[0].points);
-            difference += Math.abs(dep.creative - algoArray[1].points);
-            difference += Math.abs(dep.practical - algoArray[2].points);
+            difference += Math.abs(dep.social - algoArray[0]);
+            difference += Math.abs(dep.creative - algoArray[1]);
+            difference += Math.abs(dep.practical - algoArray[2]);
             if (difference < oldDifference) {
                 chosenDepartment = dep.name;
                 oldDifference = difference;

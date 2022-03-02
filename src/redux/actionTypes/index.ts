@@ -1,7 +1,6 @@
 export enum QuestionActionType {
     INCREASE = 'increase',
-    DECREASE = 'decrease',
-    RESET = 'reset'
+    DECREASE = 'decrease'
 }
 
 export enum LikertActionType {
@@ -16,4 +15,8 @@ export enum AlgorithmActionType {
     SOCIAL = 'social',
     CREATIVE = 'creative',
     PRACTICAL = 'practical'
+}
+
+export enum ResetStatesActionType {
+    RESET_STATES = 'resetStates'
 }

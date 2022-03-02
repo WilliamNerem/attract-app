@@ -1,32 +1,19 @@
 import {AlgorithmAction, AlgorithmActionType} from '..';
 
 export const initialState = {
-    algoritmArr: [
-        {
-            name: AlgorithmActionType.SOCIAL,
-            points: 5
-        },
-        {
-            name: AlgorithmActionType.CREATIVE,
-            points: 5
-        },
-        {
-            name: AlgorithmActionType.PRACTICAL,
-            points: 5
-        }
-        ]
+    algorithmArr: [5, 5, 5]
 };
 
-export const algorithmReducer = (state: {name: string, points: number}[] = initialState.algoritmArr, action: AlgorithmAction) => {
+export const algorithmReducer = (state: number[] = initialState.algorithmArr, action: AlgorithmAction) => {
     switch (action.type) {
         case AlgorithmActionType.SOCIAL:
-            state[0].points = state[0].points + action.payload;
+            state[0] = state[0] + action.payload;
             return [...state];
         case AlgorithmActionType.CREATIVE:
-            state[1].points = state[1].points + action.payload;
+            state[1] = state[1] + action.payload;
             return [...state];
         case AlgorithmActionType.PRACTICAL:
-            state[2].points = state[2].points + action.payload;
+            state[2] = state[2] + action.payload;
             return [...state];
         default:
             return state

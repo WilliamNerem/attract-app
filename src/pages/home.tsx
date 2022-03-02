@@ -1,16 +1,12 @@
 import { Link } from "react-router-dom";
 import { Navbar } from "../components/molecule/navbar";
-import {useDispatch, useSelector} from "react-redux";
-import {bindActionCreators} from "redux";
-import {actionCreators, State} from "../redux";
 import '../styles/home.style.css';
-import {InfoCard} from "../components/atoms/infoCard";
+import { InfoCard } from "../components/atoms/infoCard";
+import { ResetStates } from "../resetStates";
 
 const Home = () => {
-    const dispatch = useDispatch();
-    const { resetCounter } = bindActionCreators(actionCreators, dispatch);
-    const counter = useSelector((state: State) => state.questionCounter);
-    if (counter != 1) { resetCounter() }
+    ResetStates();
+
     return (
         <>
             <Navbar/>

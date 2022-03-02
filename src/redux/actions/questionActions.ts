@@ -10,9 +10,4 @@ interface decrementAction {
     payload: number
 }
 
-interface resetAction {
-    type: QuestionActionType.RESET
-    payload: number
-}
-
-export type QuestionAction = incrementAction | decrementAction | resetAction;
+export type QuestionAction = incrementAction | decrementAction;
