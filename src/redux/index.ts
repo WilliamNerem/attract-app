@@ -1,6 +1,7 @@
 export * as actionCreators from './actionCreators'
 export * from './actions/questionActions'
 export * from './actions/likertActions'
+export * from './actions/algorithm'
 export * from './actionTypes'
 export * from './reducers'
 export * from './store'
