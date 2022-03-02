@@ -8,27 +8,38 @@ import * as React from "react";
 import {State} from "../redux";
 import {useSelector} from "react-redux";
 import {Result} from "../components/organisms/result";
+import {StatementOrder} from "../components/atoms/statementOrder";
 
 export const QuestionsData = [
     {
         questionNumber: 1,
-        questionTxt: "Dette er spørsmål 1?",
-        progress: 25
+        questionTxt: "Dette er påstand rekkefølge spørsmål 1?",
+        progress: 20,
+        isStatement: true,
     },
     {
         questionNumber: 2,
         questionTxt: "Dette er spørsmål 2?",
-        progress: 50
+        progress: 40,
+        isStatement: false,
     },
     {
         questionNumber: 3,
         questionTxt: "Dette er spørsmål 3?",
-        progress: 75
+        progress: 60,
+        isStatement: false,
     },
     {
         questionNumber: 4,
         questionTxt: "Dette er spørsmål 4?",
-        progress: 100
+        progress: 80,
+        isStatement: false,
+    },
+    {
+        questionNumber: 5,
+        questionTxt: "Dette er spørsmål 5?",
+        progress: 100,
+        isStatement: false,
     },
 ]
 
@@ -45,12 +56,13 @@ const Valgomat = () => {
 
     for (let questions of QuestionsData) {
         if (counter === questions.questionNumber) {
+
             return (
                 <>
                     <Navbar/>
                     <h1>{state[questions.questionNumber-1]}</h1>
                     <Questions questionNumber={questions.questionNumber} questionTxt={questions.questionTxt}/>
-                    <LikertScale questionNumber={questions.questionNumber}/>
+                    {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber}/>}
                     <ValgomatButton/>
                     <ProgressBar completed={questions.progress}/>
                 </>
