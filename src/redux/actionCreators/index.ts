@@ -1,6 +1,7 @@
-import {LikertActionType, QuestionActionType} from "../actionTypes";
-import { Dispatch } from "redux";
-import {LikertAction, QuestionAction} from "..";
+import {AlgorithmActionType, LikertActionType, QuestionActionType, ResetStatesActionType} from "../actionTypes";
+import {Dispatch} from "redux";
+import {AlgorithmAction, LikertAction, QuestionAction} from "..";
+import {ResetStatesAction} from "../actions/resetStatesAction";
 
 export const increaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
@@ -15,15 +16,6 @@ export const decreaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
         dispatch({
             type: QuestionActionType.DECREASE,
-            payload: 1
-        })
-    }
-};
-
-export const resetCounter = () => {
-    return (dispatch: Dispatch<QuestionAction>) => {
-        dispatch({
-            type: QuestionActionType.RESET,
             payload: 1
         })
     }
@@ -79,3 +71,37 @@ export const stronglyAgree = (questionNumber: number) => {
     }
 };
 
+export const social = (points: number) => {
+    return (dispatch: Dispatch<AlgorithmAction>) => {
+        dispatch({
+            type: AlgorithmActionType.SOCIAL,
+            payload: points
+        })
+    }
+};
+
+export const creative = (points: number) => {
+    return (dispatch: Dispatch<AlgorithmAction>) => {
+        dispatch({
+            type: AlgorithmActionType.CREATIVE,
+            payload: points
+        })
+    }
+};
+
+export const practical = (points: number) => {
+    return (dispatch: Dispatch<AlgorithmAction>) => {
+        dispatch({
+            type: AlgorithmActionType.PRACTICAL,
+            payload: points
+        })
+    }
+};
+
+export const resetStates = () => {
+    return (dispatch: Dispatch<ResetStatesAction>) => {
+        dispatch({
+            type: ResetStatesActionType.RESET_STATES
+        })
+    }
+};

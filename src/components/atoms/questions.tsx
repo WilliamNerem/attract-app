@@ -1,6 +1,5 @@
 import React from 'react';
-import '../../styles/questions.css'
-
+import '../../styles/questions.style.css'
 
 interface QuestionsProps {
     questionNumber: number
@@ -17,4 +16,4 @@ export const Questions = ({
             {questionNumber} : {questionTxt}
         </div>
     )
-}
+};

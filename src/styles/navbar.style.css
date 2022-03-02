@@ -1,3 +1,7 @@
+.navMargin{
+    margin-top: 55px;
+}
+
 .logo{
     height: 30px;
     padding: 10px;
@@ -11,8 +15,10 @@
     border-bottom: .06em solid #e3e3e3;
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
     z-index: 10;
-    position: relative;
+    position: fixed;
     background-color: white;
+    top: 0;
+
 }
 
 .hamburger{

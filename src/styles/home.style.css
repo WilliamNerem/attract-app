@@ -1,0 +1,53 @@
+.home{
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    width: 100vw;
+    text-align: center;
+    height: 93vh;
+}
+
+.imageDiv{
+    background-image: url("../images/Accenture_Gradient2.jpg");
+    height: 400px;
+    background-size: cover;
+    background-position: 50% 100%;
+}
+
+.headerHome{
+    color: white;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    margin: auto;
+    width: 95vw;
+}
+
+.startWrapper{
+    position: relative;
+    border-radius: 9px;
+    border: 2px solid #05f0a5;
+    width: 170px;
+    height: 50px;
+    text-align: center;
+    margin: auto;
+}
+
+.start{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    width: 165px;
+    height: 45px;
+    line-height: 45px;
+    background-color: #05f0a5;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.infoCards{
+    margin-top: 60px;
+}
