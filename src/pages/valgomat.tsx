@@ -2,68 +2,19 @@ import { Navbar } from "../components/molecule/navbar";
 import { ProgressBar } from "../components/atoms/progressbar";
 import { Questions } from "../components/atoms/questions";
 import { ValgomatButton } from "../components/atoms/valgomatButton";
-import {LikertScale} from "../components/atoms/likertScale";
-import {AlertDialog} from "../components/atoms/alertDialogFunction";
+import { LikertScale } from "../components/atoms/likertScale";
+import { AlertDialog } from "../components/atoms/alertDialogFunction";
 import * as React from "react";
-import {actionCreators, State} from "../redux";
-import {useDispatch, useSelector} from "react-redux";
-import {Result} from "../components/organisms/result";
-import {bindActionCreators} from "redux";
+import { State } from "../redux";
+import { useSelector } from "react-redux";
+import { Result } from "../components/organisms/result";
+import { QuestionsData } from '../questions'
+import { departments } from '../departments'
 
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
     const state = useSelector((state: State) => state.likertAnswer);
     const algoArray = useSelector((state: State) => state.algorithm);
-    const dispatch = useDispatch();
-    const { social, creative, practical } = bindActionCreators(actionCreators, dispatch);
-
-    const QuestionsData = [
-        {
-            questionNumber: 1,
-            questionTxt: "Dette er spørsmål 1? SOSIAL",
-            progress: 25,
-            characteristic: social
-        },
-        {
-            questionNumber: 2,
-            questionTxt: "Dette er spørsmål 2? KREATIV",
-            progress: 50,
-            characteristic: creative
-        },
-        {
-            questionNumber: 3,
-            questionTxt: "Dette er spørsmål 3? PRAKTISK",
-            progress: 75,
-            characteristic: practical
-        },
-        {
-            questionNumber: 4,
-            questionTxt: "Dette er spørsmål 4? SOSIAL",
-            progress: 100,
-            characteristic: social
-        },
-    ];
-
-    const departments = [
-        {
-            name: 'S&T',
-            social: 9,
-            creative: 3,
-            practical: 5
-        },
-        {
-            name: 'Technology',
-            social: 3,
-            creative: 5,
-            practical: 7
-        },
-        {
-            name: 'Interactive',
-            social: 1,
-            creative: 7,
-            practical: 3
-        },
-    ];
 
     function checkDepartment() {
         let oldDifference = 1000; // Big number so that the first new difference is always below the default
@@ -87,7 +38,7 @@ const Valgomat = () => {
         )
     }
 
-    for (let questions of QuestionsData) {
+    for (let questions of QuestionsData()) {
         if (counter === questions.questionNumber) {
             return (
                 <>
@@ -101,9 +52,10 @@ const Valgomat = () => {
             )
         }
     }
-    if (counter === QuestionsData.length+1) {
+    if (counter === QuestionsData().length+1) {
         return (
             <>
+                <br/><br/>
                 <h1> {checkDepartment() }</h1>
             <Result/>
             </>
