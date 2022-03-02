@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/valgomatButton.css'
+import '../../styles/valgomatButton.style.css'
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
