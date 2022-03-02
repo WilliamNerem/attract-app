@@ -16,6 +16,7 @@ const Home = () => {
             <Navbar/>
             <div className='home'>
                 <div className='imageDiv'>
+                    <h1 className='headerHome'>Finn ut hvor i Accenture du passer best inn</h1>
                     <div className='startWrapper'>
                         <Link to="/valgomat" className='start' >START VALGOMAT</Link>
                     </div>
