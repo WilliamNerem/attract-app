@@ -1,0 +1,11 @@
+.alertButton{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    width: 60px;
+    background-color: #a100ff;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}

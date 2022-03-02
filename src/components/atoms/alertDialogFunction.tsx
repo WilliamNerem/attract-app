@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -9,6 +8,7 @@ import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
+import '../../styles/alertDialogFunction.style.css';
 
 export const AlertDialog = () => {
     const dispatch = useDispatch();
@@ -35,12 +35,12 @@ export const AlertDialog = () => {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Nei</Button>
-                    <Link to="/">
+                    <Link className='alertButton' to='.' onClick={handleClose}>Nei</Link>
+                    <Link className='alertButton' to="/">
                         Ja
                     </Link>
                 </DialogActions>
             </Dialog>
         </div>
     );
-}
+};

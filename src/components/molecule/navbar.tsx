@@ -12,7 +12,7 @@ export const Navbar = () => {
 
 
     return(
-        <div>
+        <div className='navMargin'>
             <div className='nav'>
                 <img className='logo' src={Acc_Logo_Black_Purple_RGB} alt='logo'/>
                 <HamburgerMenu onClick={handleToggle}/>
