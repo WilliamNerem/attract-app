@@ -6,21 +6,36 @@ import {actionCreators, State} from "../../redux";
 
 interface likertScaleProps {
     questionNumber: number
+    characteristic: Function
 }
 
-export const LikertScale = ({questionNumber}: likertScaleProps) => {
+export const LikertScale = ({questionNumber, characteristic}: likertScaleProps) => {
 
-    const state = useSelector((state: State) => state.likertAnswer);
+    const likertState = useSelector((state: State) => state.likertAnswer);
     const dispatch = useDispatch();
-    const { stronglyDisagree, moderatlyDisagree, neutral, moderatlyAgree, stronglyAgree } = bindActionCreators(actionCreators, dispatch);
+    const {
+        stronglyDisagree,
+        moderatlyDisagree,
+        neutral,
+        moderatlyAgree,
+        stronglyAgree,
+    } = bindActionCreators(actionCreators, dispatch);
+
+    const handleChange = (answer: Function) => {
+        const lastChecked = likertState[questionNumber-1];
+        answer(questionNumber);
+        const currChecked = likertState[questionNumber-1];
+        characteristic(-(lastChecked-3));
+        characteristic(currChecked-3);
+    };
 
     const handleChecked = (radioValue: number) => {
-        return radioValue == state[questionNumber-1];
+        return radioValue == likertState[questionNumber-1];
     };
 
     const handleDefaultCheked = (radioValue: number) => {
-        if (state.length < questionNumber){
-            neutral(questionNumber)
+        if (likertState.length < questionNumber){
+            neutral(questionNumber);
             return true
         } else {
             return handleChecked(radioValue)
@@ -38,7 +53,7 @@ export const LikertScale = ({questionNumber}: likertScaleProps) => {
                     type="radio"
                     value='1'
                     checked={handleChecked(1)}
-                    onChange={() => stronglyDisagree(questionNumber)}
+                    onChange={() => handleChange(stronglyDisagree)}
                 />
 
                 <label className='likertLabel' htmlFor="moderatelyDisagree"/>
@@ -49,7 +64,7 @@ export const LikertScale = ({questionNumber}: likertScaleProps) => {
                     type="radio"
                     value='2'
                     checked={handleChecked(2)}
-                    onChange={() => moderatlyDisagree(questionNumber)}
+                    onChange={() => handleChange(moderatlyDisagree)}
                 />
                 <label className='likertLabel' htmlFor="neutral"/>
                 <input
@@ -59,7 +74,7 @@ export const LikertScale = ({questionNumber}: likertScaleProps) => {
                     type="radio"
                     value='3'
                     checked={handleDefaultCheked(3)}
-                    onChange={() => neutral(questionNumber)}
+                    onChange={() => handleChange(neutral)}
                 />
                 <label className='likertLabel' htmlFor="moderatelyAgree"/>
                 <input
@@ -69,7 +84,7 @@ export const LikertScale = ({questionNumber}: likertScaleProps) => {
                     type="radio"
                     value='4'
                     checked={handleChecked(4)}
-                    onChange={() => moderatlyAgree(questionNumber)}
+                    onChange={() => handleChange(moderatlyAgree)}
                 />
                 <label className='likertLabel' htmlFor="stronglyAgree"/>
                 <input
@@ -79,7 +94,7 @@ export const LikertScale = ({questionNumber}: likertScaleProps) => {
                     type="radio"
                     value='5'
                     checked={handleChecked(5)}
-                    onChange={() => stronglyAgree(questionNumber)}
+                    onChange={() => handleChange(stronglyAgree)}
                 />
                 <span id="slider"/>
             </div>
