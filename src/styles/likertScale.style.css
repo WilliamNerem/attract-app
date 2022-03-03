@@ -1,3 +1,10 @@
+.likert{
+    position: absolute;
+    width: 100vw;
+    margin: auto;
+    top: 45vh;
+}
+
 .likertScale{
     position: relative;
     width: 85vw;

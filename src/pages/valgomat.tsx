@@ -10,10 +10,10 @@ import { useSelector } from "react-redux";
 import { Result } from "../components/organisms/result";
 import { QuestionsData } from '../questions'
 import { departments } from '../departments'
+import '../styles/valgomat.style.css';
 
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
-    const state = useSelector((state: State) => state.likertAnswer);
     const algoArray = useSelector((state: State) => state.algorithm);
     const userDifferences: number[] = [];
 
@@ -41,8 +41,8 @@ const Valgomat = () => {
             return (
                 <>
                     <Navbar/>
-                    <h1>{state[questions.questionNumber-1]}</h1>
-                    <Questions questionNumber={questions.questionNumber} questionTxt={questions.questionTxt}/>
+                    <h1 className='questionNumber'>Spørsmål {counter}</h1>
+                    <Questions questionTxt={questions.questionTxt}/>
                     <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic}/>
                     <ValgomatButton/>
                     <ProgressBar completed={questions.progress}/>

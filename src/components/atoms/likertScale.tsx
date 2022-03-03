@@ -43,7 +43,7 @@ export const LikertScale = ({questionNumber, characteristic}: likertScaleProps) 
     };
 
     return(
-        <div>
+        <div className='likert'>
             <div className="likertScale">
                 <label className='likertLabel' htmlFor="stronglyDisagree"/>
                 <input
