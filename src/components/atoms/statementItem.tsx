@@ -3,17 +3,25 @@ import '../../styles/statementItem.style.css';
 
 interface statementItemProps {
     statementTitle: string,
+    index: number,
     handleUp: React.MouseEventHandler<HTMLButtonElement>,
     handleDown: React.MouseEventHandler<HTMLButtonElement>,
 
 }
 
-export const StatementItem = ({statementTitle, handleUp, handleDown}: statementItemProps) => {
+export const StatementItem = ({statementTitle, index, handleUp, handleDown}: statementItemProps) => {
     return(
-        <div className={'statement'} >
-            {statementTitle}
-            <button onClick={handleUp}>up</button>
-            <button onClick={handleDown}>down</button>
+        <div className={'container'}>
+            <div className={'orderNumber'}>
+                {index}.
+            </div>
+            <div className={'statement'} >
+                {statementTitle}
+                <div className={'buttonsContainer'}>
+                    <button onClick={handleUp}>up</button>
+                    <button onClick={handleDown}>down</button>
+                </div>
+            </div>
         </div>
     );
 };

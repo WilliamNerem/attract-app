@@ -24,11 +24,21 @@ export const StatementOrder = () => {
         decreaseStatementOrder(statementId);
     }
 
-    let statementList = statementOrder.map((statement) => {
-        return <StatementItem statementTitle={'Påstand ' + statement.toString()} handleUp={() => handleUp(statement)} handleDown={() => handleDown(statement)} />
+    let statementList = statementOrder.map((statement, index) => {
+        return (
+            <div>
+                <StatementItem
+                    statementTitle={'Påstand ' + statement.toString()}
+                    index={index+1}
+                    handleUp={() => handleUp(statement)}
+                    handleDown={() => handleDown(statement)} />
+            </div>
+            )
     })
 
     return (
-        <>{statementList}</>
+        <>
+            {statementList}
+        </>
     );
 };
