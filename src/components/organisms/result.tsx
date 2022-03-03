@@ -6,8 +6,14 @@ import {Pallet} from "../atoms/pallet";
 import {InfoCard} from "../atoms/infoCard";
 import {Navbar} from "../molecule/navbar";
 
-export const Result = () => {
+interface resultProps {
+    differenceArray: any[]
+}
 
+export const Result = ({differenceArray
+
+}: resultProps) => {
+    console.log("Dette er result:"+differenceArray);
     const infoText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate ante justo, a sodales ipsum condimentum ut. Nunc laoreet aliquet vestibulum.';
     const linkToStrategyAndConsulting = 'https://www.accenture.com/no-en/about/consulting-index';
   return(
@@ -16,9 +22,9 @@ export const Result = () => {
           <div className='result'>
               <div className='gradientDiv'>
                   <ResultText/>
-                  <Pallet/>
+                  <Pallet differenceArray={differenceArray}/>
               </div>
-              <InfoCard heading='Strategy & Consulting' link={linkToStrategyAndConsulting} text={infoText}/>
+              <InfoCard heading={"Tjoho"} link={linkToStrategyAndConsulting} text={infoText}/>
               <Button href='/' text='Tilbake til forsiden'/>
           </div>
       </div>
