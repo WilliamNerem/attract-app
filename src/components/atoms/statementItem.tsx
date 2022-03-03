@@ -2,6 +2,7 @@ import React from "react";
 import '../../styles/statementItem.style.css';
 
 interface statementItemProps {
+    key: number,
     statementTitle: string,
     index: number,
     handleUp: React.MouseEventHandler<HTMLButtonElement>,
@@ -13,7 +14,7 @@ export const StatementItem = ({statementTitle, index, handleUp, handleDown}: sta
     return(
         <div className={'container'}>
             <div className={'orderNumber'}>
-                {index}.
+                {index+1}.
             </div>
             <div className={'statement'} >
                 {statementTitle}
@@ -22,6 +23,6 @@ export const StatementItem = ({statementTitle, index, handleUp, handleDown}: sta
                     <button onClick={handleDown}>down</button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };

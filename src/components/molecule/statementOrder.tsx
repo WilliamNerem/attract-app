@@ -26,13 +26,12 @@ export const StatementOrder = () => {
 
     let statementList = statementOrder.map((statement, index) => {
         return (
-            <div>
-                <StatementItem
-                    statementTitle={'Påstand ' + statement.toString()}
-                    index={index+1}
-                    handleUp={() => handleUp(statement)}
-                    handleDown={() => handleDown(statement)} />
-            </div>
+            <StatementItem
+                key={index}
+                statementTitle={'Påstand ' + statement.toString()}
+                index={index}
+                handleUp={() => handleUp(statement)}
+                handleDown={() => handleDown(statement)} />
             )
     })
 

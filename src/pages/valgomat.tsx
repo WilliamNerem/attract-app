@@ -11,33 +11,31 @@ import { Result } from "../components/organisms/result";
 import { QuestionsData } from '../questions'
 import { departments } from '../departments'
 import {StatementOrder} from "../components/molecule/statementOrder";
+import '../styles/valgomat.style.css';
 
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
-    const state = useSelector((state: State) => state.likertAnswer);
     const algoArray = useSelector((state: State) => state.algorithm);
+    const userDifferences: number[] = [];
 
-    function checkDepartment() {
-        let oldDifference = 1000; // Big number so that the first new difference is always below the default
+    const checkDepartment = () => {
         let difference = 0;
-        let chosenDepartment = null;
         for (let dep of departments) {
             difference = 0;
             difference += Math.abs(dep.social - algoArray[0]);
             difference += Math.abs(dep.creative - algoArray[1]);
             difference += Math.abs(dep.practical - algoArray[2]);
-            if (difference < oldDifference) {
-                chosenDepartment = dep.name;
-                oldDifference = difference;
-            }
+            userDifferences.push(difference);
         }
-        return chosenDepartment;
+        console.log("Dette er valgomat siden"+userDifferences);
     }
+    checkDepartment();
     if (counter === 0) {
         return (
             <AlertDialog/>
         )
     }
+
 
     for (let questions of QuestionsData()) {
         if (counter === questions.questionNumber) {
@@ -45,8 +43,8 @@ const Valgomat = () => {
             return (
                 <>
                     <Navbar/>
-                    <h1>{state[questions.questionNumber-1]}</h1>
-                    <Questions questionNumber={questions.questionNumber} questionTxt={questions.questionTxt}/>
+                    <h1 className='questionNumber'>Spørsmål {counter}</h1>
+                    <Questions questionTxt={questions.questionTxt}/>
                     {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic}/>}
                     <ValgomatButton/>
                     <ProgressBar completed={questions.progress}/>
@@ -58,8 +56,7 @@ const Valgomat = () => {
         return (
             <>
                 <br/><br/>
-                <h1> {checkDepartment() }</h1>
-            <Result/>
+            <Result differenceArray={userDifferences}/>
             </>
         )
     }
