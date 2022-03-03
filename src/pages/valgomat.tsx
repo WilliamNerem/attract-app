@@ -15,28 +15,26 @@ const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
     const state = useSelector((state: State) => state.likertAnswer);
     const algoArray = useSelector((state: State) => state.algorithm);
+    const userDifferences: number[] = [];
 
-    function checkDepartment() {
-        let oldDifference = 1000; // Big number so that the first new difference is always below the default
+    const checkDepartment = () => {
         let difference = 0;
-        let chosenDepartment = null;
         for (let dep of departments) {
             difference = 0;
             difference += Math.abs(dep.social - algoArray[0].points);
             difference += Math.abs(dep.creative - algoArray[1].points);
             difference += Math.abs(dep.practical - algoArray[2].points);
-            if (difference < oldDifference) {
-                chosenDepartment = dep.name;
-                oldDifference = difference;
-            }
+            userDifferences.push(difference);
         }
-        return chosenDepartment;
+        console.log("Dette er valgomat siden"+userDifferences);
     }
+    checkDepartment();
     if (counter === 0) {
         return (
             <AlertDialog/>
         )
     }
+
 
     for (let questions of QuestionsData()) {
         if (counter === questions.questionNumber) {
@@ -56,8 +54,7 @@ const Valgomat = () => {
         return (
             <>
                 <br/><br/>
-                <h1> {checkDepartment() }</h1>
-            <Result/>
+            <Result differenceArray={userDifferences}/>
             </>
         )
     }

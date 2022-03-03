@@ -7,7 +7,7 @@ interface singlePalletProps {
 }
 
 export const SinglePallet = ({id, placement, percent}: singlePalletProps) => {
-
+    percent = Math.round(percent * 10) / 10;
 
     return(
         <div id={id} className='singlePallet'>
