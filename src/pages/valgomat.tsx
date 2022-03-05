@@ -11,6 +11,7 @@ import { Result } from "../components/organisms/result";
 import { QuestionsData } from '../questions'
 import { departments } from '../departments'
 import '../styles/valgomat.style.css';
+import {DynamicQuestion} from "../components/atoms/dynamicQuestion";
 
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
@@ -26,7 +27,6 @@ const Valgomat = () => {
             difference += Math.abs(dep.practical - algoArray[2]);
             userDifferences.push(difference);
         }
-        console.log("Dette er valgomat siden"+userDifferences);
     }
     checkDepartment();
     if (counter === 0) {
@@ -50,25 +50,31 @@ const Valgomat = () => {
             )
         }
     }
-    if (counter === QuestionsData().length+1) {
-        const smallestTwo =  userDifferences.slice().sort((a, b) => a - b).slice(0, 2);
-        console.log(smallestTwo[0]+",", smallestTwo[1]);
-        if(smallestTwo[0] != smallestTwo[1]) {
+    if (counter === QuestionsData().length + 1) {
+        const smallestTwo = userDifferences.slice().sort((a, b) => a - b).slice(0, 2); // Needs to be here if not it will always go to dynamic site
+        if (smallestTwo[0] != smallestTwo[1]) {
             return (
                 <>
                     <br/><br/>
-                <Result differenceArray={userDifferences}/>
+                    <Result differenceArray={userDifferences}/>
+                </>
+            )
+        } else {
+            const firstDep = userDifferences.indexOf(smallestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
+            const secondDep = userDifferences.indexOf(smallestTwo[1]);
+            return (
+                <>
+                    <Navbar/>
+                    <h1 className='questionNumber'>Spørsmål {counter}</h1>
+                    <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
+                    <ValgomatButton/>
+                    <ProgressBar completed={100}/>
                 </>
             )
         }
-        else {
-            return (
-                <h1>Her skal dynamisk spørsmål komme</h1>
-            )
-        }
     }
-    return null;
-};
+    else return null;
+}
 
 
 
