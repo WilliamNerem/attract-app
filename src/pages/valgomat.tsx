@@ -21,9 +21,9 @@ const Valgomat = () => {
         let difference = 0;
         for (let dep of departments) {
             difference = 0;
-            difference += Math.abs(dep.social - algoArray[0].points);
-            difference += Math.abs(dep.creative - algoArray[1].points);
-            difference += Math.abs(dep.practical - algoArray[2].points);
+            difference += Math.abs(dep.social - algoArray[0]);
+            difference += Math.abs(dep.creative - algoArray[1]);
+            difference += Math.abs(dep.practical - algoArray[2]);
             userDifferences.push(difference);
         }
         console.log("Dette er valgomat siden"+userDifferences);
@@ -51,12 +51,21 @@ const Valgomat = () => {
         }
     }
     if (counter === QuestionsData().length+1) {
-        return (
-            <>
-                <br/><br/>
-            <Result differenceArray={userDifferences}/>
-            </>
-        )
+        const smallestTwo =  userDifferences.slice().sort((a, b) => a - b).slice(0, 2);
+        console.log(smallestTwo[0]+",", smallestTwo[1]);
+        if(smallestTwo[0] != smallestTwo[1]) {
+            return (
+                <>
+                    <br/><br/>
+                <Result differenceArray={userDifferences}/>
+                </>
+            )
+        }
+        else {
+            return (
+                <h1>Her skal dynamisk spørsmål komme</h1>
+            )
+        }
     }
     return null;
 };
