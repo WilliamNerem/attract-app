@@ -20,3 +20,8 @@ export enum AlgorithmActionType {
 export enum ResetStatesActionType {
     RESET_STATES = 'resetStates'
 }
+
+export enum StatementOrderActionType {
+    INCREASE = 'increaseStatementOrder',
+    DECREASE = 'decreaseStatementOrder'
+}

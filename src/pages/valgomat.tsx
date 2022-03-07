@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { Result } from "../components/organisms/result";
 import { QuestionsData } from '../questions'
 import { departments } from '../departments'
+import {StatementOrder} from "../components/molecule/statementOrder";
 import '../styles/valgomat.style.css';
 
 const Valgomat = () => {
@@ -21,9 +22,9 @@ const Valgomat = () => {
         let difference = 0;
         for (let dep of departments) {
             difference = 0;
-            difference += Math.abs(dep.social - algoArray[0].points);
-            difference += Math.abs(dep.creative - algoArray[1].points);
-            difference += Math.abs(dep.practical - algoArray[2].points);
+            difference += Math.abs(dep.social - algoArray[0]);
+            difference += Math.abs(dep.creative - algoArray[1]);
+            difference += Math.abs(dep.practical - algoArray[2]);
             userDifferences.push(difference);
         }
         console.log("Dette er valgomat siden"+userDifferences);
@@ -38,12 +39,13 @@ const Valgomat = () => {
 
     for (let questions of QuestionsData()) {
         if (counter === questions.questionNumber) {
+
             return (
                 <>
                     <Navbar/>
                     <h1 className='questionNumber'>Spørsmål {counter}</h1>
                     <Questions questionTxt={questions.questionTxt}/>
-                    <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic}/>
+                    {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic}/>}
                     <ValgomatButton/>
                     <ProgressBar completed={questions.progress}/>
                 </>

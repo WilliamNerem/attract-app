@@ -1,0 +1,39 @@
+.statement {
+    padding: 10px;
+    width: 70%;
+    transition: all 0.5s ease-out;
+    background-color: #f8f8f8;
+    /*box-shadow: 0px 0px 5px 1px #cbcbcb;*/
+    border: solid 1px #cbcbcb;
+    border-radius: 10px;
+}
+
+.buttonsContainer {
+    float: right;
+    width: 40%;
+}
+
+.buttonsContainer button{
+    width: 45%;
+    margin: 2px;
+    background-color: white;
+    border: 1px solid #cbcbcb;
+    border-radius: 4px;
+}
+
+.buttonsContainer button:hover{
+    background-color: #7500c0;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /*justify-content: center;*/
+    margin: 1rem auto;
+}
+
+.orderNumber {
+    margin: 1rem;
+}
