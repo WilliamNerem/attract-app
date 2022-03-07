@@ -28,7 +28,7 @@ const Valgomat = () => {
             difference += Math.abs(dep.practical - algoArray[2]);
             userDifferences.push(difference);
         }
-    }
+    };
     checkDepartment();
     if (counter === 0) {
         return (
@@ -51,32 +51,33 @@ const Valgomat = () => {
                 </>
             )
         }
-    }
-    if (counter === QuestionsData().length + 1) {
-        const smallestTwo = userDifferences.slice().sort((a, b) => a - b).slice(0, 2); // Needs to be here if not it will always go to dynamic site
-        if (smallestTwo[0] != smallestTwo[1]) {
-            return (
-                <>
-                    <br/><br/>
-                    <Result differenceArray={userDifferences}/>
-                </>
-            )
-        } else {
-            const firstDep = userDifferences.indexOf(smallestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
-            const secondDep = userDifferences.indexOf(smallestTwo[1]);
-            return (
-                <>
-                    <Navbar/>
-                    <h1 className='questionNumber'>Spørsmål {counter}</h1>
-                    <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
-                    <ValgomatButton/>
-                    <ProgressBar completed={100}/>
-                </>
-            )
+        if (counter === QuestionsData().length + 1) {
+            const smallestTwo = userDifferences.slice().sort((a, b) => a - b).slice(0, 2); // Needs to be here if not it will always go to dynamic site
+            if (smallestTwo[0] != smallestTwo[1]) {
+                return (
+                    <>
+                        <br/><br/>
+                        <Result differenceArray={userDifferences}/>
+                    </>
+                )
+            } else {
+                const firstDep = userDifferences.indexOf(smallestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
+                const secondDep = userDifferences.indexOf(smallestTwo[1]);
+                return (
+                    <>
+                        <Navbar/>
+                        <h1 className='questionNumber'>Spørsmål {counter}</h1>
+                        <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
+                        <ValgomatButton/>
+                        <ProgressBar completed={100}/>
+                    </>
+                )
+            }
         }
     }
-    else return null;
-}
+
+    return null;
+};
 
 
 
