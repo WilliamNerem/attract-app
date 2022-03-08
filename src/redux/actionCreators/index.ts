@@ -1,12 +1,12 @@
 import {
-    AlgorithmActionType,
+    AlgorithmActionType, InitializeStatementOrderActionType,
     LikertActionType,
     QuestionActionType,
     ResetStatesActionType,
     StatementOrderActionType
 } from "../actionTypes";
 import {Dispatch} from "redux";
-import {AlgorithmAction, LikertAction, QuestionAction} from "..";
+import {AlgorithmAction, InitializeStatementOrderAction, LikertAction, QuestionAction} from "..";
 import {ResetStatesAction} from "../actions/resetStatesAction";
 import {StatementOrderAction} from "..";
 
@@ -127,6 +127,18 @@ export const decreaseStatementOrder = (id: number) => {
         dispatch({
             type: StatementOrderActionType.DECREASE,
             payload: id
+        })
+    }
+};
+
+export const initializeStatementOrder = (id: number) => {
+    return (dispatch: Dispatch<InitializeStatementOrderAction>) => {
+        dispatch({
+            type: InitializeStatementOrderActionType.INITIALIZE,
+            payload: {
+                number: id,
+                isInitialized: true
+            }
         })
     }
 };

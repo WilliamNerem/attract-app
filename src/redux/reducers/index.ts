@@ -3,13 +3,15 @@ import { questionCounterReducer } from './questions'
 import { likertAnswerReducer } from "./likert";
 import { algorithmReducer } from "./algorithm";
 import { ResetStatesActionType } from '../actionTypes';
-import {statementOrderReducer} from "./statementOrder";
+import { statementOrderReducer } from "./statementOrder";
+import { initializeStatementOrderReducer } from "./initializeStatementOrder";
 
 const reducers = combineReducers({
     questionCounter: questionCounterReducer,
     likertAnswer: likertAnswerReducer,
     algorithm: algorithmReducer,
-    statementOrder: statementOrderReducer
+    statementOrder: statementOrderReducer,
+    initializeStatementOrder: initializeStatementOrderReducer
 });
 
 const rootReducer = (state: any, action: any) => {
