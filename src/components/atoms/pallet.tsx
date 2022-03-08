@@ -11,9 +11,11 @@ export const Pallet = ({differenceArray}: palletProps) => { // Strat is 0, tech 
     const sortedArr = differenceArray.slice().sort((a, b) => a - b).slice(0,3);
     if(sortedArr[1] != sortedArr[2]) {
         const depArr = [sortedArr.indexOf(differenceArray[0]), sortedArr.indexOf(differenceArray[1]), sortedArr.indexOf(differenceArray[2])];
+
         const placement = (position: number) => {
             return departments[depArr.indexOf(position)].name;
         }
+
         const percent = (position: number) => {
             const possibleDifference = departments[depArr.indexOf(position)].possibleDifference;
             const difference = sortedArr[position];

@@ -2,22 +2,22 @@ export const departments = [
     {
         name: 'S&C',
         social: 9,
-        creative: 3,
-        practical: 5,
-        possibleDifference: 14
+        creative: 7,
+        practical: 3,
+        possibleDifference: 20
     },
     {
         name: 'Technology',
-        social: 3,
-        creative: 5,
-        practical: 7,
-        possibleDifference: 12
+        social: 6,
+        creative: 7,
+        practical: 8,
+        possibleDifference: 18
     },
     {
         name: 'Interactive',
-        social: 1,
-        creative: 7,
-        practical: 3,
-        possibleDifference: 16
+        social: 8,
+        creative: 9,
+        practical: 6,
+        possibleDifference: 20
     },
 ];

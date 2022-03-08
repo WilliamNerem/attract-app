@@ -4,36 +4,53 @@ import {State} from "../../redux/reducers";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 import {StatementItem} from "../atoms/statementItem";
+import {QuestionsData} from "../../questions";
 
 export const StatementOrder = () => {
-
+    const counter = useSelector((state: State) => state.questionCounter);
     const statementOrder = useSelector((state: State) => state.statementOrder);
+    const initializeStatementOrderArray = useSelector((state: State) => state.initializeStatementOrder);
     const dispatch = useDispatch();
     const {
-        increaseStatementOrder,
-        decreaseStatementOrder
+        initializeStatementOrder
     } = bindActionCreators(actionCreators, dispatch);
 
+    let statementList;
+    const statementArr = QuestionsData()[counter-1].statementArr;
 
+    const initCharacteristics = () => {
+        if (statementArr !== undefined){
+            statementArr.map((statement) => {
+                statement.characteristic(statement.initCharacteristicPoints)
+            });
+            initializeStatementOrder(counter);
+        }
+    };
 
-    const handleUp = (statementId: number) => {
-        increaseStatementOrder(statementId);
+    if (initializeStatementOrderArray.length === 0){
+        initCharacteristics();
     }
 
-    const handleDown = (statementId: number) => {
-        decreaseStatementOrder(statementId);
-    }
+    initializeStatementOrderArray.map((i, index) => {
+        if (i.number === counter){
+            return
+        }
+        if (index === initializeStatementOrderArray.length){
+            initCharacteristics();
+        }
+    });
 
-    let statementList = statementOrder.map((statement, index) => {
+
+    statementList = statementOrder.map((statement, index) => {
         return (
             <StatementItem
                 key={index}
-                statementTitle={'Påstand ' + statement.toString()}
-                index={index}
-                handleUp={() => handleUp(statement)}
-                handleDown={() => handleDown(statement)} />
-            )
-    })
+                index={statement-1}
+                position={index}
+                questionNumber={counter-1}
+            />
+        )
+    });
 
     return (
         <>
