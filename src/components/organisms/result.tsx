@@ -13,7 +13,6 @@ interface resultProps {
 export const Result = ({differenceArray
 
 }: resultProps) => {
-    console.log("Dette er result:"+differenceArray);
     const infoText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate ante justo, a sodales ipsum condimentum ut. Nunc laoreet aliquet vestibulum.';
     const linkToStrategyAndConsulting = 'https://www.accenture.com/no-en/about/consulting-index';
   return(
