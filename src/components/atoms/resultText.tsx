@@ -1,7 +1,28 @@
 import React from "react";
 
-export const ResultText = () => {
+interface resultTextProps {
+    result: string
+}
+
+export const ResultText = ({result}: resultTextProps) => {
+
+    if (result === 'S&C') {
+        return(
+            <h2 className='resultText'>Du er strategen!</h2>
+        );
+    }
+    else if (result === 'Technology') {
+        return(
+            <h2 className='resultText'>Du er utvikleren!</h2>
+        );
+    }
+    else if (result === 'Interactive') {
+        return(
+            <h2 className='resultText'>Du er designeren!</h2>
+        );
+    }
+
     return(
-        <h2 className='resultText'>Du er utvikleren!</h2>
+        <h2 className='resultText'>Du er dum!</h2>
     );
 };
