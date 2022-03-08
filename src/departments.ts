@@ -1,6 +1,6 @@
 export const departments = [
     {
-        name: 'S&T',
+        name: 'S&C',
         social: 9,
         creative: 3,
         practical: 5,

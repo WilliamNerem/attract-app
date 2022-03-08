@@ -10,9 +10,12 @@
 }
 
 .infoCardHeading{
-    text-decoration: none;
-    color: black;
     font-size: 22px;
+    font-family: "Graphik Black", "Arial Black", sans-serif;
+}
+
+.infoCardSubHeading{
+    font-size: 18px;
     font-family: "Graphik Black", "Arial Black", sans-serif;
 }
 
