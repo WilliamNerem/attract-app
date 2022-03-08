@@ -8,37 +8,37 @@ export const QuestionsData = () => {
     const statements1 = [
         {
             id: 1,
-            title: 'Sosial',
+            title: 'Det er viktig for meg å ha en sosial jobb',
             characteristic: social,
             initCharacteristicPoints: 3
         },
         {
             id: 2,
-            title: 'Praktisk',
+            title: 'Det er viktig for meg å ha en praktisk jobb',
             characteristic: practical,
             initCharacteristicPoints: 2
         },
         {
             id: 3,
-            title: 'Kreativ',
+            title: 'Det er viktig for meg å ha en kreativ jobb',
             characteristic: creative,
             initCharacteristicPoints: 1
         },
         {
             id: 4,
-            title: 'Sosial',
+            title: 'Det er viktig for meg å ha en sosial jobb',
             characteristic: social,
             initCharacteristicPoints: -1
         },
         {
             id: 5,
-            title: 'Praktisk',
+            title: 'Det er viktig for meg å ha en praktisk jobb',
             characteristic: practical,
             initCharacteristicPoints: -2
         },
         {
             id: 6,
-            title: 'Kreativ',
+            title: 'Det er viktig for meg å ha en kreativ jobb',
             characteristic: creative,
             initCharacteristicPoints: -3
         },
