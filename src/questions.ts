@@ -5,6 +5,44 @@ import {actionCreators} from './redux'
 export const QuestionsData = () => {
     const dispatch = useDispatch();
     const { social, creative, practical } = bindActionCreators(actionCreators, dispatch);
+    const statements1 = [
+        {
+            id: 1,
+            title: 'Sosial',
+            characteristic: social,
+            initCharacteristicPoints: 3
+        },
+        {
+            id: 2,
+            title: 'Praktisk',
+            characteristic: practical,
+            initCharacteristicPoints: 2
+        },
+        {
+            id: 3,
+            title: 'Kreativ',
+            characteristic: creative,
+            initCharacteristicPoints: 1
+        },
+        {
+            id: 4,
+            title: 'Sosial',
+            characteristic: social,
+            initCharacteristicPoints: -1
+        },
+        {
+            id: 5,
+            title: 'Praktisk',
+            characteristic: practical,
+            initCharacteristicPoints: -2
+        },
+        {
+            id: 6,
+            title: 'Kreativ',
+            characteristic: creative,
+            initCharacteristicPoints: -3
+        },
+    ];
     return [
         {
             questionNumber: 1,
@@ -12,6 +50,7 @@ export const QuestionsData = () => {
             progress: 14.3,
             characteristic: social,
             isStatement: true,
+            statementArr: statements1
         },
         {
             questionNumber: 2,

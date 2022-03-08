@@ -25,3 +25,7 @@ export enum StatementOrderActionType {
     INCREASE = 'increaseStatementOrder',
     DECREASE = 'decreaseStatementOrder'
 }
+
+export enum InitializeStatementOrderActionType {
+    INITIALIZE = 'initialize'
+}
