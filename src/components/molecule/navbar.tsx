@@ -14,7 +14,7 @@ export const Navbar = () => {
     return(
         <div className='navMargin'>
             <div className='nav'>
-                <img className='logo' src={Acc_Logo_Black_Purple_RGB} alt='logo'/>
+                <a href={'/'}><img className='logo' src={Acc_Logo_Black_Purple_RGB} alt='logo'/></a>
                 <HamburgerMenu onClick={handleToggle}/>
             </div>
             <Backdrop
