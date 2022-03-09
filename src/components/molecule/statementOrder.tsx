@@ -18,17 +18,17 @@ export const StatementOrder = () => {
     let statementList;
     const statementArr = QuestionsData()[counter-1].statementArr;
 
-    const initCharacteristics = () => {
+    const initDepartmentPoints = () => {
         if (statementArr !== undefined){
             statementArr.map((statement) => {
-                statement.characteristic(statement.initCharacteristicPoints)
+                statement.department(statement.initDepartmentPoints)
             });
             initializeStatementOrder(counter);
         }
     };
 
     if (initializeStatementOrderArray.length === 0){
-        initCharacteristics();
+        initDepartmentPoints();
     }
 
     initializeStatementOrderArray.map((i, index) => {
@@ -36,10 +36,9 @@ export const StatementOrder = () => {
             return
         }
         if (index === initializeStatementOrderArray.length){
-            initCharacteristics();
+            initDepartmentPoints();
         }
     });
-
 
     statementList = statementOrder.map((statement, index) => {
         return (

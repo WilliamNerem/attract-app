@@ -29,3 +29,9 @@ export enum StatementOrderActionType {
 export enum InitializeStatementOrderActionType {
     INITIALIZE = 'initialize'
 }
+
+export enum DepartmentsActionType {
+    STRATEGYANDCONSULTING = 'strategyAndConsulting',
+    TECHNOLOGY = 'technology',
+    INTERACTIVE = 'interactive'
+}
