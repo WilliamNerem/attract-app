@@ -16,7 +16,7 @@ import {DynamicQuestion} from "../components/atoms/dynamicQuestion";
 
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
-    const algoArray = useSelector((state: State) => state.algorithm);
+    const algoArray = useSelector((state: State) => state.characteristicPoints);
     const departmentsArray = useSelector((state: State) => state.departmentsAlgorithm);
     const userDifferences: number[] = [];
 
@@ -57,7 +57,9 @@ const Valgomat = () => {
             let totalPoints: number[] = [];
 
             userDifferences.map((differenceCharacteristic, index) => {
-                totalPoints = [...totalPoints, (((departmentsArray[index].points * 2) - differenceCharacteristic) / 2)];
+                const departmentPoints = departmentsArray[index].points;
+                const characteristicPoints = (differenceCharacteristic * (3 / departments[index].possibleDifference));
+                totalPoints = [...totalPoints, departmentPoints - characteristicPoints];
             });
 
             const smallestTwo = totalPoints.slice().sort((a, b) => a - b).slice(0, 2); // Needs to be here if not it will always go to dynamic site
@@ -65,7 +67,7 @@ const Valgomat = () => {
                 return (
                     <>
                         <br/><br/>
-                        <Result differenceArray={totalPoints}/>
+                        <Result totalPointsArray={totalPoints}/>
                     </>
                 )
             } else {
