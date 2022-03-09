@@ -1,14 +1,22 @@
 import {
-    AlgorithmActionType, InitializeStatementOrderActionType,
+    AlgorithmActionType,
+    DepartmentsActionType,
+    InitializeStatementOrderActionType,
     LikertActionType,
     QuestionActionType,
     ResetStatesActionType,
     StatementOrderActionType
 } from "../actionTypes";
 import {Dispatch} from "redux";
-import {AlgorithmAction, InitializeStatementOrderAction, LikertAction, QuestionAction} from "..";
+import {
+    AlgorithmAction,
+    DepartmentsAction,
+    InitializeStatementOrderAction,
+    LikertAction,
+    QuestionAction,
+    StatementOrderAction
+} from "..";
 import {ResetStatesAction} from "../actions/resetStatesAction";
-import {StatementOrderAction} from "..";
 
 export const increaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
@@ -78,29 +86,38 @@ export const stronglyAgree = (questionNumber: number) => {
     }
 };
 
-export const social = (points: number) => {
+export const social = (value: number, isReversed: boolean) => {
     return (dispatch: Dispatch<AlgorithmAction>) => {
         dispatch({
             type: AlgorithmActionType.SOCIAL,
-            payload: points
+            payload : {
+                value,
+                isReversed
+            }
         })
     }
 };
 
-export const creative = (points: number) => {
+export const creative = (value: number, isReversed: boolean) => {
     return (dispatch: Dispatch<AlgorithmAction>) => {
         dispatch({
             type: AlgorithmActionType.CREATIVE,
-            payload: points
+            payload : {
+                value,
+                isReversed
+            }
         })
     }
 };
 
-export const practical = (points: number) => {
+export const practical = (value: number, isReversed: boolean) => {
     return (dispatch: Dispatch<AlgorithmAction>) => {
         dispatch({
             type: AlgorithmActionType.PRACTICAL,
-            payload: points
+            payload : {
+                value,
+                isReversed
+            }
         })
     }
 };
@@ -139,6 +156,33 @@ export const initializeStatementOrder = (id: number) => {
                 number: id,
                 isInitialized: true
             }
+        })
+    }
+};
+
+export const strategyAndConsultingPoints = (points: number) => {
+    return (dispatch: Dispatch<DepartmentsAction>) => {
+        dispatch({
+            type: DepartmentsActionType.STRATEGYANDCONSULTING,
+            payload: points
+        })
+    }
+};
+
+export const technologyPoints = (points: number) => {
+    return (dispatch: Dispatch<DepartmentsAction>) => {
+        dispatch({
+            type: DepartmentsActionType.TECHNOLOGY,
+            payload: points
+        })
+    }
+};
+
+export const interactivePoints = (points: number) => {
+    return (dispatch: Dispatch<DepartmentsAction>) => {
+        dispatch({
+            type: DepartmentsActionType.INTERACTIVE,
+            payload: points
         })
     }
 };
