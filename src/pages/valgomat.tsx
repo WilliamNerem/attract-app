@@ -17,6 +17,7 @@ import {DynamicQuestion} from "../components/atoms/dynamicQuestion";
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
     const algoArray = useSelector((state: State) => state.algorithm);
+    const departmentsArray = useSelector((state: State) => state.departmentsAlgorithm);
     const userDifferences: number[] = [];
 
     const checkDepartment = () => {
@@ -52,17 +53,24 @@ const Valgomat = () => {
             )
         }
         if (counter === QuestionsData().length + 1) {
-            const smallestTwo = userDifferences.slice().sort((a, b) => a - b).slice(0, 2); // Needs to be here if not it will always go to dynamic site
+
+            let totalPoints: number[] = [];
+
+            userDifferences.map((differenceCharacteristic, index) => {
+                totalPoints = [...totalPoints, (((departmentsArray[index].points * 2) - differenceCharacteristic) / 2)];
+            });
+
+            const smallestTwo = totalPoints.slice().sort((a, b) => a - b).slice(0, 2); // Needs to be here if not it will always go to dynamic site
             if (smallestTwo[0] != smallestTwo[1]) {
                 return (
                     <>
                         <br/><br/>
-                        <Result differenceArray={userDifferences}/>
+                        <Result differenceArray={totalPoints}/>
                     </>
                 )
             } else {
-                const firstDep = userDifferences.indexOf(smallestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
-                const secondDep = userDifferences.lastIndexOf(smallestTwo[1]); // lastIndexOf starts backwards
+                const firstDep = totalPoints.indexOf(smallestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
+                const secondDep = totalPoints.lastIndexOf(smallestTwo[1]); // lastIndexOf starts backwards
                 return (
                     <>
                         <Navbar/>

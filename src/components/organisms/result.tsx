@@ -14,8 +14,8 @@ interface resultProps {
 export const Result = ({differenceArray
 
 }: resultProps) => {
-    const minVal = Math.min(...differenceArray);
-    const valPos = differenceArray.indexOf(minVal);
+    const maxVal = Math.max(...differenceArray);
+    const valPos = differenceArray.indexOf(maxVal);
     const result = departments[valPos].name;
     let link;
     let infoText;
