@@ -66,7 +66,6 @@ const Valgomat = () => {
             if (biggestTwo[0] !== biggestTwo[1]) {
                 return (
                     <>
-                        <br/><br/>
                         <Result totalPointsArray={totalPoints}/>
                     </>
                 )

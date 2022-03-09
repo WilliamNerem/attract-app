@@ -55,6 +55,26 @@ div.singlePallet{
 .singlePalletDiv{
     background-color: white;
     width: 50px;
+    transition: all 0.5s ease-out;
+}
+
+.singlePallet:hover .hoverPlacement{
+    display: contents;
+    transition: all 0.5s ease-out;
+}
+
+.singlePallet:hover .nonHoverPlacement{
+    display: none;
+    transition: all 0.5s ease-out;
+}
+
+.singlePallet:hover .singlePalletDiv{
+    height: 100px !important;
+}
+
+.hoverPlacement{
+    transition: all 0.5s ease-out;
+    display: none;
 }
 
 .percent{
