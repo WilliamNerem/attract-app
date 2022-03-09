@@ -4,43 +4,43 @@ import {actionCreators} from './redux'
 
 export const QuestionsData = () => {
     const dispatch = useDispatch();
-    const { social, creative, practical } = bindActionCreators(actionCreators, dispatch);
+    const { social, creative, practical, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
     const statements1 = [
         {
             id: 1,
-            title: 'Det er viktig for meg å ha en sosial jobb',
-            characteristic: social,
-            initCharacteristicPoints: 3
+            title: 'S&C 1',
+            department: strategyAndConsultingPoints,
+            initDepartmentPoints: 6
         },
         {
             id: 2,
-            title: 'Det er viktig for meg å ha en praktisk jobb',
-            characteristic: practical,
-            initCharacteristicPoints: 2
+            title: 'Tech 1',
+            department: technologyPoints,
+            initDepartmentPoints: 5
         },
         {
             id: 3,
-            title: 'Det er viktig for meg å ha en kreativ jobb',
-            characteristic: creative,
-            initCharacteristicPoints: 1
+            title: 'Int 1',
+            department: interactivePoints,
+            initDepartmentPoints: 4
         },
         {
             id: 4,
-            title: 'Det er viktig for meg å ha en sosial jobb',
-            characteristic: social,
-            initCharacteristicPoints: -1
+            title: 'S&C 2',
+            department: strategyAndConsultingPoints,
+            initDepartmentPoints: 3
         },
         {
             id: 5,
-            title: 'Det er viktig for meg å ha en praktisk jobb',
-            characteristic: practical,
-            initCharacteristicPoints: -2
+            title: 'Tech 2',
+            department: technologyPoints,
+            initDepartmentPoints: 2
         },
         {
             id: 6,
-            title: 'Det er viktig for meg å ha en kreativ jobb',
-            characteristic: creative,
-            initCharacteristicPoints: -3
+            title: 'Int 2',
+            department: interactivePoints,
+            initDepartmentPoints: 1
         },
     ];
     return [
