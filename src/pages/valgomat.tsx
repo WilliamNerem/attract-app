@@ -52,6 +52,7 @@ const Valgomat = () => {
             )
         }
         if (counter === QuestionsData().length + 1) {
+            console.log(QuestionsData().length);
             const smallestTwo = userDifferences.slice().sort((a, b) => a - b).slice(0, 2); // Needs to be here if not it will always go to dynamic site
             if (smallestTwo[0] != smallestTwo[1]) {
                 return (
@@ -62,7 +63,7 @@ const Valgomat = () => {
                 )
             } else {
                 const firstDep = userDifferences.indexOf(smallestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
-                const secondDep = userDifferences.indexOf(smallestTwo[1]);
+                const secondDep = userDifferences.lastIndexOf(smallestTwo[1]); // lastIndexOf starts backwards
                 return (
                     <>
                         <Navbar/>
