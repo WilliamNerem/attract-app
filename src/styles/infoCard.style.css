@@ -18,8 +18,3 @@
     font-size: 18px;
     font-family: "Graphik Black", "Arial Black", sans-serif;
 }
-
-.infoCardHeading:hover{
-    text-decoration: underline;
-    color: blue;
-}

@@ -56,7 +56,6 @@ const Valgomat = () => {
             if (smallestTwo[0] != smallestTwo[1]) {
                 return (
                     <>
-                        <br/><br/>
                         <Result differenceArray={userDifferences}/>
                     </>
                 )

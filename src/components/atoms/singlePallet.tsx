@@ -11,7 +11,8 @@ export const SinglePallet = ({id, placement, percent}: singlePalletProps) => {
 
     return(
         <div id={id} className='singlePallet'>
-            <h3 className='singlePalletPlacement'>{placement}</h3>
+            <h3 className='singlePalletPlacement nonHoverPlacement'>{placement.charAt(0) + placement.charAt(1) + placement.charAt(2) + placement.charAt(3)}</h3>
+            <h3 className='singlePalletPlacement hoverPlacement'>{placement}</h3>
             <div className='singlePalletDiv' style={{height: percent+'px'}}/>
             <p className='percent'>{percent+'%'}</p>
         </div>
