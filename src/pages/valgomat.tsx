@@ -52,7 +52,6 @@ const Valgomat = () => {
             )
         }
         if (counter === QuestionsData().length + 1) {
-            console.log(QuestionsData().length);
             const smallestTwo = userDifferences.slice().sort((a, b) => a - b).slice(0, 2); // Needs to be here if not it will always go to dynamic site
             if (smallestTwo[0] != smallestTwo[1]) {
                 return (
