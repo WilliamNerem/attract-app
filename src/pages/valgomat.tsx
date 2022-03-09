@@ -45,7 +45,7 @@ const Valgomat = () => {
                     <Navbar/>
                     <h1 className='questionNumber'>Spørsmål {counter}</h1>
                     <Questions questionTxt={questions.questionTxt}/>
-                    {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic}/>}
+                    {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/>}
                     <ValgomatButton/>
                     <ProgressBar completed={questions.progress}/>
                 </>

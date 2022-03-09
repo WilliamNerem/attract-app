@@ -2,17 +2,26 @@ import { AlgorithmActionType } from "../actionTypes";
 
 interface socialAction {
     type: AlgorithmActionType.SOCIAL
-    payload: number
+    payload: {
+        value: number
+        isReversed: boolean
+    }
 }
 
 interface creativeAction {
     type: AlgorithmActionType.CREATIVE
-    payload: number
+    payload: {
+        value: number
+        isReversed: boolean
+    }
 }
 
 interface practicalAction {
     type: AlgorithmActionType.PRACTICAL
-    payload: number
+    payload: {
+        value: number
+        isReversed: boolean
+    }
 }
 
 export type AlgorithmAction = socialAction | creativeAction | practicalAction;

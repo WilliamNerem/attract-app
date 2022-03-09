@@ -78,29 +78,38 @@ export const stronglyAgree = (questionNumber: number) => {
     }
 };
 
-export const social = (points: number) => {
+export const social = (value: number, isReversed: boolean) => {
     return (dispatch: Dispatch<AlgorithmAction>) => {
         dispatch({
             type: AlgorithmActionType.SOCIAL,
-            payload: points
+            payload : {
+                value,
+                isReversed
+            }
         })
     }
 };
 
-export const creative = (points: number) => {
+export const creative = (value: number, isReversed: boolean) => {
     return (dispatch: Dispatch<AlgorithmAction>) => {
         dispatch({
             type: AlgorithmActionType.CREATIVE,
-            payload: points
+            payload : {
+                value,
+                isReversed
+            }
         })
     }
 };
 
-export const practical = (points: number) => {
+export const practical = (value: number, isReversed: boolean) => {
     return (dispatch: Dispatch<AlgorithmAction>) => {
         dispatch({
-            type: AlgorithmActionType.PRACTICAL,
-            payload: points
+            type: AlgorithmActionType.CREATIVE,
+            payload : {
+                value,
+                isReversed
+            }
         })
     }
 };
