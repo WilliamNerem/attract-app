@@ -57,11 +57,13 @@ const Valgomat = () => {
             let totalPoints: number[] = [];
 
             userDifferences.map((differenceCharacteristic, index) => {
-                totalPoints = [...totalPoints, (((departmentsArray[index].points * 2) - differenceCharacteristic) / 2)];
+                const departmentPoints = departmentsArray[index].points;
+                const characteristicPoints = (differenceCharacteristic * (3 / departments[index].possibleDifference));
+                totalPoints = [...totalPoints, departmentPoints - characteristicPoints];
             });
 
-            const smallestTwo = totalPoints.slice().sort((a, b) => a - b).slice(0, 2); // Needs to be here if not it will always go to dynamic site
-            if (smallestTwo[0] != smallestTwo[1]) {
+            const biggestTwo = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
+            if (biggestTwo[0] !== biggestTwo[1]) {
                 return (
                     <>
                         <br/><br/>
@@ -69,8 +71,8 @@ const Valgomat = () => {
                     </>
                 )
             } else {
-                const firstDep = totalPoints.indexOf(smallestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
-                const secondDep = totalPoints.lastIndexOf(smallestTwo[1]); // lastIndexOf starts backwards
+                const firstDep = totalPoints.indexOf(biggestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
+                const secondDep = totalPoints.lastIndexOf(biggestTwo[1]); // lastIndexOf starts backwards
                 return (
                     <>
                         <Navbar/>
