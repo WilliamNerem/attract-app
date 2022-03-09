@@ -31,27 +31,19 @@ export const StatementItem = ({index, position, questionNumber}: statementItemPr
 
     const handleUp = (statementId: number) => {
         const prev = statementOrder[position-1];
-        let points = 1;
-        if (position === 3){
-            points = 2;
-        }
         if (statementArray !== undefined && position != 0) {
-            statementArray[index].characteristic(+points);
+            statementArray[index].department(1);
             increaseStatementOrder(statementId);
-            statementArray[prev-1].characteristic(-points);
+            statementArray[prev-1].department(-1);
         }
     };
 
     const handleDown = (statementId: number) => {
         const next = statementOrder[position+1];
-        let points = 1;
-        if (position === 2){
-            points = 2;
-        }
         if (statementArray !== undefined && position != 5) {
-            statementArray[index].characteristic(-points);
+            statementArray[index].department(-1);
             decreaseStatementOrder(statementId);
-            statementArray[next-1].characteristic(+points);
+            statementArray[next-1].department(1);
         }
     };
 

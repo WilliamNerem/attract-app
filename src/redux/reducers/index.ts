@@ -5,13 +5,15 @@ import { algorithmReducer } from "./algorithm";
 import { ResetStatesActionType } from '../actionTypes';
 import { statementOrderReducer } from "./statementOrder";
 import { initializeStatementOrderReducer } from "./initializeStatementOrder";
+import { departmentsReducer } from "./departments";
 
 const reducers = combineReducers({
     questionCounter: questionCounterReducer,
     likertAnswer: likertAnswerReducer,
     algorithm: algorithmReducer,
     statementOrder: statementOrderReducer,
-    initializeStatementOrder: initializeStatementOrderReducer
+    initializeStatementOrder: initializeStatementOrderReducer,
+    departmentsAlgorithm: departmentsReducer,
 });
 
 const rootReducer = (state: any, action: any) => {

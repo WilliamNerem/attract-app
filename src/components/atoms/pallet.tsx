@@ -8,19 +8,20 @@ interface palletProps {
 
 
 export const Pallet = ({differenceArray}: palletProps) => { // Strat is 0, tech is 1, inter is 2
-    const sortedArr = differenceArray.slice().sort((a, b) => a - b).slice(0,3);
+    const sortedArr = differenceArray.slice().sort((a, b) => b - a).slice(0,3);
+    console.log(sortedArr[0]);
+    const maximumPoints = 11;
     if(sortedArr[1] != sortedArr[2]) {
-        const depArr = [sortedArr.indexOf(differenceArray[0]), sortedArr.indexOf(differenceArray[1]), sortedArr.indexOf(differenceArray[2])];
+        const depArr = [sortedArr.indexOf(differenceArray[0]), sortedArr.indexOf(differenceArray[1]), sortedArr.indexOf(differenceArray[2])]; //Index of strat, tech and inter
 
         const placement = (position: number) => {
             return departments[depArr.indexOf(position)].name;
-        }
+        };
 
         const percent = (position: number) => {
-            const possibleDifference = departments[depArr.indexOf(position)].possibleDifference;
             const difference = sortedArr[position];
-            return (Math.abs(possibleDifference - difference)) / possibleDifference * 100
-        }
+            return (difference / maximumPoints) * 100;
+        };
         return(
             <div className='pallet'>
                 <SinglePallet id='second' placement={placement(1)} percent={percent(1)} />
@@ -30,14 +31,23 @@ export const Pallet = ({differenceArray}: palletProps) => { // Strat is 0, tech 
         )
     }
     else {
+        const depArr = []; // Only consists of indexes sortedArr[1] and sortedArr[2]
+        let firstPlaceIndex = 0;
+        for (let i = 0; i < differenceArray.length; i++) {
+            if (differenceArray[i] !== sortedArr[0]) {
+                depArr.push(i);
+            } else {
+                firstPlaceIndex = i;
+            }
+        }
         return (
-            <div className='pallet'>
-                <SinglePallet id='second' placement={departments[sortedArr.indexOf(sortedArr[1])].name}
-                              percent={(Math.abs(departments[sortedArr.indexOf(sortedArr[1])].possibleDifference) - sortedArr[1]) / departments[sortedArr.indexOf(sortedArr[1])].possibleDifference * 100}/>
-                <SinglePallet id='first' placement={departments[sortedArr.indexOf(sortedArr[0])].name}
-                              percent={(Math.abs(departments[sortedArr.indexOf(sortedArr[0])].possibleDifference) - sortedArr[0]) / departments[sortedArr.indexOf(sortedArr[0])].possibleDifference * 100}/>
-                <SinglePallet id='third' placement={departments[sortedArr.indexOf(sortedArr[2])].name}
-                              percent={(Math.abs(departments[sortedArr.indexOf(sortedArr[2])].possibleDifference) - sortedArr[2]) / departments[sortedArr.indexOf(sortedArr[2])].possibleDifference * 100}/>
+           <div className='pallet'>
+                <SinglePallet id='second' placement={departments[depArr[0]].name}
+                              percent={(sortedArr[depArr[1]] / maximumPoints) * 100}/>
+                <SinglePallet id='first' placement={departments[firstPlaceIndex].name}
+                              percent={(sortedArr[0] / maximumPoints) * 100}/>
+               <SinglePallet id='third' placement={departments[depArr[1]].name}
+                             percent={(sortedArr[depArr[1]] / maximumPoints) * 100}/>
             </div>
         )
     }

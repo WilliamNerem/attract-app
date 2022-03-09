@@ -17,6 +17,7 @@ import {DynamicQuestion} from "../components/atoms/dynamicQuestion";
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
     const algoArray = useSelector((state: State) => state.algorithm);
+    const departmentsArray = useSelector((state: State) => state.departmentsAlgorithm);
     const userDifferences: number[] = [];
 
     const checkDepartment = () => {
@@ -45,24 +46,33 @@ const Valgomat = () => {
                     <Navbar/>
                     <h1 className='questionNumber'>Spørsmål {counter}</h1>
                     <Questions questionTxt={questions.questionTxt}/>
-                    {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic}/>}
+                    {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/>}
                     <ValgomatButton/>
                     <ProgressBar completed={questions.progress}/>
                 </>
             )
         }
         if (counter === QuestionsData().length + 1) {
-            const smallestTwo = userDifferences.slice().sort((a, b) => a - b).slice(0, 2); // Needs to be here if not it will always go to dynamic site
-            if (smallestTwo[0] != smallestTwo[1]) {
+
+            let totalPoints: number[] = [];
+
+            userDifferences.map((differenceCharacteristic, index) => {
+                const departmentPoints = departmentsArray[index].points;
+                const characteristicPoints = (differenceCharacteristic * (3 / departments[index].possibleDifference));
+                totalPoints = [...totalPoints, departmentPoints - characteristicPoints];
+            });
+
+            const biggestTwo = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
+            if (biggestTwo[0] !== biggestTwo[1]) {
                 return (
                     <>
                         <br/><br/>
-                        <Result differenceArray={userDifferences}/>
+                        <Result differenceArray={totalPoints}/>
                     </>
                 )
             } else {
-                const firstDep = userDifferences.indexOf(smallestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
-                const secondDep = userDifferences.lastIndexOf(smallestTwo[1]); // lastIndexOf starts backwards
+                const firstDep = totalPoints.indexOf(biggestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
+                const secondDep = totalPoints.lastIndexOf(biggestTwo[1]); // lastIndexOf starts backwards
                 return (
                     <>
                         <Navbar/>
