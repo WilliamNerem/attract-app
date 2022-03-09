@@ -113,7 +113,7 @@ export const creative = (value: number, isReversed: boolean) => {
 export const practical = (value: number, isReversed: boolean) => {
     return (dispatch: Dispatch<AlgorithmAction>) => {
         dispatch({
-            type: AlgorithmActionType.CREATIVE,
+            type: AlgorithmActionType.PRACTICAL,
             payload : {
                 value,
                 isReversed
