@@ -3,16 +3,16 @@ import {SinglePallet} from "./singlePallet";
 import { departments } from '../../departments'
 
 interface palletProps {
-    differenceArray: number[]
+    totalPointsArray: number[]
 }
 
 
-export const Pallet = ({differenceArray}: palletProps) => { // Strat is 0, tech is 1, inter is 2
-    const sortedArr = differenceArray.slice().sort((a, b) => b - a).slice(0,3);
+export const Pallet = ({totalPointsArray}: palletProps) => { // Strat is 0, tech is 1, inter is 2
+    const sortedArr = totalPointsArray.slice().sort((a, b) => b - a).slice(0,3);
     console.log(sortedArr[0]);
     const maximumPoints = 11;
     if(sortedArr[1] != sortedArr[2]) {
-        const depArr = [sortedArr.indexOf(differenceArray[0]), sortedArr.indexOf(differenceArray[1]), sortedArr.indexOf(differenceArray[2])]; //Index of strat, tech and inter
+        const depArr = [sortedArr.indexOf(totalPointsArray[0]), sortedArr.indexOf(totalPointsArray[1]), sortedArr.indexOf(totalPointsArray[2])]; //Index of strat, tech and inter
 
         const placement = (position: number) => {
             return departments[depArr.indexOf(position)].name;
@@ -33,8 +33,8 @@ export const Pallet = ({differenceArray}: palletProps) => { // Strat is 0, tech 
     else {
         const depArr = []; // Only consists of indexes sortedArr[1] and sortedArr[2]
         let firstPlaceIndex = 0;
-        for (let i = 0; i < differenceArray.length; i++) {
-            if (differenceArray[i] !== sortedArr[0]) {
+        for (let i = 0; i < totalPointsArray.length; i++) {
+            if (totalPointsArray[i] !== sortedArr[0]) {
                 depArr.push(i);
             } else {
                 firstPlaceIndex = i;

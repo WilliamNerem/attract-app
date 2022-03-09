@@ -8,14 +8,14 @@ import {Navbar} from "../molecule/navbar";
 import {departments} from "../../departments";
 
 interface resultProps {
-    differenceArray: any[]
+    totalPointsArray: any[]
 }
 
-export const Result = ({differenceArray
+export const Result = ({totalPointsArray
 
 }: resultProps) => {
-    const maxVal = Math.max(...differenceArray);
-    const valPos = differenceArray.indexOf(maxVal);
+    const maxVal = Math.max(...totalPointsArray);
+    const valPos = totalPointsArray.indexOf(maxVal);
     const result = departments[valPos].name;
     let link;
     let infoText;
@@ -49,7 +49,7 @@ export const Result = ({differenceArray
           <div className='result'>
               <div className='gradientDiv'>
                   <ResultText result={result}/>
-                  <Pallet differenceArray={differenceArray}/>
+                  <Pallet totalPointsArray={totalPointsArray}/>
               </div>
               <InfoCard
                   heading={result}

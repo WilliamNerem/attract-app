@@ -16,7 +16,7 @@ import {DynamicQuestion} from "../components/atoms/dynamicQuestion";
 
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
-    const algoArray = useSelector((state: State) => state.algorithm);
+    const algoArray = useSelector((state: State) => state.characteristicPoints);
     const departmentsArray = useSelector((state: State) => state.departmentsAlgorithm);
     const userDifferences: number[] = [];
 
@@ -66,7 +66,7 @@ const Valgomat = () => {
             if (biggestTwo[0] !== biggestTwo[1]) {
                 return (
                     <>
-                        <Result differenceArray={totalPoints}/>
+                        <Result totalPointsArray={totalPoints}/>
                     </>
                 )
             } else {
