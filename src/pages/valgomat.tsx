@@ -62,7 +62,7 @@ const Valgomat = () => {
                 )
             } else {
                 const firstDep = userDifferences.indexOf(smallestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
-                const secondDep = userDifferences.indexOf(smallestTwo[1]);
+                const secondDep = userDifferences.lastIndexOf(smallestTwo[1]); // lastIndexOf starts backwards
                 return (
                     <>
                         <Navbar/>
