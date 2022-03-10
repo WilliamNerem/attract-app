@@ -37,6 +37,15 @@ export const decreaseCounter = () => {
     }
 };
 
+export const setCounter = (counter: number) => {
+    return (dispatch: Dispatch<QuestionAction>) => {
+        dispatch({
+            type: QuestionActionType.SETCOUNTER,
+            payload: counter
+        })
+    }
+};
+
 export const stronglyDisagree = (questionNumber: number) => {
     return (dispatch: Dispatch<LikertAction>) => {
         dispatch({
