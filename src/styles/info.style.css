@@ -1,0 +1,32 @@
+.info{
+    margin: auto;
+    width: 100vw;
+    text-align: center;
+    min-height: 80vh;
+    height: auto;
+}
+
+.gradientDiv{
+    height: 300px;
+    padding-top: 100px;
+    background-image: url("../images/Accenture_Gradient1.jpg");
+    background-size: cover;
+    text-align: center;
+}
+
+.infoText{
+    color: white;
+    width: 80vw;
+    margin: auto;
+}
+
+.infoSubText{
+    color: white;
+    width: 80vw;
+    margin: 1em auto 0 auto;
+}
+
+.infoCards{
+    margin-bottom: 3em;
+    margin-top: 4em;
+}
