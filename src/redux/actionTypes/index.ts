@@ -1,6 +1,7 @@
 export enum QuestionActionType {
     INCREASE = 'increase',
-    DECREASE = 'decrease'
+    DECREASE = 'decrease',
+    SETCOUNTER = 'setCounter'
 }
 
 export enum LikertActionType {

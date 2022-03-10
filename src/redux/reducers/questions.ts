@@ -8,6 +8,8 @@ export const questionCounterReducer = (state: number = initialState, action: Que
             return state + action.payload;
         case QuestionActionType.DECREASE:
             return state - action.payload;
+        case QuestionActionType.SETCOUNTER:
+            return action.payload;
         default:
             return state
     }
