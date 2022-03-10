@@ -8,37 +8,37 @@ export const QuestionsData = () => {
     const statements1 = [
         {
             id: 1,
-            title: 'S&C 1',
+            title: 'Jeg synes det virker spennende å komme opp med nye idéer og jobbe videre med de',
             department: strategyAndConsultingPoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
-            title: 'Tech 1',
+            title: 'Jeg synes det er spennende å sette meg inn i nye teknologier',
             department: technologyPoints,
             initDepartmentPoints: 5
         },
         {
             id: 3,
-            title: 'Int 1',
+            title: 'Jeg synes design er spennende',
             department: interactivePoints,
             initDepartmentPoints: 4
         },
         {
             id: 4,
-            title: 'S&C 2',
+            title: 'Jeg kunne tenkt meg å presentere og prøve å selge inn en idé til en kunde',
             department: strategyAndConsultingPoints,
             initDepartmentPoints: 3
         },
         {
             id: 5,
-            title: 'Tech 2',
+            title: 'Jeg kunne tenkt meg å være med å lage et produkt ut ifra en idé',
             department: technologyPoints,
             initDepartmentPoints: 2
         },
         {
             id: 6,
-            title: 'Int 2',
+            title: 'Jeg kunne tenkt meg å jobbe med å forbedre brukeropplevelsen av et produkt',
             department: interactivePoints,
             initDepartmentPoints: 1
         },
@@ -46,7 +46,7 @@ export const QuestionsData = () => {
     return [
         {
             questionNumber: 1,
-            questionTxt: "Sett påstandene i rekkefølge etter hva du mener er viktigst",
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 14.3,
             characteristic: social,
             isStatement: true,
