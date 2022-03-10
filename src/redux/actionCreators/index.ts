@@ -5,7 +5,7 @@ import {
     LikertActionType,
     QuestionActionType,
     ResetStatesActionType,
-    StatementOrderActionType
+    StatementOrderActionType, ValgomatInProgressActionType
 } from "../actionTypes";
 import {Dispatch} from "redux";
 import {
@@ -14,7 +14,8 @@ import {
     InitializeStatementOrderAction,
     LikertAction,
     QuestionAction,
-    StatementOrderAction
+    StatementOrderAction,
+    ValgomatInProgressAction
 } from "..";
 import {ResetStatesAction} from "../actions/resetStatesAction";
 
@@ -183,6 +184,15 @@ export const interactivePoints = (points: number) => {
         dispatch({
             type: DepartmentsActionType.INTERACTIVE,
             payload: points
+        })
+    }
+};
+
+export const valgomatIsInProgress = (inAction: boolean) => {
+    return (dispatch: Dispatch<ValgomatInProgressAction>) => {
+        dispatch({
+            type: ValgomatInProgressActionType.VALGOMATINPROGRESS,
+            payload: inAction
         })
     }
 };
