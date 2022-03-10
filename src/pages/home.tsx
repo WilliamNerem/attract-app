@@ -7,6 +7,18 @@ import { ResetStates } from "../resetStates";
 const Home = () => {
     ResetStates();
 
+    const aboutText = 'Vårt formål er å innfri løftet om teknologi og menneskelig oppfinnsomhet. ' +
+        'Vi hjelper våre kunder å bli den neste og beste versjonen av seg selv.';
+    const aboutSubText = 'Vi har over 674K ansatte globalt, med 200 byer over 50 land med Accenture kontorer. ' +
+        'I tillegg har vi rundt 7000 kunder i mer enn 120 land.';
+
+    const aboutValgomat = 'I denne valgomaten får du mulighet til å svare på noen spørsmål om deg og dine interesser, ' +
+        'slik at du kan bli plassert i en avdeling som passer for deg. Her får du lære ' +
+        'mer om de mulighetene som finnes for deg hos Accenture som arbeidsgiver.';
+    const aboutValgomatSubText = 'Valgomaten består av en rekke spørsmål om deg, din personlighet og dine ' +
+        'interesser. Den tar ca. 5 minutter å besvare, og til slutt vil du bli presentert resultatet i form av ' +
+        'en pallplassering.';
+
     return (
         <>
             <Navbar/>
@@ -17,15 +29,30 @@ const Home = () => {
                         <Link to="/valgomat" className='start' >START VALGOMAT</Link>
                     </div>
                 </div>
-                <InfoCard heading='Accenture' text='infotext'/>
+                <InfoCard
+                    heading={'Accenture'}
+                    subHeading={'Vi er et globalt team'}
+                    text={aboutText}
+                    subText={aboutSubText}
+                    link={'https://www.accenture.com/no-en/about/company-index'}
+                    linkText={'Les mer om Accenture her'}
+                />
                 <div className='infoCards'>
-                    <InfoCard heading='Valgomat' text='infotext'/>
+                    <InfoCard
+                        heading={'Valgomat'}
+                        text={aboutValgomat}
+                        subText={aboutValgomatSubText}
+                        linkText={'Gå til valgomaten'}
+                        link={'/valgomat'}
+                    />
                 </div>
                 <div className='infoCards'>
-                    <InfoCard heading='Kontakt' text='infotext'/>
-                </div>
-                <div className='infoCards'>
-                    <InfoCard heading='Test' text='infotext'/>
+                    <InfoCard
+                        heading={'Kontakt'}
+                        text={'Følg våre sosiale medier:'}
+                        link={'https://www.linkedin.com/company/accenture-nordics/'}
+                        linkText={'Linkedin'}
+                    />
                 </div>
             </div>
         </>
