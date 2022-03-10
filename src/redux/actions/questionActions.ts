@@ -10,4 +10,9 @@ interface decrementAction {
     payload: number
 }
 
-export type QuestionAction = incrementAction | decrementAction;
+interface setCounterAction {
+    type: QuestionActionType.SETCOUNTER
+    payload: number
+}
+
+export type QuestionAction = incrementAction | decrementAction | setCounterAction;
