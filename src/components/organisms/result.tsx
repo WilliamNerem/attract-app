@@ -64,7 +64,9 @@ export const Result = ({totalPointsArray
                   link={link}
                   text={infoText}
                   subText={infoSubText}/>
-              <Button href='/' text='Tilbake til forsiden'/>
+              <div className='buttonDiv'>
+                  <Button href='/' text='Tilbake til forsiden'/>
+              </div>
           </div>
       </div>
   );

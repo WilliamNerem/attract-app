@@ -14,3 +14,8 @@
 .dynamicQuestion{
     text-align: center;
 }
+
+.valgomat {
+    min-height: 80vh;
+    height: auto;
+}

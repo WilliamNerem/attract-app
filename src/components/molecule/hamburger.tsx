@@ -31,7 +31,7 @@ export const HamburgerMenu = ({
             >
                 <HamburgerItem itemText={'Home'} link={'/'}/>
                 <HamburgerItem itemText={'Valgomat'} link={'/valgomat'}/>
-                <HamburgerItem itemText={'NoPage'} link={'/noPage'}/>
+                <HamburgerItem itemText={'Informasjon'} link={'/info'}/>
             </AnimateHeight>
 
         </div>

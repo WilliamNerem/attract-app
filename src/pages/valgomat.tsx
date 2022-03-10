@@ -13,6 +13,7 @@ import { departments } from '../departments'
 import {StatementOrder} from "../components/molecule/statementOrder";
 import '../styles/valgomat.style.css';
 import {DynamicQuestion} from "../components/atoms/dynamicQuestion";
+import {ValgomatFooter} from "../components/molecule/valgomatFooter";
 
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
@@ -43,12 +44,13 @@ const Valgomat = () => {
 
             return (
                 <>
-                    <Navbar/>
-                    <h1 className='questionNumber'>Spørsmål {counter}</h1>
-                    <Questions questionTxt={questions.questionTxt}/>
-                    {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/>}
-                    <ValgomatButton/>
-                    <ProgressBar completed={questions.progress}/>
+                    <div className='valgomat'>
+                        <Navbar/>
+                        <h1 className='questionNumber'>Spørsmål {counter}</h1>
+                        <Questions questionTxt={questions.questionTxt}/>
+                        {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/>}
+                    </div>
+                    <ValgomatFooter completed={questions.progress}/>
                 </>
             )
         }
