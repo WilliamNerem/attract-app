@@ -7,6 +7,9 @@
 .valgomatQuestion{
     text-align: center;
     margin-top: 30px;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .valgomat {

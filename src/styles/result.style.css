@@ -90,9 +90,8 @@ div.singlePallet{
 }
 
 .btn{
-    position: absolute;
     bottom: 2em;
-    margin: auto;
+    margin: 3em auto 3em auto;
     left: 0;
     right: 0;
 }
