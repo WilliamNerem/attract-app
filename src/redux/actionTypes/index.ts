@@ -35,3 +35,7 @@ export enum DepartmentsActionType {
     TECHNOLOGY = 'technology',
     INTERACTIVE = 'interactive'
 }
+
+export enum ValgomatInProgressActionType {
+    VALGOMATINPROGRESS = 'valgomatInProgress'
+}
