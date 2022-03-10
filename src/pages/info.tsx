@@ -20,7 +20,10 @@ const Info = () => {
                     prosjektteam hvor man samarbeider på tvers av avdelinger for å løse problemstillinger innenfor et mangfold av
                     industrier. Du vil kunne være med på å skape rammene for hvordan legemidler blir håndtert i offentlig
                     helsesektor, forme retningen for hvordan forbrukere interagerer med nye produkter innen varehandel, eller sette
-                    opp et nytt system for hvordan transaksjoner gjennomføres i finansnæring.'/>
+                    opp et nytt system for hvordan transaksjoner gjennomføres i finansnæring.'
+                    linkText='Les mer om Strategy & Consulting her'
+                    link='https://www.accenture.com/no-en/about/consulting-index'
+                />
                 <div className='infoCards'>
                     <InfoCard heading='Technology' text='I Technology blir du involvert i noen av Norges mest spennende og meningsfylte IT-prosjekter. Sammen
                         med kunden leverer vi innovative løsninger som bidrar til verdiskaping både for bedrifter og samfunnet. Vi
@@ -30,14 +33,20 @@ const Info = () => {
                         bygge og teste løsninger, ofte med bruk av smidig metodikk. Vi har både tekniske og ikke-tekniske roller,
                         der vi jobber med alt fra drag-and-drop og flytdiagrammer til programmering og systemarkitektur. Dette gir
                         en variert hverdag der man får utfordre seg selv både kreativt og profesjonelt, samtidig som man får
-                        mulighet til å fordype seg i det man synes er spennende.'/>
+                        mulighet til å fordype seg i det man synes er spennende.'
+                        linkText='Les mer om Technology her'
+                        link='https://www.accenture.com/no-en/about/technology-index'
+                    />
                 </div>
                 <div className='infoCards'>
                     <InfoCard heading='Interactive' text='Hos Interactive jobber designere og kreatørene. Vi skaper løsninger ved å kombinere kreativitet og fokus på sluttbruker med
                         teknisk innsikt og gjennomføringsevne. Interactive-teamet bruker en kombinasjon av design(tjeneste-, grafisk- og
                         interaksjonsdesign), markedsføring, innhold og forretningsforståelse til å skape innovative og bransjeledende
                         brukeropplevelser. Dette gjøres ved å kombinere den rette kompetansen, sette brukeren i sentrum og sørge for å
-                        designe meningsfulle produkter og tjenester, som er med på å endre samfunnet til det bedre.'/>
+                        designe meningsfulle produkter og tjenester, som er med på å endre samfunnet til det bedre.'
+                        linkText='Les mer om Interactive her'
+                        link='https://www.accenture.com/no-en/about/accenture-interactive-index'
+                    />
                 </div>
             </div>
         </>
