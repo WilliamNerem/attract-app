@@ -23,17 +23,24 @@ export const Result = ({totalPointsArray
 
     if (result === 'S&C') {
         link = 'https://www.accenture.com/no-en/about/consulting-index';
-        infoText = 'Dette er infotekst om Strategy and Consulting, få mer tekst fra Accenture, veiledere eller produkteier.';
+        infoText = 'I Strategy & Consulting vil du være med på å definere og implementere morgendagens teknologiske ' +
+            'løsninger for private- og offentlige aktører. Du vil jobbe i store og små ' +
+            'prosjektteam hvor man samarbeider på tvers av avdelinger for å løse problemstillinger innenfor et mangfold av ' +
+            'industrier.';
         infoSubText = 'Dette er veien videre for Strategy and Consulting.';
     }
     else if (result === 'Technology') {
         link = 'https://www.accenture.com/no-en/about/technology-index';
-        infoText = 'Dette er infotekst om Technology, få mer tekst fra Accenture, veiledere eller produkteier.';
+        infoText = 'I Technology blir du involvert i noen av Norges mest spennende og meningsfylte IT-prosjekter. Sammen ' +
+            'med kunden leverer vi innovative løsninger som bidrar til verdiskaping både for bedrifter og samfunnet. Vi' +
+            'satser stort innenfor skyløsninger, digital infrastruktur, digitalisering og prosessautomatisering.';
         infoSubText = 'Dette er veien videre for Technology.';
     }
     else if (result === 'Interactive') {
         link = 'https://www.accenture.com/no-en/about/accenture-interactive-index';
-        infoText = 'Dette er infotekst om Interactive, få mer tekst fra Accenture, veiledere eller produkteier.';
+        infoText = 'Hos Interactive jobber designere og kreatørene. Vi skaper løsninger ved å kombinere kreativitet og fokus på sluttbruker med ' +
+            'teknisk innsikt og gjennomføringsevne. Interactive-teamet bruker en kombinasjon av design, markedsføring, innhold og forretningsforståelse'+
+            'til å skape innovative og bransjeledende brukeropplevelser.';
         infoSubText = 'Dette er veien videre for Interactive.';
     }
     else {
