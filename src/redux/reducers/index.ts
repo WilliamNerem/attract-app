@@ -6,8 +6,10 @@ import { ResetStatesActionType } from '../actionTypes';
 import { statementOrderReducer, initialState as initStatementOrder } from "./statementOrder";
 import { initializeStatementOrderReducer } from "./initializeStatementOrder";
 import {departmentsReducer, initialState as initDepartments} from "./departments";
+import {valgomatInProgressReducer} from "./valgomatInProgress";
 
 const reducers = combineReducers({
+    valgomatInProgress: valgomatInProgressReducer,
     questionCounter: questionCounterReducer,
     likertAnswer: likertAnswerReducer,
     characteristicPoints: algorithmReducer,

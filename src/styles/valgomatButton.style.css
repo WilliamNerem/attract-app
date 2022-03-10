@@ -1,8 +1,6 @@
 .valgomatButtons{
-    position: absolute;
     width: 100vw;
     text-align: center;
-    bottom: 80px;
 }
 
 .valgomatButton {

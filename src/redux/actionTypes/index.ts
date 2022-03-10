@@ -1,6 +1,7 @@
 export enum QuestionActionType {
     INCREASE = 'increase',
-    DECREASE = 'decrease'
+    DECREASE = 'decrease',
+    SETCOUNTER = 'setCounter'
 }
 
 export enum LikertActionType {
@@ -34,4 +35,8 @@ export enum DepartmentsActionType {
     STRATEGYANDCONSULTING = 'strategyAndConsulting',
     TECHNOLOGY = 'technology',
     INTERACTIVE = 'interactive'
+}
+
+export enum ValgomatInProgressActionType {
+    VALGOMATINPROGRESS = 'valgomatInProgress'
 }
