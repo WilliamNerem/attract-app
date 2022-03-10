@@ -47,16 +47,27 @@ export const StatementItem = ({index, position, questionNumber}: statementItemPr
         }
     };
 
+    let upArrow = 'buttonUp';
+    let downArrow = 'buttonDown';
+
+    if (position === 0){
+        upArrow = 'buttonUpGray';
+    } else if (position === 5){
+        downArrow = 'buttonDownGray';
+    }
+
     return(
         <div className={'container'}>
             <div className={'orderNumber'}>
                 {position+1}.
             </div>
             <div className={'statement'} >
-                {title}
+                <div className='textContainer'>
+                    {title}
+                </div>
                 <div className={'buttonsContainer'}>
-                    <button onClick={() => handleUp(statementNumber)}>up</button>
-                    <button onClick={() => handleDown(statementNumber)}>down</button>
+                    <a className={upArrow} onClick={() => handleUp(statementNumber)}/>
+                    <a className={downArrow} onClick={() => handleDown(statementNumber)}/>
                 </div>
             </div>
         </div >
