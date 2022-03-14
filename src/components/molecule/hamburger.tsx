@@ -5,8 +5,8 @@ import '../../styles/navbar.style.css'
 import AnimateHeight from "react-animate-height";
 
 interface hamburgerProps {
-    hamburgerToggled: any
-    setHamburgerToggled: any
+    hamburgerToggled: boolean
+    setHamburgerToggled: React.Dispatch<React.SetStateAction<boolean>>
     height: number
 }
 
