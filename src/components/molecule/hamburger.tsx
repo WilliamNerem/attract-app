@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { HamburgerItem } from "../atoms/hamburgerItem";
 import Hamburger from 'hamburger-react'
 import '../../styles/navbar.style.css'
@@ -10,17 +10,20 @@ import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 
 interface hamburgerProps {
-    onClick: any
+    hamburgerToggled: boolean
+    setHamburgerToggled: React.Dispatch<React.SetStateAction<boolean>>
+    height: number
 }
 
 export const HamburgerMenu = ({
-    onClick
+    hamburgerToggled,
+    setHamburgerToggled,
+    height
 }: hamburgerProps) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const inProgress = useSelector((state: State) => state.valgomatInProgress);
     const { setCounter } = bindActionCreators(actionCreators, dispatch);
-    const [height, setHeight] = useState(0);
 
     const handleClick = () => {
         if (inProgress) {
@@ -32,14 +35,8 @@ export const HamburgerMenu = ({
 
     return(
         <div className='hamburger'>
-            <Hamburger onToggle={toggled => {
-                if (toggled) {
-                    setHeight(150);
-                    onClick();
-                } else {
-                    setHeight(0);
-                    onClick();
-                }
+            <Hamburger toggled={hamburgerToggled} onToggle={() => {
+                setHamburgerToggled(!hamburgerToggled);
             }} />
             <AnimateHeight
                 duration={300}
