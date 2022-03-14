@@ -8,22 +8,45 @@
     border-radius: 10px;
 }
 
+.textContainer{
+    float: left;
+    width: 80%;
+}
+
 .buttonsContainer {
+    display: inline-grid;
+    align-items: center;
     float: right;
-    width: 40%;
+    height: 80px;
+    width: 20%;
 }
 
-.buttonsContainer button{
-    width: 45%;
-    margin: 2px;
-    background-color: white;
-    border: 1px solid #cbcbcb;
-    border-radius: 4px;
+.buttonUp{
+    background: url("../Icons/Up_arrow.png") no-repeat center;
+    width: 100%;
+    height: 100%;
+    background-size: 25px 25px;
 }
 
-.buttonsContainer button:hover{
-    background-color: #7500c0;
-    color: white;
+.buttonDown{
+    background: url("../Icons/Down_arrow.png") no-repeat center;
+    width: 100%;
+    height: 100%;
+    background-size: 25px 25px;
+}
+
+.buttonUpGray{
+    background: url("../Icons/Up_arrow_gray.png") no-repeat center;
+    width: 100%;
+    height: 100%;
+    background-size: 25px 25px;
+}
+
+.buttonDownGray{
+    background: url("../Icons/Down_arrow_gray.png") no-repeat center;
+    width: 100%;
+    height: 100%;
+    background-size: 25px 25px;
 }
 
 .container {
