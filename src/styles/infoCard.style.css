@@ -7,14 +7,45 @@
     border: 1px solid #96968c;
     background-color: white;
     text-align: left;
+    overflow: hidden;
+}
+
+.expanded{
+    max-height: 700px;
+    transition: max-height 600ms ease-in;
+}
+
+.minimized{
+    max-height: 45px;
+    transition: max-height 600ms ease-out;
 }
 
 .infoCardHeading{
-    font-size: 22px;
+    font-size: 20px;
     font-family: "Graphik Black", "Arial Black", sans-serif;
+    display: inline-block;
 }
 
 .infoCardSubHeading{
     font-size: 18px;
     font-family: "Graphik Black", "Arial Black", sans-serif;
+}
+
+.dropdownIcon{
+    background: url("../Icons/Down_arrow.png") no-repeat center;
+    width: 15px;
+    height: 15px;
+    background-size: 15px 15px;
+    display: inline-block;
+    float: right;
+    margin-top: 20px;
+}
+
+.dropdownIconStandard{
+    transition: 300ms ease;
+}
+
+.dropdownIconRotated{
+    transform: rotate(-180deg);
+    transition: transform 300ms ease;
 }
