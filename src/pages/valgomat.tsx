@@ -36,7 +36,7 @@ const Valgomat = () => {
             <AlertDialog/>
         )
     }
-
+    console.log("Rendres det?");
 
     for (let questions of QuestionsData()) {
         if (counter === questions.questionNumber) {
