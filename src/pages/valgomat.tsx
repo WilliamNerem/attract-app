@@ -1,7 +1,6 @@
 import { Navbar } from "../components/molecule/navbar";
 import { ProgressBar } from "../components/atoms/progressbar";
 import { Questions } from "../components/atoms/questions";
-import { ValgomatButton } from "../components/atoms/valgomatButton";
 import { LikertScale } from "../components/atoms/likertScale";
 import { AlertDialog } from "../components/atoms/alertDialogFunction";
 import * as React from "react";
@@ -41,7 +40,6 @@ const Valgomat = () => {
 
     for (let questions of QuestionsData()) {
         if (counter === questions.questionNumber) {
-
             return (
                 <>
                     <div className='valgomat'>
@@ -55,7 +53,6 @@ const Valgomat = () => {
             )
         }
         if (counter === QuestionsData().length + 1) {
-
             let totalPoints: number[] = [];
 
             userDifferences.map((differenceCharacteristic, index) => {
@@ -79,7 +76,6 @@ const Valgomat = () => {
                         <Navbar/>
                         <h1 className='questionNumber'>Spørsmål {counter}</h1>
                         <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
-                        <ValgomatButton/>
                         <ProgressBar completed={100}/>
                     </>
                 )
