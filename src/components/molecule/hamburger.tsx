@@ -1,28 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { HamburgerItem } from "../atoms/hamburgerItem";
 import Hamburger from 'hamburger-react'
 import '../../styles/navbar.style.css'
 import AnimateHeight from "react-animate-height";
 
 interface hamburgerProps {
-    onClick: any
+    hamburgerToggled: any
+    setHamburgerToggled: any
+    height: number
 }
 
 export const HamburgerMenu = ({
-    onClick
+    hamburgerToggled,
+    setHamburgerToggled,
+    height
 }: hamburgerProps) => {
-    const [height, setHeight] = useState(0);
-
     return(
         <div className='hamburger'>
-            <Hamburger onToggle={toggled => {
-                if (toggled) {
-                    setHeight(150);
-                    onClick();
-                } else {
-                    setHeight(0);
-                    onClick();
-                }
+            <Hamburger toggled={hamburgerToggled} onToggle={() => {
+                setHamburgerToggled(!hamburgerToggled);
             }} />
             <AnimateHeight
                 duration={300}
