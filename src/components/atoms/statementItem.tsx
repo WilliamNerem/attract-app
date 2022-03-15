@@ -12,13 +12,15 @@ interface statementItemProps {
     position: number
     questionNumber: number
     transitionPx: number
-    startTransition: boolean
-    setTransitionUp: React.Dispatch<React.SetStateAction<number>>
-    setTransitionDown: React.Dispatch<React.SetStateAction<number>>
-    setStartTransition: React.Dispatch<React.SetStateAction<boolean>>
+    handleTransition: Function
+    transitionValues: {
+        transitionUp: number,
+        transitionDown: number,
+        startTransition: boolean
+    }
 }
 
-export const StatementItem = ({index, position, questionNumber, setTransitionUp, setTransitionDown, startTransition, setStartTransition, transitionPx}: statementItemProps) => {
+export const StatementItem = ({index, position, questionNumber, transitionPx, handleTransition, transitionValues}: statementItemProps) => {
     const statementArray = QuestionsData()[questionNumber].statementArr;
     const statementOrder = useSelector((state: State) => state.statementOrder);
     const dispatch = useDispatch();
@@ -27,7 +29,7 @@ export const StatementItem = ({index, position, questionNumber, setTransitionUp,
         decreaseStatementOrder
     } = bindActionCreators(actionCreators, dispatch);
 
-    const transition = useTransition(startTransition, {
+    const transition = useTransition(transitionValues.startTransition, {
         from: {x: 0, y: transitionPx},
         enter: {x: 0, y: 0}
     });
@@ -46,9 +48,7 @@ export const StatementItem = ({index, position, questionNumber, setTransitionUp,
             statementArray[index].department(1);
             increaseStatementOrder(statementId);
             statementArray[prev-1].department(-1);
-            setTransitionUp(position-1);
-            setTransitionDown(position);
-            setStartTransition(!startTransition);
+            handleTransition(position-1, position, !transitionValues.startTransition);
         }
     };
 
@@ -58,9 +58,7 @@ export const StatementItem = ({index, position, questionNumber, setTransitionUp,
             statementArray[index].department(-1);
             decreaseStatementOrder(statementId);
             statementArray[next-1].department(1);
-            setTransitionUp(position);
-            setTransitionDown(position+1);
-            setStartTransition(!startTransition);
+            handleTransition(position, position+1, !transitionValues.startTransition);
         }
     };
 
@@ -78,20 +76,17 @@ export const StatementItem = ({index, position, questionNumber, setTransitionUp,
             <div className={'orderNumber'}>
                 {position+1}.
             </div>
-            {
-                transition((style) =>
-                    <animated.div className='statement' style={style}>
-                        <div className='textContainer'>
-                            {title}
-                        </div>
-                        <div className={'buttonsContainer'}>
-                            <a className={upArrow} onClick={() => handleUp(statementNumber)}/>
-                            <a className={downArrow} onClick={() => handleDown(statementNumber)}/>
-                        </div>
-                    </animated.div>
-                )
-            }
-
+            {transition((style) =>
+                <animated.div className='statement' style={style}>
+                    <div className='textContainer'>
+                        {title}
+                    </div>
+                    <div className={'buttonsContainer'}>
+                        <a className={upArrow} onClick={() => handleUp(statementNumber)}/>
+                        <a className={downArrow} onClick={() => handleDown(statementNumber)}/>
+                    </div>
+                </animated.div>
+            )}
         </div >
     );
 };

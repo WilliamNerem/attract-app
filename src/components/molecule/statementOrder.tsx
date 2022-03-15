@@ -10,16 +10,16 @@ export const StatementOrder = () => {
     const counter = useSelector((state: State) => state.questionCounter);
     const statementOrder = useSelector((state: State) => state.statementOrder);
     const initializeStatementOrderArray = useSelector((state: State) => state.initializeStatementOrder);
-    const [transitionUp, setTransitionUp] = useState(-1);
-    const [transitionDown, setTransitionDown] = useState(-1);
-    const [startTransition, setStartTransition] = useState(true);
-    const dispatch = useDispatch();
-    const {
-        initializeStatementOrder
-    } = bindActionCreators(actionCreators, dispatch);
+    const [transition, setTransition] = useState({
+        transitionUp: -1,
+        transitionDown: -1,
+        startTransition: true
+    });
 
-    let statementList;
+    const dispatch = useDispatch();
+    const { initializeStatementOrder } = bindActionCreators(actionCreators, dispatch);
     const statementArr = QuestionsData()[counter-1].statementArr;
+    let statementList;
 
     const initDepartmentPoints = () => {
         if (statementArr !== undefined){
@@ -43,11 +43,23 @@ export const StatementOrder = () => {
         }
     });
 
+    const handleTransition = (
+        setTransitionUp: number,
+        setTransitionDown: number,
+        setStartTransition: boolean,
+    ) => {
+        setTransition({
+            transitionUp: setTransitionUp,
+            transitionDown: setTransitionDown,
+            startTransition: setStartTransition
+        });
+    };
+
     statementList = statementOrder.map((statement, index) => {
         let transitionPx = 0;
-        if (transitionUp === index){
+        if (transition.transitionUp === index){
             transitionPx = 124;
-        } else if (transitionDown === index){
+        } else if (transition.transitionDown === index){
             transitionPx = -124;
         }
         return (
@@ -56,11 +68,9 @@ export const StatementOrder = () => {
                 index={statement-1}
                 position={index}
                 questionNumber={counter-1}
-                setTransitionUp={setTransitionUp}
-                setTransitionDown={setTransitionDown}
                 transitionPx={transitionPx}
-                setStartTransition={setStartTransition}
-                startTransition={startTransition}
+                transitionValues={transition}
+                handleTransition={handleTransition}
             />
         )
     });
