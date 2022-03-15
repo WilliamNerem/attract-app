@@ -23,6 +23,7 @@ const Info = () => {
                     opp et nytt system for hvordan transaksjoner gjennomføres i finansnæring.'
                     linkText='Les mer om Strategy & Consulting her'
                     link='https://www.accenture.com/no-en/about/consulting-index'
+                    isDropdown={true}
                 />
                 <div className='infoCards'>
                     <InfoCard heading='Technology' text='I Technology blir du involvert i noen av Norges mest spennende og meningsfylte IT-prosjekter. Sammen
@@ -36,6 +37,7 @@ const Info = () => {
                         mulighet til å fordype seg i det man synes er spennende.'
                         linkText='Les mer om Technology her'
                         link='https://www.accenture.com/no-en/about/technology-index'
+                        isDropdown={true}
                     />
                 </div>
                 <div className='infoCards'>
@@ -46,6 +48,7 @@ const Info = () => {
                         designe meningsfulle produkter og tjenester, som er med på å endre samfunnet til det bedre.'
                         linkText='Les mer om Interactive her'
                         link='https://www.accenture.com/no-en/about/accenture-interactive-index'
+                        isDropdown={true}
                     />
                 </div>
             </div>
