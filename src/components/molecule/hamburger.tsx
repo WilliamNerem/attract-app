@@ -23,11 +23,11 @@ export const HamburgerMenu = ({
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const inProgress = useSelector((state: State) => state.valgomatInProgress);
-    const { setCounter } = bindActionCreators(actionCreators, dispatch);
+    const { showAlertDialog } = bindActionCreators(actionCreators, dispatch);
 
     const handleClick = () => {
         if (inProgress) {
-            setCounter(0);
+            showAlertDialog(true);
         } else {
             navigate('/');
         }

@@ -13,14 +13,14 @@ export const Navbar = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const inProgress = useSelector((state: State) => state.valgomatInProgress);
-    const { setCounter } = bindActionCreators(actionCreators, dispatch);
+    const { showAlertDialog } = bindActionCreators(actionCreators, dispatch);
     const [open, setOpen] = useState(false);
     const [height, setHeight] = useState(0);
     const [hamburgerToggled, setHamburgerToggled] = useState(false);
 
     const handleClick = () => {
         if (inProgress) {
-            setCounter(0);
+            showAlertDialog(true);
         } else {
             navigate('/');
         }
