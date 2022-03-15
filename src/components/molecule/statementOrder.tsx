@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {State} from "../../redux/reducers";
 import {bindActionCreators} from "redux";
@@ -10,6 +10,9 @@ export const StatementOrder = () => {
     const counter = useSelector((state: State) => state.questionCounter);
     const statementOrder = useSelector((state: State) => state.statementOrder);
     const initializeStatementOrderArray = useSelector((state: State) => state.initializeStatementOrder);
+    const [transitionUp, setTransitionUp] = useState(-1);
+    const [transitionDown, setTransitionDown] = useState(-1);
+    const [startTransition, setStartTransition] = useState(true);
     const dispatch = useDispatch();
     const {
         initializeStatementOrder
@@ -41,12 +44,23 @@ export const StatementOrder = () => {
     });
 
     statementList = statementOrder.map((statement, index) => {
+        let transitionPx = 0;
+        if (transitionUp === index){
+            transitionPx = 124;
+        } else if (transitionDown === index){
+            transitionPx = -124;
+        }
         return (
             <StatementItem
                 key={index}
                 index={statement-1}
                 position={index}
                 questionNumber={counter-1}
+                setTransitionUp={setTransitionUp}
+                setTransitionDown={setTransitionDown}
+                transitionPx={transitionPx}
+                setStartTransition={setStartTransition}
+                startTransition={startTransition}
             />
         )
     });
