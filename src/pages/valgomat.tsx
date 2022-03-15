@@ -6,13 +6,13 @@ import { AlertDialog } from "../components/atoms/alertDialogFunction";
 import * as React from "react";
 import { State } from "../redux";
 import { useSelector } from "react-redux";
-import { Result } from "../components/organisms/result";
 import { QuestionsData } from '../questions'
 import { departments } from '../departments'
 import {StatementOrder} from "../components/molecule/statementOrder";
 import '../styles/valgomat.style.css';
 import {DynamicQuestion} from "../components/atoms/dynamicQuestion";
 import {ValgomatFooter} from "../components/molecule/valgomatFooter";
+
 
 const Valgomat = () => {
     const counter = useSelector((state: State) => state.questionCounter);
@@ -33,7 +33,7 @@ const Valgomat = () => {
     checkDepartment();
     if (counter === 0) {
         return (
-            <AlertDialog/>
+            <AlertDialog end={false} totalPointsArray={userDifferences}/>
         )
     }
 
@@ -64,10 +64,10 @@ const Valgomat = () => {
             if (biggestTwo[0] !== biggestTwo[1]) {
                 return (
                     <>
-                        <Result totalPointsArray={totalPoints}/>
+                        <AlertDialog end={true} totalPointsArray={totalPoints}/>
                     </>
                 )
-            } else {
+            }else {
                 const firstDep = totalPoints.indexOf(biggestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
                 const secondDep = totalPoints.lastIndexOf(biggestTwo[1]); // lastIndexOf starts backwards
                 return (
