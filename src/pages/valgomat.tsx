@@ -19,9 +19,11 @@ import {bindActionCreators} from "redux";
 const Valgomat = () => {
     const dispatch = useDispatch();
     const { valgomatIsInProgress } = bindActionCreators(actionCreators, dispatch);
+    const { showAlertDialog } = bindActionCreators(actionCreators, dispatch);
     const counter = useSelector((state: State) => state.questionCounter);
     const algoArray = useSelector((state: State) => state.characteristicPoints);
     const departmentsArray = useSelector((state: State) => state.departmentsAlgorithm);
+    const isShowAlertDialog = useSelector((state: State) => state.showAlertDialog);
     const userDifferences: number[] = [];
     valgomatIsInProgress(true);
 
@@ -37,6 +39,9 @@ const Valgomat = () => {
     };
     checkDepartment();
     if (counter === 0) {
+        showAlertDialog(true);
+    }
+    if (isShowAlertDialog) {
         return (
             <AlertDialog/>
         )
