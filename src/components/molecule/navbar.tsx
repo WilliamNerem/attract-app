@@ -24,7 +24,7 @@ export const Navbar = () => {
         } else {
             navigate('/');
         }
-    }
+    };
 
     useEffect(() => {
         if (hamburgerToggled) {

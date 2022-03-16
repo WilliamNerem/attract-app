@@ -11,8 +11,8 @@ export const ValgomatButton = () => {
 
     return (
         <div className="valgomatButtons">
-            <button className='valgomatButton' onClick={() => decreaseCounter()}>Forrige spørsmål</button>
-            <button className='valgomatButton' onClick={() => increaseCounter()}>Neste spørsmål</button>
+            <button className='valgomatButton' onClick={() => decreaseCounter()}>Forrige</button>
+            <button className='valgomatButton' onClick={() => increaseCounter()}>Neste</button>
         </div>
     );
 
