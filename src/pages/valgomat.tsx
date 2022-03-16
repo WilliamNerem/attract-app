@@ -4,21 +4,26 @@ import { Questions } from "../components/atoms/questions";
 import { LikertScale } from "../components/atoms/likertScale";
 import { AlertDialog } from "../components/atoms/alertDialogFunction";
 import * as React from "react";
-import { State } from "../redux";
-import { useSelector } from "react-redux";
+import { State, actionCreators } from "../redux";
+import { useSelector, useDispatch } from "react-redux";
 import { QuestionsData } from '../questions'
 import { departments } from '../departments'
 import {StatementOrder} from "../components/molecule/statementOrder";
 import '../styles/valgomat.style.css';
 import {DynamicQuestion} from "../components/atoms/dynamicQuestion";
 import {ValgomatFooter} from "../components/molecule/valgomatFooter";
-
+import {bindActionCreators} from "redux";
 
 const Valgomat = () => {
+    const dispatch = useDispatch();
+    const { valgomatIsInProgress } = bindActionCreators(actionCreators, dispatch);
+    const { showAlertDialog } = bindActionCreators(actionCreators, dispatch);
     const counter = useSelector((state: State) => state.questionCounter);
     const algoArray = useSelector((state: State) => state.characteristicPoints);
     const departmentsArray = useSelector((state: State) => state.departmentsAlgorithm);
+    const isShowAlertDialog = useSelector((state: State) => state.showAlertDialog);
     const userDifferences: number[] = [];
+    valgomatIsInProgress(true);
 
     const checkDepartment = () => {
         let difference = 0;
@@ -32,8 +37,11 @@ const Valgomat = () => {
     };
     checkDepartment();
     if (counter === 0) {
+        showAlertDialog(true);
+    }
+    if (isShowAlertDialog) {
         return (
-            <AlertDialog end={false} totalPointsArray={userDifferences}/>
+            <AlertDialog end={false}/>
         )
     }
 

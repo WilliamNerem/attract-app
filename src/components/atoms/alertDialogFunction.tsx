@@ -5,9 +5,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
-import {actionCreators} from "../../redux";
+import {actionCreators, State} from "../../redux";
 import '../../styles/alertDialogFunction.style.css';
 import {Button} from "@mui/material";
 import {Result} from "../organisms/result";
@@ -15,7 +15,7 @@ import {useState} from "react";
 
 interface alertDialogProps {
     end : boolean
-    totalPointsArray : number[]
+    totalPointsArray ?: number[]
 }
 
 export const AlertDialog = ({
@@ -24,18 +24,22 @@ export const AlertDialog = ({
 }: alertDialogProps) => {
     const pointsArray = totalPointsArray;
     const dispatch = useDispatch();
-    const {increaseCounter, decreaseCounter} = bindActionCreators(actionCreators, dispatch);
+    const {increaseCounter, decreaseCounter, showAlertDialog} = bindActionCreators(actionCreators, dispatch);
     const [update, setUpdate] = useState(false);
+    const counter = useSelector((state: State) => state.questionCounter);
 
     const handleClose = () => {
-        increaseCounter();
+        if (counter === 0) {
+            increaseCounter();
+        }
+        showAlertDialog(false);
     };
 
     const handleDecrease = () => {
         decreaseCounter();
-    }
+    };
 
-    if(update) {
+    if(update && pointsArray !== undefined) {
         return (
             <Result totalPointsArray={pointsArray}/>
         )
@@ -92,4 +96,4 @@ export const AlertDialog = ({
             </div>
         );
     }
-}
+};
