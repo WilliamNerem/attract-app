@@ -5,11 +5,13 @@ import {Link, useLocation} from "react-router-dom";
 interface hamburgerItemProps {
     itemText: string
     link: string
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
 export const HamburgerItem = ({
     itemText,
-    link
+    link,
+    onClick
 }: hamburgerItemProps) => {
     const location = useLocation();
     let className = 'hamburgerItemLink';
@@ -19,6 +21,11 @@ export const HamburgerItem = ({
     }
 
     return (
-        <Link to={link} className={className} >{itemText}</Link>
+        <>
+            {onClick
+                ? <Link onClick={onClick} className={className} to={link} >{itemText}</Link>
+                : <Link to={link} className={className} >{itemText}</Link>}
+
+        </>
     );
 };

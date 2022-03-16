@@ -6,6 +6,9 @@ import {Pallet} from "../atoms/pallet";
 import {InfoCard} from "../atoms/infoCard";
 import {Navbar} from "../molecule/navbar";
 import {departments} from "../../departments";
+import {useDispatch} from "react-redux";
+import {bindActionCreators} from "redux";
+import {actionCreators} from "../../redux";
 
 interface resultProps {
     totalPointsArray: any[]
@@ -14,6 +17,9 @@ interface resultProps {
 export const Result = ({totalPointsArray
 
 }: resultProps) => {
+    const dispatch = useDispatch();
+    const { valgomatIsInProgress } = bindActionCreators(actionCreators, dispatch);
+    valgomatIsInProgress(false);
     const maxVal = Math.max(...totalPointsArray);
     const valPos = totalPointsArray.indexOf(maxVal);
     const result = departments[valPos].name;

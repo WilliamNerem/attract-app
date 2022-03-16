@@ -7,9 +7,11 @@ import { statementOrderReducer, initialState as initStatementOrder } from "./sta
 import { initializeStatementOrderReducer } from "./initializeStatementOrder";
 import {departmentsReducer, initialState as initDepartments} from "./departments";
 import {valgomatInProgressReducer} from "./valgomatInProgress";
+import { showAlertDialogReducer } from "./showAlertDialog";
 
 const reducers = combineReducers({
     valgomatInProgress: valgomatInProgressReducer,
+    showAlertDialog: showAlertDialogReducer,
     questionCounter: questionCounterReducer,
     likertAnswer: likertAnswerReducer,
     characteristicPoints: algorithmReducer,

@@ -5,17 +5,22 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
-import {actionCreators} from "../../redux";
+import {actionCreators, State} from "../../redux";
 import '../../styles/alertDialogFunction.style.css';
 
 export const AlertDialog = () => {
     const dispatch = useDispatch();
     const {increaseCounter} = bindActionCreators(actionCreators, dispatch);
+    const { showAlertDialog } = bindActionCreators(actionCreators, dispatch);
+    const counter = useSelector((state: State) => state.questionCounter);
 
     const handleClose = () => {
-        increaseCounter();
+        if (counter === 0) {
+            increaseCounter();
+        }
+        showAlertDialog(false);
     };
 
     return (

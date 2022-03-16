@@ -4,7 +4,7 @@ import {
     InitializeStatementOrderActionType,
     LikertActionType,
     QuestionActionType,
-    ResetStatesActionType,
+    ResetStatesActionType, ShowAlertDialogActionType,
     StatementOrderActionType, ValgomatInProgressActionType
 } from "../actionTypes";
 import {Dispatch} from "redux";
@@ -13,7 +13,7 @@ import {
     DepartmentsAction,
     InitializeStatementOrderAction,
     LikertAction,
-    QuestionAction,
+    QuestionAction, ShowAlertDialogAction,
     StatementOrderAction,
     ValgomatInProgressAction
 } from "..";
@@ -201,6 +201,15 @@ export const valgomatIsInProgress = (inAction: boolean) => {
     return (dispatch: Dispatch<ValgomatInProgressAction>) => {
         dispatch({
             type: ValgomatInProgressActionType.VALGOMATINPROGRESS,
+            payload: inAction
+        })
+    }
+};
+
+export const showAlertDialog = (inAction: boolean) => {
+    return (dispatch: Dispatch<ShowAlertDialogAction>) => {
+        dispatch({
+            type: ShowAlertDialogActionType.SHOWALERTDIALOG,
             payload: inAction
         })
     }

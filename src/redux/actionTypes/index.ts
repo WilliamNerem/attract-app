@@ -40,3 +40,7 @@ export enum DepartmentsActionType {
 export enum ValgomatInProgressActionType {
     VALGOMATINPROGRESS = 'valgomatInProgress'
 }
+
+export enum ShowAlertDialogActionType {
+    SHOWALERTDIALOG = 'showAlertDialog'
+}
