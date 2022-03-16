@@ -31,7 +31,7 @@ export const HamburgerMenu = ({
         } else {
             navigate('/');
         }
-    }
+    };
 
     return(
         <div className='hamburger'>
@@ -45,7 +45,7 @@ export const HamburgerMenu = ({
             >
                 <HamburgerItem itemText={'Home'} link={inProgress ? '' : '/'} onClick={handleClick}/>
                 <HamburgerItem itemText={'Valgomat'} link={'/valgomat'}/>
-                <HamburgerItem itemText={'Informasjon'} link={'/info'}/>
+                <HamburgerItem itemText={'Informasjon'} link={inProgress ? '' : '/info'} onClick={handleClick}/>
             </AnimateHeight>
 
         </div>
