@@ -4,15 +4,23 @@ import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators, State} from "../../redux";
 import {QuestionsData} from "../../questions";
+import {useTransition, animated} from 'react-spring'
 
 interface statementItemProps {
-    key: number,
-    index: number,
-    position: number,
+    key: number
+    index: number
+    position: number
     questionNumber: number
+    transitionPx: number
+    handleTransition: Function
+    transitionValues: {
+        transitionUp: number,
+        transitionDown: number,
+        startTransition: boolean
+    }
 }
 
-export const StatementItem = ({index, position, questionNumber}: statementItemProps) => {
+export const StatementItem = ({index, position, questionNumber, transitionPx, handleTransition, transitionValues}: statementItemProps) => {
     const statementArray = QuestionsData()[questionNumber].statementArr;
     const statementOrder = useSelector((state: State) => state.statementOrder);
     const dispatch = useDispatch();
@@ -20,6 +28,11 @@ export const StatementItem = ({index, position, questionNumber}: statementItemPr
         increaseStatementOrder,
         decreaseStatementOrder
     } = bindActionCreators(actionCreators, dispatch);
+
+    const transition = useTransition(transitionValues.startTransition, {
+        from: {x: 0, y: transitionPx},
+        enter: {x: 0, y: 0}
+    });
 
     let title = '';
     let statementNumber = -1;
@@ -35,6 +48,7 @@ export const StatementItem = ({index, position, questionNumber}: statementItemPr
             statementArray[index].department(1);
             increaseStatementOrder(statementId);
             statementArray[prev-1].department(-1);
+            handleTransition(position-1, position, !transitionValues.startTransition);
         }
     };
 
@@ -44,6 +58,7 @@ export const StatementItem = ({index, position, questionNumber}: statementItemPr
             statementArray[index].department(-1);
             decreaseStatementOrder(statementId);
             statementArray[next-1].department(1);
+            handleTransition(position, position+1, !transitionValues.startTransition);
         }
     };
 
@@ -61,15 +76,17 @@ export const StatementItem = ({index, position, questionNumber}: statementItemPr
             <div className={'orderNumber'}>
                 {position+1}.
             </div>
-            <div className={'statement'} >
-                <div className='textContainer'>
-                    {title}
-                </div>
-                <div className={'buttonsContainer'}>
-                    <a className={upArrow} onClick={() => handleUp(statementNumber)}/>
-                    <a className={downArrow} onClick={() => handleDown(statementNumber)}/>
-                </div>
-            </div>
+            {transition((style) =>
+                <animated.div className='statement' style={style}>
+                    <div className='textContainer'>
+                        {title}
+                    </div>
+                    <div className={'buttonsContainer'}>
+                        <a className={upArrow} onClick={() => handleUp(statementNumber)}/>
+                        <a className={downArrow} onClick={() => handleDown(statementNumber)}/>
+                    </div>
+                </animated.div>
+            )}
         </div >
     );
 };
