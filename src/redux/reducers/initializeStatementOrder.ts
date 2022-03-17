@@ -9,6 +9,7 @@ export const initializeStatementOrderReducer = (state: {number: number, isInitia
         case InitializeStatementOrderActionType.INITIALIZE:
             for (let i of state){
                 if (i.number === action.payload.number){
+                    console.log('kommer hit');
                     return state;
                 }
             }

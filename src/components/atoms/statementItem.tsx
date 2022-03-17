@@ -9,6 +9,7 @@ import {useTransition, animated} from 'react-spring'
 interface statementItemProps {
     key: number
     index: number
+    positionInStatementOrder: number
     position: number
     questionNumber: number
     transitionPx: number
@@ -20,7 +21,7 @@ interface statementItemProps {
     }
 }
 
-export const StatementItem = ({index, position, questionNumber, transitionPx, handleTransition, transitionValues}: statementItemProps) => {
+export const StatementItem = ({index, positionInStatementOrder, position, questionNumber, transitionPx, handleTransition, transitionValues}: statementItemProps) => {
     const statementArray = QuestionsData()[questionNumber].statementArr;
     const statementOrder = useSelector((state: State) => state.statementOrder);
     const dispatch = useDispatch();
@@ -43,20 +44,20 @@ export const StatementItem = ({index, position, questionNumber, transitionPx, ha
     }
 
     const handleUp = (statementId: number) => {
-        const prev = statementOrder[position-1];
+        const prev = statementOrder[positionInStatementOrder][position-1];
         if (statementArray !== undefined && position != 0) {
             statementArray[index].department(2);
-            increaseStatementOrder(statementId);
+            increaseStatementOrder(statementId, positionInStatementOrder);
             statementArray[prev-1].department(-2);
             handleTransition(position-1, position, !transitionValues.startTransition);
         }
     };
 
     const handleDown = (statementId: number) => {
-        const next = statementOrder[position+1];
+        const next = statementOrder[positionInStatementOrder][position+1];
         if (statementArray !== undefined && position != 2) {
             statementArray[index].department(-2);
-            decreaseStatementOrder(statementId);
+            decreaseStatementOrder(statementId, positionInStatementOrder);
             statementArray[next-1].department(2);
             handleTransition(position, position+1, !transitionValues.startTransition);
         }

@@ -17,7 +17,7 @@ export const StatementOrder = () => {
     });
 
     const dispatch = useDispatch();
-    const { initializeStatementOrder } = bindActionCreators(actionCreators, dispatch);
+    const { initializeStatementOrder, addStatementOrder } = bindActionCreators(actionCreators, dispatch);
     const statementArr = QuestionsData()[counter-1].statementArr;
     let statementList;
 
@@ -30,18 +30,19 @@ export const StatementOrder = () => {
         }
     };
 
-    if (initializeStatementOrderArray.length === 0){
+    let isIinitialized = false;
+    initializeStatementOrderArray.map((object) => {
+        if (object.number === counter){
+            isIinitialized = true;
+        }
+    });
+    if (!isIinitialized){
         initDepartmentPoints();
     }
 
-    initializeStatementOrderArray.map((i, index) => {
-        if (i.number === counter){
-            return
-        }
-        if (index+1 === initializeStatementOrderArray.length){
-            initDepartmentPoints();
-        }
-    });
+    if (initializeStatementOrderArray.length > statementOrder.length){
+        addStatementOrder();
+    }
 
     const handleTransition = (
         setTransitionUp: number,
@@ -55,24 +56,31 @@ export const StatementOrder = () => {
         });
     };
 
-    statementList = statementOrder.map((statement, index) => {
-        let transitionPx = 0;
-        if (transition.transitionUp === index){
-            transitionPx = 124;
-        } else if (transition.transitionDown === index){
-            transitionPx = -124;
+    statementList = statementOrder.map((statementArr, position) => {
+        let statements;
+        if (counter === initializeStatementOrderArray[position].number){
+            statements = statementArr.map((statement, index) => {
+                let transitionPx = 0;
+                if (transition.transitionUp === index){
+                    transitionPx = 124;
+                } else if (transition.transitionDown === index){
+                    transitionPx = -124;
+                }
+                return (
+                    <StatementItem
+                        key={index}
+                        index={statement-1}
+                        positionInStatementOrder={position}
+                        position={index}
+                        questionNumber={counter-1}
+                        transitionPx={transitionPx}
+                        transitionValues={transition}
+                        handleTransition={handleTransition}
+                    />
+                )
+            });
         }
-        return (
-            <StatementItem
-                key={index}
-                index={statement-1}
-                position={index}
-                questionNumber={counter-1}
-                transitionPx={transitionPx}
-                transitionValues={transition}
-                handleTransition={handleTransition}
-            />
-        )
+        return statements
     });
 
     return (
