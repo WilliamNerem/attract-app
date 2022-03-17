@@ -1,7 +1,7 @@
 import {StatementOrderAction, StatementOrderActionType} from '..';
 
 export const initialState = {
-    statementOrderArr: [1, 2, 3, 4, 5, 6]
+    statementOrderArr: [1, 2, 3]
 };
 
 export const statementOrderReducer = (state: number[] = initialState.statementOrderArr, action: StatementOrderAction) => {
@@ -14,7 +14,7 @@ export const statementOrderReducer = (state: number[] = initialState.statementOr
             state[index] = tempIncrease;
             return [...state];
         case StatementOrderActionType.DECREASE:
-            if (index === 5) {return state}
+            if (index === 2) {return state}
             let tempDecrease = state[index+1];
             state[index+1] = state[index];
             state[index] = tempDecrease;

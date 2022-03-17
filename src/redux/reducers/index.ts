@@ -25,7 +25,7 @@ const rootReducer = (state: any, action: any) => {
         initDepartments.departmentArr[0].points = 0;
         initDepartments.departmentArr[1].points = 0;
         initDepartments.departmentArr[2].points = 0;
-        initStatementOrder.statementOrderArr = [1,2,3,4,5,6];
+        initStatementOrder.statementOrderArr = [1,2,3];
         state = undefined;
     }
 

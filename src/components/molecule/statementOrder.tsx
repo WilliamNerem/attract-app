@@ -38,7 +38,7 @@ export const StatementOrder = () => {
         if (i.number === counter){
             return
         }
-        if (index === initializeStatementOrderArray.length){
+        if (index+1 === initializeStatementOrderArray.length){
             initDepartmentPoints();
         }
     });
@@ -76,8 +76,8 @@ export const StatementOrder = () => {
     });
 
     return (
-        <>
+        <div className='statementOrderMargin'>
             {statementList}
-        </>
+        </div>
     );
 };
