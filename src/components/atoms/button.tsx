@@ -11,7 +11,7 @@ export const Button = ({
     href
 }: testInterface) => {
     return(
-        <a href={href} className='btn'>
+        <a data-testid={'button'} href={href} className='btn'>
             {text}
         </a>
     );
