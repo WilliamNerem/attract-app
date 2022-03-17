@@ -18,7 +18,7 @@ describe('Button render', () => {
         expect(getByTestId("button")).toHaveTextContent('text test');
     });
 
-    it('should render button with href', function () {
+    it('should render button with href', () => {
         const { getByTestId } = render(<Button text={'text test'} href={'href test'} />);
         expect(getByTestId("button")).toHaveAttribute('href', 'href test');
     });
