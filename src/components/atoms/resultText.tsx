@@ -6,7 +6,7 @@ interface resultTextProps {
 
 export const ResultText = ({result}: resultTextProps) => {
 
-    if (result === 'S&C') {
+    if (result === 'Strategy & Consulting') {
         return(
             <h2 className='resultText'>Du er strategen!</h2>
         );
