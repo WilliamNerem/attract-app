@@ -14,3 +14,7 @@
     color: white;
     font-weight: bold;
 }
+
+.transition{
+    transition: linear .5s;
+}

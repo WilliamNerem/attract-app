@@ -10,7 +10,7 @@ export const ProgressBar = ({
 }: ProgressBarProps) => {
     return (
         <div className='progressContainer'>
-            <div className='progressFiller' style={ { width: `${ completed }%` } }>
+            <div className='progressFiller transition' style={ { width: `${ completed }%` } }>
                 <span className='progressLabel'>{`${completed}%`}</span>
             </div>
         </div>
