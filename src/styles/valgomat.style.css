@@ -24,6 +24,10 @@
     height: auto;
 }
 
+.statementOrderMargin{
+    margin-top: 65px;
+}
+
 .animatedDivLeaveNext{
     position: absolute;
     left: 100vw;

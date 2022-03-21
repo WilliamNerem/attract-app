@@ -16,63 +16,67 @@ export const QuestionsData = () => {
             id: 2,
             title: 'Jeg synes det er spennende å sette meg inn i nye teknologier',
             department: technologyPoints,
-            initDepartmentPoints: 5
+            initDepartmentPoints: 4
         },
         {
             id: 3,
             title: 'Jeg synes design er spennende',
             department: interactivePoints,
+            initDepartmentPoints: 2
+        }
+    ];
+
+    const statements2 = [
+        {
+            id: 1,
+            title: 'Jeg kunne tenkt meg å være med å lage et produkt ut ifra en idé',
+            department: technologyPoints,
+            initDepartmentPoints: 6
+        },
+        {
+            id: 2,
+            title: 'Jeg kunne tenkt meg å presentere og prøve å selge inn en idé til en kunde',
+            department: strategyAndConsultingPoints,
             initDepartmentPoints: 4
         },
         {
-            id: 4,
-            title: 'Jeg kunne tenkt meg å presentere og prøve å selge inn en idé til en kunde',
-            department: strategyAndConsultingPoints,
-            initDepartmentPoints: 3
-        },
-        {
-            id: 5,
-            title: 'Jeg kunne tenkt meg å være med å lage et produkt ut ifra en idé',
-            department: technologyPoints,
-            initDepartmentPoints: 2
-        },
-        {
-            id: 6,
+            id: 3,
             title: 'Jeg kunne tenkt meg å jobbe med å forbedre brukeropplevelsen av et produkt',
             department: interactivePoints,
-            initDepartmentPoints: 1
+            initDepartmentPoints: 2
         },
     ];
+
     return [
         {
             questionNumber: 1,
+            questionTxt: "Jeg liker å planlegge godt når jeg jobber med oppgaver",
+            progress: 13,
+            characteristic: practical,
+            isStatement: false,
+            isReversed: true
+        },
+        {
+            questionNumber: 2,
+            questionTxt: "Jeg liker å skape ting og jobbe med et produkt jeg kan se",
+            progress: 25,
+            characteristic: practical,
+            isStatement: false,
+            isReversed: false
+        },
+        {
+            questionNumber: 3,
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
-            progress: 14.3,
+            progress: 38,
             characteristic: social,
             isStatement: true,
             statementArr: statements1,
             isReversed: false
         },
         {
-            questionNumber: 2,
-            questionTxt: "Jeg liker å planlegge godt når jeg jobber med oppgaver",
-            progress: 28.3,
-            characteristic: practical,
-            isStatement: false,
-            isReversed: true
-        },
-        {
-            questionNumber: 3,
-            questionTxt: "Jeg liker å skape ting og jobbe med et produkt jeg kan se",
-            progress: 42.9,
-            characteristic: practical,
-            isStatement: false,
-            isReversed: false
-        },
-        {
             questionNumber: 4,
             questionTxt: "Jeg jobber best med oppgaver alene",
-            progress: 57.2,
+            progress: 50,
             characteristic: social,
             isStatement: false,
             isReversed: true
@@ -80,21 +84,30 @@ export const QuestionsData = () => {
         {
             questionNumber: 5,
             questionTxt: "Jeg er flink til å tenke utenfor boksen og komme opp med nye løsninger",
-            progress: 71.5,
+            progress: 63,
             characteristic: creative,
             isStatement: false,
             isReversed: false
         },
         {
-            questionNumber:6,
+            questionNumber: 6,
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            progress: 75,
+            characteristic: social,
+            isStatement: true,
+            statementArr: statements2,
+            isReversed: false
+        },
+        {
+            questionNumber: 7,
             questionTxt: "Jeg liker å jobbe innenfor klare rammer så jeg vet hva jeg skal gjøre",
-            progress: 85.8,
+            progress: 88,
             characteristic: creative,
             isStatement: false,
             isReversed: true
         },
         {
-            questionNumber: 7,
+            questionNumber: 8,
             questionTxt: "Jeg er god til å prate for meg selv",
             progress: 100,
             characteristic: social,

@@ -47,7 +47,7 @@ const Valgomat = () => {
         if (!isNext) {
             setClassname('animatedDivLeaveNext');
             setTransition(!transition);
-            setTimeout((decreaseCounter), 100);
+            setTimeout((decreaseCounter), 200);
             if (!transition){
                 setTransitionValue({from: '-100vw'});
             } else {
@@ -56,7 +56,7 @@ const Valgomat = () => {
         } else {
             setClassname('animatedDivLeaveLast');
             setTransition(!transition);
-            setTimeout((increaseCounter), 100);
+            setTimeout((increaseCounter), 200);
             if (!transition){
                 setTransitionValue({from: '100vw'});
             } else {
