@@ -2,12 +2,22 @@ import {StatementOrderActionType} from "../actionTypes";
 
 interface incrementAction {
     type: StatementOrderActionType.INCREASE
-    payload: number
+    payload: {
+        id: number
+        position: number
+    }
 }
 
 interface decrementAction {
     type: StatementOrderActionType.DECREASE
-    payload: number
+    payload: {
+        id: number
+        position: number
+    }
 }
 
-export type StatementOrderAction = incrementAction | decrementAction;
+interface addAction {
+    type: StatementOrderActionType.ADD
+}
+
+export type StatementOrderAction = incrementAction | decrementAction | addAction;

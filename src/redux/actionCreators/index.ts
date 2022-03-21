@@ -140,20 +140,34 @@ export const resetStates = () => {
     }
 };
 
-export const increaseStatementOrder = (id: number) => {
+export const increaseStatementOrder = (id: number, position: number) => {
     return (dispatch: Dispatch<StatementOrderAction>) => {
         dispatch({
             type: StatementOrderActionType.INCREASE,
-            payload: id
+            payload: {
+                id,
+                position
+            }
         })
     }
 };
 
-export const decreaseStatementOrder = (id: number) => {
+export const decreaseStatementOrder = (id: number, position: number) => {
     return (dispatch: Dispatch<StatementOrderAction>) => {
         dispatch({
             type: StatementOrderActionType.DECREASE,
-            payload: id
+            payload: {
+                id,
+                position
+            }
+        })
+    }
+};
+
+export const addStatementOrder = () => {
+    return (dispatch: Dispatch<StatementOrderAction>) => {
+        dispatch({
+            type: StatementOrderActionType.ADD
         })
     }
 };

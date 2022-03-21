@@ -1,18 +1,26 @@
 import React from 'react';
 import '../../styles/valgomatButton.style.css'
-import {useDispatch} from "react-redux";
-import {bindActionCreators} from "redux";
-import {actionCreators} from "../../redux";
 
-export const ValgomatButton = () => {
+interface valgomatButtonProps {
+    nextTransition: Function
+}
 
-    const dispatch = useDispatch();
-    const { increaseCounter, decreaseCounter } = bindActionCreators(actionCreators, dispatch);
+export const ValgomatButton = ({nextTransition}: valgomatButtonProps) => {
+
+
+
+    const next = () => {
+        nextTransition(true);
+    };
+
+    const last = () => {
+        nextTransition(false);
+    };
 
     return (
         <div className="valgomatButtons">
-            <button className='valgomatButton' onClick={() => decreaseCounter()}>Forrige</button>
-            <button className='valgomatButton' onClick={() => increaseCounter()}>Neste</button>
+            <button className='valgomatButton' onClick={last}>Forrige</button>
+            <button className='valgomatButton' onClick={next}>Neste</button>
         </div>
     );
 

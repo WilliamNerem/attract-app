@@ -1,15 +1,20 @@
 .statement {
     padding: 10px;
-    width: 70%;
+    width: 100%;
+    min-height: 60px;
+    max-width: 70vw;
     background-color: #f8f8f8;
     border: solid 1px #cbcbcb;
     border-radius: 10px;
     transition: ease .1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .textContainer{
     float: left;
-    width: 80%;
+    width: 100%;
 }
 
 .buttonsContainer {
@@ -21,31 +26,45 @@
 }
 
 .buttonUp{
-    background: url("../Icons/Up_arrow.png") no-repeat center;
+    background: url("../Icons/accenture_arrow_up.png") no-repeat center;
     width: 100%;
     height: 100%;
-    background-size: 25px 25px;
+    background-size: 30px 21px;
+}
+
+.buttonUp:active{
+    background: url("../Icons/accenture_arrow_up_active.png") no-repeat center;
+    width: 100%;
+    height: 100%;
+    background-size: 30px 21px;
 }
 
 .buttonDown{
-    background: url("../Icons/Down_arrow.png") no-repeat center;
+    background: url("../Icons/accenture_arrow_down.png") no-repeat center;
     width: 100%;
     height: 100%;
-    background-size: 25px 25px;
+    background-size: 30px 21px;
+}
+
+.buttonDown:active{
+    background: url("../Icons/accenture_arrow_down_active.png") no-repeat center;
+    width: 100%;
+    height: 100%;
+    background-size: 30px 21px;
 }
 
 .buttonUpGray{
-    background: url("../Icons/Up_arrow_gray.png") no-repeat center;
+    background: url("../Icons/accenture_arrow_up_gray.png") no-repeat center;
     width: 100%;
     height: 100%;
-    background-size: 25px 25px;
+    background-size: 30px 21px;
 }
 
 .buttonDownGray{
-    background: url("../Icons/Down_arrow_gray.png") no-repeat center;
+    background: url("../Icons/accenture_arrow_down_gray.png") no-repeat center;
     width: 100%;
     height: 100%;
-    background-size: 25px 25px;
+    background-size: 30px 21px;
 }
 
 .container {

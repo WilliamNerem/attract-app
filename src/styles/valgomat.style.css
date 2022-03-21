@@ -1,3 +1,7 @@
+.bodyValgomat{
+    overflow: hidden;
+}
+
 .questionNumber{
     text-align: center;
     margin-top: 0;
@@ -18,4 +22,18 @@
 .valgomat {
     min-height: 80vh;
     height: auto;
+}
+
+.statementOrderMargin{
+    margin-top: 65px;
+}
+
+.animatedDivLeaveNext{
+    position: absolute;
+    left: 100vw;
+}
+
+.animatedDivLeaveLast{
+    position: absolute;
+    left: -100vw;
 }

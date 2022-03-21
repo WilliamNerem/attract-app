@@ -8,6 +8,7 @@
 .progressFiller{
     background-color: #a100ff;
     text-align: center;
+    transition: linear .5s;
 }
 
 .progressLabel{
