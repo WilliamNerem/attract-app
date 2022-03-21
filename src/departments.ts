@@ -1,6 +1,6 @@
 export const departments = [
     {
-        name: 'S&C',
+        name: 'Strategy & Consulting',
         social: 9,
         creative: 7,
         practical: 3,
