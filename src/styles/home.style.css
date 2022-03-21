@@ -20,6 +20,7 @@
     padding-bottom: 40px;
     margin: auto;
     width: 95vw;
+    font-family: "Graphik Semibold", Arial, sans-serif;
 }
 
 .startWrapper{
@@ -46,6 +47,7 @@
     text-align: center;
     color: white;
     font-weight: bold;
+    font-family: "Graphik Black", Arial, sans-serif;
 }
 
 .bottomSpace{

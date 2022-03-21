@@ -9,7 +9,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators, State} from "../../redux";
 import '../../styles/alertDialogFunction.style.css';
-import {Button} from "@mui/material";
 import {Result} from "../organisms/result";
 import {useState} from "react";
 
@@ -63,8 +62,8 @@ export const AlertDialog = ({
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <Button className='alertButton' onClick={() => handleDecrease()}>Nei</Button>
-                        <Button className='alertButton' onClick={() => {setUpdate(true)}}>Ja</Button>
+                        <Link className='alertButton' onClick={() => handleDecrease()} to={''}>Nei</Link>
+                        <Link className='alertButton' onClick={() => {setUpdate(true)}} to={''}>Ja</Link>
                     </DialogActions>
                 </Dialog>
             </div>
