@@ -43,7 +43,7 @@ export const Navbar = () => {
                 <HamburgerMenu hamburgerToggled={hamburgerToggled} setHamburgerToggled={setHamburgerToggled} height={height}/>
             </div>
             <Backdrop
-                sx={{ zIndex: 1 }}
+                sx={{ zIndex: 9 }}
                 open={open}
                 onClick={() => {
                     setOpen(false);
