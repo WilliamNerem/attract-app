@@ -13,17 +13,57 @@ import '../styles/valgomat.style.css';
 import {DynamicQuestion} from "../components/atoms/dynamicQuestion";
 import {ValgomatFooter} from "../components/molecule/valgomatFooter";
 import {bindActionCreators} from "redux";
+import {useTransition, animated} from 'react-spring';
+import {useEffect, useState} from "react";
 
 const Valgomat = () => {
     const dispatch = useDispatch();
-    const { valgomatIsInProgress } = bindActionCreators(actionCreators, dispatch);
-    const { showAlertDialog } = bindActionCreators(actionCreators, dispatch);
+    const { valgomatIsInProgress, showAlertDialog, increaseCounter, decreaseCounter } = bindActionCreators(actionCreators, dispatch);
     const counter = useSelector((state: State) => state.questionCounter);
     const algoArray = useSelector((state: State) => state.characteristicPoints);
     const departmentsArray = useSelector((state: State) => state.departmentsAlgorithm);
     const isShowAlertDialog = useSelector((state: State) => state.showAlertDialog);
+    const [transitionValue, setTransitionValue] = useState({from: ''});
+    const [transition, setTransition] = useState(true);
+    const [className, setClassname] = useState('');
     const userDifferences: number[] = [];
     valgomatIsInProgress(true);
+
+    useEffect(() => {
+        if (transition){
+            setTransition(!transition);
+            setClassname('');
+        }
+    },[counter]);
+
+    const startTransition = useTransition(transition, {
+        from: {transform: "translateX("+transitionValue.from+")"},
+        enter: {transform: "translateX(0)"}
+    });
+
+    const handleTransition = (
+        isNext: boolean
+    ) => {
+        if (!isNext) {
+            setClassname('animatedDivLeaveNext');
+            setTransition(!transition);
+            setTimeout((decreaseCounter), 100);
+            if (!transition){
+                setTransitionValue({from: '-100vw'});
+            } else {
+                setTransitionValue({from: '100vw'});
+            }
+        } else {
+            setClassname('animatedDivLeaveLast');
+            setTransition(!transition);
+            setTimeout((increaseCounter), 100);
+            if (!transition){
+                setTransitionValue({from: '100vw'});
+            } else {
+                setTransitionValue({from: '-100vw'});
+            }
+        }
+    };
 
     const checkDepartment = () => {
         let difference = 0;
@@ -48,15 +88,19 @@ const Valgomat = () => {
     for (let questions of QuestionsData()) {
         if (counter === questions.questionNumber) {
             return (
-                <>
-                    <div className='valgomat'>
+                <div className='bodyValgomat'>
+                    <div className={'valgomat'}>
                         <Navbar/>
-                        <h1 className='questionNumber'>Spørsmål {counter}</h1>
-                        <Questions questionTxt={questions.questionTxt}/>
-                        {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/>}
+                        {startTransition((style) =>
+                            <animated.div style={style} className={className}>
+                                <h1 className='questionNumber'>Spørsmål {counter}</h1>
+                                <Questions questionTxt={questions.questionTxt}/>
+                                {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/>}
+                            </animated.div>
+                        )}
                     </div>
-                    <ValgomatFooter completed={questions.progress}/>
-                </>
+                    <ValgomatFooter completed={questions.progress} nextTransition={handleTransition}/>
+                </div>
             )
         }
         if (counter === QuestionsData().length + 1) {

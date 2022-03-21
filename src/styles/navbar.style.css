@@ -24,7 +24,7 @@
 .hamburger{
     display: inline-block;
     position: absolute;
-    right: 0;
+    left: 87vw;
     padding-top: 3px;
     padding-bottom: 3px;
 }

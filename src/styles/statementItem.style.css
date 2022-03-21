@@ -1,6 +1,7 @@
 .statement {
     padding: 10px;
     width: 70%;
+    max-width: 70vw;
     background-color: #f8f8f8;
     border: solid 1px #cbcbcb;
     border-radius: 10px;
