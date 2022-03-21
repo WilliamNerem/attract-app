@@ -9,6 +9,7 @@ interface infoCardProps {
     subText?: string
     linkText?: string
     isDropdown?: boolean
+    exampleImage?: string
 }
 
 export const InfoCard = ({
@@ -18,7 +19,8 @@ export const InfoCard = ({
      text,
      subText,
      linkText,
-     isDropdown
+     isDropdown,
+     exampleImage
 }: infoCardProps) => {
     const [className, setClassName] = useState('');
     const [iconClassName, setIconClassName] = useState('');
@@ -48,6 +50,7 @@ export const InfoCard = ({
             </div>
             <p className='infoCardText'>{text}</p>
             <h2 className={'infoCardSubHeading'}>{subHeading}</h2>
+            <div className={exampleImage}/>
             <p className={'infoCardText'}>{subText}</p>
             {link && <a href={link} target="_blank" rel="noopener noreferrer">{linkText ? linkText : link.toString()}</a>}
         </div>

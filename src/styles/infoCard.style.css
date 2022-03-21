@@ -49,3 +49,15 @@
     transform: rotate(-180deg);
     transition: transform 300ms ease;
 }
+
+.statementOrderExampleImage{
+    width: 272px;
+    height: 250px;
+    background: url("../images/rekkefølge_eksempel.PNG") no-repeat center;
+}
+
+.likertScaleExampleImage{
+    width: 272px;
+    height: 86px;
+    background: url("../images/likert_eksempel.PNG") no-repeat center;
+}

@@ -30,3 +30,19 @@
     margin-bottom: 3em;
     margin-top: 4em;
 }
+
+.grayBackgroundInfo{
+    padding-bottom: 48px;
+    background: #f2f2f2;
+}
+
+.firstValgomatCard{
+    margin-top: -2em;
+}
+
+.headingValgomatInfo{
+    background-image: url("../images/Accenture_Gradient2.jpg");
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
