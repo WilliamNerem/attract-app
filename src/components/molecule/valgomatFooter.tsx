@@ -5,14 +5,15 @@ import '../../styles/valgomatFooter.style.css'
 
 interface valgomatFooterProps {
     completed: number
+    nextTransition: Function
 }
 
 export const ValgomatFooter = (
-    {completed}: valgomatFooterProps
+    {completed, nextTransition}: valgomatFooterProps
 ) => {
     return (
         <div className="valgomatFooter">
-            <ValgomatButton/>
+            <ValgomatButton nextTransition={nextTransition}/>
             <ProgressBar completed={completed}/>
         </div>
     );
