@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import { Button } from "./button";
+import { Button } from "../components/atoms/button";
 import { render, cleanup } from "@testing-library/react";
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"

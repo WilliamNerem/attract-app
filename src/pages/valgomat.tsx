@@ -2,7 +2,7 @@ import { Navbar } from "../components/molecule/navbar";
 import { ProgressBar } from "../components/atoms/progressbar";
 import { Questions } from "../components/atoms/questions";
 import { LikertScale } from "../components/atoms/likertScale";
-import { AlertDialog } from "../components/atoms/alertDialogFunction";
+import { AlertDialogWrapper } from "../components/atoms/alertDialog";
 import * as React from "react";
 import { State, actionCreators } from "../redux";
 import { useSelector, useDispatch } from "react-redux";
@@ -41,7 +41,7 @@ const Valgomat = () => {
     }
     if (isShowAlertDialog) {
         return (
-            <AlertDialog end={false}/>
+            <AlertDialogWrapper end={false}/>
         )
     }
 
@@ -72,7 +72,7 @@ const Valgomat = () => {
             if (biggestTwo[0] !== biggestTwo[1]) {
                 return (
                     <>
-                        <AlertDialog end={true} totalPointsArray={totalPoints}/>
+                        <AlertDialogWrapper end={true} totalPointsArray={totalPoints}/>
                     </>
                 )
             }else {

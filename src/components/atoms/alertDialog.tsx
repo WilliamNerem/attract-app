@@ -4,7 +4,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import {Link} from "react-router-dom";
+import {Link, BrowserRouter as Router} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators, State} from "../../redux";
@@ -47,7 +47,7 @@ export const AlertDialog = ({
 
     if (end) {
         return (
-            <div>
+            <div data-testid={'endAlertDialog'}>
                 <Dialog
                     open={true}
                     onClose={handleClose}
@@ -71,28 +71,30 @@ export const AlertDialog = ({
         )
     } else {
         return (
-            <div>
-                <Dialog
-                    open={true}
-                    onClose={handleClose}
-                    aria-labelledby="alert-dialog-title"
-                    aria-describedby="alert-dialog-description"
-                >
-                    <DialogTitle id="alert-dialog-title">
-                        {"Avslutte valgomaten?"}
-                    </DialogTitle>
-                    <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
-                            Er du sikker på at du vil avslutte valgomaten?
-                        </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Link className='alertButton' to='.' onClick={handleClose}>Nei</Link>
-                        <Link className='alertButton' to="/">
-                            Ja
-                        </Link>
-                    </DialogActions>
-                </Dialog>
+            <div data-testid={'progressAlertDialog'}>
+                <Router>
+                    <Dialog
+                        open={true}
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            {"Avslutte valgomaten?"}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                Er du sikker på at du vil avslutte valgomaten?
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Link className='alertButton' to='.' onClick={handleClose}>Nei</Link>
+                            <Link className='alertButton' to="/">
+                                Ja
+                            </Link>
+                        </DialogActions>
+                    </Dialog>
+                </Router>
             </div>
         );
     }
