@@ -15,3 +15,6 @@ Neutrals:
     Dark gray = #96968c
     Light gray = #e6e6dc
     White = #ffffff
+
+Secondaries:
+    Blue = #0041f0

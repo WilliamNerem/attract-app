@@ -1,14 +1,17 @@
 .progressContainer{
     width: 85vw;
-    background-color: #e6e6dc;
+    background-color: #f2f2f2;
     margin: 20px auto;
     left: 7.5vw;
+    border-radius: 3rem;
+    border: .06em solid #ccc;
 }
 
 .progressFiller{
     background-color: #a100ff;
     text-align: center;
-    transition: linear .5s;
+    transition: all .5s;
+    border-radius: 3rem;
 }
 
 .progressLabel{

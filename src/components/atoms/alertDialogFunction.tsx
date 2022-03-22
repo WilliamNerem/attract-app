@@ -4,12 +4,10 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators, State} from "../../redux";
 import '../../styles/alertDialogFunction.style.css';
-import {Button} from "@mui/material";
 import {Result} from "../organisms/result";
 import {useState} from "react";
 
@@ -63,8 +61,8 @@ export const AlertDialog = ({
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <Button className='alertButton' onClick={() => handleDecrease()}>Nei</Button>
-                        <Button className='alertButton' onClick={() => {setUpdate(true)}}>Ja</Button>
+                        <a className='alertButton' onClick={() => handleDecrease()}>Nei</a>
+                        <a className='alertButton' onClick={() => {setUpdate(true)}}>Ja</a>
                     </DialogActions>
                 </Dialog>
             </div>
@@ -87,10 +85,10 @@ export const AlertDialog = ({
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <Link className='alertButton' to='.' onClick={handleClose}>Nei</Link>
-                        <Link className='alertButton' to="/">
+                        <a className='alertButton' onClick={handleClose}>Nei</a>
+                        <a className='alertButton' href="/">
                             Ja
-                        </Link>
+                        </a>
                     </DialogActions>
                 </Dialog>
             </div>

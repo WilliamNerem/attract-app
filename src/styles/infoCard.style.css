@@ -4,7 +4,7 @@
     margin-left: auto;
     margin-top: -2em;
     padding: 1em;
-    border: 1px solid #96968c;
+    border: 1px solid #ccc;
     background-color: white;
     text-align: left;
     overflow: hidden;
@@ -22,13 +22,13 @@
 
 .infoCardHeading{
     font-size: 20px;
-    font-family: "Graphik Black", "Arial Black", sans-serif;
+    font-family: "Graphik Black", Arial, sans-serif;
     display: inline-block;
 }
 
 .infoCardSubHeading{
     font-size: 18px;
-    font-family: "Graphik Black", "Arial Black", sans-serif;
+    font-family: "Graphik Black", Arial, sans-serif;
 }
 
 .dropdownIcon{
@@ -48,4 +48,9 @@
 .dropdownIconRotated{
     transform: rotate(-180deg);
     transition: transform 300ms ease;
+}
+
+a {
+    font-family: "Graphik Semibold", Arial, sans-serif;
+    color: #0041f0;
 }
