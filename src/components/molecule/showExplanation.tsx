@@ -7,25 +7,31 @@ interface showExplanationProps {
 
 export const ShowExplanation = ({questionType}: showExplanationProps) => {
 
-    let heading = '';
-    let text: '';
-    let subHeading: '';
+    let heading;
+    let text;
+    let exampleImage;
 
     if (questionType === 'likertScale'){
-
-
-
+        heading = 'Likert skala';
+        text = 'Likert skalaen består av 5 knapper fra helt uenig til helt enig. '+
+            'Du skal trykke på knappen du mener passer best for deg med utgangspunkt i spørsmålet som står ovenfor. '+
+            'Under ser du et eksempel av en person som har svart "Litt enig".';
+        exampleImage = 'likertScaleExampleImage';
+    } else {
+        heading = 'Rekkefølge';
+        text = 'Rekkefølgen består av 3 påstander der du skal rangere disse basert på hvilken du føler passer deg mest. '+
+            'For å rangere påstandene skal knappene trykkes på. Trykk pil opp for å flytte påstanden opp og pil ned for å flytte den ned. '+
+            'Under ser du et eksempel på en besvarelse.';
+        exampleImage = 'statementOrderExampleImage';
     }
+
 
     return(
         <InfoCard
-            heading='Interactive'
-            text='Hos Interactive jobber designere og kreatørene. Vi skaper løsninger ved å kombinere kreativitet og fokus på sluttbruker med
-            teknisk innsikt og gjennomføringsevne. Interactive-teamet bruker en kombinasjon av design(tjeneste-, grafisk- og
-            interaksjonsdesign), markedsføring, innhold og forretningsforståelse til å skape innovative og bransjeledende
-            brukeropplevelser. Dette gjøres ved å kombinere den rette kompetansen, sette brukeren i sentrum og sørge for å
-            designe meningsfulle produkter og tjenester, som er med på å endre samfunnet til det bedre.'
-
+            heading={heading}
+            text={text}
+            subHeading='Eksempel:'
+            exampleImage={exampleImage}
         />
     );
 };

@@ -15,6 +15,9 @@ import {ValgomatFooter} from "../components/molecule/valgomatFooter";
 import {bindActionCreators} from "redux";
 import {useTransition, animated} from 'react-spring';
 import {useEffect, useState} from "react";
+import {InfoButton} from "../components/molecule/infoButton";
+import {ShowExplanation} from "../components/molecule/showExplanation";
+import Backdrop from "@mui/material/Backdrop";
 
 const Valgomat = () => {
     const dispatch = useDispatch();
@@ -25,14 +28,15 @@ const Valgomat = () => {
     const isShowAlertDialog = useSelector((state: State) => state.showAlertDialog);
     const [transitionValue, setTransitionValue] = useState({from: ''});
     const [transition, setTransition] = useState(true);
-    const [className, setClassname] = useState('');
+    const [className, setClassname] = useState('initializeTransition');
+    const [open, setOpen] = useState(false);
     const userDifferences: number[] = [];
     valgomatIsInProgress(true);
 
     useEffect(() => {
         if (transition){
             setTransition(!transition);
-            setClassname('');
+            setClassname('initializeTransition');
         }
     },[counter]);
 
@@ -86,6 +90,10 @@ const Valgomat = () => {
         )
     }
 
+    const handleClick = () => {
+        setOpen(true);
+    };
+
     for (let questions of QuestionsData()) {
         if (counter === questions.questionNumber) {
             return (
@@ -94,6 +102,7 @@ const Valgomat = () => {
                         <Navbar/>
                         {startTransition((style) =>
                             <animated.div style={style} className={className}>
+                                <InfoButton handleClick={handleClick}/>
                                 <h1 className='questionNumber'>Spørsmål {counter}</h1>
                                 <Questions questionTxt={questions.questionTxt}/>
                                 {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/>}
@@ -101,9 +110,18 @@ const Valgomat = () => {
                         )}
                     </div>
                     <ValgomatFooter completed={questions.progress} nextTransition={handleTransition}/>
+                    <Backdrop
+                        open={open}
+                        onClick={() => {
+                            setOpen(false);
+                        }}
+                    >
+                        <ShowExplanation questionType={questions.questionType}/>
+                    </Backdrop>
                 </div>
             )
         }
+
         if (counter === QuestionsData().length + 1) {
             let totalPoints: number[] = [];
 
@@ -120,7 +138,7 @@ const Valgomat = () => {
                         <AlertDialog end={true} totalPointsArray={totalPoints}/>
                     </>
                 )
-            }else {
+            } else {
                 const firstDep = totalPoints.indexOf(biggestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
                 const secondDep = totalPoints.lastIndexOf(biggestTwo[1]); // lastIndexOf starts backwards
                 return (
