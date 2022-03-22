@@ -23,13 +23,14 @@ export const HamburgerMenu = ({
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const inProgress = useSelector((state: State) => state.valgomatInProgress);
-    const { showAlertDialog } = bindActionCreators(actionCreators, dispatch);
+    const { showAlertDialog, isInfoClicked } = bindActionCreators(actionCreators, dispatch);
 
-    const handleClick = () => {
+    const handleClick = (isInfo: boolean) => {
         if (inProgress) {
             showAlertDialog(true);
+            isInfoClicked(isInfo);
         } else {
-            navigate('/');
+            isInfo ? navigate('/info') : navigate('/');
         }
     };
 
@@ -43,9 +44,9 @@ export const HamburgerMenu = ({
                 height={height}
                 className='hamburgerItems'
             >
-                <HamburgerItem itemText={'Home'} link={inProgress ? '' : '/'} onClick={handleClick}/>
+                <HamburgerItem itemText={'Home'} link={inProgress ? '' : '/'} onClick={() => handleClick(false)}/>
                 <HamburgerItem itemText={'Valgomat'} link={'/valgomat'}/>
-                <HamburgerItem itemText={'Informasjon'} link={inProgress ? '' : '/info'} onClick={handleClick}/>
+                <HamburgerItem itemText={'Informasjon'} link={inProgress ? '' : '/info'} onClick={() => handleClick(true)}/>
             </AnimateHeight>
 
         </div>
