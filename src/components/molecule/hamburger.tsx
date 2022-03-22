@@ -12,7 +12,7 @@ import {actionCreators} from "../../redux";
 interface hamburgerProps {
     hamburgerToggled: boolean
     setHamburgerToggled: React.Dispatch<React.SetStateAction<boolean>>
-    height: number
+    height: string | number
 }
 
 export const HamburgerMenu = ({

@@ -15,7 +15,7 @@ export const Navbar = () => {
     const inProgress = useSelector((state: State) => state.valgomatInProgress);
     const { showAlertDialog } = bindActionCreators(actionCreators, dispatch);
     const [open, setOpen] = useState(false);
-    const [height, setHeight] = useState(0);
+    const [height, setHeight] = useState<string|number>(0);
     const [hamburgerToggled, setHamburgerToggled] = useState(false);
 
     const handleClick = () => {
@@ -28,7 +28,7 @@ export const Navbar = () => {
 
     useEffect(() => {
         if (hamburgerToggled) {
-            setHeight(150);
+            setHeight('auto');
             setOpen(true);
         } else {
             setHeight(0);
