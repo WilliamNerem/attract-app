@@ -3,13 +3,14 @@
     width: 100%;
     min-height: 60px;
     max-width: 70vw;
-    background-color: #f8f8f8;
-    border: solid 1px #cbcbcb;
-    border-radius: 10px;
+    background-color: #f2f2f2;
+    border: .06em solid #ccc;
+    border-radius: 1rem;
     transition: ease .1s;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Graphik Regular", Arial, sans-serif;
 }
 
 .textContainer{
