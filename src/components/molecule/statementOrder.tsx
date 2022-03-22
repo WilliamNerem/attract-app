@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {State} from "../../redux/reducers";
+import {State} from "../../redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 import {StatementItem} from "../atoms/statementItem";
@@ -17,7 +17,7 @@ export const StatementOrder = () => {
     });
 
     const dispatch = useDispatch();
-    const { initializeStatementOrder } = bindActionCreators(actionCreators, dispatch);
+    const { initializeStatementOrder, addStatementOrder } = bindActionCreators(actionCreators, dispatch);
     const statementArr = QuestionsData()[counter-1].statementArr;
     let statementList;
 
@@ -30,18 +30,19 @@ export const StatementOrder = () => {
         }
     };
 
-    if (initializeStatementOrderArray.length === 0){
+    let isIinitialized = false;
+    initializeStatementOrderArray.map((object) => {
+        if (object.number === counter){
+            isIinitialized = true;
+        }
+    });
+    if (!isIinitialized){
         initDepartmentPoints();
     }
 
-    initializeStatementOrderArray.map((i, index) => {
-        if (i.number === counter){
-            return
-        }
-        if (index === initializeStatementOrderArray.length){
-            initDepartmentPoints();
-        }
-    });
+    if (initializeStatementOrderArray.length > statementOrder.length){
+        addStatementOrder();
+    }
 
     const handleTransition = (
         setTransitionUp: number,
@@ -55,29 +56,36 @@ export const StatementOrder = () => {
         });
     };
 
-    statementList = statementOrder.map((statement, index) => {
-        let transitionPx = 0;
-        if (transition.transitionUp === index){
-            transitionPx = 124;
-        } else if (transition.transitionDown === index){
-            transitionPx = -124;
+    statementList = statementOrder.map((statementArr, position) => {
+        let statements;
+        if (counter === initializeStatementOrderArray[position].number){
+            statements = statementArr.map((statement, index) => {
+                let transitionPx = 0;
+                if (transition.transitionUp === index){
+                    transitionPx = 124;
+                } else if (transition.transitionDown === index){
+                    transitionPx = -124;
+                }
+                return (
+                    <StatementItem
+                        key={index}
+                        index={statement-1}
+                        positionInStatementOrder={position}
+                        position={index}
+                        questionNumber={counter-1}
+                        transitionPx={transitionPx}
+                        transitionValues={transition}
+                        handleTransition={handleTransition}
+                    />
+                )
+            });
         }
-        return (
-            <StatementItem
-                key={index}
-                index={statement-1}
-                position={index}
-                questionNumber={counter-1}
-                transitionPx={transitionPx}
-                transitionValues={transition}
-                handleTransition={handleTransition}
-            />
-        )
+        return statements
     });
 
     return (
-        <>
+        <div className='statementOrderMargin'>
             {statementList}
-        </>
+        </div>
     );
 };

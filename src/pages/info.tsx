@@ -51,6 +51,34 @@ const Info = () => {
                         isDropdown={true}
                     />
                 </div>
+                <div className='grayBackgroundInfo'>
+                    <div className='headingValgomatInfo'>
+                        <h1 className='infoText'>Hvordan besvare valgomaten</h1>
+                        <p className='infoSubText'>Under finner du informasjon om hvordan du skal besvare de ulike spørsmålstypene som blir brukt i valgomaten</p>
+                    </div>
+                    <div className='infoCards firstValgomatCard'>
+                        <InfoCard
+                            heading='Likert skala'
+                            text={'Likert skalaen består av 5 knapper fra helt uenig til helt enig. '+
+                            'Du skal trykke på knappen du mener passer best for deg med utgangspunkt i spørsmålet som står ovenfor. '+
+                            'Under ser du et eksempel av en person som har svart "Litt enig".'}
+                            exampleImage={'likertScaleExampleImage'}
+                            subHeading='Eksempel:'
+                            isDropdown={true}
+                        />
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard
+                            heading='Rekkefølge'
+                            text={'Rekkefølgen består av 3 påstander der du skal rangere disse basert på hvilken du føler passer deg mest. '+
+                            'For å rangere påstandene skal knappene trykkes på. Trykk pil opp for å flytte påstanden opp og pil ned for å flytte den ned. '+
+                            'Under ser du et eksempel på en besvarelse.'}
+                            subHeading='Eksempel:'
+                            exampleImage='statementOrderExampleImage'
+                            isDropdown={true}
+                        />
+                    </div>
+                </div>
             </div>
         </>
     )
