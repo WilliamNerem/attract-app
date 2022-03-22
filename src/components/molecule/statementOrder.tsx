@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {State} from "../../redux/reducers";
+import {State} from "../../redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 import {StatementItem} from "../atoms/statementItem";

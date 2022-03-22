@@ -4,7 +4,7 @@ import Acc_Logo_Black_Purple_RGB from '../../images/Acc_Logo_Black_Purple_RGB.pn
 import '../../styles/navbar.style.css'
 import Backdrop from '@mui/material/Backdrop';
 import {useDispatch, useSelector} from "react-redux";
-import {State} from "../../redux/reducers";
+import {State} from "../../redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 import {useNavigate} from "react-router-dom";
