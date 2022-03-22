@@ -76,6 +76,7 @@ const Valgomat = () => {
         }
     };
     checkDepartment();
+
     if (counter === 0) {
         showAlertDialog(true);
     }
