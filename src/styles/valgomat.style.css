@@ -48,19 +48,21 @@
     position: absolute;
     left: 80vw;
     top: 2rem;
-    background-image: url("../Icons/accenture_info.png");
+    background-image: url("../Icons/accenture_info.svg");
     width: 30px;
     height: 30px;
+    background-size: 30px 30px;
 }
 
 .infoButton:active{
     display: block;
     position: absolute;
     right: 2rem;
-    top: 3.5rem;
-    background-image: url("../Icons/accenture_info_active.png");
+    top: 2rem;
+    background-image: url("../Icons/accenture_info_active.svg");
     width: 30px;
     height: 30px;
+    background-size: 30px 30px;
 }
 
 @media (max-height: 745px) {
