@@ -9,15 +9,14 @@ const Home = () => {
 
     const aboutText = 'Vårt formål er å innfri løftet om teknologi og menneskelig oppfinnsomhet. ' +
         'Vi hjelper våre kunder å bli den neste og beste versjonen av seg selv.';
-    const aboutSubText = 'Vi har over 674K ansatte globalt, med 200 byer over 50 land med Accenture kontorer. ' +
+    const aboutSubText = 'Vi har ca 700 000 ansatte globalt, med 200 byer over 50 land med Accenture kontorer. ' +
         'I tillegg har vi rundt 7000 kunder i mer enn 120 land.';
-
     const aboutValgomat = 'I denne valgomaten får du mulighet til å svare på noen spørsmål om deg og dine interesser, ' +
-        'slik at du kan bli plassert i en avdeling som passer for deg. Her får du lære ' +
+        'slik at du får et forslag til hvilken avdeling hos Accenture som passer for deg. Her får du lære ' +
         'mer om de mulighetene som finnes for deg hos Accenture som arbeidsgiver.';
     const aboutValgomatSubText = 'Valgomaten består av en rekke spørsmål om deg, din personlighet og dine ' +
         'interesser. Den tar ca. 5 minutter å besvare, og til slutt vil du bli presentert resultatet i form av ' +
-        'en pallplassering.';
+        'en pallplassering med en prosentgivning av hvor godt du matcher med hver avdeling.';
 
     return (
         <>

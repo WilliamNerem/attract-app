@@ -47,7 +47,7 @@ export const Result = ({totalPointsArray
             title: 'Technology',
             link: 'https://www.accenture.com/no-en/about/technology-index',
             infoText: 'I Technology blir du involvert i noen av Norges mest spennende og meningsfylte IT-prosjekter. Sammen ' +
-                'med kunden leverer vi innovative løsninger som bidrar til verdiskaping både for bedrifter og samfunnet. Vi' +
+                'med kunden leverer vi innovative løsninger som bidrar til verdiskaping både for bedrifter og samfunnet. Vi ' +
                 'satser stort innenfor skyløsninger, digital infrastruktur, digitalisering og prosessautomatisering.',
             infoSubText: 'I følge valgomaten passer du ikke best i Technology, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.'
         },
@@ -55,7 +55,7 @@ export const Result = ({totalPointsArray
             title: 'Interactive',
             link: 'https://www.accenture.com/no-en/about/accenture-interactive-index',
             infoText: 'Hos Interactive jobber designere og kreatørene. Vi skaper løsninger ved å kombinere kreativitet og fokus på sluttbruker med ' +
-                'teknisk innsikt og gjennomføringsevne. Interactive-teamet bruker en kombinasjon av design, markedsføring, innhold og forretningsforståelse'+
+                'teknisk innsikt og gjennomføringsevne. Interactive-teamet bruker en kombinasjon av design, markedsføring, innhold og forretningsforståelse '+
                 'til å skape innovative og bransjeledende brukeropplevelser.',
             infoSubText: 'I følge valgomaten passer du ikke best i Interactive, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.'
         }

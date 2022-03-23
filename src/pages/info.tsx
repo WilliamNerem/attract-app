@@ -13,7 +13,7 @@ const Info = () => {
             <div className='info'>
                 <div className='gradientDiv'>
                     <h1 className='infoText'>Accenture sine avdelinger</h1>
-                    <p className='infoSubText'>Under finner du informasjon om hvordan Accenture er bygget opp. Avdelingene har flere likheter og ulikheter</p>
+                    <p className='infoSubText'>Under finner du informasjon om hvordan Accenture er bygget opp. Trykk på boksene for å få vite mer om hver avdeling</p>
                 </div>
                 <InfoCard heading='Strategy & Consulting' text='I Strategy & Consulting vil du være med på å definere og implementere morgendagens teknologiske
                     løsninger for private- og offentlige aktører, veldedige organisasjoner og startups. Du vil jobbe i store og små
@@ -54,14 +54,14 @@ const Info = () => {
                 <div className='grayBackgroundInfo'>
                     <div className='headingValgomatInfo'>
                         <h1 className='infoText'>Hvordan besvare valgomaten</h1>
-                        <p className='infoSubText'>Under finner du informasjon om hvordan du skal besvare de ulike spørsmålstypene som blir brukt i valgomaten</p>
+                        <p className='infoSubText'>Under finner du informasjon om hvordan du besvarer de ulike spørsmålstypene som blir brukt i valgomaten</p>
                     </div>
                     <div className='infoCards firstValgomatCard'>
                         <InfoCard
                             heading='Likert skala'
-                            text={'Likert skalaen består av 5 knapper fra helt uenig til helt enig. '+
-                            'Du skal trykke på knappen du mener passer best for deg med utgangspunkt i spørsmålet som står ovenfor. '+
-                            'Under ser du et eksempel av en person som har svart "Litt enig".'}
+                            text={'Likert skalaen består av 5 knapper rangert fra helt uenig til helt enig. '+
+                            'Du skal trykke på knappen du mener passer best for deg med utgangspunkt i påstanden som står ovenfor. '+
+                            'Under ser du et eksempel på et svar som er "Litt enig".'}
                             exampleImage={'likertScaleExampleImage'}
                             subHeading='Eksempel:'
                             isDropdown={true}
@@ -71,7 +71,7 @@ const Info = () => {
                         <InfoCard
                             heading='Rekkefølge'
                             text={'Rekkefølgen består av 3 påstander der du skal rangere disse basert på hvilken du føler passer deg mest. '+
-                            'For å rangere påstandene skal knappene trykkes på. Trykk pil opp for å flytte påstanden opp og pil ned for å flytte den ned. '+
+                            'For å rangere påstandene skal trykker du på pilene ved siden av. Trykk pil opp for å flytte påstanden opp og pil ned for å flytte den ned. '+
                             'Under ser du et eksempel på en besvarelse.'}
                             subHeading='Eksempel:'
                             exampleImage='statementOrderExampleImage'
