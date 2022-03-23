@@ -5,22 +5,28 @@ interface infoCardProps {
     heading: string
     subHeading?: string
     link?: string
-    text: string
+    text?: string
     subText?: string
     linkText?: string
     isDropdown?: boolean
     exampleImage?: string
+    hasButton?: boolean
+    department?: string
+    handleClick?: Function
 }
 
 export const InfoCard = ({
-     heading,
-     subHeading,
-     link,
-     text,
-     subText,
-     linkText,
-     isDropdown,
-     exampleImage
+    heading,
+    subHeading,
+    link,
+    text,
+    subText,
+    linkText,
+    isDropdown,
+    exampleImage,
+    hasButton,
+    department,
+    handleClick
 }: infoCardProps) => {
     const [className, setClassName] = useState('');
     const [iconClassName, setIconClassName] = useState('');
@@ -53,6 +59,7 @@ export const InfoCard = ({
             <div className={exampleImage}/>
             <p className={'infoCardText'}>{subText}</p>
             {link && <a href={link} target="_blank" rel="noopener noreferrer">{linkText ? linkText : link.toString()}</a>}
+            {hasButton && handleClick !== undefined ? <div className='dynamicButtonDiv'><button className='dynamicButton' onClick={() => handleClick(department)}>VELG</button></div> : ''}
         </div>
     );
 };

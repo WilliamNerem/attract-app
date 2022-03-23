@@ -126,9 +126,16 @@ const Valgomat = () => {
                 return (
                     <>
                         <Navbar/>
-                        <h1 className='questionNumber'>Spørsmål {counter}</h1>
-                        <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
-                        <ProgressBar completed={100}/>
+                        {startTransition((style) =>
+                            <animated.div style={style} className={className}>
+                                <h1 className='questionNumber'>Spørsmål {counter}</h1>
+                                <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
+                            </animated.div>
+                        )}
+                        <div className='dynamicFooter'>
+                            <button className='valgomatButton' onClick={() => handleTransition(false)}>Forrige</button>
+                            <ProgressBar completed={100}/>
+                        </div>
                     </>
                 )
             }

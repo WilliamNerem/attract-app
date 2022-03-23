@@ -38,3 +38,48 @@
     position: absolute;
     left: -100vw;
 }
+
+.dynamicFooter{
+    position: absolute;
+    text-align: center;
+    height: 13.5vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.infoCardDivider{
+    height: 100px;
+}
+
+.dynamicButtonDiv{
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.dynamicButton{
+    position: absolute;
+    background: black;
+    color: white;
+    border: 1px solid black;
+    font-size: .875rem;
+    padding: 1rem 0.9rem;
+    width: 100px;
+    left: -4px;
+    top: -6px;
+    transition: linear .2s;
+}
+
+.dynamicButtonWrapper{
+    position: relative;
+    background: #a7a7a7;
+    width: 100px;
+    height: 50px;
+    margin: auto;
+}
+
+.dynamicButton:hover{
+    transform: translateY(-5px) translateX(-5px);
+    transition: linear .2s;
+}
