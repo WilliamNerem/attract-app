@@ -14,11 +14,14 @@ export default function App() {
         <Provider store={store}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Home />}>
-                    </Route>
+                    <Route path="/" element={<Home />} />
                     <Route path="valgomat" element={<Valgomat />} />
                     <Route path="info" element={<Info />} />
                     <Route path="*" element={<InvalidNotFoundPage />} />
+                    <Route path="165.227.130.116/" element={<Home />} />
+                    <Route path="165.227.130.116/valgomat" element={<Valgomat />} />
+                    <Route path="165.227.130.116/info" element={<Info />} />
+                    <Route path="165.227.130.116/*" element={<InvalidNotFoundPage />} />
                 </Routes>
             </BrowserRouter>
         </Provider>
