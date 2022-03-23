@@ -22,7 +22,7 @@ export const InfoCard = ({
      linkText,
      isDropdown,
      exampleImage,
-    singlePageLink
+     singlePageLink
 }: infoCardProps) => {
     const [className, setClassName] = useState('');
     const [iconClassName, setIconClassName] = useState('');

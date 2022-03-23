@@ -18,6 +18,7 @@ import {useEffect, useState} from "react";
 import {InfoButton} from "../components/molecule/infoButton";
 import {ShowExplanation} from "../components/molecule/showExplanation";
 import Backdrop from "@mui/material/Backdrop";
+import {Result} from "../components/organisms/result";
 
 const Valgomat = () => {
     const dispatch = useDispatch();
@@ -122,7 +123,8 @@ const Valgomat = () => {
             )
         }
 
-        if (counter === QuestionsData().length + 1) {
+        if (counter > QuestionsData().length) {
+            const dynamicCounter = QuestionsData().length + 2;
             let totalPoints: number[] = [];
             let departmentPointsArray: number[] = [];
 
@@ -134,6 +136,13 @@ const Valgomat = () => {
 
             const biggestTwoTotal = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
             const biggestTwoDepartmentPoints = departmentPointsArray.slice().sort((a, b) => b - a).slice(0, 2);
+
+            if (counter === dynamicCounter){
+                return (
+                    <Result totalPointsArray={totalPoints}/>
+                )
+            }
+
             if (biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) {   // Check if number 1 has the same points as number 2 department
                 return (
                     <>
@@ -145,10 +154,19 @@ const Valgomat = () => {
                 const secondDep = totalPoints.lastIndexOf(biggestTwoTotal[1]); // lastIndexOf starts backwards
                 return (
                     <>
-                        <Navbar/>
-                        <h1 className='questionNumber'>Spørsmål {counter}</h1>
-                        <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
-                        <ProgressBar completed={100}/>
+                        <div className='bodyValgomat'>
+                            <Navbar/>
+                            {startTransition((style) =>
+                                <animated.div style={style} className={className}>
+                                    <h1 className='questionNumber'>Spørsmål {counter}</h1>
+                                    <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
+                                </animated.div>
+                            )}
+                            <div className='dynamicFooter'>
+                                <button className='valgomatButton' onClick={() => handleTransition(false)}>Forrige</button>
+                                <ProgressBar completed={100}/>
+                            </div>
+                        </div>
                     </>
                 )
             }

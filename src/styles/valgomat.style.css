@@ -16,9 +16,6 @@
     margin-left: auto;
     margin-right: auto;
 }
-.dynamicQuestion{
-    text-align: center;
-}
 
 .valgomat {
     min-height: 80vh;
@@ -61,4 +58,67 @@
     background-image: url("../Icons/accenture_info_active.png");
     width: 30px;
     height: 30px;
+}
+
+.dynamicFooter{
+    position: absolute;
+    text-align: center;
+    height: 13.5vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.infoCardDivider{
+    height: 100px;
+}
+
+.dynamicQuestion{
+    min-height: 80vh;
+}
+
+.dynamicButtonDiv{
+    position: relative;
+    width: 90%;
+    border: 1px solid #ccc;
+    padding: 30px 0;
+    margin: 90px 0 0 5%;
+}
+
+.dynamicButton{
+    position: absolute;
+    background: #a100ff;
+    color: white;
+    border: 1px solid #a100ff;
+    font-weight: bold;
+    font-size: .9rem;
+    padding: 1rem 0.9rem;
+    width: 100px;
+    left: -4px;
+    top: -6px;
+    transition: linear .2s;
+}
+
+.dynamicButtonWrapper{
+    display: inline-block;
+    position: absolute;
+    background: #a7a7a7;
+    width: 100px;
+    height: 50px;
+    margin-left: 20px;
+}
+
+.dynamicButton:active{
+    transform: translateY(-5px) translateX(-5px);
+    transition: linear .2s;
+}
+
+.dynamicQuestionHeader{
+    text-align: center;
+}
+
+.dynamicText{
+    display: inline-block;
+    width: 55vw;
+    margin: 0 0 0 10px;
 }
