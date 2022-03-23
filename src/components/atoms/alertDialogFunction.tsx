@@ -10,6 +10,7 @@ import {actionCreators, State} from "../../redux";
 import '../../styles/alertDialogFunction.style.css';
 import {Result} from "../organisms/result";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 interface alertDialogProps {
     end : boolean
@@ -87,7 +88,7 @@ export const AlertDialog = ({
                     </DialogContent>
                     <DialogActions>
                         <a className='alertButton' onClick={handleClose}>Nei</a>
-                        {isInfo ? <a className='alertButton' href='/info'>Ja</a> : <a className='alertButton' href='/'>Ja</a>}
+                        {isInfo ? <Link className='alertButton' to='/info'>Ja</Link> : <a className='alertButton' href='/'>Ja</a>}
                     </DialogActions>
                 </Dialog>
             </div>
