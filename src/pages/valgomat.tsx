@@ -128,9 +128,9 @@ const Valgomat = () => {
             let departmentPointsArray: number[] = [];
 
             userDifferences.map((differenceCharacteristic, index) => {
-                departmentPointsArray[index] = departmentsArray[index].points;  // Setting departmentPoints and the new array together
+                const departmentPoints = departmentPointsArray[index] = departmentsArray[index].points;  // Setting departmentPoints and the new array together
                 const characteristicPoints = (differenceCharacteristic * (3 / departments[index].possibleDifference));
-                totalPoints = [...totalPoints, departmentPointsArray[index] - characteristicPoints];
+                totalPoints = [...totalPoints, departmentPoints - characteristicPoints];
             });
 
             const biggestTwoTotal = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
