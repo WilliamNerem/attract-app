@@ -10,6 +10,7 @@ interface infoCardProps {
     linkText?: string
     isDropdown?: boolean
     exampleImage?: string
+    singlePageLink?: boolean
 }
 
 export const InfoCard = ({
@@ -20,7 +21,8 @@ export const InfoCard = ({
      subText,
      linkText,
      isDropdown,
-     exampleImage
+     exampleImage,
+    singlePageLink
 }: infoCardProps) => {
     const [className, setClassName] = useState('');
     const [iconClassName, setIconClassName] = useState('');
@@ -52,7 +54,7 @@ export const InfoCard = ({
             <h2 className={'infoCardSubHeading'}>{subHeading}</h2>
             <div className={exampleImage}/>
             <p className={'infoCardText'}>{subText}</p>
-            {link && <a href={link} target="_blank" rel="noopener noreferrer">{linkText ? linkText : link.toString()}</a>}
+            {link && <a href={link} target={singlePageLink ? '' : '_blank'} rel="noopener noreferrer">{linkText ? linkText : link.toString()}</a>}
         </div>
     );
 };
