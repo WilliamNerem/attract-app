@@ -57,7 +57,7 @@ export const AlertDialog = ({
                         {"Avslutte valgomaten?"}
                     </DialogTitle>
                     <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
+                        <DialogContentText id="alert-dialog-description" data-testid={'endDialogText'}>
                             Er du sikker på at du vil fullføre valgomaten?
                         </DialogContentText>
                     </DialogContent>
@@ -81,7 +81,7 @@ export const AlertDialog = ({
                         {"Avslutte valgomaten?"}
                     </DialogTitle>
                     <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
+                        <DialogContentText id="alert-dialog-description" data-testid={'progressDialogText'}>
                             Er du sikker på at du vil avslutte valgomaten?
                         </DialogContentText>
                     </DialogContent>

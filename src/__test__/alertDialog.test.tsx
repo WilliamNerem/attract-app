@@ -32,6 +32,7 @@ describe('Alert Dialog render', () => {
             </Provider>
             );
         expect(getByTestId("progressAlertDialog"));
+        expect(getByTestId("progressDialogText")).toHaveTextContent('Er du sikker på at du vil avslutte valgomaten?');
     });
 
     it('should render alert dialog for when user finishes calgomat ', () => {
@@ -43,6 +44,6 @@ describe('Alert Dialog render', () => {
             </Provider>
         );
         expect(getByTestId("endAlertDialog"));
-        // expect(getByTestId("endAlertDialog")).toHaveTextContent('Er du sikker på at du vil fullføre valgomaten?');
+        expect(getByTestId("endDialogText")).toHaveTextContent('Er du sikker på at du vil fullføre valgomaten?');
     });
 });

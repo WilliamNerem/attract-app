@@ -2,7 +2,6 @@ import { Navbar } from "../components/molecule/navbar";
 import { ProgressBar } from "../components/atoms/progressbar";
 import { Questions } from "../components/atoms/questions";
 import { LikertScale } from "../components/atoms/likertScale";
-import { AlertDialogWrapper } from "../components/atoms/alertDialog";
 import * as React from "react";
 import { State, actionCreators } from "../redux";
 import { useSelector, useDispatch } from "react-redux";
@@ -18,6 +17,7 @@ import {useEffect, useState} from "react";
 import {InfoButton} from "../components/molecule/infoButton";
 import {ShowExplanation} from "../components/molecule/showExplanation";
 import Backdrop from "@mui/material/Backdrop";
+import {AlertDialog} from "../components/atoms/alertDialog";
 
 const Valgomat = () => {
     const dispatch = useDispatch();
@@ -86,7 +86,7 @@ const Valgomat = () => {
     }
     if (isShowAlertDialog) {
         return (
-            <AlertDialogWrapper end={false}/>
+            <AlertDialog end={false}/>
         )
     }
 
@@ -135,7 +135,7 @@ const Valgomat = () => {
             if (biggestTwo[0] !== biggestTwo[1]) {
                 return (
                     <>
-                        <AlertDialogWrapper end={true} totalPointsArray={totalPoints}/>
+                        <AlertDialog end={true} totalPointsArray={totalPoints}/>
                     </>
                 )
             } else {
