@@ -25,6 +25,7 @@ export const AlertDialog = ({
     const {increaseCounter, decreaseCounter, showAlertDialog} = bindActionCreators(actionCreators, dispatch);
     const [update, setUpdate] = useState(false);
     const counter = useSelector((state: State) => state.questionCounter);
+    const isInfo = useSelector((state: State) => state.isInfoClicked);
 
     const handleClose = () => {
         if (counter === 0) {
@@ -86,9 +87,7 @@ export const AlertDialog = ({
                     </DialogContent>
                     <DialogActions>
                         <a className='alertButton' onClick={handleClose}>Nei</a>
-                        <a className='alertButton' href="/">
-                            Ja
-                        </a>
+                        {isInfo ? <a className='alertButton' href='/info'>Ja</a> : <a className='alertButton' href='/'>Ja</a>}
                     </DialogActions>
                 </Dialog>
             </div>
