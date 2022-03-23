@@ -45,7 +45,7 @@ export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => 
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    {"Avslutte valgomaten?"}
+                    {"Fullføre valgomaten?"}
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">

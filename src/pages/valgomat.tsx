@@ -124,6 +124,7 @@ const Valgomat = () => {
         }
 
         if (counter > QuestionsData().length) {
+            const dynamicCounter = QuestionsData().length + 2;
             let totalPoints: number[] = [];
             let departmentPointsArray: number[] = [];
 
@@ -136,7 +137,7 @@ const Valgomat = () => {
             const biggestTwoTotal = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
             const biggestTwoDepartmentPoints = departmentPointsArray.slice().sort((a, b) => b - a).slice(0, 2);
 
-            if (counter === 10){
+            if (counter === dynamicCounter){
                 return (
                     <Result totalPointsArray={totalPoints}/>
                 )
