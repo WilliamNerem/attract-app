@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
 import Home from "./pages/home";
 import Valgomat from "./pages/valgomat";
 import Info from "./pages/info";
