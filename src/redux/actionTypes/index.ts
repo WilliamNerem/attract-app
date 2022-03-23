@@ -45,3 +45,7 @@ export enum ValgomatInProgressActionType {
 export enum ShowAlertDialogActionType {
     SHOWALERTDIALOG = 'showAlertDialog'
 }
+
+export enum IsInfoClickedActionType {
+    ISINFOCLICKED = 'isInfoClicked'
+}
