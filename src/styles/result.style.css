@@ -9,82 +9,88 @@
 
 .gradientDiv{
     height: 300px;
-    padding-top: 100px;
+    padding-top: 75px;
     background-image: url("../images/Accenture_Gradient1.jpg");
     background-size: cover;
 }
 
 .resultText{
     color: white;
+    font-family: "Graphik Semibold", Arial, sans-serif;
 }
 
 div.singlePallet{
-    width: 50px;
+    width: 82px;
     position: absolute;
     display: inline-block;
 }
 
 #first{
-    left: 51px;
+    left: 88px;
     bottom: 0;
+    text-align: center;
+}
+
+#first .singlePalletDiv{
+    height: 66px;
 }
 
 #second{
-    left: 0;
+    left: 5px;
     bottom: 0;
+    text-align: left;
 }
 
 #second .singlePalletDiv{
+    height: 33px;
     margin-right: 1px;
 }
 
 #third{
     right: 0;
     bottom: 0;
+    text-align: center;
 }
 
 #third .singlePalletDiv{
+    height: 0;
     margin-left: 1px;
 }
 
 .singlePalletPlacement{
     margin: 0;
     color: white;
+    font-family: "Graphik Black", Arial, sans-serif;
 }
 
 .singlePalletDiv{
     background-color: white;
-    width: 50px;
+    width: 82px;
     transition: all 0.5s ease-out;
+    margin-bottom: 5px
 }
 
-.singlePallet:hover .hoverPlacement{
-    display: contents;
-    transition: all 0.5s ease-out;
+.palletPlacement{
+    background: white;
+    color: black;
+    mix-blend-mode: screen;
+    font-size: 2em;
+    text-align: center;
 }
-
-.singlePallet:hover .nonHoverPlacement{
-    display: none;
-    transition: all 0.5s ease-out;
-}
-
-.singlePallet:hover .singlePalletDiv{
-    height: 100px !important;
-}
-
-.hoverPlacement{
-    transition: all 0.5s ease-out;
-    display: none;
+h3 {
+    font-size: 0.88em;
+    padding-bottom: 5px;
 }
 
 .percent{
     color: white;
     margin: 0;
+    text-align: center;
 }
 
 .pallet{
-    height: 146px;
-    width: 151px;
+    height: 169px;
+    width: 253px;
     position: relative;
     display: inline-block;
 }
@@ -92,6 +98,86 @@ div.singlePallet{
 .btn{
     bottom: 2em;
     margin: 3em auto 3em auto;
+    border: 4px solid #a100ff;
+    border-radius: 3rem;
+    color: #a100ff;
+    padding: 8px 16px;
+    font: 18px "Graphik Medium", Arial, sans-serif;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+
+.wrapper{
+    height: 1050px;
+    overflow: hidden;
+}
+
+.carousel{
+    position: relative;
+    height: 450px;
+}
+
+.leftCard{
+    position: absolute;
     left: 0;
     right: 0;
+    transform:scale(0.6) translateX(-110vw);
+    transition: .7s ease-in;
+    z-index: 1;
+}
+
+.middleCard{
+    position: absolute;
+    left: 0;
+    right: 0;
+    transition: .7s ease-in;
+    z-index: 3;
+}
+
+.rightCard{
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform:scale(0.6) translateX(110vw);
+    transition: .7s ease-in;
+    z-index: 1;
+}
+
+.rightArrow{
+    position: absolute;
+    background: url("../Icons/accenture_arrow_right.png") no-repeat center;
+    top: 10px;
+    display: block;
+    width: 21px;
+    height: 30px;
+    background-size: 21px 30px;
+    right: 2vw;
+    z-index: 5;
+}
+
+.rightArrow:active{
+    background: url("../Icons/accenture_arrow_right_active.png") no-repeat center;
+    background-size: 21px 30px;
+}
+
+.leftArrow{
+    position: absolute;
+    top: 10px;
+    background: url("../Icons/accenture_arrow_left.png") no-repeat center;
+    display: block;
+    width: 21px;
+    height: 30px;
+    background-size: 21px 30px;
+    left: 2vw;
+    z-index: 5;
+}
+
+.leftArrow:active{
+    background: url("../Icons/accenture_arrow_left_active.png") no-repeat center;
+    background-size: 21px 30px;
+}
+
+.disabledButtons{
+    pointer-events: none;
 }

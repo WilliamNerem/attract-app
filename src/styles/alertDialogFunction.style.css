@@ -1,11 +1,27 @@
 .alertButton{
     text-decoration: none;
     text-transform: uppercase;
-    color: white;
     width: 60px;
-    background-color: #a100ff;
-    border-radius: 5px;
+    background-color: white;
+    border: 4px solid #a100ff;
+    color: #a100ff;
+    border-radius: 3rem;
     padding: 10px;
     text-align: center;
-    font-weight: bold;
+    font: 18px "Graphik Medium", Arial, sans-serif;
+    transition: all 0.3s;
+}
+
+.alertButton:active {
+    border: 4px solid #7500c0;
+    color: white;
+    background-color: #7500c0;
+}
+
+#alert-dialog-title {
+    font-family: "Graphik Black", Arial, sans-serif;
+}
+
+#alert-dialog-description {
+    font-family: "Graphik Regular", Arial, sans-serif;
 }

@@ -42,8 +42,9 @@ const Home = () => {
                         heading={'Valgomat'}
                         text={aboutValgomat}
                         subText={aboutValgomatSubText}
-                        linkText={'Gå til valgomaten'}
-                        link={'/valgomat'}
+                        linkText={'Les mer om hvordan valgomaten fungerer her'}
+                        link={'/info'}
+                        singlePageLink={true}
                     />
                 </div>
                 <div className='infoCards'>

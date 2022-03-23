@@ -1,7 +1,7 @@
 import {
     AlgorithmActionType,
     DepartmentsActionType,
-    InitializeStatementOrderActionType,
+    InitializeStatementOrderActionType, IsInfoClickedActionType,
     LikertActionType,
     QuestionActionType,
     ResetStatesActionType, ShowAlertDialogActionType,
@@ -11,7 +11,7 @@ import {Dispatch} from "redux";
 import {
     AlgorithmAction,
     DepartmentsAction,
-    InitializeStatementOrderAction,
+    InitializeStatementOrderAction, IsInfoClickedAction,
     LikertAction,
     QuestionAction, ShowAlertDialogAction,
     StatementOrderAction,
@@ -140,20 +140,34 @@ export const resetStates = () => {
     }
 };
 
-export const increaseStatementOrder = (id: number) => {
+export const increaseStatementOrder = (id: number, position: number) => {
     return (dispatch: Dispatch<StatementOrderAction>) => {
         dispatch({
             type: StatementOrderActionType.INCREASE,
-            payload: id
+            payload: {
+                id,
+                position
+            }
         })
     }
 };
 
-export const decreaseStatementOrder = (id: number) => {
+export const decreaseStatementOrder = (id: number, position: number) => {
     return (dispatch: Dispatch<StatementOrderAction>) => {
         dispatch({
             type: StatementOrderActionType.DECREASE,
-            payload: id
+            payload: {
+                id,
+                position
+            }
+        })
+    }
+};
+
+export const addStatementOrder = () => {
+    return (dispatch: Dispatch<StatementOrderAction>) => {
+        dispatch({
+            type: StatementOrderActionType.ADD
         })
     }
 };
@@ -210,6 +224,15 @@ export const showAlertDialog = (inAction: boolean) => {
     return (dispatch: Dispatch<ShowAlertDialogAction>) => {
         dispatch({
             type: ShowAlertDialogActionType.SHOWALERTDIALOG,
+            payload: inAction
+        })
+    }
+};
+
+export const isInfoClicked = (inAction: boolean) => {
+    return (dispatch: Dispatch<IsInfoClickedAction>) => {
+        dispatch({
+            type: IsInfoClickedActionType.ISINFOCLICKED,
             payload: inAction
         })
     }

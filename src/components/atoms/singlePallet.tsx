@@ -7,14 +7,24 @@ interface singlePalletProps {
 }
 
 export const SinglePallet = ({id, placement, percent}: singlePalletProps) => {
-    percent = Math.round(percent * 10) / 10;
+    percent = Math.round(percent);
+    let palletPlace;
+
+    if(id === 'first') {
+        palletPlace = 1;
+    } else if(id === 'second') {
+        palletPlace = 2;
+    }
+    else if(id === 'third') {
+        palletPlace = 3;
+    }
 
     return(
         <div id={id} className='singlePallet'>
-            <h3 className='singlePalletPlacement nonHoverPlacement'>{placement.charAt(0) + placement.charAt(1) + placement.charAt(2) + placement.charAt(3)}</h3>
-            <h3 className='singlePalletPlacement hoverPlacement'>{placement}</h3>
-            <div className='singlePalletDiv' style={{height: percent+'px'}}/>
-            <p className='percent'>{percent+'%'}</p>
+            <h3 className='singlePalletPlacement nonHoverPlacement'>{placement}</h3>
+            <div className='palletPlacement'>{palletPlace}</div>
+            <div className='singlePalletDiv'/>
+            <h4 className='percent'>{percent+'%'}</h4>
         </div>
     );
 };

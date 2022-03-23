@@ -24,7 +24,8 @@ export enum ResetStatesActionType {
 
 export enum StatementOrderActionType {
     INCREASE = 'increaseStatementOrder',
-    DECREASE = 'decreaseStatementOrder'
+    DECREASE = 'decreaseStatementOrder',
+    ADD = 'add'
 }
 
 export enum InitializeStatementOrderActionType {
@@ -43,4 +44,8 @@ export enum ValgomatInProgressActionType {
 
 export enum ShowAlertDialogActionType {
     SHOWALERTDIALOG = 'showAlertDialog'
+}
+
+export enum IsInfoClickedActionType {
+    ISINFOCLICKED = 'isInfoClicked'
 }

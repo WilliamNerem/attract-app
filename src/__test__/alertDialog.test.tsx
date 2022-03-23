@@ -4,6 +4,7 @@ import { render, cleanup } from "@testing-library/react";
 import {AlertDialog} from "../components/atoms/alertDialog";
 import {Provider} from "react-redux";
 import {store} from "../redux";
+import {BrowserRouter as Router} from "react-router-dom";
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"
 afterEach(cleanup);
@@ -14,18 +15,34 @@ describe('Alert Dialog render', () => {
         const div = document.createElement("div");
         ReactDOM.render(
             <Provider store={store}>
-                <AlertDialog end={false} totalPointsArray={[1, 2, 3]}/>
+                <Router>
+                    <AlertDialog end={false} totalPointsArray={[1, 2, 3]}/>
+                </Router>
             </Provider>
             , div
         );
     });
 
-    it('should render button with text', () => {
+    it('should render alert dialog for when user clicks home while in progress ', () => {
         const { getByTestId } = render(
             <Provider store={store}>
-                <AlertDialog end={false} />
+                <Router>
+                    <AlertDialog end={false} />
+                </Router>
             </Provider>
             );
         expect(getByTestId("progressAlertDialog"));
+    });
+
+    it('should render alert dialog for when user finishes calgomat ', () => {
+        const { getByTestId } = render(
+            <Provider store={store}>
+                <Router>
+                    <AlertDialog end={true} />
+                </Router>
+            </Provider>
+        );
+        expect(getByTestId("endAlertDialog"));
+        // expect(getByTestId("endAlertDialog")).toHaveTextContent('Er du sikker på at du vil fullføre valgomaten?');
     });
 });
