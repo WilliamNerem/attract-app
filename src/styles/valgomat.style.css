@@ -5,25 +5,24 @@
 .questionNumber{
     text-align: center;
     margin-top: 0;
-    padding-top: 50px;
+    padding-top: 30px;
     font-family: "Graphik Semibold", Arial, sans-serif;
 }
 
 .valgomatQuestion{
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
     width: 90vw;
     margin-left: auto;
     margin-right: auto;
 }
 
 .valgomat {
-    min-height: 80vh;
-    height: auto;
+    min-height: 70vh;
 }
 
 .statementOrderMargin{
-    margin-top: 65px;
+    margin-top: 5rem;
 }
 
 .initializeTransition{
@@ -44,20 +43,28 @@
     display: block;
     position: absolute;
     left: 80vw;
-    top: 3.5rem;
-    background-image: url("../Icons/accenture_info.png");
+    top: 2rem;
+    background-image: url("../Icons/accenture_info.svg");
     width: 30px;
     height: 30px;
+    background-size: 30px 30px;
 }
 
 .infoButton:active{
     display: block;
     position: absolute;
     right: 2rem;
-    top: 3.5rem;
-    background-image: url("../Icons/accenture_info_active.png");
+    top: 2rem;
+    background-image: url("../Icons/accenture_info_active.svg");
     width: 30px;
     height: 30px;
+    background-size: 30px 30px;
+}
+
+@media (max-height: 745px) {
+    .statementOrderMargin{
+        margin-top: 1rem;
+    }
 }
 
 .dynamicFooter{
@@ -74,15 +81,24 @@
 }
 
 .dynamicQuestion{
-    min-height: 80vh;
+    min-height: 70vh;
 }
 
-.dynamicButtonDiv{
-    position: relative;
-    width: 90%;
+.dynamicButtonDivOne{
+    position: absolute;
+    width: 90vw;
     border: 1px solid #ccc;
     padding: 30px 0;
-    margin: 90px 0 0 5%;
+    margin: 60px 0 0 5%;
+}
+
+.dynamicButtonDivTwo{
+    position: absolute;
+    top: 300px;
+    width: 90vw;
+    border: 1px solid #ccc;
+    padding: 30px 0;
+    margin: 20px 0 0 5%;
 }
 
 .dynamicButton{
@@ -111,10 +127,6 @@
 .dynamicButton:active{
     transform: translateY(-5px) translateX(-5px);
     transition: linear .2s;
-}
-
-.dynamicQuestionHeader{
-    text-align: center;
 }
 
 .dynamicText{

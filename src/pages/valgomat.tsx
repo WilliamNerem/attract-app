@@ -159,6 +159,7 @@ const Valgomat = () => {
                             {startTransition((style) =>
                                 <animated.div style={style} className={className}>
                                     <h1 className='questionNumber'>Spørsmål {counter}</h1>
+                                    <p className='valgomatQuestion'>Trykk på den påstanden som passer best</p>
                                     <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
                                 </animated.div>
                             )}

@@ -81,14 +81,13 @@ export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => 
     return(
         <div className={'dynamicQuestion'}>
             {alert}
-            <p className='dynamicQuestionHeader'>Trykk på den påstanden som passer best</p>
-            <div className='dynamicButtonDiv'>
+            <div className='dynamicButtonDivOne'>
                 <p className='dynamicText'>{statement1}</p>
                 <div className='dynamicButtonWrapper'>
                     <button className='dynamicButton' onClick={() => showAlert(department1)}>VELG</button>
                 </div>
             </div>
-            <div className='dynamicButtonDiv'>
+            <div className='dynamicButtonDivTwo'>
                 <p className='dynamicText'>{statement2}</p>
                 <div className='dynamicButtonWrapper'>
                     <button className='dynamicButton' onClick={() => showAlert(department2)}>VELG</button>
