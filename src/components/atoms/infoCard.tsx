@@ -1,32 +1,29 @@
 import React, {useEffect, useState} from "react";
 import '../../styles/infoCard.style.css';
+import {Link} from "react-router-dom";
 
 interface infoCardProps {
     heading: string
     subHeading?: string
     link?: string
-    text?: string
+    text: string
     subText?: string
     linkText?: string
     isDropdown?: boolean
     exampleImage?: string
-    hasButton?: boolean
-    department?: string
-    handleClick?: Function
+    singlePageLink?: boolean
 }
 
 export const InfoCard = ({
-    heading,
-    subHeading,
-    link,
-    text,
-    subText,
-    linkText,
-    isDropdown,
-    exampleImage,
-    hasButton,
-    department,
-    handleClick
+     heading,
+     subHeading,
+     link,
+     text,
+     subText,
+     linkText,
+     isDropdown,
+     exampleImage,
+     singlePageLink
 }: infoCardProps) => {
     const [className, setClassName] = useState('');
     const [iconClassName, setIconClassName] = useState('');
@@ -58,8 +55,11 @@ export const InfoCard = ({
             <h2 className={'infoCardSubHeading'}>{subHeading}</h2>
             <div className={exampleImage}/>
             <p className={'infoCardText'}>{subText}</p>
-            {link && <a href={link} target="_blank" rel="noopener noreferrer">{linkText ? linkText : link.toString()}</a>}
-            {hasButton && handleClick !== undefined ? <div className='dynamicButtonDiv'><button className='dynamicButton' onClick={() => handleClick(department)}>VELG</button></div> : ''}
+            {link && (
+                singlePageLink ?
+                    <Link to={link}>{linkText ? linkText : link.toString()}</Link> :
+                    <a href={link} target={'_blank'} rel="noopener noreferrer">{linkText ? linkText : link.toString()}</a>
+            )}
         </div>
     );
 };
