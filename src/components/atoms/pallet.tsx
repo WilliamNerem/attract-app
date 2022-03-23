@@ -6,7 +6,6 @@ interface palletProps {
     totalPointsArray: number[]
 }
 
-
 export const Pallet = ({totalPointsArray}: palletProps) => { // Strat is 0, tech is 1, inter is 2
     const sortedArr = totalPointsArray.slice().sort((a, b) => b - a).slice(0,3);
     const maximumPoints = 12;

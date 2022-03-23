@@ -8,10 +8,12 @@ import { initializeStatementOrderReducer } from "./initializeStatementOrder";
 import {departmentsReducer, initialState as initDepartments} from "./departments";
 import {valgomatInProgressReducer} from "./valgomatInProgress";
 import { showAlertDialogReducer } from "./showAlertDialog";
+import {isInfoClickedReducer} from "./isInfoClicked";
 
 const reducers = combineReducers({
     valgomatInProgress: valgomatInProgressReducer,
     showAlertDialog: showAlertDialogReducer,
+    isInfoClicked: isInfoClickedReducer,
     questionCounter: questionCounterReducer,
     likertAnswer: likertAnswerReducer,
     characteristicPoints: algorithmReducer,

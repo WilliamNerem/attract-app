@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
 import '../../styles/valgomat.style.css'
-import {useDispatch, useSelector} from "react-redux";
-import {actionCreators, State} from "../../redux";
+import {useDispatch} from "react-redux";
+import {actionCreators} from "../../redux";
 import {bindActionCreators} from "redux";
-import {Result} from "../organisms/result";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogActions from "@mui/material/DialogActions";
 
 
 interface DynamicQuestionProps {
@@ -13,10 +17,9 @@ interface DynamicQuestionProps {
 
 export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => {
     const dispatch = useDispatch();
-    const departmentsArray = useSelector((state: State) => state.departmentsAlgorithm);
-    const { technologyPoints, strategyAndConsultingPoints, interactivePoints, decreaseCounter } = bindActionCreators(actionCreators, dispatch);
-    let pointsArray: number[] = [];
+    const { technologyPoints, strategyAndConsultingPoints, interactivePoints, increaseCounter } = bindActionCreators(actionCreators, dispatch);
     const [update, setUpdate] = useState(false);
+    const [alert, setAlert] = useState(<></>);
 
     let statement1 = '';
     let statement2 = '';
@@ -24,26 +27,39 @@ export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => 
     let department2 = '';
 
     const handleClick = (department: string) => {
-        if (department === 'strategyAndConsulting'){
+        if (department === 'strategyAndConsulting') {
             strategyAndConsultingPoints(1);
-        } else if(department === 'technology'){
+        } else if (department === 'technology') {
             technologyPoints(1);
         } else {
             interactivePoints(1);
         }
-        setUpdate(true);
+        increaseCounter();
     };
 
-    if(update) { // Then one of the buttons has been pushed and we rerender DynamicQuestion
-        departmentsArray.map((differenceCharacteristic, index) => {
-            pointsArray[index] = departmentsArray[index].points;
-        });
-        return (
-            <>
-                <Result totalPointsArray={pointsArray}/>
-            </>
-        )
-    }
+    const showAlert = (department: string) => {
+        setAlert(<div>
+            <Dialog
+                open={true}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">
+                    {"Avslutte valgomaten?"}
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        Er du sikker på at du vil fullføre valgomaten?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <a className='alertButton' onClick={() => setAlert(<></>)}>Nei</a>
+                    <a className='alertButton' onClick={() => {handleClick(department)}}>Ja</a>
+                </DialogActions>
+            </Dialog>
+        </div>);
+        setUpdate(!update);
+    };
 
     if (firstDep + secondDep === 3) { //Then we know it's tech vs interactive
         statement1 = 'Det viktigste for meg er at produktet fungerer godt ved hjelp av en smart teknisk løsning';
@@ -64,16 +80,19 @@ export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => 
 
     return(
         <div className={'dynamicQuestion'}>
-            Trykk på den påstanden som passer best
-            <div className='infoCardDivider'/>
+            {alert}
+            <p className='dynamicQuestionHeader'>Trykk på den påstanden som passer best</p>
             <div className='dynamicButtonDiv'>
+                <p className='dynamicText'>{statement1}</p>
                 <div className='dynamicButtonWrapper'>
-                    <button className='dynamicButton' onClick={() => handleClick(department1)}>VELG</button>
+                    <button className='dynamicButton' onClick={() => showAlert(department1)}>VELG</button>
                 </div>
             </div>
-            <div className='infoCardDivider'/>
             <div className='dynamicButtonDiv'>
-                <button className='dynamicButton' onClick={() => handleClick(department2)}>VELG</button>
+                <p className='dynamicText'>{statement2}</p>
+                <div className='dynamicButtonWrapper'>
+                    <button className='dynamicButton' onClick={() => showAlert(department2)}>VELG</button>
+                </div>
             </div>
         </div>
     );

@@ -50,6 +50,7 @@ export const QuestionsData = () => {
     return [
         {
             questionNumber: 1,
+            questionType: 'likertScale',
             questionTxt: "Jeg liker å planlegge godt når jeg jobber med oppgaver",
             progress: 13,
             characteristic: practical,
@@ -58,6 +59,7 @@ export const QuestionsData = () => {
         },
         {
             questionNumber: 2,
+            questionType: 'likertScale',
             questionTxt: "Jeg liker å skape ting og jobbe med et produkt jeg kan se",
             progress: 25,
             characteristic: practical,
@@ -66,6 +68,7 @@ export const QuestionsData = () => {
         },
         {
             questionNumber: 3,
+            questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 38,
             characteristic: social,
@@ -75,6 +78,7 @@ export const QuestionsData = () => {
         },
         {
             questionNumber: 4,
+            questionType: 'likertScale',
             questionTxt: "Jeg jobber best med oppgaver alene",
             progress: 50,
             characteristic: social,
@@ -83,6 +87,7 @@ export const QuestionsData = () => {
         },
         {
             questionNumber: 5,
+            questionType: 'likertScale',
             questionTxt: "Jeg er flink til å tenke utenfor boksen og komme opp med nye løsninger",
             progress: 63,
             characteristic: creative,
@@ -91,6 +96,7 @@ export const QuestionsData = () => {
         },
         {
             questionNumber: 6,
+            questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 75,
             characteristic: social,
@@ -100,6 +106,7 @@ export const QuestionsData = () => {
         },
         {
             questionNumber: 7,
+            questionType: 'likertScale',
             questionTxt: "Jeg liker å jobbe innenfor klare rammer så jeg vet hva jeg skal gjøre",
             progress: 88,
             characteristic: creative,
@@ -108,6 +115,7 @@ export const QuestionsData = () => {
         },
         {
             questionNumber: 8,
+            questionType: 'likertScale',
             questionTxt: "Jeg er god til å prate for meg selv",
             progress: 100,
             characteristic: social,

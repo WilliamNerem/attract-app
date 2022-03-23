@@ -13,7 +13,7 @@
     display: inline-block;
     width: 100%;
     border-bottom: .06em solid #e3e3e3;
-    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 -2px 8px;
     z-index: 10;
     position: fixed;
     background-color: white;
@@ -59,9 +59,10 @@ a.hamburgerItemLinkActive:hover, a.hamburgerItemLinkActive:active {
 }
 
 .hamburgerItems{
-    position: absolute;
+    position: fixed;
     right: 0;
     margin-top: 3px;
     background-color: white;
     font: 16px "Graphik Semibold", Arial, sans-serif;
+    overflow: hidden;
 }
