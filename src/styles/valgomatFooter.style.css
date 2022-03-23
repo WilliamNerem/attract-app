@@ -1,3 +1,5 @@
 .valgomatFooter{
+    position: absolute;
+    bottom: 0;
     height: 13.5vh;
 }
