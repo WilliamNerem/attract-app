@@ -9,7 +9,7 @@
 
 .gradientDiv{
     height: 300px;
-    padding-top: 100px;
+    padding-top: 75px;
     background-image: url("../images/Accenture_Gradient1.jpg");
     background-size: cover;
 }
@@ -20,31 +20,40 @@
 }
 
 div.singlePallet{
-    width: 50px;
+    width: 82px;
     position: absolute;
     display: inline-block;
 }
 
 #first{
-    left: 51px;
+    left: 88px;
     bottom: 0;
+    text-align: center;
+}
+
+#first .singlePalletDiv{
+    height: 66px;
 }
 
 #second{
-    left: 0;
+    left: 5px;
     bottom: 0;
+    text-align: left;
 }
 
 #second .singlePalletDiv{
+    height: 33px;
     margin-right: 1px;
 }
 
 #third{
     right: 0;
     bottom: 0;
+    text-align: center;
 }
 
 #third .singlePalletDiv{
+    height: 0;
     margin-left: 1px;
 }
 
@@ -56,37 +65,32 @@ div.singlePallet{
 
 .singlePalletDiv{
     background-color: white;
-    width: 50px;
+    width: 82px;
     transition: all 0.5s ease-out;
+    margin-bottom: 5px
 }
 
-.singlePallet:hover .hoverPlacement{
-    display: contents;
-    transition: all 0.5s ease-out;
+.palletPlacement{
+    background: white;
+    color: black;
+    mix-blend-mode: screen;
+    font-size: 2em;
+    text-align: center;
 }
-
-.singlePallet:hover .nonHoverPlacement{
-    display: none;
-    transition: all 0.5s ease-out;
-}
-
-.singlePallet:hover .singlePalletDiv{
-    height: 100px !important;
-}
-
-.hoverPlacement{
-    transition: all 0.5s ease-out;
-    display: none;
+h3 {
+    font-size: 0.88em;
+    padding-bottom: 5px;
 }
 
 .percent{
     color: white;
     margin: 0;
+    text-align: center;
 }
 
 .pallet{
-    height: 146px;
-    width: 151px;
+    height: 169px;
+    width: 253px;
     position: relative;
     display: inline-block;
 }
@@ -102,6 +106,7 @@ div.singlePallet{
     background-color: white;
     transition: all 0.3s;
 }
+
 
 .wrapper{
     height: 1050px;

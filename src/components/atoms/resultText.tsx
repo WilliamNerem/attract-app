@@ -23,6 +23,6 @@ export const ResultText = ({result}: resultTextProps) => {
     }
 
     return(
-        <h2 className='resultText'>Du er dum!</h2>
+        <h2 className='resultText'>Du er unik!!</h2>
     );
 };
