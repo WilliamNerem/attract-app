@@ -124,23 +124,25 @@ const Valgomat = () => {
 
         if (counter === QuestionsData().length + 1) {
             let totalPoints: number[] = [];
+            let departmentPointsArray: number[] = [];
 
             userDifferences.map((differenceCharacteristic, index) => {
-                const departmentPoints = departmentsArray[index].points;
+                const departmentPoints = departmentPointsArray[index] = departmentsArray[index].points;  // Setting departmentPoints and the new array together
                 const characteristicPoints = (differenceCharacteristic * (3 / departments[index].possibleDifference));
                 totalPoints = [...totalPoints, departmentPoints - characteristicPoints];
             });
 
-            const biggestTwo = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
-            if (biggestTwo[0] !== biggestTwo[1]) {
+            const biggestTwoTotal = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
+            const biggestTwoDepartmentPoints = departmentPointsArray.slice().sort((a, b) => b - a).slice(0, 2);
+            if (biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) {   // Check if number 1 has the same points as number 2 department
                 return (
                     <>
                         <AlertDialog end={true} totalPointsArray={totalPoints}/>
                     </>
                 )
             } else {
-                const firstDep = totalPoints.indexOf(biggestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
-                const secondDep = totalPoints.lastIndexOf(biggestTwo[1]); // lastIndexOf starts backwards
+                const firstDep = totalPoints.indexOf(biggestTwoTotal[0]); // Here we know that strat is 0, tech is 1, interactive is 2
+                const secondDep = totalPoints.lastIndexOf(biggestTwoTotal[1]); // lastIndexOf starts backwards
                 return (
                     <>
                         <Navbar/>
