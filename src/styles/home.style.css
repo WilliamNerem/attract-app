@@ -27,7 +27,7 @@
     position: relative;
     border-radius: 9px;
     border: 2px solid #05f0a5;
-    width: 170px;
+    width: 200px;
     height: 50px;
     text-align: center;
     margin: auto;
@@ -39,7 +39,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
-    width: 165px;
+    width: 195px;
     height: 45px;
     line-height: 45px;
     background-color: #05f0a5;
