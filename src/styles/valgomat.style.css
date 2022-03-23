@@ -5,13 +5,13 @@
 .questionNumber{
     text-align: center;
     margin-top: 0;
-    padding-top: 50px;
+    padding-top: 30px;
     font-family: "Graphik Semibold", Arial, sans-serif;
 }
 
 .valgomatQuestion{
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
     width: 90vw;
     margin-left: auto;
     margin-right: auto;
@@ -21,12 +21,12 @@
 }
 
 .valgomat {
-    min-height: 80vh;
+    min-height: 75vh;
     height: auto;
 }
 
 .statementOrderMargin{
-    margin-top: 65px;
+    margin-top: 5rem;
 }
 
 .initializeTransition{
@@ -47,7 +47,7 @@
     display: block;
     position: absolute;
     left: 80vw;
-    top: 3.5rem;
+    top: 2rem;
     background-image: url("../Icons/accenture_info.svg");
     width: 30px;
     height: 30px;
@@ -63,4 +63,10 @@
     width: 30px;
     height: 30px;
     background-size: 30px 30px;
+}
+
+@media (max-height: 745px) {
+    .statementOrderMargin{
+        margin-top: 1rem;
+    }
 }
