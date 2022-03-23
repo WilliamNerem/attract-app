@@ -30,7 +30,7 @@ const Info = () => {
                         med kunden leverer vi innovative løsninger som bidrar til verdiskaping både for bedrifter og samfunnet. Vi
                         satser stort innenfor skyløsninger, digital infrastruktur, digitalisering og prosessautomatisering. Vi arbeider
                         med store plattformer som SAP, Oracle og Salesforce, kombinert med et tydelig fokus på nye områder som
-                        kunstig intelligens. Technology hjelper kunden med å avdekke behov, lage funksjonell og teknisk design,
+                        kunstig intelligens.Technology hjelper kunden med å avdekke behov, lage funksjonell og teknisk design,
                         bygge og teste løsninger, ofte med bruk av smidig metodikk. Vi har både tekniske og ikke-tekniske roller,
                         der vi jobber med alt fra drag-and-drop og flytdiagrammer til programmering og systemarkitektur. Dette gir
                         en variert hverdag der man får utfordre seg selv både kreativt og profesjonelt, samtidig som man får
