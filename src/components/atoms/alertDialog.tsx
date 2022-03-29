@@ -64,7 +64,7 @@ export const AlertDialog = ({
                     </DialogContent>
                     <DialogActions>
                         <a className='alertButton' onClick={() => handleDecrease()}>Nei</a>
-                        <a className='alertButton' onClick={() => {setUpdate(true)}}>Ja</a>
+                        <a data-testid={'yesButton'} className='alertButton' onClick={() => {setUpdate(true)}}>Ja</a>
                     </DialogActions>
                 </Dialog>
             </div>
