@@ -37,8 +37,8 @@ describe('Info card render', () => {
         const { container, getByTestId } = render(
             <InfoCard heading={'Heading'} text={'Text'} isDropdown={true}/>
         );
-        expect(container.getElementsByClassName('minimized').length).toBeTruthy();
+        expect(container.getElementsByClassName('minimized').length).toBe(1);
         fireEvent.click(getByTestId('infoCardDropdown'));
-        expect(container.getElementsByClassName('expanded').length).toBeTruthy();
+        expect(container.getElementsByClassName('expanded').length).toBe(1);
     });
 });
