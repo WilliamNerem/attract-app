@@ -1,26 +1,22 @@
 import React from 'react';
-import ReactDOM from "react-dom";
 import { render, cleanup } from "@testing-library/react";
 import {AlertDialog} from "../components/atoms/alertDialog";
 import {Provider} from "react-redux";
 import {store} from "../redux";
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"
+afterEach(cleanup);
 
 describe('Alert Dialog render', () => {
 
-afterEach(() => {
-    cleanup()
-})
-
     it('should render without crashing', () => {
-        const div = document.createElement("div");
-        ReactDOM.render(
+
+        render(
             <Provider store={store}>
-                <AlertDialog end={true} totalPointsArray={[1, 2, 3]}/>
+                <AlertDialog end={true} />
             </Provider>
-            , div
-        );
+        )
+
     });
 
     it('should render alert dialog for when user clicks home while in progress ', () => {
