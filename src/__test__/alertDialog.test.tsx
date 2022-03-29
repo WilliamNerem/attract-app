@@ -15,9 +15,7 @@ describe('Alert Dialog render', () => {
         const div = document.createElement("div");
         ReactDOM.render(
             <Provider store={store}>
-                <Router>
                     <AlertDialog end={false} totalPointsArray={[1, 2, 3]}/>
-                </Router>
             </Provider>
             , div
         );
@@ -35,12 +33,10 @@ describe('Alert Dialog render', () => {
         expect(getByTestId("progressDialogText")).toHaveTextContent('Er du sikker på at du vil avslutte valgomaten?');
     });
 
-    it('should render alert dialog for when user finishes calgomat ', () => {
+    it('should render alert dialog for when user finishes valgomat ', () => {
         const { getByTestId } = render(
             <Provider store={store}>
-                <Router>
                     <AlertDialog end={true} />
-                </Router>
             </Provider>
         );
         expect(getByTestId("endAlertDialog"));
