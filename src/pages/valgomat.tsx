@@ -2,6 +2,7 @@ import { Navbar } from "../components/molecule/navbar";
 import { ProgressBar } from "../components/atoms/progressbar";
 import { Questions } from "../components/atoms/questions";
 import { LikertScale } from "../components/atoms/likertScale";
+import { AlertDialog } from "../components/atoms/alertDialog";
 import * as React from "react";
 import { State, actionCreators } from "../redux";
 import { useSelector, useDispatch } from "react-redux";
@@ -17,7 +18,7 @@ import {useEffect, useState} from "react";
 import {InfoButton} from "../components/molecule/infoButton";
 import {ShowExplanation} from "../components/molecule/showExplanation";
 import Backdrop from "@mui/material/Backdrop";
-import {AlertDialog} from "../components/atoms/alertDialog";
+import {Result} from "../components/organisms/result";
 
 const Valgomat = () => {
     const dispatch = useDispatch();
@@ -122,31 +123,51 @@ const Valgomat = () => {
             )
         }
 
-        if (counter === QuestionsData().length + 1) {
+        if (counter > QuestionsData().length) {
+            const dynamicCounter = QuestionsData().length + 2;
             let totalPoints: number[] = [];
+            let departmentPointsArray: number[] = [];
 
             userDifferences.map((differenceCharacteristic, index) => {
-                const departmentPoints = departmentsArray[index].points;
+                const departmentPoints = departmentPointsArray[index] = departmentsArray[index].points;  // Setting departmentPoints and the new array together
                 const characteristicPoints = (differenceCharacteristic * (3 / departments[index].possibleDifference));
                 totalPoints = [...totalPoints, departmentPoints - characteristicPoints];
             });
 
-            const biggestTwo = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
-            if (biggestTwo[0] !== biggestTwo[1]) {
+            const biggestTwoTotal = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
+            const biggestTwoDepartmentPoints = departmentPointsArray.slice().sort((a, b) => b - a).slice(0, 2);
+
+            if (counter === dynamicCounter){
+                return (
+                    <Result totalPointsArray={totalPoints}/>
+                )
+            }
+
+            if (biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) {   // Check if number 1 has the same points as number 2 department
                 return (
                     <>
                         <AlertDialog end={true} totalPointsArray={totalPoints}/>
                     </>
                 )
             } else {
-                const firstDep = totalPoints.indexOf(biggestTwo[0]); // Here we know that strat is 0, tech is 1, interactive is 2
-                const secondDep = totalPoints.lastIndexOf(biggestTwo[1]); // lastIndexOf starts backwards
+                const firstDep = totalPoints.indexOf(biggestTwoTotal[0]); // Here we know that strat is 0, tech is 1, interactive is 2
+                const secondDep = totalPoints.lastIndexOf(biggestTwoTotal[1]); // lastIndexOf starts backwards
                 return (
                     <>
-                        <Navbar/>
-                        <h1 className='questionNumber'>Spørsmål {counter}</h1>
-                        <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
-                        <ProgressBar completed={100}/>
+                        <div className='bodyValgomat'>
+                            <Navbar/>
+                            {startTransition((style) =>
+                                <animated.div style={style} className={className}>
+                                    <h1 className='questionNumber'>Spørsmål {counter}</h1>
+                                    <p className='valgomatQuestion'>Trykk på den påstanden som passer best</p>
+                                    <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
+                                </animated.div>
+                            )}
+                            <div className='dynamicFooter'>
+                                <button className='valgomatButton' onClick={() => handleTransition(false)}>Forrige</button>
+                                <ProgressBar completed={100}/>
+                            </div>
+                        </div>
                     </>
                 )
             }
