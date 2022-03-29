@@ -20,13 +20,13 @@
 }
 
 div.singlePallet{
-    width: 82px;
+    width: 90px;
     position: absolute;
     display: inline-block;
 }
 
 #first{
-    left: 88px;
+    left: 96px;
     bottom: 0;
     text-align: center;
 }
@@ -38,7 +38,7 @@ div.singlePallet{
 #second{
     left: 5px;
     bottom: 0;
-    text-align: left;
+    text-align: center;
 }
 
 #second .singlePalletDiv{
@@ -65,7 +65,7 @@ div.singlePallet{
 
 .singlePalletDiv{
     background-color: white;
-    width: 82px;
+    width: 90px;
     transition: all 0.5s ease-out;
     margin-bottom: 5px
 }
@@ -91,7 +91,7 @@ h3 {
 
 .pallet{
     height: 169px;
-    width: 253px;
+    width: 277px;
     position: relative;
     display: inline-block;
 }
