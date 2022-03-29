@@ -73,7 +73,7 @@ export const StatementItem = ({index, positionInStatementOrder, position, questi
     }
 
     return(
-        <div className={'container'}>
+        <div className={'container'} data-testid={'statementItem'}>
             <div className={'orderNumber'}>
                 {position+1}.
             </div>
