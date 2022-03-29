@@ -4,18 +4,20 @@ import { render, cleanup } from "@testing-library/react";
 import {AlertDialog} from "../components/atoms/alertDialog";
 import {Provider} from "react-redux";
 import {store} from "../redux";
-import {BrowserRouter as Router} from "react-router-dom";
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"
-afterEach(cleanup);
 
 describe('Alert Dialog render', () => {
+
+afterEach(() => {
+    cleanup()
+})
 
     it('should render without crashing', () => {
         const div = document.createElement("div");
         ReactDOM.render(
             <Provider store={store}>
-                    <AlertDialog end={false} totalPointsArray={[1, 2, 3]}/>
+                <AlertDialog end={true} totalPointsArray={[1, 2, 3]}/>
             </Provider>
             , div
         );
@@ -24,9 +26,7 @@ describe('Alert Dialog render', () => {
     it('should render alert dialog for when user clicks home while in progress ', () => {
         const { getByTestId } = render(
             <Provider store={store}>
-                <Router>
-                    <AlertDialog end={false} />
-                </Router>
+                <AlertDialog end={false} />
             </Provider>
             );
         expect(getByTestId("progressAlertDialog"));
@@ -36,10 +36,11 @@ describe('Alert Dialog render', () => {
     it('should render alert dialog for when user finishes valgomat ', () => {
         const { getByTestId } = render(
             <Provider store={store}>
-                    <AlertDialog end={true} />
+                <AlertDialog end={true} />
             </Provider>
         );
         expect(getByTestId("endAlertDialog"));
         expect(getByTestId("endDialogText")).toHaveTextContent('Er du sikker på at du vil fullføre valgomaten?');
     });
+
 });
