@@ -45,7 +45,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
 
     if(questionNumber % 2 !== 0) {
     return(
-            <div className='likert'>
+            <div className='likert' data-testid={'likertScale'}>
                 <div className="likertScale">
                     <label className='likertLabel' htmlFor="stronglyDisagree"/>
                     <input
@@ -56,6 +56,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
                         value='1'
                         checked={handleChecked(1)}
                         onChange={() => handleChange(stronglyDisagree)}
+                        data-testid={'likertScaleStronglyDisagree'}
                     />
 
                     <label className='likertLabel' htmlFor="moderatelyDisagree"/>
@@ -87,6 +88,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
                         value='4'
                         checked={handleChecked(4)}
                         onChange={() => handleChange(moderatlyAgree)}
+                        data-testid={'likertScaleModeratelyAgree'}
                     />
                     <label className='likertLabel' htmlFor="stronglyAgree"/>
                     <input
