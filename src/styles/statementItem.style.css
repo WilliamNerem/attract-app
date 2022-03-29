@@ -80,3 +80,9 @@
 .orderNumber {
     margin: 1rem;
 }
+
+@media (max-height: 640px) {
+    .container{
+        margin: 0 auto;
+    }
+}

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import '../../styles/infoCard.style.css';
+import {Link} from "react-router-dom";
 
 interface infoCardProps {
     heading: string
@@ -22,10 +23,11 @@ export const InfoCard = ({
      linkText,
      isDropdown,
      exampleImage,
-    singlePageLink
+     singlePageLink
 }: infoCardProps) => {
     const [className, setClassName] = useState('');
     const [iconClassName, setIconClassName] = useState('');
+    const newLineText = text.split('¤').map((str) => <p>{str}</p>);
 
     useEffect(() => {
         if (isDropdown){
@@ -50,11 +52,15 @@ export const InfoCard = ({
                 <h1 className={'infoCardHeading'}>{heading}</h1>
                 <div className={iconClassName}/>
             </div>
-            <p className='infoCardText'>{text}</p>
+            <p className='infoCardText'>{newLineText}</p>
             <h2 className={'infoCardSubHeading'}>{subHeading}</h2>
             <div className={exampleImage}/>
             <p className={'infoCardText'}>{subText}</p>
-            {link && <a href={link} target={singlePageLink ? '' : '_blank'} rel="noopener noreferrer">{linkText ? linkText : link.toString()}</a>}
+            {link && (
+                singlePageLink ?
+                <Link to={link}>{linkText ? linkText : link.toString()}</Link> :
+                <a href={link} target={'_blank'} rel="noopener noreferrer">{linkText ? linkText : link.toString()}</a>
+            )}
         </div>
     );
 };
