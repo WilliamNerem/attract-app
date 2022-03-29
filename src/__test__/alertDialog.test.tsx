@@ -21,7 +21,6 @@ afterEach(() => {
             </Provider>
             , div
         );
-        div.remove();
     });
 
     it('should render alert dialog for when user clicks home while in progress ', () => {
