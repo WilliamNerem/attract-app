@@ -66,3 +66,23 @@ a {
     font-family: "Graphik Semibold", Arial, sans-serif;
     color: #0041f0;
 }
+
+.btn-goToSubDep {
+    position: absolute;
+    background-color: #000;
+    padding: .938rem .938rem;
+    font-size: .875rem;
+    line-height: 1rem;
+    border-radius: 0;
+    font-family: "Graphik Semibold", Arial, sans-serif;
+    color: #fff;
+    min-width: 13.4rem;
+    border: 0;
+}
+
+.btn-goToSubDep-wrapper {
+    display: inline-block;
+    background: #a7a7a7;
+    min-width: 13.4rem;
+    height: 50px;
+}
