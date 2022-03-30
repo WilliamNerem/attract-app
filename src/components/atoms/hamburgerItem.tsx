@@ -21,11 +21,11 @@ export const HamburgerItem = ({
     }
 
     return (
-        <>
+        <div data-testid={'hamburgerItem'}>
             {onClick
                 ? <Link onClick={onClick} className={className} to={link} >{itemText}</Link>
                 : <Link to={link} className={className} >{itemText}</Link>}
 
-        </>
+        </div>
     );
 };

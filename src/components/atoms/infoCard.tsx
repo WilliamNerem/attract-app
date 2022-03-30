@@ -47,8 +47,8 @@ export const InfoCard = ({
     };
 
     return(
-        <div className={className+' infoCard'}>
-            <div onClick={dropdown}>
+        <div className={className+' infoCard'} data-testid={'infoCard'}>
+            <div onClick={dropdown} data-testid={'infoCardDropdown'}>
                 <h1 className={'infoCardHeading'}>{heading}</h1>
                 <div className={iconClassName}/>
             </div>

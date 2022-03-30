@@ -2,7 +2,7 @@ import { Navbar } from "../components/molecule/navbar";
 import { ProgressBar } from "../components/atoms/progressbar";
 import { Questions } from "../components/atoms/questions";
 import { LikertScale } from "../components/atoms/likertScale";
-import { AlertDialog } from "../components/atoms/alertDialogFunction";
+import { AlertDialog } from "../components/atoms/alertDialog";
 import * as React from "react";
 import { State, actionCreators } from "../redux";
 import { useSelector, useDispatch } from "react-redux";

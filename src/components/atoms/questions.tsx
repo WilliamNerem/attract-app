@@ -10,7 +10,7 @@ export const Questions = ({
 }: QuestionsProps) => {
 
     return (
-        <div className="valgomatQuestion">
+        <div className="valgomatQuestion" data-testid={'questions'}>
             {questionTxt}
         </div>
     )

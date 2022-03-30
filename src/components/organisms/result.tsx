@@ -96,7 +96,7 @@ export const Result = ({totalPointsArray
     };
 
     return(
-        <div className='wrapper'>
+        <div data-testid={'resultComponent'} className='wrapper'>
             <Navbar/>
             <div className='result'>
                 <div className='gradientDiv'>

@@ -26,7 +26,7 @@ export const Pallet = ({totalPointsArray}: palletProps) => { // Strat is 0, tech
     };
 
     return(
-        <div className='pallet'>
+        <div className='pallet' data-testid={'palletTest'}>
             <SinglePallet id='second' placement={placement(1)} percent={percent(1)} />
             <SinglePallet id='first' placement={placement(0)} percent={percent(0)} />
             <SinglePallet id='third' placement={placement(2)} percent={percent(2)} />

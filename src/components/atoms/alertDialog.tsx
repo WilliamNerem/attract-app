@@ -47,7 +47,7 @@ export const AlertDialog = ({
 
     if (end) {
         return (
-            <div>
+            <div data-testid={'endAlertDialog'}>
                 <Dialog
                     open={true}
                     onClose={handleClose}
@@ -58,20 +58,20 @@ export const AlertDialog = ({
                         {"Fullføre valgomaten?"}
                     </DialogTitle>
                     <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
+                        <DialogContentText id="alert-dialog-description" data-testid={'endDialogText'}>
                             Er du sikker på at du vil fullføre valgomaten?
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
                         <a className='alertButton' onClick={() => handleDecrease()}>Nei</a>
-                        <a className='alertButton' onClick={() => {setUpdate(true)}}>Ja</a>
+                        <a data-testid={'yesButton'} className='alertButton' onClick={() => {setUpdate(true)}}>Ja</a>
                     </DialogActions>
                 </Dialog>
             </div>
         )
     } else {
         return (
-            <div>
+            <div data-testid={'progressAlertDialog'}>
                 <Dialog
                     open={true}
                     onClose={handleClose}
@@ -82,7 +82,7 @@ export const AlertDialog = ({
                         {"Avslutte valgomaten?"}
                     </DialogTitle>
                     <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
+                        <DialogContentText id="alert-dialog-description" data-testid={'progressDialogText'}>
                             Er du sikker på at du vil avslutte valgomaten?
                         </DialogContentText>
                     </DialogContent>
