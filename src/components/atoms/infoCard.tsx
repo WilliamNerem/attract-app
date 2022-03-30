@@ -61,6 +61,7 @@ export const InfoCard = ({
             {onButtonClick && (
                 <div className='btn-goToSubDep-wrapper'>
                     <button className={'btn-goToSubDep'} onClick={onButtonClick}>Mini Valgomat</button>
+                    <div className={'btn-goToSubDep-behind'} aria-hidden={true}>Mini Valgomat</div>
                 </div>
             )}
             {link && (
