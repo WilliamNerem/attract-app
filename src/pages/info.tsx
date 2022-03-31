@@ -78,6 +78,16 @@ const Info = () => {
                             isDropdown={true}
                         />
                     </div>
+                    <div className='infoCards'>
+                        <InfoCard
+                            heading='Bildevalg'
+                            text={'Bildevalg består av 3 bilder der du skal velge det bildet du føler passer deg mest. '+
+                            'Under ser du et eksempel på en besvarelse der personen foretrekker sykkel som transportmiddel.'}
+                            subHeading='Eksempel:'
+                            exampleImage='imageSelectionExampleImage'
+                            isDropdown={true}
+                        />
+                    </div>
                 </div>
             </div>
         </>

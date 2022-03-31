@@ -62,6 +62,12 @@
     background: url("../images/likert_eksempel.PNG") no-repeat center;
 }
 
+.imageSelectionExampleImage{
+    width: 272px;
+    height: 319px;
+    background: url("../images/bildevalg_eksempel.png") no-repeat center;
+}
+
 a {
     font-family: "Graphik Semibold", Arial, sans-serif;
     color: #0041f0;
