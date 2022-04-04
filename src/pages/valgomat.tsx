@@ -125,7 +125,6 @@ const Valgomat = () => {
 
         if (counter === 9 || counter === 10 || counter >= 20) { // Need to be updated if we increase part 1 questions
             const dynamicCounter = QuestionsData().length + 2;
-            console.log(QuestionsData().length + 2);
             let totalPoints: number[] = [];
             let departmentPointsArray: number[] = [];
 

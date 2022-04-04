@@ -71,7 +71,6 @@ export const ValgomatPartTwo = ({questionArray}: valgoMatPartTwoProps) => {
     };
 
     for (let questions of questionArray) {
-        console.log(questions);
         if (counter === questions.questionNumber) {
             return (
                 <div className='bodyValgomat'>
