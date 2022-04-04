@@ -1,20 +1,27 @@
 import {
     AlgorithmActionType,
     DepartmentsActionType,
-    InitializeStatementOrderActionType, IsInfoClickedActionType,
+    InitializeStatementOrderActionType, InteractiveSubdivisionActionType,
+    IsInfoClickedActionType,
     LikertActionType,
     QuestionActionType,
-    ResetStatesActionType, ShowAlertDialogActionType,
-    StatementOrderActionType, ValgomatInProgressActionType
+    ResetStatesActionType,
+    ShowAlertDialogActionType,
+    StatementOrderActionType,
+    StratSubdivisionActionType,
+    ValgomatInProgressActionType
 } from "../actionTypes";
 import {Dispatch} from "redux";
 import {
     AlgorithmAction,
     DepartmentsAction,
-    InitializeStatementOrderAction, IsInfoClickedAction,
+    InitializeStatementOrderAction, InteractiveSubDivisionActions,
+    IsInfoClickedAction,
     LikertAction,
-    QuestionAction, ShowAlertDialogAction,
+    QuestionAction,
+    ShowAlertDialogAction,
     StatementOrderAction,
+    StratSubDivisionActions,
     ValgomatInProgressAction
 } from "..";
 import {ResetStatesAction} from "../actions/resetStatesAction";
@@ -234,6 +241,78 @@ export const isInfoClicked = (inAction: boolean) => {
         dispatch({
             type: IsInfoClickedActionType.ISINFOCLICKED,
             payload: inAction
+        })
+    }
+};
+
+export const allocateStrat_CMTPoints = (points: number) => {
+    return (dispatch: Dispatch<StratSubDivisionActions>) => {
+        dispatch({
+            type: StratSubdivisionActionType.CMT,
+            payload: points
+        })
+    }
+};
+
+export const allocateStrat_FinancePoints = (points: number) => {
+    return (dispatch: Dispatch<StratSubDivisionActions>) => {
+        dispatch({
+            type: StratSubdivisionActionType.FINANCE,
+            payload: points
+        })
+    }
+};
+
+export const allocateStrat_Health_PublicPoints = (points: number) => {
+    return (dispatch: Dispatch<StratSubDivisionActions>) => {
+        dispatch({
+            type: StratSubdivisionActionType.HEALTH_PUBLIC,
+            payload: points
+        })
+    }
+};
+
+export const allocateStrat_ProductsPoints = (points: number) => {
+    return (dispatch: Dispatch<StratSubDivisionActions>) => {
+        dispatch({
+            type: StratSubdivisionActionType.PRODUCTS,
+            payload: points
+        })
+    }
+};
+
+export const allocateStrat_ResourcesPoints = (points: number) => {
+    return (dispatch: Dispatch<StratSubDivisionActions>) => {
+        dispatch({
+            type: StratSubdivisionActionType.RESOURCES,
+            payload: points
+        })
+    }
+};
+
+export const allocateInteractive_DesignPoints = (points: number) => {
+    return (dispatch: Dispatch<InteractiveSubDivisionActions>) => {
+        dispatch({
+            type: InteractiveSubdivisionActionType.DESIGN,
+            payload: points
+        })
+    }
+};
+
+export const allocateInteractive_BuildPoints = (points: number) => {
+    return (dispatch: Dispatch<InteractiveSubDivisionActions>) => {
+        dispatch({
+            type: InteractiveSubdivisionActionType.BUILD,
+            payload: points
+        })
+    }
+};
+
+export const allocateInteractive_CommunicationsPoints = (points: number) => {
+    return (dispatch: Dispatch<InteractiveSubDivisionActions>) => {
+        dispatch({
+            type: InteractiveSubdivisionActionType.COMMUNICATIONS,
+            payload: points
         })
     }
 };

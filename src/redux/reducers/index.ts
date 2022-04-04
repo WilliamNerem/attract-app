@@ -9,6 +9,8 @@ import {departmentsReducer, initialState as initDepartments} from "./departments
 import {valgomatInProgressReducer} from "./valgomatInProgress";
 import { showAlertDialogReducer } from "./showAlertDialog";
 import {isInfoClickedReducer} from "./isInfoClicked";
+import {stratSubdivisionReducer, initialState as initStratSubdivisions} from "./stratSubdivision";
+import {interactiveSubdivisionReducer, initialState as initInteractiveSubDivisions} from "./interactiveSubdivision";
 
 const reducers = combineReducers({
     valgomatInProgress: valgomatInProgressReducer,
@@ -20,6 +22,8 @@ const reducers = combineReducers({
     statementOrder: statementOrderReducer,
     initializeStatementOrder: initializeStatementOrderReducer,
     departmentsAlgorithm: departmentsReducer,
+    stratSubdivision: stratSubdivisionReducer,
+    interactiveSubdivision: interactiveSubdivisionReducer
 });
 
 const rootReducer = (state: any, action: any) => {
@@ -29,6 +33,12 @@ const rootReducer = (state: any, action: any) => {
         initDepartments.departmentArr[2].points = 0;
         initStatementOrder.statementOrderArr = [];
         state = undefined;
+    }
+    for (let i = 0; i < initStratSubdivisions.subdivisionArr.length; i++){
+        initStratSubdivisions.subdivisionArr[i].points = 0;
+    }
+    for (let i = 0; i < initInteractiveSubDivisions.subdivisionArr.length; i++){
+        initInteractiveSubDivisions.subdivisionArr[i].points = 0;
     }
 
     return reducers(state, action);
