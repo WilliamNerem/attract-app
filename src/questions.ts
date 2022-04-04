@@ -1,6 +1,7 @@
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
+import {social} from "./redux/actionCreators";
 
 export const QuestionsData = () => {
     const dispatch = useDispatch();
@@ -118,6 +119,75 @@ export const QuestionsData = () => {
             questionType: 'likertScale',
             questionTxt: "Jeg er god til å prate for meg selv",
             progress: 100,
+            characteristic: social,
+            isStatement: false,
+            isReversed: false
+        },
+    ];
+};
+
+export const QuestionsDataTech = () => {
+    return [
+        {
+            questionNumber: 21,
+            questionType: 'likertScale',
+            questionTxt: "Dette er første tech spørsmål",
+            progress: 13,
+            characteristic: social,
+            isStatement: false,
+            isReversed: true
+        },
+        {
+            questionNumber: 22,
+            questionType: 'likertScale',
+            questionTxt: "Dette er andre tech spørsmål",
+            progress: 25,
+            characteristic: social,
+            isStatement: false,
+            isReversed: false
+        },
+    ];
+};
+
+export const QuestionsDataSC = () => {
+    return [
+        {
+            questionNumber: 21,
+            questionType: 'likertScale',
+            questionTxt: "Dette er første S&C spørsmål",
+            progress: 13,
+            characteristic: social,
+            isStatement: false,
+            isReversed: true
+        },
+        {
+            questionNumber: 22,
+            questionType: 'likertScale',
+            questionTxt: "Dette er andre S&C spørsmål",
+            progress: 25,
+            characteristic: social,
+            isStatement: false,
+            isReversed: false
+        },
+    ];
+};
+
+export const QuestionsDataInteractive = () => {
+    return [
+        {
+            questionNumber: 21,
+            questionType: 'likertScale',
+            questionTxt: "Dette er første Interactive spørsmål",
+            progress: 13,
+            characteristic: social,
+            isStatement: false,
+            isReversed: true
+        },
+        {
+            questionNumber: 22,
+            questionType: 'likertScale',
+            questionTxt: "Dette er andre Interactive spørsmål",
+            progress: 25,
             characteristic: social,
             isStatement: false,
             isReversed: false
