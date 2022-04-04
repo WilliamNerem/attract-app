@@ -66,3 +66,43 @@ a {
     font-family: "Graphik Semibold", Arial, sans-serif;
     color: #0041f0;
 }
+
+.btn-goToSubDep {
+    background-color: #000;
+    padding: .938rem .938rem;
+    font-size: .875rem;
+    line-height: 1rem;
+    border-radius: 0;
+    font-family: "Graphik SemiBold", Arial, sans-serif;
+    color: #fff;
+    min-width: 13.4rem;
+    text-decoration: none;
+    text-transform: none;
+    text-align: center;
+    border: 0;
+    white-space: nowrap;
+    margin: .938rem .625rem;
+}
+
+.btn-goToSubDep-behind {
+    position: relative;
+    z-index: -1;
+    color: #a7a7a7;
+    background: #a7a7a7;
+    margin-top: -3.0625rem;
+    margin-left: .875rem;
+    margin-right: .35rem;
+    padding: .938em .938em;
+    font-size: .875em;
+    line-height: 1em;
+    width: 70%;
+}
+
+.btn-goToSubDep-wrapper {
+    position: relative;
+    z-index: 10;
+    border-radius: 0;
+    transition: all .3s ease-out;
+    display: block;
+    padding-bottom: 15px;
+}

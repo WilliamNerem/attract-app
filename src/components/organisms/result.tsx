@@ -95,6 +95,10 @@ export const Result = ({totalPointsArray
         setCarousel({first: first, second: second, third: third})
     };
 
+    const onButtonClick = (department: string) => {
+        console.log(department + ' is clicked');
+    }
+
     return(
         <div data-testid={'resultComponent'} className='wrapper'>
             <Navbar/>
@@ -112,6 +116,7 @@ export const Result = ({totalPointsArray
                             subHeading={'Veien videre'}
                             subText={information[0].infoSubText}
                             linkText={'Les mer om '+information[0].title}
+                            onButtonClick={() => onButtonClick(information[0].title)}
                         />
                     </div>
                     <div className={carousel.second+' middleCarouselItem'}>
@@ -122,6 +127,7 @@ export const Result = ({totalPointsArray
                             subHeading={'Veien videre'}
                             subText={'Neste steg er å bli kjent med '+result+'.'}
                             linkText={'Les mer om '+result}
+                            onButtonClick={() => onButtonClick(result)}
                         />
                     </div>
                     <div className={carousel.third+' rightCarouselItem'}>
@@ -132,6 +138,7 @@ export const Result = ({totalPointsArray
                             subHeading={'Veien videre'}
                             subText={information[1].infoSubText}
                             linkText={'Les mer om '+information[1].title}
+                            onButtonClick={() => onButtonClick(information[1].title)}
                         />
                     </div>
                     <a className={disabledButtons+' leftArrow'} onClick={handleLeftArrow} />
