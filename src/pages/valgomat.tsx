@@ -82,7 +82,6 @@ const Valgomat = () => {
             difference += Math.abs(dep.practical - (algoArray[2] + imageSelector[5].points));
             userDifferences.push(difference);
         }
-        console.log(userDifferences);
     };
     checkDepartment();
 
@@ -133,17 +132,11 @@ const Valgomat = () => {
             let totalPoints: number[] = [];
             let departmentPointsArray: number[] = [];
 
-            for (let i = 0; i < imageSelector.length; i++){
-
-            }
-
             userDifferences.map((differenceCharacteristic, index) => {
                 const departmentPoints = departmentPointsArray[index] = departmentsArray[index].points + imageSelector[index].points;  // Setting departmentPoints and the new array together
-                const imageSelectorDepartmentPoints = imageSelector[index].points;
                 const characteristicPoints = (differenceCharacteristic * (3 / departments[index].possibleDifference));
-                totalPoints = [...totalPoints, departmentPoints - characteristicPoints + imageSelectorDepartmentPoints];
+                totalPoints = [...totalPoints, departmentPoints - characteristicPoints];
             });
-            console.log(totalPoints);
 
             const biggestTwoTotal = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
             const biggestTwoDepartmentPoints = departmentPointsArray.slice().sort((a, b) => b - a).slice(0, 2);

@@ -1,4 +1,5 @@
 .imageSelection{
+    position: relative;
 }
 
 .imageSelectionItem{
@@ -76,9 +77,9 @@
     animation-fill-mode: forwards;
     transition: 0.5s ease-in-out;
 }
-#firstImageSelection:checked  ~ #imageSelectionSlider{ animation-name: firstImageSelection; top:180px; }
-#secondImageSelection:checked  ~ #imageSelectionSlider{ animation-name: secondImageSelection; top:339px; }
-#thirdImageSelection:checked  ~ #imageSelectionSlider{ animation-name: thirdImageSelection; top:498px; }
+#firstImageSelection:checked  ~ #imageSelectionSlider{ animation-name: firstImageSelection; top:42px; }
+#secondImageSelection:checked  ~ #imageSelectionSlider{ animation-name: secondImageSelection; top:201px; }
+#thirdImageSelection:checked  ~ #imageSelectionSlider{ animation-name: thirdImageSelection; top:360px; }
 
 @keyframes firstImageSelection{ 30%, 70% { transform: scale(0.7); } }
 @keyframes secondImageSelection{ 30%, 70% { transform: scale(0.7); } }
