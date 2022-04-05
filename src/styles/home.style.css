@@ -42,12 +42,20 @@
     width: 195px;
     height: 45px;
     line-height: 45px;
-    background-color: #05f0a5;
+    background-color: #05ffb2;
     text-decoration: none;
     text-align: center;
-    color: white;
-    font-weight: bold;
     font-family: "Graphik Black", Arial, sans-serif;
+    /*
+    hvit tekst med border
+     */
+    color: white;
+    -webkit-text-stroke: 1px darkgreen;
+    /*
+    lilla tekst
+    color: #a100ff;
+     */
+    font-size: 17px;
 }
 
 .bottomSpace{
