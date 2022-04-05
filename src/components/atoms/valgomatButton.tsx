@@ -11,7 +11,7 @@ export const ValgomatButton = ({nextTransition}: valgomatButtonProps) => {
     const counter = useSelector((state: State) => state.questionCounter);
     let lastText = 'Forrige';
     if (counter === 1){
-        lastText = 'Tilbake';
+        lastText = 'Hjem';
     }
 
     const next = () => {
