@@ -19,6 +19,7 @@ import {InfoButton} from "../components/molecule/infoButton";
 import {ShowExplanation} from "../components/molecule/showExplanation";
 import Backdrop from "@mui/material/Backdrop";
 import {Result} from "../components/organisms/result";
+import {ImageSelection} from "../components/atoms/imageSelection";
 
 const Valgomat = () => {
     const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const Valgomat = () => {
     const algoArray = useSelector((state: State) => state.characteristicPoints);
     const departmentsArray = useSelector((state: State) => state.departmentsAlgorithm);
     const isShowAlertDialog = useSelector((state: State) => state.showAlertDialog);
+    const imageSelector = useSelector((state: State) => state.imageSelector);
     const [transitionValue, setTransitionValue] = useState({from: ''});
     const [transition, setTransition] = useState(true);
     const [className, setClassname] = useState('initializeTransition');
@@ -72,11 +74,12 @@ const Valgomat = () => {
 
     const checkDepartment = () => {
         let difference = 0;
+
         for (let dep of departments) {
             difference = 0;
-            difference += Math.abs(dep.social - algoArray[0]);
-            difference += Math.abs(dep.creative - algoArray[1]);
-            difference += Math.abs(dep.practical - algoArray[2]);
+            difference += Math.abs(dep.social - (algoArray[0] + imageSelector[3].points));
+            difference += Math.abs(dep.creative - (algoArray[1] + imageSelector[4].points));
+            difference += Math.abs(dep.practical - (algoArray[2] + imageSelector[5].points));
             userDifferences.push(difference);
         }
     };
@@ -106,7 +109,8 @@ const Valgomat = () => {
                                 <InfoButton handleClick={handleClick}/>
                                 <h1 className='questionNumber'>Spørsmål {counter}</h1>
                                 <Questions questionTxt={questions.questionTxt}/>
-                                {questions.isStatement ? <StatementOrder /> : <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/>}
+                                {questions.isStatement ? <StatementOrder /> : questions.isImageSelection ? <ImageSelection pictures={[questions.images[0], questions.images[1], questions.images[2]]} pointAllocater={[questions.allocatePoints[0], questions.allocatePoints[1], questions.allocatePoints[2]]}/> :
+                                    <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/>}
                             </animated.div>
                         )}
                     </div>
@@ -123,13 +127,13 @@ const Valgomat = () => {
             )
         }
 
-        if (counter > QuestionsData().length) {
+        if (counter === 9 || counter === 10 || counter >= 20) { // Need to be updated if we increase part 1 questions
             const dynamicCounter = QuestionsData().length + 2;
             let totalPoints: number[] = [];
             let departmentPointsArray: number[] = [];
 
             userDifferences.map((differenceCharacteristic, index) => {
-                const departmentPoints = departmentPointsArray[index] = departmentsArray[index].points;  // Setting departmentPoints and the new array together
+                const departmentPoints = departmentPointsArray[index] = departmentsArray[index].points + imageSelector[index].points;  // Setting departmentPoints and the new array together
                 const characteristicPoints = (differenceCharacteristic * (3 / departments[index].possibleDifference));
                 totalPoints = [...totalPoints, departmentPoints - characteristicPoints];
             });
@@ -137,13 +141,13 @@ const Valgomat = () => {
             const biggestTwoTotal = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
             const biggestTwoDepartmentPoints = departmentPointsArray.slice().sort((a, b) => b - a).slice(0, 2);
 
-            if (counter === dynamicCounter){
+            if (counter === dynamicCounter || counter > 20){
                 return (
                     <Result totalPointsArray={totalPoints}/>
                 )
             }
 
-            if (biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) {   // Check if number 1 has the same points as number 2 department
+            if ((biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) || counter === 20) {   // Check if number 1 has the same points as number 2 department
                 return (
                     <>
                         <AlertDialog end={true} totalPointsArray={totalPoints}/>
