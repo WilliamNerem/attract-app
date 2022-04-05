@@ -40,27 +40,6 @@ export const ResultSubDepartment = ({information
         setCarousel({first: first, second: second, third: third})
     };
 
-    // const exampleArray = [
-    //     {
-    //         title: 'Sub department 1',
-    //         link: 'https://www.accenture.com/no-en/',
-    //         infoText: 'Info tekst om sub department 1',
-    //         infoSubText: 'Noe info subtext om denne'
-    //     },
-    //     {
-    //         title: 'Sub department 2',
-    //         link: 'https://www.accenture.com/no-en/',
-    //         infoText: 'Info tekst om sub department 2',
-    //         infoSubText: 'Noe info subtext om denne'
-    //     },
-    //     {
-    //         title: 'Sub department 3',
-    //         link: 'https://www.accenture.com/no-en/',
-    //         infoText: 'Info tekst om sub department 3',
-    //         infoSubText: 'Noe info subtext om denne'
-    //     },
-    // ]
-
     return(
         <div data-testid={'resultComponent'} className='wrapper'>
             <Navbar/>
