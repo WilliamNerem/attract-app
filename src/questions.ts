@@ -4,7 +4,20 @@ import {actionCreators} from './redux'
 
 export const QuestionsData = () => {
     const dispatch = useDispatch();
-    const { social, creative, practical, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
+    const {
+        social,
+        creative,
+        practical,
+        strategyAndConsultingPoints,
+        technologyPoints,
+        interactivePoints,
+        imageSelectorStrategyAndConsulting,
+        imageSelectorTechnology,
+        imageSelectorInteractive,
+        imageSelectorSocial,
+        imageSelectorCreative,
+        imageSelectorPractical
+    } = bindActionCreators(actionCreators, dispatch);
     const statements1 = [
         {
             id: 1,
@@ -52,75 +65,123 @@ export const QuestionsData = () => {
             questionNumber: 1,
             questionType: 'likertScale',
             questionTxt: "Jeg liker å planlegge godt når jeg jobber med oppgaver",
-            progress: 13,
+            progress: 10,
             characteristic: practical,
             isStatement: false,
-            isReversed: true
+            isImageSelection: false,
+            isReversed: true,
+            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
+            images: ['imgCity', 'imgLibrary', 'imgLogo']
         },
         {
             questionNumber: 2,
-            questionType: 'likertScale',
-            questionTxt: "Jeg liker å skape ting og jobbe med et produkt jeg kan se",
-            progress: 25,
+            questionType: 'imageSelection',
+            questionTxt: "Velg det bilde som passer deg best",
+            progress: 20,
             characteristic: practical,
             isStatement: false,
-            isReversed: false
+            isImageSelection: true,
+            isReversed: true,
+            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
+            images: ['imgCar', 'imgBike', 'imgMetro']
         },
         {
             questionNumber: 3,
-            questionType: 'statementOrder',
-            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
-            progress: 38,
-            characteristic: social,
-            isStatement: true,
-            statementArr: statements1,
-            isReversed: false
+            questionType: 'likertScale',
+            questionTxt: "Jeg liker å skape ting og jobbe med et produkt jeg kan se",
+            progress: 30,
+            characteristic: practical,
+            isStatement: false,
+            isImageSelection: false,
+            isReversed: false,
+            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
+            images: ['imgCity', 'imgLibrary', 'imgLogo']
         },
         {
             questionNumber: 4,
+            questionType: 'statementOrder',
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            progress: 40,
+            characteristic: social,
+            isStatement: true,
+            isImageSelection: false,
+            statementArr: statements1,
+            isReversed: false,
+            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
+            images: ['imgCity', 'imgLibrary', 'imgLogo']
+        },
+        {
+            questionNumber: 5,
             questionType: 'likertScale',
             questionTxt: "Jeg jobber best med oppgaver alene",
             progress: 50,
             characteristic: social,
             isStatement: false,
-            isReversed: true
-        },
-        {
-            questionNumber: 5,
-            questionType: 'likertScale',
-            questionTxt: "Jeg er flink til å tenke utenfor boksen og komme opp med nye løsninger",
-            progress: 63,
-            characteristic: creative,
-            isStatement: false,
-            isReversed: false
+            isImageSelection: false,
+            isReversed: true,
+            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
+            images: ['imgCity', 'imgLibrary', 'imgLogo']
         },
         {
             questionNumber: 6,
-            questionType: 'statementOrder',
-            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
-            progress: 75,
-            characteristic: social,
-            isStatement: true,
-            statementArr: statements2,
-            isReversed: false
+            questionType: 'likertScale',
+            questionTxt: "Jeg er flink til å tenke utenfor boksen og komme opp med nye løsninger",
+            progress: 60,
+            characteristic: creative,
+            isStatement: false,
+            isImageSelection: false,
+            isReversed: false,
+            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
+            images: ['imgCity', 'imgLibrary', 'imgLogo']
         },
         {
             questionNumber: 7,
-            questionType: 'likertScale',
-            questionTxt: "Jeg liker å jobbe innenfor klare rammer så jeg vet hva jeg skal gjøre",
-            progress: 88,
-            characteristic: creative,
+            questionType: 'imageSelection',
+            questionTxt: "Velg det bilde som passer deg best",
+            progress: 70,
+            characteristic: practical,
             isStatement: false,
-            isReversed: true
+            isImageSelection: true,
+            isReversed: true,
+            allocatePoints: [imageSelectorSocial, imageSelectorCreative, imageSelectorPractical],
+            images: ['imgCity', 'imgLibrary', 'imgLogo']
         },
         {
             questionNumber: 8,
+            questionType: 'likertScale',
+            questionTxt: "Jeg liker å jobbe innenfor klare rammer så jeg vet hva jeg skal gjøre",
+            progress: 80,
+            characteristic: creative,
+            isStatement: false,
+            isImageSelection: false,
+            isReversed: true,
+            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
+            images: ['imgCity', 'imgLibrary', 'imgLogo']
+        },
+        {
+            questionNumber: 9,
+            questionType: 'statementOrder',
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            progress: 90,
+            characteristic: social,
+            isStatement: true,
+            isImageSelection: false,
+            statementArr: statements2,
+            isReversed: false,
+            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
+            images: ['imgCity', 'imgLibrary', 'imgLogo']
+        },
+        {
+            questionNumber: 10,
             questionType: 'likertScale',
             questionTxt: "Jeg er god til å prate for meg selv",
             progress: 100,
             characteristic: social,
             isStatement: false,
-            isReversed: false
+            isImageSelection: false,
+            isReversed: false,
+            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
+            images: ['imgCity', 'imgLibrary', 'imgLogo']
         },
     ];
 };
