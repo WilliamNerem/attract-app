@@ -1,7 +1,6 @@
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
-import {social} from "./redux/actionCreators";
 
 export const QuestionsData = () => {
     const dispatch = useDispatch();
@@ -127,12 +126,35 @@ export const QuestionsData = () => {
 };
 
 export const QuestionsDataTech = () => {
+    const dispatch = useDispatch();
+    const { social, creative, practical, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
+    const statements1 = [
+        {
+            id: 1,
+            title: 'Jeg liker Communcations',
+            department: strategyAndConsultingPoints,
+            initDepartmentPoints: 6
+        },
+        {
+            id: 2,
+            title: 'Jeg liker Build',
+            department: technologyPoints,
+            initDepartmentPoints: 4
+        },
+        {
+            id: 3,
+            title: 'Jeg liker Design',
+            department: interactivePoints,
+            initDepartmentPoints: 2
+        }
+    ];
+
     return [
         {
             questionNumber: 21,
             questionType: 'likertScale',
-            questionTxt: "Dette er første tech spørsmål",
-            progress: 13,
+            questionTxt: "Dette er om Tech sin første underavdeling",
+            progress: 25,
             characteristic: social,
             isStatement: false,
             isReversed: true
@@ -140,8 +162,27 @@ export const QuestionsDataTech = () => {
         {
             questionNumber: 22,
             questionType: 'likertScale',
-            questionTxt: "Dette er andre tech spørsmål",
-            progress: 25,
+            questionTxt: "Dette er om Tech sin andre underavdeling",
+            progress: 50,
+            characteristic: social,
+            isStatement: false,
+            isReversed: false
+        },
+        {
+            questionNumber: 23,
+            questionType: 'likertScale',
+            questionTxt: "ett påstandene i rekkefølge etter hva som passer best for deg",
+            progress: 75,
+            characteristic: social,
+            isStatement: true,
+            statementArr: statements1,
+            isReversed: false
+        },
+        {
+            questionNumber: 24,
+            questionType: 'likertScale',
+            questionTxt: "Dette er om Tech sin tredje",
+            progress: 100,
             characteristic: social,
             isStatement: false,
             isReversed: false
@@ -150,21 +191,113 @@ export const QuestionsDataTech = () => {
 };
 
 export const QuestionsDataSC = () => {
+    const dispatch = useDispatch();
+    const { social, creative, practical, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
+    const statements1 = [
+        {
+            id: 1,
+            title: 'Jeg liker Products',
+            department: technologyPoints,
+            initDepartmentPoints: 6
+        },
+        {
+            id: 2,
+            title: 'Jeg liker Health & Public Service',
+            department: strategyAndConsultingPoints,
+            initDepartmentPoints: 4
+        },
+        {
+            id: 3,
+            title: 'Jeg liker Resources',
+            department: interactivePoints,
+            initDepartmentPoints: 2
+        },
+    ];
+
+    const statements2 = [
+        {
+            id: 1,
+            title: 'Jeg liker Financial Services',
+            department: technologyPoints,
+            initDepartmentPoints: 6
+        },
+        {
+            id: 2,
+            title: 'Jeg liker Communciation Media & Technology',
+            department: strategyAndConsultingPoints,
+            initDepartmentPoints: 4
+        },
+        {
+            id: 3,
+            title: 'Jeg liker Transport (subindustri under Products)',
+            department: interactivePoints,
+            initDepartmentPoints: 2
+        },
+    ];
+
+
     return [
         {
             questionNumber: 21,
             questionType: 'likertScale',
-            questionTxt: "Dette er første S&C spørsmål",
-            progress: 13,
+            questionTxt: "Dette er om Products",
+            progress: 14,
             characteristic: social,
             isStatement: false,
             isReversed: true
         },
         {
             questionNumber: 22,
+            questionType: 'statementOrder',
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            progress: 29,
+            characteristic: social,
+            isStatement: true,
+            statementArr: statements1,
+            isReversed: false
+        },
+        {
+            questionNumber: 23,
             questionType: 'likertScale',
-            questionTxt: "Dette er andre S&C spørsmål",
-            progress: 25,
+            questionTxt: "Dette er om Resources",
+            progress: 43,
+            characteristic: social,
+            isStatement: false,
+            isReversed: true
+        },
+        {
+            questionNumber: 24,
+            questionType: 'likertScale',
+            questionTxt: "Dette er om Health & Public Service",
+            progress: 58,
+            characteristic: social,
+            isStatement: false,
+            isReversed: false
+        },
+        {
+            questionNumber: 25,
+            questionType: 'likertScale',
+            questionTxt: "Dette er om Financial Services",
+            progress: 72,
+            characteristic: social,
+            isStatement: false,
+            isReversed: true
+        },
+        {
+            questionNumber: 26,
+            questionType: 'statementOrder',
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            progress: 87,
+            characteristic: social,
+            isStatement: true,
+            statementArr: statements2,
+            isReversed: false
+        },
+        {
+            questionNumber: 27,
+            questionType: 'likertScale',
+            questionTxt: "Dette er om Communcation Media & Technology",
+            progress: 100,
             characteristic: social,
             isStatement: false,
             isReversed: false
@@ -173,12 +306,35 @@ export const QuestionsDataSC = () => {
 };
 
 export const QuestionsDataInteractive = () => {
+    const dispatch = useDispatch();
+    const { social, creative, practical, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
+    const statements1 = [
+        {
+            id: 1,
+            title: 'Jeg liker Communcations',
+            department: strategyAndConsultingPoints,
+            initDepartmentPoints: 6
+        },
+        {
+            id: 2,
+            title: 'Jeg liker Build',
+            department: technologyPoints,
+            initDepartmentPoints: 4
+        },
+        {
+            id: 3,
+            title: 'Jeg liker Design',
+            department: interactivePoints,
+            initDepartmentPoints: 2
+        }
+    ];
+
     return [
         {
             questionNumber: 21,
             questionType: 'likertScale',
-            questionTxt: "Dette er første Interactive spørsmål",
-            progress: 13,
+            questionTxt: "Dette er om Build",
+            progress: 25,
             characteristic: social,
             isStatement: false,
             isReversed: true
@@ -186,8 +342,27 @@ export const QuestionsDataInteractive = () => {
         {
             questionNumber: 22,
             questionType: 'likertScale',
-            questionTxt: "Dette er andre Interactive spørsmål",
-            progress: 25,
+            questionTxt: "Dette er om Design",
+            progress: 50,
+            characteristic: social,
+            isStatement: false,
+            isReversed: false
+        },
+        {
+            questionNumber: 23,
+            questionType: 'likertScale',
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            progress: 75,
+            characteristic: social,
+            isStatement: true,
+            statementArr: statements1,
+            isReversed: false
+        },
+        {
+            questionNumber: 24,
+            questionType: 'likertScale',
+            questionTxt: "Dette er om Communcations",
+            progress: 100,
             characteristic: social,
             isStatement: false,
             isReversed: false
