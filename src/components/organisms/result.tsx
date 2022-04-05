@@ -9,6 +9,9 @@ import {departments} from "../../departments";
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
+import {ValgomatPartTwo} from "./valgomatPartTwo";
+import {QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
+import {setCounter} from "../../redux/actionCreators";
 
 interface resultProps {
     totalPointsArray: any[]
@@ -18,13 +21,13 @@ export const Result = ({totalPointsArray
 
 }: resultProps) => {
     const dispatch = useDispatch();
-    const { valgomatIsInProgress } = bindActionCreators(actionCreators, dispatch);
+    const {setCounter} = bindActionCreators(actionCreators, dispatch);
     const [carousel, setCarousel] = useState({first: 'leftCard', second: 'middleCard', third: 'rightCard'});
     const [disabledButtons, setDisabledButtons] = useState('');
-    valgomatIsInProgress(false);
     const maxVal = Math.max(...totalPointsArray);
     const valPos = totalPointsArray.indexOf(maxVal);
     const result = departments[valPos].name;
+    const [isDepClicked, setIsDepClicked] = useState( { strat: false, interactive: false, tech: false})
     let link;
     let infoText;
 
@@ -55,7 +58,7 @@ export const Result = ({totalPointsArray
             title: 'Interactive',
             link: 'https://www.accenture.com/no-en/about/accenture-interactive-index',
             infoText: 'Hos Interactive jobber designere og kreatørene. Vi skaper løsninger ved å kombinere kreativitet og fokus på sluttbruker med ' +
-                'teknisk innsikt og gjennomføringsevne. Interactive-teamet bruker en kombinasjon av design, markedsføring, innhold og forretningsforståelse '+
+                'teknisk innsikt og gjennomføringsevne. Interactive-teamet bruker en kombinasjon av design, markedsføring, innhold og forretningsforståelse ' +
                 'til å skape innovative og bransjeledende brukeropplevelser.',
             infoSubText: 'I følge valgomaten passer du ikke best i Interactive, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.'
         }
@@ -64,19 +67,16 @@ export const Result = ({totalPointsArray
     if (result === 'Strategy & Consulting') {
         link = information[0].link;
         infoText = information[0].infoText;
-        information.splice(0,1)
-    }
-    else if (result === 'Technology') {
+        information.splice(0, 1)
+    } else if (result === 'Technology') {
         link = information[1].link;
         infoText = information[1].infoText;
-        information.splice(1,1)
-    }
-    else if (result === 'Interactive') {
+        information.splice(1, 1)
+    } else if (result === 'Interactive') {
         link = information[2].link;
         infoText = information[2].infoText;
-        information.splice(2,1)
-    }
-    else {
+        information.splice(2, 1)
+    } else {
         link = 'https://www.accenture.com/no-en';
         infoText = 'Ingen info å finne';
     }
@@ -95,52 +95,86 @@ export const Result = ({totalPointsArray
         setCarousel({first: first, second: second, third: third})
     };
 
-    return(
-        <div data-testid={'resultComponent'} className='wrapper'>
-            <Navbar/>
-            <div className='result'>
-                <div className='gradientDiv'>
-                    <ResultText result={result}/>
-                    <Pallet totalPointsArray={totalPointsArray}/>
-                </div>
-                <div className='carousel'>
-                    <div className={carousel.first+' leftCarouselItem'}>
-                        <InfoCard
-                            heading={information[0].title}
-                            link={information[0].link}
-                            text={information[0].infoText}
-                            subHeading={'Veien videre'}
-                            subText={information[0].infoSubText}
-                            linkText={'Les mer om '+information[0].title}
-                        />
+    const onButtonClick = (department: string) => {
+        setCounter(21);
+        if(department === 'Strategy & Consulting') {
+            setIsDepClicked({strat: true, interactive: false, tech: false});
+        }
+        if(department === 'Interactive') {
+            setIsDepClicked({strat: false, interactive: true, tech: false});
+        }
+        if(department === 'Technology') {
+            setIsDepClicked({strat: false, interactive: false, tech: true});
+        }
+
+    }
+
+    if (isDepClicked.tech) {
+        return (
+            <ValgomatPartTwo questionArray={QuestionsDataTech()}/>
+        )
+    }
+    else if (isDepClicked.interactive) {
+        return (
+            <ValgomatPartTwo questionArray={QuestionsDataInteractive()}/>
+        )
+    }
+    else if (isDepClicked.strat) {
+        return (
+            <ValgomatPartTwo questionArray={QuestionsDataSC()}/>
+        )
+    }
+    else {
+        return (
+            <div data-testid={'resultComponent'} className='wrapper'>
+                <Navbar/>
+                <div className='result'>
+                    <div className='gradientDiv'>
+                        <ResultText result={result}/>
+                        <Pallet totalPointsArray={totalPointsArray}/>
                     </div>
-                    <div className={carousel.second+' middleCarouselItem'}>
-                        <InfoCard
-                            heading={result}
-                            link={link}
-                            text={infoText}
-                            subHeading={'Veien videre'}
-                            subText={'Neste steg er å bli kjent med '+result+'.'}
-                            linkText={'Les mer om '+result}
-                        />
+                    <div className='carousel'>
+                        <div className={carousel.first + ' leftCarouselItem'}>
+                            <InfoCard
+                                heading={information[0].title}
+                                link={information[0].link}
+                                text={information[0].infoText}
+                                subHeading={'Veien videre'}
+                                subText={information[0].infoSubText}
+                                linkText={'Les mer om ' + information[0].title}
+                                onButtonClick={() => onButtonClick(information[0].title)}
+                            />
+                        </div>
+                        <div className={carousel.second + ' middleCarouselItem'}>
+                            <InfoCard
+                                heading={result}
+                                link={link}
+                                text={infoText}
+                                subHeading={'Veien videre'}
+                                subText={'Neste steg er å bli kjent med ' + result + '.'}
+                                linkText={'Les mer om ' + result}
+                                onButtonClick={() => onButtonClick(result)}
+                            />
+                        </div>
+                        <div className={carousel.third + ' rightCarouselItem'}>
+                            <InfoCard
+                                heading={information[1].title}
+                                link={information[1].link}
+                                text={information[1].infoText}
+                                subHeading={'Veien videre'}
+                                subText={information[1].infoSubText}
+                                linkText={'Les mer om ' + information[1].title}
+                                onButtonClick={() => onButtonClick(information[1].title)}
+                            />
+                        </div>
+                        <a className={disabledButtons + ' leftArrow'} onClick={handleLeftArrow}/>
+                        <a className={disabledButtons + ' rightArrow'} onClick={handleRightArrow}/>
                     </div>
-                    <div className={carousel.third+' rightCarouselItem'}>
-                        <InfoCard
-                            heading={information[1].title}
-                            link={information[1].link}
-                            text={information[1].infoText}
-                            subHeading={'Veien videre'}
-                            subText={information[1].infoSubText}
-                            linkText={'Les mer om '+information[1].title}
-                        />
+                    <div className='buttonDiv'>
+                        <Button href='/' text='Tilbake til forsiden'/>
                     </div>
-                    <a className={disabledButtons+' leftArrow'} onClick={handleLeftArrow} />
-                    <a className={disabledButtons+' rightArrow'} onClick={handleRightArrow}/>
-                </div>
-                <div className='buttonDiv'>
-                    <Button href='/' text='Tilbake til forsiden'/>
                 </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}

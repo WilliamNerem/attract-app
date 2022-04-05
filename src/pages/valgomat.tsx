@@ -127,7 +127,7 @@ const Valgomat = () => {
             )
         }
 
-        if (counter > QuestionsData().length) {
+        if (counter === 9 || counter === 10 || counter >= 20) { // Need to be updated if we increase part 1 questions
             const dynamicCounter = QuestionsData().length + 2;
             let totalPoints: number[] = [];
             let departmentPointsArray: number[] = [];
@@ -141,13 +141,13 @@ const Valgomat = () => {
             const biggestTwoTotal = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
             const biggestTwoDepartmentPoints = departmentPointsArray.slice().sort((a, b) => b - a).slice(0, 2);
 
-            if (counter === dynamicCounter){
+            if (counter === dynamicCounter || counter > 20){
                 return (
                     <Result totalPointsArray={totalPoints}/>
                 )
             }
 
-            if (biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) {   // Check if number 1 has the same points as number 2 department
+            if ((biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) || counter === 20) {   // Check if number 1 has the same points as number 2 department
                 return (
                     <>
                         <AlertDialog end={true} totalPointsArray={totalPoints}/>
