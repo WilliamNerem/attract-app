@@ -1,0 +1,86 @@
+.imageSelection{
+    position: relative;
+}
+
+.imageSelectionItem{
+    display: none;
+}
+
+.imageSelectionLabel{
+    position: relative;
+    margin-top: 30px;
+}
+
+.imageSelectionImage{
+    display: inline-block;
+    position: relative;
+    width: 250px;
+    height: 125px;
+    left: 10vw;
+    border-radius: 10px;
+}
+
+.imgCity{
+    background: url("../images/background_city.jpg") no-repeat center;
+    background-size: 250px 125px;
+}
+
+.imgLibrary{
+    background: url("../images/background_library.jpg") no-repeat center;
+    background-size: 250px 125px;
+}
+
+.imgLogo{
+    background: url("../images/logo.svg") no-repeat center;
+    background-size: 250px 125px;
+}
+
+.imgCar{
+    background: url("../images/car.jpg") no-repeat center;
+    background-size: 250px 125px;
+}
+
+.imgBike{
+    background: url("../images/bike.jpg") no-repeat center;
+    background-size: 250px 125px;
+}
+
+.imgMetro{
+    background: url("../images/metro.jpg") no-repeat center;
+    background-size: 250px 125px;
+}
+
+.imageSelectionRadio{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 7vw;
+    display: inline-block;
+    width: 10vw;
+    height: 10vw;
+    border: 1vw solid #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#imageSelectionSlider{
+    position: absolute;
+    width: 7vw;
+    right: 9.4vw;
+    padding-bottom: 7vw;
+    margin: 2.5vw 0 0 5vw;
+    background: #a100ff;
+    border-radius: 50%;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    transition: 0.5s ease-in-out;
+}
+#firstImageSelection:checked  ~ #imageSelectionSlider{ animation-name: firstImageSelection; top:42px; }
+#secondImageSelection:checked  ~ #imageSelectionSlider{ animation-name: secondImageSelection; top:201px; }
+#thirdImageSelection:checked  ~ #imageSelectionSlider{ animation-name: thirdImageSelection; top:360px; }
+
+@keyframes firstImageSelection{ 30%, 70% { transform: scale(0.7); } }
+@keyframes secondImageSelection{ 30%, 70% { transform: scale(0.7); } }
+@keyframes thirdImageSelection{ 30%, 70% { transform: scale(0.7); } }

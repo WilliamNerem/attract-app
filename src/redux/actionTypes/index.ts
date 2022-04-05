@@ -12,6 +12,16 @@ export enum LikertActionType {
     STRONGLY_AGREE = 'strongly_agree'
 }
 
+export enum ImageSelectorType {
+    CHECKED = 'checked',
+    STRATEGYANDCONSULTING = 'strategyImgSelector',
+    TECHNOLOGY = 'technologyImgSelector',
+    INTERACTIVE = 'interactiveImgSelector',
+    SOCIAL = 'socialImgSelector',
+    CREATIVE = 'creativeImgSelector',
+    PRACTICAL = 'practicalImgSelector'
+}
+
 export enum AlgorithmActionType {
     SOCIAL = 'social',
     CREATIVE = 'creative',

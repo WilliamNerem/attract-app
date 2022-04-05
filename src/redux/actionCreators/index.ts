@@ -1,7 +1,9 @@
 import {
     AlgorithmActionType,
     DepartmentsActionType,
-    InitializeStatementOrderActionType, InteractiveSubdivisionActionType,
+    ImageSelectorType,
+    InitializeStatementOrderActionType,
+    InteractiveSubdivisionActionType,
     IsInfoClickedActionType,
     LikertActionType,
     QuestionActionType,
@@ -15,7 +17,10 @@ import {Dispatch} from "redux";
 import {
     AlgorithmAction,
     DepartmentsAction,
-    InitializeStatementOrderAction, InteractiveSubDivisionActions,
+    ImageSelectorAction,
+    ImageSelectorAnswerAction,
+    InitializeStatementOrderAction,
+    InteractiveSubDivisionActions,
     IsInfoClickedAction,
     LikertAction,
     QuestionAction,
@@ -135,6 +140,70 @@ export const practical = (value: number, isReversed: boolean) => {
                 value,
                 isReversed
             }
+        })
+    }
+};
+
+export const imageSelectorStrategyAndConsulting = (points: number) => {
+    return (dispatch: Dispatch<ImageSelectorAction>) => {
+        dispatch({
+            type: ImageSelectorType.STRATEGYANDCONSULTING,
+            payload: points
+        })
+    }
+};
+
+export const imageSelectorTechnology = (points: number) => {
+    return (dispatch: Dispatch<ImageSelectorAction>) => {
+        dispatch({
+            type: ImageSelectorType.TECHNOLOGY,
+            payload: points
+        })
+    }
+};
+
+export const imageSelectorInteractive = (points: number) => {
+    return (dispatch: Dispatch<ImageSelectorAction>) => {
+        dispatch({
+            type: ImageSelectorType.INTERACTIVE,
+            payload: points
+        })
+    }
+};
+
+export const imageSelectorSocial = (points: number) => {
+    return (dispatch: Dispatch<ImageSelectorAction>) => {
+        dispatch({
+            type: ImageSelectorType.SOCIAL,
+            payload: points
+        })
+    }
+};
+
+export const imageSelectorCreative = (points: number) => {
+    return (dispatch: Dispatch<ImageSelectorAction>) => {
+        dispatch({
+            type: ImageSelectorType.CREATIVE,
+            payload: points
+        })
+    }
+};
+
+export const imageSelectorPractical = (points: number) => {
+    return (dispatch: Dispatch<ImageSelectorAction>) => {
+        dispatch({
+            type: ImageSelectorType.PRACTICAL,
+            payload: points
+        })
+    }
+};
+
+export const imageSelectorChecked = (questionNumber: number, checked: number) => {
+    return (dispatch: Dispatch<ImageSelectorAnswerAction>) => {
+        dispatch({
+            type: ImageSelectorType.CHECKED,
+            questionNumber: questionNumber,
+            checked: checked
         })
     }
 };

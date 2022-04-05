@@ -12,6 +12,7 @@ interface infoCardProps {
     isDropdown?: boolean
     exampleImage?: string
     singlePageLink?: boolean
+    onButtonClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const InfoCard = ({
@@ -23,7 +24,8 @@ export const InfoCard = ({
      linkText,
      isDropdown,
      exampleImage,
-     singlePageLink
+     singlePageLink,
+    onButtonClick
 }: infoCardProps) => {
     const [className, setClassName] = useState('');
     const [iconClassName, setIconClassName] = useState('');
@@ -56,6 +58,12 @@ export const InfoCard = ({
             <h2 className={'infoCardSubHeading'}>{subHeading}</h2>
             <div className={exampleImage}/>
             <p className={'infoCardText'}>{subText}</p>
+            {onButtonClick && (
+                <div className='btn-goToSubDep-wrapper'>
+                    <button className={'btn-goToSubDep'} onClick={onButtonClick}>Mini Valgomat</button>
+                    <div className={'btn-goToSubDep-behind'} aria-hidden={true}>Mini Valgomat</div>
+                </div>
+            )}
             {link && (
                 singlePageLink ?
                 <Link to={link}>{linkText ? linkText : link.toString()}</Link> :

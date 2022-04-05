@@ -1,6 +1,8 @@
 export * as actionCreators from './actionCreators'
 export * from './actions/questionActions'
 export * from './actions/likertActions'
+export * from './actions/imageSelectorActions'
+export * from './actions/imageSelectorAnswerAction'
 export * from './actions/algorithmActions'
 export * from './actions/statementOrderActions'
 export * from './actions/stratSubDivisionActions'
