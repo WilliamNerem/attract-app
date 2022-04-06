@@ -12,6 +12,7 @@ interface statementOrderProps {
 
 export const StatementOrder = ({questionArray}: statementOrderProps) => {
     const counter = useSelector((state: State) => state.questionCounter);
+    const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
     const statementOrder = useSelector((state: State) => state.statementOrder);
     const initializeStatementOrderArray = useSelector((state: State) => state.initializeStatementOrder);
     const [transition, setTransition] = useState({
@@ -21,22 +22,21 @@ export const StatementOrder = ({questionArray}: statementOrderProps) => {
     });
 
     let arrayLength = questionArray?.length;
-    console.log(arrayLength);
-    console.log(counter);
+
     const dispatch = useDispatch();
     const { initializeStatementOrder, addStatementOrder } = bindActionCreators(actionCreators, dispatch);
-    let statementArr = questionArray;
-    if(counter < 20) {
+    let statementArr = questionArray;   // Can put below code into a function since it's duplicate with statementItem
+    if(counterPartTwo === 0) {
         statementArr = QuestionsPartOne()[counter - 1].statementArr;
     }
     if(arrayLength === 7) { // Has to hardcode this and needs to be changed if size increases
-        statementArr = QuestionsDataSC()[counter-20].statementArr;
+        statementArr = QuestionsDataSC()[counterPartTwo - 1].statementArr;
     }
     else if(arrayLength === 5) { // Has to hardcode this and needs to be changed if size increases
-        statementArr = QuestionsDataInteractive()[counter-20].statementArr;
+        statementArr = QuestionsDataInteractive()[counterPartTwo - 1].statementArr;
     }
     else if(arrayLength === 4) { // Has to hardcode this and needs to be changed if size increases
-        statementArr = QuestionsDataTech()[counter-20].statementArr;
+        statementArr = QuestionsDataTech()[counterPartTwo - 1].statementArr;
     }
     let statementList;
 
@@ -95,6 +95,7 @@ export const StatementOrder = ({questionArray}: statementOrderProps) => {
                         transitionPx={transitionPx}
                         transitionValues={transition}
                         handleTransition={handleTransition}
+                        questionArray={questionArray}
                     />
                 )
             });

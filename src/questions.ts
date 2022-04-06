@@ -193,19 +193,19 @@ export const QuestionsDataTech = () => {
     const statements1 = [
         {
             id: 1,
-            title: 'Jeg liker Communcations',
+            title: 'Jeg liker Tech sin første underavdeling',
             department: strategyAndConsultingPoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
-            title: 'Jeg liker Build',
+            title: 'Jeg liker Tech sin andre underavdeling',
             department: technologyPoints,
             initDepartmentPoints: 4
         },
         {
             id: 3,
-            title: 'Jeg liker Design',
+            title: 'Jeg liker Tech sin tredje underavdeling',
             department: interactivePoints,
             initDepartmentPoints: 2
         }
