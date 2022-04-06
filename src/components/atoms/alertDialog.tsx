@@ -15,17 +15,20 @@ import {Link} from "react-router-dom";
 interface alertDialogProps {
     end : boolean
     totalPointsArray ?: number[]
+    setIsDepClicked ?: React.Dispatch<React.SetStateAction<{ strat: boolean; interactive: boolean; tech: boolean; }>>
 }
 
 export const AlertDialog = ({
     end,
-    totalPointsArray
+    totalPointsArray,
+    setIsDepClicked
 }: alertDialogProps) => {
     const pointsArray = totalPointsArray;
     const dispatch = useDispatch();
-    const {increaseCounter, decreaseCounter, showAlertDialog} = bindActionCreators(actionCreators, dispatch);
+    const {increaseCounter, decreaseCounter, showAlertDialog, increaseCounterPartTwo} = bindActionCreators(actionCreators, dispatch);
     const [update, setUpdate] = useState(false);
     const counter = useSelector((state: State) => state.questionCounter);
+    const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
     const isInfo = useSelector((state: State) => state.isInfoClicked);
 
     const handleClose = () => {
@@ -36,10 +39,18 @@ export const AlertDialog = ({
     };
 
     const handleDecrease = () => {
-        decreaseCounter();
+        if (counterPartTwo !== 0){
+            decreaseCounter();
+        } else {
+            increaseCounterPartTwo();
+        }
     };
 
     if(update && pointsArray !== undefined) {
+        if (counterPartTwo === 0 && setIsDepClicked){
+            increaseCounterPartTwo();
+            setIsDepClicked({ strat: false, interactive: false, tech: false})
+        }
         return (
             <Result totalPointsArray={pointsArray}/>
         )

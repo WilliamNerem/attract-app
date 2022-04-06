@@ -4,6 +4,12 @@ export enum QuestionActionType {
     SETCOUNTER = 'setCounter'
 }
 
+export enum QuestionPartTwoActionType {
+    INCREASE = 'increasePartTwo',
+    DECREASE = 'decreasePartTwo',
+    SETCOUNTER = 'setCounterPartTwo'
+}
+
 export enum LikertActionType {
     STRONGLY_DISAGREE = 'strongly_disagree',
     MODERATLY_DISAGREE = 'moderatly_disagree',
@@ -58,4 +64,18 @@ export enum ShowAlertDialogActionType {
 
 export enum IsInfoClickedActionType {
     ISINFOCLICKED = 'isInfoClicked'
+}
+
+export enum StratSubdivisionActionType {
+    CMT = 'communicationMediaTechnology',
+    FINANCE = 'financialServices',
+    HEALTH_PUBLIC = 'health&publicServices',
+    PRODUCTS = 'products',
+    RESOURCES = 'resources'
+}
+
+export enum InteractiveSubdivisionActionType {
+    DESIGN = 'design',
+    BUILD = 'build',
+    COMMUNICATIONS = 'communications'
 }

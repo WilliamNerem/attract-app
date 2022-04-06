@@ -3,7 +3,7 @@ import '../../styles/statementItem.style.css';
 import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators, State} from "../../redux";
-import {QuestionsData} from "../../questions";
+import {QuestionsPartOne} from "../../questions";
 import {useTransition, animated} from 'react-spring'
 
 interface statementItemProps {
@@ -22,7 +22,7 @@ interface statementItemProps {
 }
 
 export const StatementItem = ({index, positionInStatementOrder, position, questionNumber, transitionPx, handleTransition, transitionValues}: statementItemProps) => {
-    const statementArray = QuestionsData()[questionNumber].statementArr;
+    const statementArray = QuestionsPartOne()[questionNumber].statementArr;
     const statementOrder = useSelector((state: State) => state.statementOrder);
     const dispatch = useDispatch();
     const {

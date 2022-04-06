@@ -4,7 +4,7 @@ import {State} from "../../redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 import {StatementItem} from "../atoms/statementItem";
-import {QuestionsData, QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
+import {QuestionsPartOne, QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
 
 interface statementOrderProps {
     questionArray?: any[]
@@ -27,7 +27,7 @@ export const StatementOrder = ({questionArray}: statementOrderProps) => {
     const { initializeStatementOrder, addStatementOrder } = bindActionCreators(actionCreators, dispatch);
     let statementArr = questionArray;
     if(counter < 20) {
-        statementArr = QuestionsData()[counter - 1].statementArr;
+        statementArr = QuestionsPartOne()[counter - 1].statementArr;
     }
     if(arrayLength === 7) { // Has to hardcode this and needs to be changed if size increases
         statementArr = QuestionsDataSC()[counter-20].statementArr;
@@ -39,7 +39,6 @@ export const StatementOrder = ({questionArray}: statementOrderProps) => {
         statementArr = QuestionsDataTech()[counter-20].statementArr;
     }
     let statementList;
-
 
     const initDepartmentPoints = () => {
         if (statementArr !== undefined){

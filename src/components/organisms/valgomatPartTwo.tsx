@@ -20,10 +20,10 @@ interface valgoMatPartTwoProps {
 export const ValgomatPartTwo = ({questionArray}: valgoMatPartTwoProps) => {
     const dispatch = useDispatch();
     const {
-        increaseCounter,
-        decreaseCounter
+        increaseCounterPartTwo,
+        decreaseCounterPartTwo
     } = bindActionCreators(actionCreators, dispatch);
-    const counter = useSelector((state: State) => state.questionCounter);
+    const counter = useSelector((state: State) => state.questionCounterPartTwo);
     const [transitionValue, setTransitionValue] = useState({from: ''});
     const [transition, setTransition] = useState(true);
     const [className, setClassname] = useState('initializeTransition');
@@ -48,7 +48,7 @@ export const ValgomatPartTwo = ({questionArray}: valgoMatPartTwoProps) => {
         if (!isNext) {
             setClassname('animatedDivLeaveNext');
             setTransition(!transition);
-            setTimeout((decreaseCounter), 200);
+            setTimeout((decreaseCounterPartTwo), 200);
             if (!transition) {
                 setTransitionValue({from: '-100vw'});
             } else {
@@ -57,7 +57,7 @@ export const ValgomatPartTwo = ({questionArray}: valgoMatPartTwoProps) => {
         } else {
             setClassname('animatedDivLeaveLast');
             setTransition(!transition);
-            setTimeout((increaseCounter), 200);
+            setTimeout((increaseCounterPartTwo), 200);
             if (!transition) {
                 setTransitionValue({from: '100vw'});
             } else {

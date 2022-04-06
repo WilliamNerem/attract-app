@@ -1,8 +1,9 @@
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
+import {social} from "./redux/actionCreators";
 
-export const QuestionsData = () => {
+export const QuestionsPartOne = () => {
     const dispatch = useDispatch();
     const {
         social,
@@ -212,7 +213,7 @@ export const QuestionsDataTech = () => {
 
     return [
         {
-            questionNumber: 21,
+            questionNumber: 1,
             questionType: 'likertScale',
             questionTxt: "Dette er om Tech sin første underavdeling",
             progress: 25,
@@ -221,7 +222,7 @@ export const QuestionsDataTech = () => {
             isReversed: true
         },
         {
-            questionNumber: 22,
+            questionNumber: 2,
             questionType: 'likertScale',
             questionTxt: "Dette er om Tech sin andre underavdeling",
             progress: 50,
@@ -230,7 +231,7 @@ export const QuestionsDataTech = () => {
             isReversed: false
         },
         {
-            questionNumber: 23,
+            questionNumber: 3,
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 75,
@@ -240,7 +241,7 @@ export const QuestionsDataTech = () => {
             isReversed: false
         },
         {
-            questionNumber: 24,
+            questionNumber: 4,
             questionType: 'likertScale',
             questionTxt: "Dette er om Tech sin tredje",
             progress: 100,
@@ -299,7 +300,7 @@ export const QuestionsDataSC = () => {
 
     return [
         {
-            questionNumber: 21,
+            questionNumber: 1,
             questionType: 'likertScale',
             questionTxt: "Dette er om Products",
             progress: 14,
@@ -309,7 +310,7 @@ export const QuestionsDataSC = () => {
             isReversed: true
         },
         {
-            questionNumber: 22,
+            questionNumber: 2,
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 29,
@@ -320,7 +321,7 @@ export const QuestionsDataSC = () => {
             isReversed: false
         },
         {
-            questionNumber: 23,
+            questionNumber: 3,
             questionType: 'likertScale',
             questionTxt: "Dette er om Resources",
             progress: 43,
@@ -330,7 +331,7 @@ export const QuestionsDataSC = () => {
             isReversed: true
         },
         {
-            questionNumber: 24,
+            questionNumber: 4,
             questionType: 'likertScale',
             questionTxt: "Dette er om Health & Public Service",
             progress: 58,
@@ -340,7 +341,7 @@ export const QuestionsDataSC = () => {
             isReversed: false
         },
         {
-            questionNumber: 25,
+            questionNumber: 5,
             questionType: 'likertScale',
             questionTxt: "Dette er om Financial Services",
             progress: 72,
@@ -350,7 +351,7 @@ export const QuestionsDataSC = () => {
             isReversed: true
         },
         {
-            questionNumber: 26,
+            questionNumber: 6,
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 87,
@@ -361,7 +362,7 @@ export const QuestionsDataSC = () => {
             isReversed: false
         },
         {
-            questionNumber: 27,
+            questionNumber: 7,
             questionType: 'likertScale',
             questionTxt: "Dette er om Communcation Media & Technology",
             progress: 100,
@@ -399,7 +400,7 @@ export const QuestionsDataInteractive = () => {
 
     return [
         {
-            questionNumber: 21,
+            questionNumber: 1,
             questionType: 'likertScale',
             questionTxt: "Dette er om Build",
             progress: 20,
@@ -408,7 +409,7 @@ export const QuestionsDataInteractive = () => {
             isReversed: true
         },
         {
-            questionNumber: 22,
+            questionNumber: 2,
             questionType: 'likertScale',
             questionTxt: "Dette er om Design",
             progress: 40,
@@ -417,7 +418,7 @@ export const QuestionsDataInteractive = () => {
             isReversed: false
         },
         {
-            questionNumber: 23,
+            questionNumber: 3,
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 60,
@@ -427,7 +428,7 @@ export const QuestionsDataInteractive = () => {
             isReversed: false
         },
         {
-            questionNumber: 24,
+            questionNumber: 4,
             questionType: 'likertScale',
             questionTxt: "Dette er om Communcations",
             progress: 80,
@@ -436,7 +437,7 @@ export const QuestionsDataInteractive = () => {
             isReversed: false
         },
         {
-            questionNumber: 25, // Had to increase to one more question so that statementOrder can check for questionlength
+            questionNumber: 5, // Had to increase to one more question so that statementOrder can check for questionlength
             questionType: 'likertScale',
             questionTxt: "Dette er om Fjords",
             progress: 100,
