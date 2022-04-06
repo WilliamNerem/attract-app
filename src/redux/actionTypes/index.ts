@@ -65,3 +65,17 @@ export enum ShowAlertDialogActionType {
 export enum IsInfoClickedActionType {
     ISINFOCLICKED = 'isInfoClicked'
 }
+
+export enum StratSubdivisionActionType {
+    CMT = 'communicationMediaTechnology',
+    FINANCE = 'financialServices',
+    HEALTH_PUBLIC = 'health&publicServices',
+    PRODUCTS = 'products',
+    RESOURCES = 'resources'
+}
+
+export enum InteractiveSubdivisionActionType {
+    DESIGN = 'design',
+    BUILD = 'build',
+    COMMUNICATIONS = 'communications'
+}
