@@ -11,12 +11,14 @@ import { showAlertDialogReducer } from "./showAlertDialog";
 import {isInfoClickedReducer} from "./isInfoClicked";
 import {imageSelectorReducer, initialState as initImageSelector} from "./imageSelector";
 import {imageSelectorAnswerReducer} from "./imageSelectorAnswers";
+import {questionCounterPartTwoReducer} from "./questionCounterPartTwo";
 
 const reducers = combineReducers({
     valgomatInProgress: valgomatInProgressReducer,
     showAlertDialog: showAlertDialogReducer,
     isInfoClicked: isInfoClickedReducer,
     questionCounter: questionCounterReducer,
+    questionCounterPartTwo: questionCounterPartTwoReducer,
     likertAnswer: likertAnswerReducer,
     characteristicPoints: algorithmReducer,
     statementOrder: statementOrderReducer,
