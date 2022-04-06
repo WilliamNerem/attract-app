@@ -81,7 +81,7 @@ export const ValgomatPartTwo = ({questionArray}: valgoMatPartTwoProps) => {
                                 <InfoButton handleClick={handleClick}/>
                                 <h1 className='questionNumber'>Spørsmål {counter}</h1>
                                 <Questions questionTxt={questions.questionTxt}/>
-                                {questions.isStatement ? <StatementOrder/> :
+                                {questions.isStatement ? <StatementOrder questionArray={questionArray}/> :
                                     <LikertScale questionNumber={questions.questionNumber}
                                                  characteristic={questions.characteristic}
                                                  isReversed={questions.isReversed}/>}

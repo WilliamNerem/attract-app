@@ -188,7 +188,7 @@ export const QuestionsData = () => {
 
 export const QuestionsDataTech = () => {
     const dispatch = useDispatch();
-    const { social, creative, practical, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
+    const { social, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
     const statements1 = [
         {
             id: 1,
@@ -231,8 +231,8 @@ export const QuestionsDataTech = () => {
         },
         {
             questionNumber: 23,
-            questionType: 'likertScale',
-            questionTxt: "ett påstandene i rekkefølge etter hva som passer best for deg",
+            questionType: 'statementOrder',
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 75,
             characteristic: social,
             isStatement: true,
@@ -253,7 +253,7 @@ export const QuestionsDataTech = () => {
 
 export const QuestionsDataSC = () => {
     const dispatch = useDispatch();
-    const { social, creative, practical, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
+    const { social, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
     const statements1 = [
         {
             id: 1,
@@ -305,6 +305,7 @@ export const QuestionsDataSC = () => {
             progress: 14,
             characteristic: social,
             isStatement: false,
+            isImageSelection: false,
             isReversed: true
         },
         {
@@ -314,6 +315,7 @@ export const QuestionsDataSC = () => {
             progress: 29,
             characteristic: social,
             isStatement: true,
+            isImageSelection: false,
             statementArr: statements1,
             isReversed: false
         },
@@ -324,6 +326,7 @@ export const QuestionsDataSC = () => {
             progress: 43,
             characteristic: social,
             isStatement: false,
+            isImageSelection: false,
             isReversed: true
         },
         {
@@ -333,6 +336,7 @@ export const QuestionsDataSC = () => {
             progress: 58,
             characteristic: social,
             isStatement: false,
+            isImageSelection: false,
             isReversed: false
         },
         {
@@ -342,6 +346,7 @@ export const QuestionsDataSC = () => {
             progress: 72,
             characteristic: social,
             isStatement: false,
+            isImageSelection: false,
             isReversed: true
         },
         {
@@ -351,6 +356,7 @@ export const QuestionsDataSC = () => {
             progress: 87,
             characteristic: social,
             isStatement: true,
+            isImageSelection: false,
             statementArr: statements2,
             isReversed: false
         },
@@ -361,6 +367,7 @@ export const QuestionsDataSC = () => {
             progress: 100,
             characteristic: social,
             isStatement: false,
+            isImageSelection: false,
             isReversed: false
         },
     ];
@@ -368,7 +375,7 @@ export const QuestionsDataSC = () => {
 
 export const QuestionsDataInteractive = () => {
     const dispatch = useDispatch();
-    const { social, creative, practical, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
+    const { social, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
     const statements1 = [
         {
             id: 1,
@@ -395,7 +402,7 @@ export const QuestionsDataInteractive = () => {
             questionNumber: 21,
             questionType: 'likertScale',
             questionTxt: "Dette er om Build",
-            progress: 25,
+            progress: 20,
             characteristic: social,
             isStatement: false,
             isReversed: true
@@ -404,16 +411,16 @@ export const QuestionsDataInteractive = () => {
             questionNumber: 22,
             questionType: 'likertScale',
             questionTxt: "Dette er om Design",
-            progress: 50,
+            progress: 40,
             characteristic: social,
             isStatement: false,
             isReversed: false
         },
         {
             questionNumber: 23,
-            questionType: 'likertScale',
+            questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
-            progress: 75,
+            progress: 60,
             characteristic: social,
             isStatement: true,
             statementArr: statements1,
@@ -423,6 +430,15 @@ export const QuestionsDataInteractive = () => {
             questionNumber: 24,
             questionType: 'likertScale',
             questionTxt: "Dette er om Communcations",
+            progress: 80,
+            characteristic: social,
+            isStatement: false,
+            isReversed: false
+        },
+        {
+            questionNumber: 25, // Had to increase to one more question so that statementOrder can check for questionlength
+            questionType: 'likertScale',
+            questionTxt: "Dette er om Fjords",
             progress: 100,
             characteristic: social,
             isStatement: false,

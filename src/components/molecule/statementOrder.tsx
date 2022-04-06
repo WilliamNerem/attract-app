@@ -4,9 +4,13 @@ import {State} from "../../redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 import {StatementItem} from "../atoms/statementItem";
-import {QuestionsData} from "../../questions";
+import {QuestionsData, QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
 
-export const StatementOrder = () => {
+interface statementOrderProps {
+    questionArray?: any[]
+}
+
+export const StatementOrder = ({questionArray}: statementOrderProps) => {
     const counter = useSelector((state: State) => state.questionCounter);
     const statementOrder = useSelector((state: State) => state.statementOrder);
     const initializeStatementOrderArray = useSelector((state: State) => state.initializeStatementOrder);
@@ -16,10 +20,26 @@ export const StatementOrder = () => {
         startTransition: true
     });
 
+    let arrayLength = questionArray?.length;
+    console.log(arrayLength);
+    console.log(counter);
     const dispatch = useDispatch();
     const { initializeStatementOrder, addStatementOrder } = bindActionCreators(actionCreators, dispatch);
-    const statementArr = QuestionsData()[counter-1].statementArr;
+    let statementArr = questionArray;
+    if(counter < 20) {
+        statementArr = QuestionsData()[counter - 1].statementArr;
+    }
+    if(arrayLength === 7) { // Has to hardcode this and needs to be changed if size increases
+        statementArr = QuestionsDataSC()[counter-20].statementArr;
+    }
+    else if(arrayLength === 5) { // Has to hardcode this and needs to be changed if size increases
+        statementArr = QuestionsDataInteractive()[counter-20].statementArr;
+    }
+    else if(arrayLength === 4) { // Has to hardcode this and needs to be changed if size increases
+        statementArr = QuestionsDataTech()[counter-20].statementArr;
+    }
     let statementList;
+
 
     const initDepartmentPoints = () => {
         if (statementArr !== undefined){
