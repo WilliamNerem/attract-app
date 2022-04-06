@@ -3,7 +3,7 @@ import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
 import {social} from "./redux/actionCreators";
 
-export const QuestionsData = () => {
+export const QuestionsPartOne = () => {
     const dispatch = useDispatch();
     const {
         social,
@@ -190,19 +190,19 @@ export const QuestionsData = () => {
 export const QuestionsDataTech = () => {
     return [
         {
-            questionNumber: 21,
+            questionNumber: 1,
             questionType: 'likertScale',
             questionTxt: "Dette er første tech spørsmål",
-            progress: 13,
+            progress: 50,
             characteristic: social,
             isStatement: false,
             isReversed: true
         },
         {
-            questionNumber: 22,
+            questionNumber: 2,
             questionType: 'likertScale',
             questionTxt: "Dette er andre tech spørsmål",
-            progress: 25,
+            progress: 100,
             characteristic: social,
             isStatement: false,
             isReversed: false
@@ -213,19 +213,19 @@ export const QuestionsDataTech = () => {
 export const QuestionsDataSC = () => {
     return [
         {
-            questionNumber: 21,
+            questionNumber: 1,
             questionType: 'likertScale',
             questionTxt: "Dette er første S&C spørsmål",
-            progress: 13,
+            progress: 50,
             characteristic: social,
             isStatement: false,
             isReversed: true
         },
         {
-            questionNumber: 22,
+            questionNumber: 2,
             questionType: 'likertScale',
             questionTxt: "Dette er andre S&C spørsmål",
-            progress: 25,
+            progress: 100,
             characteristic: social,
             isStatement: false,
             isReversed: false
@@ -236,19 +236,19 @@ export const QuestionsDataSC = () => {
 export const QuestionsDataInteractive = () => {
     return [
         {
-            questionNumber: 21,
+            questionNumber: 1,
             questionType: 'likertScale',
             questionTxt: "Dette er første Interactive spørsmål",
-            progress: 13,
+            progress: 50,
             characteristic: social,
             isStatement: false,
             isReversed: true
         },
         {
-            questionNumber: 22,
+            questionNumber: 2,
             questionType: 'likertScale',
             questionTxt: "Dette er andre Interactive spørsmål",
-            progress: 25,
+            progress: 100,
             characteristic: social,
             isStatement: false,
             isReversed: false

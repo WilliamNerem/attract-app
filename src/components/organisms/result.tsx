@@ -6,11 +6,11 @@ import {Pallet} from "../atoms/pallet";
 import {InfoCard} from "../atoms/infoCard";
 import {Navbar} from "../molecule/navbar";
 import {departments} from "../../departments";
-import {useDispatch} from "react-redux";
-import {bindActionCreators} from "redux";
-import {actionCreators} from "../../redux";
+import {useSelector} from "react-redux";
+import {State} from "../../redux";
 import {ValgomatPartTwo} from "./valgomatPartTwo";
 import {QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
+import {AlertDialog} from "../atoms/alertDialog";
 
 interface resultProps {
     totalPointsArray: any[]
@@ -19,8 +19,7 @@ interface resultProps {
 export const Result = ({totalPointsArray
 
 }: resultProps) => {
-    const dispatch = useDispatch();
-    const {setCounter} = bindActionCreators(actionCreators, dispatch);
+    const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
     const [carousel, setCarousel] = useState({first: 'leftCard', second: 'middleCard', third: 'rightCard'});
     const [disabledButtons, setDisabledButtons] = useState('');
     const maxVal = Math.max(...totalPointsArray);
@@ -29,6 +28,12 @@ export const Result = ({totalPointsArray
     const [isDepClicked, setIsDepClicked] = useState( { strat: false, interactive: false, tech: false});
     let link;
     let infoText;
+
+    useEffect(() => {
+        if (counterPartTwo === 0){
+            setIsDepClicked({ strat: false, interactive: false, tech: false});
+        }
+    }, []);
 
     useEffect(() => {
         setDisabledButtons('disabledButtons');
@@ -95,7 +100,6 @@ export const Result = ({totalPointsArray
     };
 
     const onButtonClick = (department: string) => {
-        setCounter(21);
         if(department === 'Strategy & Consulting') {
             setIsDepClicked({strat: true, interactive: false, tech: false});
         }
@@ -108,7 +112,13 @@ export const Result = ({totalPointsArray
 
     };
 
-    if (isDepClicked.tech) {
+    if (counterPartTwo === 0){
+        return (
+            <>
+                <AlertDialog end={true} totalPointsArray={totalPointsArray} setIsDepClicked={setIsDepClicked}/>
+            </>
+        )
+    } else if (isDepClicked.tech) {
         return (
             <ValgomatPartTwo questionArray={QuestionsDataTech()}/>
         )

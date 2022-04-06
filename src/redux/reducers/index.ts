@@ -13,12 +13,14 @@ import {imageSelectorReducer, initialState as initImageSelector} from "./imageSe
 import {imageSelectorAnswerReducer} from "./imageSelectorAnswers";
 import {stratSubdivisionReducer, initialState as initStratSubdivisions} from "./stratSubdivision";
 import {interactiveSubdivisionReducer, initialState as initInteractiveSubDivisions} from "./interactiveSubdivision";
+import {questionCounterPartTwoReducer} from "./questionCounterPartTwo";
 
 const reducers = combineReducers({
     valgomatInProgress: valgomatInProgressReducer,
     showAlertDialog: showAlertDialogReducer,
     isInfoClicked: isInfoClickedReducer,
     questionCounter: questionCounterReducer,
+    questionCounterPartTwo: questionCounterPartTwoReducer,
     likertAnswer: likertAnswerReducer,
     characteristicPoints: algorithmReducer,
     statementOrder: statementOrderReducer,

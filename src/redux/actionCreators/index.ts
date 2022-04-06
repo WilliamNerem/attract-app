@@ -6,7 +6,7 @@ import {
     InteractiveSubdivisionActionType,
     IsInfoClickedActionType,
     LikertActionType,
-    QuestionActionType,
+    QuestionActionType, QuestionPartTwoActionType,
     ResetStatesActionType,
     ShowAlertDialogActionType,
     StatementOrderActionType,
@@ -30,6 +30,7 @@ import {
     ValgomatInProgressAction
 } from "..";
 import {ResetStatesAction} from "../actions/resetStatesAction";
+import {QuestionPartTwoAction} from "..";
 
 export const increaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
@@ -53,6 +54,33 @@ export const setCounter = (counter: number) => {
     return (dispatch: Dispatch<QuestionAction>) => {
         dispatch({
             type: QuestionActionType.SETCOUNTER,
+            payload: counter
+        })
+    }
+};
+
+export const increaseCounterPartTwo = () => {
+    return (dispatch: Dispatch<QuestionPartTwoAction>) => {
+        dispatch({
+            type: QuestionPartTwoActionType.INCREASE,
+            payload: 1
+        })
+    }
+};
+
+export const decreaseCounterPartTwo = () => {
+    return (dispatch: Dispatch<QuestionPartTwoAction>) => {
+        dispatch({
+            type: QuestionPartTwoActionType.DECREASE,
+            payload: 1
+        })
+    }
+};
+
+export const setCounterPartTwo = (counter: number) => {
+    return (dispatch: Dispatch<QuestionPartTwoAction>) => {
+        dispatch({
+            type: QuestionPartTwoActionType.SETCOUNTER,
             payload: counter
         })
     }

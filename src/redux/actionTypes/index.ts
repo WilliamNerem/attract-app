@@ -4,6 +4,12 @@ export enum QuestionActionType {
     SETCOUNTER = 'setCounter'
 }
 
+export enum QuestionPartTwoActionType {
+    INCREASE = 'increasePartTwo',
+    DECREASE = 'decreasePartTwo',
+    SETCOUNTER = 'setCounterPartTwo'
+}
+
 export enum LikertActionType {
     STRONGLY_DISAGREE = 'strongly_disagree',
     MODERATLY_DISAGREE = 'moderatly_disagree',
