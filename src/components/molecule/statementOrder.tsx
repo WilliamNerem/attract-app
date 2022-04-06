@@ -20,13 +20,12 @@ export const StatementOrder = ({questionArray}: statementOrderProps) => {
         transitionDown: -1,
         startTransition: true
     });
-
-    let arrayLength = questionArray?.length;
-
     const dispatch = useDispatch();
     const { initializeStatementOrder, addStatementOrder } = bindActionCreators(actionCreators, dispatch);
+
+    let arrayLength = questionArray?.length;
     let statementArr = questionArray;   // Can put below code into a function since it's duplicate with statementItem
-    if(counterPartTwo === 0) {
+    if(counterPartTwo === 1) {
         statementArr = QuestionsPartOne()[counter - 1].statementArr;
     }
     if(arrayLength === 7) { // Has to hardcode this and needs to be changed if size increases

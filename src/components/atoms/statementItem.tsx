@@ -28,7 +28,7 @@ export const StatementItem = ({index, positionInStatementOrder, position, transi
 
     let arrayLength = questionArray?.length;
     let statementArray = questionArray;
-    if(counterPartTwo === 0) {
+    if(counterPartTwo === 1) {
         statementArray = QuestionsPartOne()[counter - 1].statementArr;
     }
     if(arrayLength === 7) { // Has to hardcode this and needs to be changed if size increases
