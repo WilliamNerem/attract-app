@@ -21,7 +21,8 @@ export const ValgomatPartTwo = ({questionArray}: valgoMatPartTwoProps) => {
     const dispatch = useDispatch();
     const {
         increaseCounterPartTwo,
-        decreaseCounterPartTwo
+        decreaseCounterPartTwo,
+        reset
     } = bindActionCreators(actionCreators, dispatch);
     const counter = useSelector((state: State) => state.questionCounterPartTwo);
     const [transitionValue, setTransitionValue] = useState({from: ''});
@@ -36,6 +37,10 @@ export const ValgomatPartTwo = ({questionArray}: valgoMatPartTwoProps) => {
             setClassname('initializeTransition');
         }
     }, [counter]);
+
+    useEffect(() => {
+        reset();
+    }, [])
 
     const startTransition = useTransition(transition, {
         from: {transform: "translateX(" + transitionValue.from + ")"},
@@ -83,7 +88,7 @@ export const ValgomatPartTwo = ({questionArray}: valgoMatPartTwoProps) => {
                                 <Questions questionTxt={questions.questionTxt}/>
                                 {questions.isStatement ? <StatementOrder questionArray={questionArray}/> :
                                     <LikertScale questionNumber={questions.questionNumber}
-                                                 characteristic={questions.characteristic}
+                                                 characteristic={questions.characteristic} // This is not characteristic, will be a subdepartment
                                                  isReversed={questions.isReversed}/>}
                             </animated.div>
                         )}

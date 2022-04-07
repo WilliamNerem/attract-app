@@ -3,6 +3,7 @@ import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
 import {social} from "./redux/actionCreators";
 
+
 export const QuestionsPartOne = () => {
     const dispatch = useDispatch();
     const {
@@ -254,24 +255,24 @@ export const QuestionsDataTech = () => {
 
 export const QuestionsDataSC = () => {
     const dispatch = useDispatch();
-    const { social, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
+    const { social, allocateStrat_CMTPoints, allocateStrat_Health_PublicPoints, allocateStrat_FinancePoints, allocateStrat_ProductsPoints, allocateStrat_ResourcesPoints } = bindActionCreators(actionCreators, dispatch);
     const statements1 = [
         {
             id: 1,
             title: 'Jeg liker Products',
-            department: technologyPoints,
+            department: allocateStrat_ProductsPoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
             title: 'Jeg liker Health & Public Service',
-            department: strategyAndConsultingPoints,
+            department: allocateStrat_Health_PublicPoints,
             initDepartmentPoints: 4
         },
         {
             id: 3,
             title: 'Jeg liker Resources',
-            department: interactivePoints,
+            department: allocateStrat_ResourcesPoints,
             initDepartmentPoints: 2
         },
     ];
@@ -280,19 +281,19 @@ export const QuestionsDataSC = () => {
         {
             id: 1,
             title: 'Jeg liker Financial Services',
-            department: technologyPoints,
+            department: allocateStrat_FinancePoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
             title: 'Jeg liker Communciation Media & Technology',
-            department: strategyAndConsultingPoints,
+            department: allocateStrat_CMTPoints,
             initDepartmentPoints: 4
         },
         {
             id: 3,
             title: 'Jeg liker Transport (subindustri under Products)',
-            department: interactivePoints,
+            department: allocateStrat_ProductsPoints,
             initDepartmentPoints: 2
         },
     ];
@@ -304,7 +305,7 @@ export const QuestionsDataSC = () => {
             questionType: 'likertScale',
             questionTxt: "Dette er om Products",
             progress: 14,
-            characteristic: social,
+            characteristic: allocateStrat_ProductsPoints,
             isStatement: false,
             isImageSelection: false,
             isReversed: true
@@ -325,7 +326,7 @@ export const QuestionsDataSC = () => {
             questionType: 'likertScale',
             questionTxt: "Dette er om Resources",
             progress: 43,
-            characteristic: social,
+            characteristic: allocateStrat_ResourcesPoints,
             isStatement: false,
             isImageSelection: false,
             isReversed: true
@@ -335,7 +336,7 @@ export const QuestionsDataSC = () => {
             questionType: 'likertScale',
             questionTxt: "Dette er om Health & Public Service",
             progress: 58,
-            characteristic: social,
+            characteristic: allocateStrat_Health_PublicPoints,
             isStatement: false,
             isImageSelection: false,
             isReversed: false
@@ -345,7 +346,7 @@ export const QuestionsDataSC = () => {
             questionType: 'likertScale',
             questionTxt: "Dette er om Financial Services",
             progress: 72,
-            characteristic: social,
+            characteristic: allocateStrat_FinancePoints,
             isStatement: false,
             isImageSelection: false,
             isReversed: true
@@ -366,7 +367,7 @@ export const QuestionsDataSC = () => {
             questionType: 'likertScale',
             questionTxt: "Dette er om Communcation Media & Technology",
             progress: 100,
-            characteristic: social,
+            characteristic: allocateStrat_CMTPoints,
             isStatement: false,
             isImageSelection: false,
             isReversed: false
@@ -376,24 +377,24 @@ export const QuestionsDataSC = () => {
 
 export const QuestionsDataInteractive = () => {
     const dispatch = useDispatch();
-    const { social, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
+    const { allocateInteractive_DesignPoints, allocateInteractive_BuildPoints, allocateInteractive_CommunicationsPoints } = bindActionCreators(actionCreators, dispatch);
     const statements1 = [
         {
             id: 1,
             title: 'Jeg liker Communcations',
-            department: strategyAndConsultingPoints,
+            department: allocateInteractive_CommunicationsPoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
             title: 'Jeg liker Build',
-            department: technologyPoints,
+            department: allocateInteractive_BuildPoints,
             initDepartmentPoints: 4
         },
         {
             id: 3,
             title: 'Jeg liker Design',
-            department: interactivePoints,
+            department: allocateInteractive_DesignPoints,
             initDepartmentPoints: 2
         }
     ];
@@ -404,7 +405,7 @@ export const QuestionsDataInteractive = () => {
             questionType: 'likertScale',
             questionTxt: "Dette er om Build",
             progress: 20,
-            characteristic: social,
+            characteristic: allocateInteractive_BuildPoints,
             isStatement: false,
             isReversed: true
         },
@@ -413,7 +414,7 @@ export const QuestionsDataInteractive = () => {
             questionType: 'likertScale',
             questionTxt: "Dette er om Design",
             progress: 40,
-            characteristic: social,
+            characteristic: allocateInteractive_DesignPoints,
             isStatement: false,
             isReversed: false
         },
@@ -432,7 +433,7 @@ export const QuestionsDataInteractive = () => {
             questionType: 'likertScale',
             questionTxt: "Dette er om Communcations",
             progress: 80,
-            characteristic: social,
+            characteristic: allocateInteractive_CommunicationsPoints,
             isStatement: false,
             isReversed: false
         },
@@ -441,7 +442,7 @@ export const QuestionsDataInteractive = () => {
             questionType: 'likertScale',
             questionTxt: "Dette er om Fjords",
             progress: 100,
-            characteristic: social,
+            characteristic: allocateInteractive_DesignPoints,
             isStatement: false,
             isReversed: false
         },
