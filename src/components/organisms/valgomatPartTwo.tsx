@@ -12,18 +12,24 @@ import {useDispatch, useSelector} from "react-redux";
 import {actionCreators, State} from "../../redux";
 import {useEffect, useState} from "react";
 import {bindActionCreators} from "redux";
+import {ResultSubDepartment} from "./resultSubDepartment";
 
 interface valgoMatPartTwoProps {
     questionArray: any[]
+    isTech?: boolean
+    isStrat?: boolean
+    isInteractive?: boolean
 }
 
-export const ValgomatPartTwo = ({questionArray}: valgoMatPartTwoProps) => {
+export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive}: valgoMatPartTwoProps) => {
     const dispatch = useDispatch();
     const {
         increaseCounterPartTwo,
         decreaseCounterPartTwo
     } = bindActionCreators(actionCreators, dispatch);
     const counter = useSelector((state: State) => state.questionCounterPartTwo);
+    const stratSub = useSelector((state: State) => state.stratSubdivision);
+    const interactiveSub = useSelector((state: State) => state.interactiveSubdivision);
     const [transitionValue, setTransitionValue] = useState({from: ''});
     const [transition, setTransition] = useState(true);
     const [className, setClassname] = useState('initializeTransition');
@@ -99,6 +105,10 @@ export const ValgomatPartTwo = ({questionArray}: valgoMatPartTwoProps) => {
                     </Backdrop>
                 </div>
             )
+        }
+        if (counter > questionArray.length){
+            const information = (isStrat ? stratSub : (isInteractive ? interactiveSub : (isTech ? [] : [])))
+            return (<ResultSubDepartment information={information}/>)
         }
     }
 

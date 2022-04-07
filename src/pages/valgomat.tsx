@@ -20,7 +20,6 @@ import {ShowExplanation} from "../components/molecule/showExplanation";
 import Backdrop from "@mui/material/Backdrop";
 import {Result} from "../components/organisms/result";
 import {ImageSelection} from "../components/atoms/imageSelection";
-import {ResultSubDepartment} from "../components/organisms/resultSubDepartment";
 
 const Valgomat = () => {
     const dispatch = useDispatch();
@@ -33,8 +32,7 @@ const Valgomat = () => {
     const [transitionValue, setTransitionValue] = useState({from: ''});
     const [transition, setTransition] = useState(true);
     const [className, setClassname] = useState('initializeTransition');
-    const [open, setOpen] = useState(false);
-    const [mainResult, setMainResult] = useState(true);
+    const [open, setOpen] = useState(false)
     const userDifferences: number[] = [];
     valgomatIsInProgress(true);
 
@@ -144,32 +142,7 @@ const Valgomat = () => {
             const biggestTwoDepartmentPoints = departmentPointsArray.slice().sort((a, b) => b - a).slice(0, 2);
 
             if (counter >= dynamicCounter){
-                const information = [
-                    {
-                        title: 'Sub department 1',
-                        link: 'https://www.accenture.com/no-en/',
-                        infoText: 'Info tekst om sub department 1',
-                        infoSubText: 'Noe info subtext om denne'
-                    },
-                    {
-                        title: 'Sub department 2',
-                        link: 'https://www.accenture.com/no-en/',
-                        infoText: 'Info tekst om sub department 2',
-                        infoSubText: 'Noe info subtext om denne'
-                    },
-                    {
-                        title: 'Sub department 3',
-                        link: 'https://www.accenture.com/no-en/',
-                        infoText: 'Info tekst om sub department 3',
-                        infoSubText: 'Noe info subtext om denne'
-                    },
-                ]
-
-                if (counter >= 21) {setMainResult(false)}
-
-                return (
-                    mainResult ? <Result totalPointsArray={totalPoints}/> : <ResultSubDepartment information={information}/>
-                )
+                return (<Result totalPointsArray={totalPoints}/>)
             }
 
             if (biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) {   // Check if number 1 has the same points as number 2 department

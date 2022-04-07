@@ -120,17 +120,17 @@ export const Result = ({totalPointsArray
         )
     } else if (isDepClicked.tech) {
         return (
-            <ValgomatPartTwo questionArray={QuestionsDataTech()}/>
+            <ValgomatPartTwo questionArray={QuestionsDataTech()} isTech={true}/>
         )
     }
     else if (isDepClicked.interactive) {
         return (
-            <ValgomatPartTwo questionArray={QuestionsDataInteractive()}/>
+            <ValgomatPartTwo questionArray={QuestionsDataInteractive()} isInteractive={true}/>
         )
     }
     else if (isDepClicked.strat) {
         return (
-            <ValgomatPartTwo questionArray={QuestionsDataSC()}/>
+            <ValgomatPartTwo questionArray={QuestionsDataSC()} isStrat={true}/>
         )
     }
     else {
