@@ -1,8 +1,7 @@
-import { combineReducers } from "redux";
+import {combineReducers} from "redux";
 import { questionCounterReducer } from './questions'
 import { likertAnswerReducer } from "./likert";
-import { algorithmReducer } from "./algorithm";
-import { ResetStatesActionType } from '../actionTypes';
+import {algorithmReducer} from "./algorithm";
 import { statementOrderReducer, initialState as initStatementOrder } from "./statementOrder";
 import { initializeStatementOrderReducer } from "./initializeStatementOrder";
 import {departmentsReducer, initialState as initDepartments} from "./departments";
@@ -31,6 +30,16 @@ const reducers = combineReducers({
     stratSubdivision: stratSubdivisionReducer,
     interactiveSubdivision: interactiveSubdivisionReducer
 });
+
+export enum ResetStatesActionType {
+    RESET_STATES = 'resetStates'
+}
+
+interface resetStatesAction {
+    type: ResetStatesActionType.RESET_STATES
+}
+
+export type ResetStatesAction = resetStatesAction
 
 const rootReducer = (state: any, action: any) => {
     if (action.type === ResetStatesActionType.RESET_STATES) {

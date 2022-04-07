@@ -1,4 +1,13 @@
-import {ValgomatInProgressAction, ValgomatInProgressActionType} from '..';
+export enum ValgomatInProgressActionType {
+    VALGOMATINPROGRESS = 'valgomatInProgress'
+}
+
+interface valgomatInProgress {
+    type: ValgomatInProgressActionType.VALGOMATINPROGRESS
+    payload: boolean
+}
+
+export type ValgomatInProgressAction = valgomatInProgress;
 
 const initialState = false;
 

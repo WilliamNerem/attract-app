@@ -1,4 +1,43 @@
-import {ImageSelectorAction, ImageSelectorType} from '..';
+export enum ImageSelectorType {
+    STRATEGYANDCONSULTING = 'strategyImgSelector',
+    TECHNOLOGY = 'technologyImgSelector',
+    INTERACTIVE = 'interactiveImgSelector',
+    SOCIAL = 'socialImgSelector',
+    CREATIVE = 'creativeImgSelector',
+    PRACTICAL = 'practicalImgSelector'
+}
+
+interface strategyAndConsultingImageAction {
+    type: ImageSelectorType.STRATEGYANDCONSULTING
+    payload: number
+}
+
+interface technologyImageAction {
+    type: ImageSelectorType.TECHNOLOGY
+    payload: number
+}
+
+interface interactiveImageAction {
+    type: ImageSelectorType.INTERACTIVE
+    payload: number
+}
+
+interface socialImageAction {
+    type: ImageSelectorType.SOCIAL
+    payload: number
+}
+
+interface creativeImageAction {
+    type: ImageSelectorType.CREATIVE
+    payload: number
+}
+
+interface practicalImageAction {
+    type: ImageSelectorType.PRACTICAL
+    payload: number
+}
+
+export type ImageSelectorAction = strategyAndConsultingImageAction | technologyImageAction | interactiveImageAction | socialImageAction | creativeImageAction | practicalImageAction;
 
 export const initialState = {
     answers: [
