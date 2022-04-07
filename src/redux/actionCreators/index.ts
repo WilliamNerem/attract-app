@@ -119,6 +119,14 @@ export const stronglyAgree = (questionNumber: number) => {
     }
 };
 
+export const reset = () => {
+    return (dispatch: Dispatch<LikertAction>) => {
+        dispatch({
+            type: LikertActionType.RESET,
+        })
+    }
+};
+
 export const social = (value: number, isReversed: boolean) => {
     return (dispatch: Dispatch<AlgorithmAction>) => {
         dispatch({

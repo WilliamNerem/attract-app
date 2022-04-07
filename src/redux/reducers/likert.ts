@@ -3,7 +3,8 @@ export enum LikertActionType {
     MODERATLY_DISAGREE = 'moderatly_disagree',
     NEUTRAL = 'neutral',
     MODERATLY_AGREE = 'moderatly_agree',
-    STRONGLY_AGREE = 'strongly_agree'
+    STRONGLY_AGREE = 'strongly_agree',
+    RESET = 'reset'
 }
 
 interface stronglyDisagreeAction {
@@ -36,7 +37,11 @@ interface stronglyAgreeAction {
     questionNumber: number
 }
 
-export type LikertAction = stronglyDisagreeAction | moderatlyDisagreeAction | neutralAction | moderatlyAgreeAction | stronglyAgreeAction;
+interface reset {
+    type: LikertActionType.RESET
+}
+
+export type LikertAction = stronglyDisagreeAction | moderatlyDisagreeAction | neutralAction | moderatlyAgreeAction | stronglyAgreeAction | reset;
 
 const initialState = {
     answers: []
@@ -45,35 +50,37 @@ const initialState = {
 export const likertAnswerReducer = (state: number[] = initialState.answers, action: LikertAction) => {
     switch (action.type) {
         case LikertActionType.STRONGLY_DISAGREE:
-            if (action.questionNumber <= state.length){
-                state[action.questionNumber-1] = action.payload;
+            if (action.questionNumber <= state.length) {
+                state[action.questionNumber - 1] = action.payload;
                 return [...state]
             }
             return [...state, action.payload];
         case LikertActionType.MODERATLY_DISAGREE:
-            if (action.questionNumber <= state.length){
-                state[action.questionNumber-1] = action.payload;
+            if (action.questionNumber <= state.length) {
+                state[action.questionNumber - 1] = action.payload;
                 return [...state]
             }
             return [...state, action.payload];
         case LikertActionType.NEUTRAL:
-            if (action.questionNumber <= state.length){
-                state[action.questionNumber-1] = action.payload;
+            if (action.questionNumber <= state.length) {
+                state[action.questionNumber - 1] = action.payload;
                 return [...state]
             }
             return [...state, action.payload];
         case LikertActionType.MODERATLY_AGREE:
-            if (action.questionNumber <= state.length){
-                state[action.questionNumber-1] = action.payload;
+            if (action.questionNumber <= state.length) {
+                state[action.questionNumber - 1] = action.payload;
                 return [...state]
             }
             return [...state, action.payload];
         case LikertActionType.STRONGLY_AGREE:
-            if (action.questionNumber <= state.length){
-                state[action.questionNumber-1] = action.payload;
+            if (action.questionNumber <= state.length) {
+                state[action.questionNumber - 1] = action.payload;
                 return [...state]
             }
             return [...state, action.payload];
+        case LikertActionType.RESET:
+            return [];
         default:
             return state
     }

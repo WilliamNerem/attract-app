@@ -4,10 +4,15 @@ import {State} from "../../redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 import {StatementItem} from "../atoms/statementItem";
-import {QuestionsPartOne} from "../../questions";
+import {QuestionsPartOne, QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
 
-export const StatementOrder = () => {
+interface statementOrderProps {
+    questionArray?: any[]
+}
+
+export const StatementOrder = ({questionArray}: statementOrderProps) => {
     const counter = useSelector((state: State) => state.questionCounter);
+    const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
     const statementOrder = useSelector((state: State) => state.statementOrder);
     const initializeStatementOrderArray = useSelector((state: State) => state.initializeStatementOrder);
     const [transition, setTransition] = useState({
@@ -15,10 +20,25 @@ export const StatementOrder = () => {
         transitionDown: -1,
         startTransition: true
     });
-
     const dispatch = useDispatch();
     const { initializeStatementOrder, addStatementOrder } = bindActionCreators(actionCreators, dispatch);
-    const statementArr = QuestionsPartOne()[counter-1].statementArr;
+
+    let arrayLength = questionArray?.length;
+    let statementArr = questionArray;   // Can put below code into a function since it's duplicate with statementItem
+    let currentCounter = counterPartTwo; // Have to switch between counter and counterPartTwo
+    if(counterPartTwo === 1) {
+        statementArr = QuestionsPartOne()[counter - 1].statementArr;
+        currentCounter = counter;
+    }
+    if(arrayLength === 7) { // Has to hardcode this and needs to be changed if size increases
+        statementArr = QuestionsDataSC()[counterPartTwo - 1].statementArr;
+    }
+    else if(arrayLength === 5) { // Has to hardcode this and needs to be changed if size increases
+        statementArr = QuestionsDataInteractive()[counterPartTwo - 1].statementArr;
+    }
+    else if(arrayLength === 4) { // Has to hardcode this and needs to be changed if size increases
+        statementArr = QuestionsDataTech()[counterPartTwo - 1].statementArr;
+    }
     let statementList;
 
     const initDepartmentPoints = () => {
@@ -26,13 +46,13 @@ export const StatementOrder = () => {
             statementArr.map((statement) => {
                 statement.department(statement.initDepartmentPoints)
             });
-            initializeStatementOrder(counter);
+            initializeStatementOrder(currentCounter);
         }
     };
 
     let isIinitialized = false;
     initializeStatementOrderArray.map((object) => {
-        if (object.number === counter){
+        if (object.number === currentCounter){
             isIinitialized = true;
         }
     });
@@ -58,7 +78,7 @@ export const StatementOrder = () => {
 
     statementList = statementOrder.map((statementArr, position) => {
         let statements;
-        if (counter === initializeStatementOrderArray[position].number){
+        if (currentCounter === initializeStatementOrderArray[position].number){
             statements = statementArr.map((statement, index) => {
                 let transitionPx = 0;
                 if (transition.transitionUp === index){
@@ -72,10 +92,11 @@ export const StatementOrder = () => {
                         index={statement-1}
                         positionInStatementOrder={position}
                         position={index}
-                        questionNumber={counter-1}
+                        questionNumber={currentCounter-1}
                         transitionPx={transitionPx}
                         transitionValues={transition}
                         handleTransition={handleTransition}
+                        questionArray={questionArray}
                     />
                 )
             });
