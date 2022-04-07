@@ -11,12 +11,16 @@ import { showAlertDialogReducer } from "./showAlertDialog";
 import {isInfoClickedReducer} from "./isInfoClicked";
 import {imageSelectorReducer, initialState as initImageSelector} from "./imageSelector";
 import {imageSelectorAnswerReducer} from "./imageSelectorAnswers";
+import {stratSubdivisionReducer, initialState as initStratSubdivisions} from "./stratSubdivision";
+import {interactiveSubdivisionReducer, initialState as initInteractiveSubDivisions} from "./interactiveSubdivision";
+import {questionCounterPartTwoReducer} from "./questionCounterPartTwo";
 
 const reducers = combineReducers({
     valgomatInProgress: valgomatInProgressReducer,
     showAlertDialog: showAlertDialogReducer,
     isInfoClicked: isInfoClickedReducer,
     questionCounter: questionCounterReducer,
+    questionCounterPartTwo: questionCounterPartTwoReducer,
     likertAnswer: likertAnswerReducer,
     characteristicPoints: algorithmReducer,
     statementOrder: statementOrderReducer,
@@ -24,6 +28,8 @@ const reducers = combineReducers({
     departmentsAlgorithm: departmentsReducer,
     imageSelector: imageSelectorReducer,
     imageSelectorAnswer: imageSelectorAnswerReducer,
+    stratSubdivision: stratSubdivisionReducer,
+    interactiveSubdivision: interactiveSubdivisionReducer
 });
 
 const rootReducer = (state: any, action: any) => {
@@ -36,6 +42,12 @@ const rootReducer = (state: any, action: any) => {
         }
         initStatementOrder.statementOrderArr = [];
         state = undefined;
+    }
+    for (let i = 0; i < initStratSubdivisions.subdivisionArr.length; i++){
+        initStratSubdivisions.subdivisionArr[i].points = 0;
+    }
+    for (let i = 0; i < initInteractiveSubDivisions.subdivisionArr.length; i++){
+        initInteractiveSubDivisions.subdivisionArr[i].points = 0;
     }
 
     return reducers(state, action);

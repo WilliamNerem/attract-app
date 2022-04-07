@@ -3,12 +3,14 @@ import {
     DepartmentsActionType,
     ImageSelectorType,
     InitializeStatementOrderActionType,
+    InteractiveSubdivisionActionType,
     IsInfoClickedActionType,
     LikertActionType,
-    QuestionActionType,
+    QuestionActionType, QuestionPartTwoActionType,
     ResetStatesActionType,
     ShowAlertDialogActionType,
     StatementOrderActionType,
+    StratSubdivisionActionType,
     ValgomatInProgressActionType
 } from "../actionTypes";
 import {Dispatch} from "redux";
@@ -18,14 +20,17 @@ import {
     ImageSelectorAction,
     ImageSelectorAnswerAction,
     InitializeStatementOrderAction,
+    InteractiveSubDivisionActions,
     IsInfoClickedAction,
     LikertAction,
     QuestionAction,
     ShowAlertDialogAction,
     StatementOrderAction,
+    StratSubDivisionActions,
     ValgomatInProgressAction
 } from "..";
 import {ResetStatesAction} from "../actions/resetStatesAction";
+import {QuestionPartTwoAction} from "..";
 
 export const increaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
@@ -49,6 +54,33 @@ export const setCounter = (counter: number) => {
     return (dispatch: Dispatch<QuestionAction>) => {
         dispatch({
             type: QuestionActionType.SETCOUNTER,
+            payload: counter
+        })
+    }
+};
+
+export const increaseCounterPartTwo = () => {
+    return (dispatch: Dispatch<QuestionPartTwoAction>) => {
+        dispatch({
+            type: QuestionPartTwoActionType.INCREASE,
+            payload: 1
+        })
+    }
+};
+
+export const decreaseCounterPartTwo = () => {
+    return (dispatch: Dispatch<QuestionPartTwoAction>) => {
+        dispatch({
+            type: QuestionPartTwoActionType.DECREASE,
+            payload: 1
+        })
+    }
+};
+
+export const setCounterPartTwo = (counter: number) => {
+    return (dispatch: Dispatch<QuestionPartTwoAction>) => {
+        dispatch({
+            type: QuestionPartTwoActionType.SETCOUNTER,
             payload: counter
         })
     }
@@ -306,6 +338,78 @@ export const isInfoClicked = (inAction: boolean) => {
         dispatch({
             type: IsInfoClickedActionType.ISINFOCLICKED,
             payload: inAction
+        })
+    }
+};
+
+export const allocateStrat_CMTPoints = (points: number) => {
+    return (dispatch: Dispatch<StratSubDivisionActions>) => {
+        dispatch({
+            type: StratSubdivisionActionType.CMT,
+            payload: points
+        })
+    }
+};
+
+export const allocateStrat_FinancePoints = (points: number) => {
+    return (dispatch: Dispatch<StratSubDivisionActions>) => {
+        dispatch({
+            type: StratSubdivisionActionType.FINANCE,
+            payload: points
+        })
+    }
+};
+
+export const allocateStrat_Health_PublicPoints = (points: number) => {
+    return (dispatch: Dispatch<StratSubDivisionActions>) => {
+        dispatch({
+            type: StratSubdivisionActionType.HEALTH_PUBLIC,
+            payload: points
+        })
+    }
+};
+
+export const allocateStrat_ProductsPoints = (points: number) => {
+    return (dispatch: Dispatch<StratSubDivisionActions>) => {
+        dispatch({
+            type: StratSubdivisionActionType.PRODUCTS,
+            payload: points
+        })
+    }
+};
+
+export const allocateStrat_ResourcesPoints = (points: number) => {
+    return (dispatch: Dispatch<StratSubDivisionActions>) => {
+        dispatch({
+            type: StratSubdivisionActionType.RESOURCES,
+            payload: points
+        })
+    }
+};
+
+export const allocateInteractive_DesignPoints = (points: number) => {
+    return (dispatch: Dispatch<InteractiveSubDivisionActions>) => {
+        dispatch({
+            type: InteractiveSubdivisionActionType.DESIGN,
+            payload: points
+        })
+    }
+};
+
+export const allocateInteractive_BuildPoints = (points: number) => {
+    return (dispatch: Dispatch<InteractiveSubDivisionActions>) => {
+        dispatch({
+            type: InteractiveSubdivisionActionType.BUILD,
+            payload: points
+        })
+    }
+};
+
+export const allocateInteractive_CommunicationsPoints = (points: number) => {
+    return (dispatch: Dispatch<InteractiveSubDivisionActions>) => {
+        dispatch({
+            type: InteractiveSubdivisionActionType.COMMUNICATIONS,
+            payload: points
         })
     }
 };

@@ -4,7 +4,7 @@ import {State} from "../../redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 import {StatementItem} from "../atoms/statementItem";
-import {QuestionsData} from "../../questions";
+import {QuestionsPartOne} from "../../questions";
 
 export const StatementOrder = () => {
     const counter = useSelector((state: State) => state.questionCounter);
@@ -18,7 +18,7 @@ export const StatementOrder = () => {
 
     const dispatch = useDispatch();
     const { initializeStatementOrder, addStatementOrder } = bindActionCreators(actionCreators, dispatch);
-    const statementArr = QuestionsData()[counter-1].statementArr;
+    const statementArr = QuestionsPartOne()[counter-1].statementArr;
     let statementList;
 
     const initDepartmentPoints = () => {

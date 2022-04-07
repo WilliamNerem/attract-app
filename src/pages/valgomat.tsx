@@ -6,7 +6,7 @@ import { AlertDialog } from "../components/atoms/alertDialog";
 import * as React from "react";
 import { State, actionCreators } from "../redux";
 import { useSelector, useDispatch } from "react-redux";
-import { QuestionsData } from '../questions'
+import { QuestionsPartOne } from '../questions'
 import { departments } from '../departments'
 import {StatementOrder} from "../components/molecule/statementOrder";
 import '../styles/valgomat.style.css';
@@ -100,7 +100,7 @@ const Valgomat = () => {
         setOpen(true);
     };
 
-    for (let questions of QuestionsData()) {
+    for (let questions of QuestionsPartOne()) {
         if (counter === questions.questionNumber) {
             return (
                 <div className='bodyValgomat'>
@@ -129,8 +129,8 @@ const Valgomat = () => {
             )
         }
 
-        if (counter === 9 || counter === 10 || counter >= 20) { // Need to be updated if we increase part 1 questions
-            const dynamicCounter = QuestionsData().length + 2;
+        if (counter >= QuestionsPartOne().length + 1) { // When last question is asked or when
+            const dynamicCounter = QuestionsPartOne().length + 2;
             let totalPoints: number[] = [];
             let departmentPointsArray: number[] = [];
 
@@ -143,7 +143,7 @@ const Valgomat = () => {
             const biggestTwoTotal = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
             const biggestTwoDepartmentPoints = departmentPointsArray.slice().sort((a, b) => b - a).slice(0, 2);
 
-            if (counter === dynamicCounter || counter > 20){
+            if (counter >= dynamicCounter){
                 const information = [
                     {
                         title: 'Sub department 1',
@@ -172,7 +172,7 @@ const Valgomat = () => {
                 )
             }
 
-            if ((biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) || counter === 20) {   // Check if number 1 has the same points as number 2 department
+            if (biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) {   // Check if number 1 has the same points as number 2 department
                 return (
                     <>
                         <AlertDialog end={true} totalPointsArray={totalPoints}/>
