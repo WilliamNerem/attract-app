@@ -15,7 +15,8 @@ export enum LikertActionType {
     MODERATLY_DISAGREE = 'moderatly_disagree',
     NEUTRAL = 'neutral',
     MODERATLY_AGREE = 'moderatly_agree',
-    STRONGLY_AGREE = 'strongly_agree'
+    STRONGLY_AGREE = 'strongly_agree',
+    RESET = 'reset'
 }
 
 export enum ImageSelectorType {
@@ -35,7 +36,7 @@ export enum AlgorithmActionType {
 }
 
 export enum ResetStatesActionType {
-    RESET_STATES = 'resetStates'
+    RESET_STATES = 'resetStates',
 }
 
 export enum StatementOrderActionType {

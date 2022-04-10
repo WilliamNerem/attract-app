@@ -30,4 +30,8 @@ interface stronglyAgreeAction {
     questionNumber: number
 }
 
-export type LikertAction = stronglyDisagreeAction | moderatlyDisagreeAction | neutralAction | moderatlyAgreeAction | stronglyAgreeAction;
+interface resetAction {
+    type: LikertActionType.RESET
+}
+
+export type LikertAction = stronglyDisagreeAction | moderatlyDisagreeAction | neutralAction | moderatlyAgreeAction | stronglyAgreeAction | resetAction;

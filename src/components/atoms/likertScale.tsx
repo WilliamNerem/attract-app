@@ -11,7 +11,6 @@ interface likertScaleProps {
 }
 
 export const LikertScale = ({questionNumber, characteristic, isReversed}: likertScaleProps) => {
-
     const likertState = useSelector((state: State) => state.likertAnswer);
     const dispatch = useDispatch();
     const {

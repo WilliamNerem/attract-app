@@ -25,8 +25,10 @@ export const StatementOrder = ({questionArray}: statementOrderProps) => {
 
     let arrayLength = questionArray?.length;
     let statementArr = questionArray;   // Can put below code into a function since it's duplicate with statementItem
+    let currentCounter = counterPartTwo; // Have to switch between counter and counterPartTwo
     if(counterPartTwo === 1) {
         statementArr = QuestionsPartOne()[counter - 1].statementArr;
+        currentCounter = counter;
     }
     if(arrayLength === 7) { // Has to hardcode this and needs to be changed if size increases
         statementArr = QuestionsDataSC()[counterPartTwo - 1].statementArr;
@@ -44,13 +46,13 @@ export const StatementOrder = ({questionArray}: statementOrderProps) => {
             statementArr.map((statement) => {
                 statement.department(statement.initDepartmentPoints)
             });
-            initializeStatementOrder(counter);
+            initializeStatementOrder(currentCounter);
         }
     };
 
     let isIinitialized = false;
     initializeStatementOrderArray.map((object) => {
-        if (object.number === counter){
+        if (object.number === currentCounter){
             isIinitialized = true;
         }
     });
@@ -76,7 +78,7 @@ export const StatementOrder = ({questionArray}: statementOrderProps) => {
 
     statementList = statementOrder.map((statementArr, position) => {
         let statements;
-        if (counter === initializeStatementOrderArray[position].number){
+        if (currentCounter === initializeStatementOrderArray[position].number){
             statements = statementArr.map((statement, index) => {
                 let transitionPx = 0;
                 if (transition.transitionUp === index){
@@ -90,7 +92,7 @@ export const StatementOrder = ({questionArray}: statementOrderProps) => {
                         index={statement-1}
                         positionInStatementOrder={position}
                         position={index}
-                        questionNumber={counter-1}
+                        questionNumber={currentCounter-1}
                         transitionPx={transitionPx}
                         transitionValues={transition}
                         handleTransition={handleTransition}
