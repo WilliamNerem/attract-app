@@ -6,7 +6,8 @@ import {
     InteractiveSubdivisionActionType,
     IsInfoClickedActionType,
     LikertActionType,
-    QuestionActionType, QuestionPartTwoActionType,
+    QuestionActionType,
+    QuestionPartTwoActionType,
     ResetStatesActionType,
     ShowAlertDialogActionType,
     StatementOrderActionType,
@@ -24,13 +25,13 @@ import {
     IsInfoClickedAction,
     LikertAction,
     QuestionAction,
+    QuestionPartTwoAction,
     ShowAlertDialogAction,
     StatementOrderAction,
     StratSubDivisionActions,
     ValgomatInProgressAction
 } from "..";
 import {ResetStatesAction} from "../actions/resetStatesAction";
-import {QuestionPartTwoAction} from "..";
 
 export const increaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
@@ -132,6 +133,14 @@ export const stronglyAgree = (questionNumber: number) => {
             type: LikertActionType.STRONGLY_AGREE,
             payload: 5,
             questionNumber: questionNumber
+        })
+    }
+};
+
+export const reset = () => {
+    return (dispatch: Dispatch<LikertAction>) => {
+        dispatch({
+            type: LikertActionType.RESET,
         })
     }
 };

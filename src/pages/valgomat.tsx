@@ -32,7 +32,7 @@ const Valgomat = () => {
     const [transitionValue, setTransitionValue] = useState({from: ''});
     const [transition, setTransition] = useState(true);
     const [className, setClassname] = useState('initializeTransition');
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false)
     const userDifferences: number[] = [];
     valgomatIsInProgress(true);
 
@@ -142,9 +142,7 @@ const Valgomat = () => {
             const biggestTwoDepartmentPoints = departmentPointsArray.slice().sort((a, b) => b - a).slice(0, 2);
 
             if (counter >= dynamicCounter){
-                return (
-                    <Result totalPointsArray={totalPoints}/>
-                )
+                return (<Result totalPointsArray={totalPoints}/>)
             }
 
             if (biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) {   // Check if number 1 has the same points as number 2 department
