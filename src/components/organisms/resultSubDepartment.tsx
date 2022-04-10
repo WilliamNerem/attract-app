@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
-import { Button } from "../atoms/button";
 import '../../styles/result.style.css';
-import {ResultText} from "../atoms/resultText";
-import {InfoCard} from "../atoms/infoCard";
 import {Navbar} from "../molecule/navbar";
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 import {SubDepartments} from "../../subDepartments";
+import {ResultText} from "../atoms/resultText";
+import {InfoCard} from "../atoms/infoCard";
+import { Button } from "../atoms/button";
 
 interface resultSubDepProps {
     information: any[]

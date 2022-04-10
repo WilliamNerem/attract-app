@@ -1,6 +1,17 @@
-import { InitializeStatementOrderAction, InitializeStatementOrderActionType} from '..';
+export enum InitializeStatementOrderActionType {
+    INITIALIZE = 'initialize'
+}
+interface initializePointsAction {
+    type: InitializeStatementOrderActionType.INITIALIZE
+    payload: {
+        number: number,
+        isInitialized: boolean
+    }
+}
 
-export const initialState = {
+export type InitializeStatementOrderAction = initializePointsAction
+
+const initialState = {
     statementOrderArr: []
 };
 

@@ -1,4 +1,25 @@
-import {QuestionPartTwoAction, QuestionPartTwoActionType} from '..';
+export enum QuestionPartTwoActionType {
+    INCREASE = 'increasePartTwo',
+    DECREASE = 'decreasePartTwo',
+    SETCOUNTER = 'setCounterPartTwo'
+}
+
+interface incrementAction {
+    type: QuestionPartTwoActionType.INCREASE
+    payload: number
+}
+
+interface decrementAction {
+    type: QuestionPartTwoActionType.DECREASE
+    payload: number
+}
+
+interface setCounterAction {
+    type: QuestionPartTwoActionType.SETCOUNTER
+    payload: number
+}
+
+export type QuestionPartTwoAction = incrementAction | decrementAction | setCounterAction;
 
 const initialState = 1;
 

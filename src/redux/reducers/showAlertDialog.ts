@@ -1,4 +1,12 @@
-import { ShowAlertDialogActionType, ShowAlertDialogAction } from '..';
+export enum ShowAlertDialogActionType {
+    SHOWALERTDIALOG = 'showAlertDialog'
+}
+interface showAlertDialog {
+    type: ShowAlertDialogActionType.SHOWALERTDIALOG
+    payload: boolean
+}
+
+export type ShowAlertDialogAction = showAlertDialog;
 
 const initialState = false;
 

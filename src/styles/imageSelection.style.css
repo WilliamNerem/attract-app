@@ -20,33 +20,33 @@
     border-radius: 10px;
 }
 
-.imgCity{
-    background: url("../images/background_city.jpg") no-repeat center;
+.Interactive_DC{
+    background: url("../images/Interactive_DC.jpg") no-repeat center;
     background-size: 250px 125px;
 }
 
-.imgLibrary{
-    background: url("../images/background_library.jpg") no-repeat center;
+.Interactive_work{
+    background: url("../images/Interactive_work.jpg") no-repeat center;
     background-size: 250px 125px;
 }
 
-.imgLogo{
-    background: url("../images/logo.svg") no-repeat center;
+.Technology_DC{
+    background: url("../images/Technology_DC.jpg") no-repeat center;
     background-size: 250px 125px;
 }
 
-.imgCar{
-    background: url("../images/car.jpg") no-repeat center;
+.Technology_work{
+    background: url("../images/Technology_work.jpg") no-repeat center;
     background-size: 250px 125px;
 }
 
-.imgBike{
-    background: url("../images/bike.jpg") no-repeat center;
+.SC_DC{
+    background: url("../images/SC_DC.jpg") no-repeat center;
     background-size: 250px 125px;
 }
 
-.imgMetro{
-    background: url("../images/metro.jpg") no-repeat center;
+.SC_work{
+    background: url("../images/SC_work.jpg") no-repeat center;
     background-size: 250px 125px;
 }
 
