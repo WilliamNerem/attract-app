@@ -8,9 +8,10 @@ import {QuestionsPartOne, QuestionsDataInteractive, QuestionsDataSC, QuestionsDa
 
 interface statementOrderProps {
     questionArray?: any[]
+    sharedWords: string
 }
 
-export const StatementOrder = ({questionArray}: statementOrderProps) => {
+export const StatementOrder = ({questionArray, sharedWords}: statementOrderProps) => {
     const counter = useSelector((state: State) => state.questionCounter);
     const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
     const statementOrder = useSelector((state: State) => state.statementOrder);
@@ -106,6 +107,7 @@ export const StatementOrder = ({questionArray}: statementOrderProps) => {
 
     return (
         <div className='statementOrderMargin'>
+            <p className='statementOrderSharedWords'>{sharedWords}</p>
             {statementList}
         </div>
     );

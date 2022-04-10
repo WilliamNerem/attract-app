@@ -19,19 +19,19 @@ export const QuestionsPartOne = () => {
     const statements1 = [
         {
             id: 1,
-            title: 'Jeg synes det virker spennende å komme opp med nye idéer og jobbe videre med de',
+            title: 'det virker spennende å komme opp med nye idéer og jobbe videre med de',
             department: strategyAndConsultingPoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
-            title: 'Jeg synes det er spennende å sette meg inn i nye teknologier',
+            title: 'det er spennende å sette meg inn i nye teknologier',
             department: technologyPoints,
             initDepartmentPoints: 4
         },
         {
             id: 3,
-            title: 'Jeg synes design er spennende',
+            title: 'design er spennende',
             department: interactivePoints,
             initDepartmentPoints: 2
         }
@@ -40,19 +40,19 @@ export const QuestionsPartOne = () => {
     const statements2 = [
         {
             id: 1,
-            title: 'Jeg kunne tenkt meg å være med å lage et produkt ut ifra en idé',
+            title: 'være med å lage et produkt ut ifra en idé',
             department: technologyPoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
-            title: 'Jeg kunne tenkt meg å presentere og prøve å selge inn en idé til en kunde',
+            title: 'presentere og prøve å selge inn en idé til en kunde',
             department: strategyAndConsultingPoints,
             initDepartmentPoints: 4
         },
         {
             id: 3,
-            title: 'Jeg kunne tenkt meg å jobbe med å forbedre brukeropplevelsen av et produkt',
+            title: 'jobbe med å forbedre brukeropplevelsen av et produkt',
             department: interactivePoints,
             initDepartmentPoints: 2
         },
@@ -87,8 +87,9 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 4,
             questionType: 'statementOrder',
-            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg ved å trykke på pilene",
             progress: 40,
+            sharedWords: 'Jeg synes',
             isStatement: true,
             statementArr: statements1
         },
@@ -128,8 +129,9 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 9,
             questionType: 'statementOrder',
-            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg ved å trykke på pilene",
             progress: 90,
+            sharedWords: 'Jeg kunne tenkt meg å',
             isStatement: true,
             statementArr: statements2
         },
@@ -189,6 +191,7 @@ export const QuestionsDataTech = () => {
             questionNumber: 3,
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            sharedWords: '',
             progress: 75,
             isStatement: true,
             statementArr: statements1,
@@ -210,19 +213,19 @@ export const QuestionsDataSC = () => {
     const statements1 = [
         {
             id: 1,
-            title: 'Jeg liker Products',
+            title: 'Products',
             department: allocateStrat_ProductsPoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
-            title: 'Jeg liker Health & Public Service',
+            title: 'Health & Public Service',
             department: allocateStrat_Health_PublicPoints,
             initDepartmentPoints: 4
         },
         {
             id: 3,
-            title: 'Jeg liker Resources',
+            title: 'Resources',
             department: allocateStrat_ResourcesPoints,
             initDepartmentPoints: 2
         },
@@ -231,19 +234,19 @@ export const QuestionsDataSC = () => {
     const statements2 = [
         {
             id: 1,
-            title: 'Jeg liker Financial Services',
+            title: 'Financial Services',
             department: allocateStrat_FinancePoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
-            title: 'Jeg liker Communciation Media & Technology',
+            title: 'Communciation Media & Technology',
             department: allocateStrat_CMTPoints,
             initDepartmentPoints: 4
         },
         {
             id: 3,
-            title: 'Jeg liker Transport (subindustri under Products)',
+            title: 'Transport (subindustri under Products)',
             department: allocateStrat_ProductsPoints,
             initDepartmentPoints: 2
         },
@@ -263,6 +266,7 @@ export const QuestionsDataSC = () => {
             questionNumber: 2,
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            sharedWords: 'Jeg liker',
             progress: 29,
             isStatement: true,
             statementArr: statements1,
@@ -295,6 +299,7 @@ export const QuestionsDataSC = () => {
             questionNumber: 6,
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            sharedWords: 'Jeg liker',
             progress: 87,
             isStatement: true,
             statementArr: statements2,
@@ -316,19 +321,19 @@ export const QuestionsDataInteractive = () => {
     const statements1 = [
         {
             id: 1,
-            title: 'Jeg liker Communcations',
+            title: 'Communcations',
             department: allocateInteractive_CommunicationsPoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
-            title: 'Jeg liker Build',
+            title: 'Build',
             department: allocateInteractive_BuildPoints,
             initDepartmentPoints: 4
         },
         {
             id: 3,
-            title: 'Jeg liker Design',
+            title: 'Design',
             department: allocateInteractive_DesignPoints,
             initDepartmentPoints: 2
         }
@@ -355,6 +360,7 @@ export const QuestionsDataInteractive = () => {
             questionNumber: 3,
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            sharedWords: 'Jeg liker',
             progress: 60,
             isStatement: true,
             statementArr: statements1,

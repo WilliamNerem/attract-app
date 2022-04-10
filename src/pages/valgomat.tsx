@@ -1,5 +1,4 @@
 import { Navbar } from "../components/molecule/navbar";
-import { ProgressBar } from "../components/atoms/progressbar";
 import { Questions } from "../components/atoms/questions";
 import { LikertScale } from "../components/atoms/likertScale";
 import { AlertDialog } from "../components/atoms/alertDialog";
@@ -32,7 +31,7 @@ const Valgomat = () => {
     const [transitionValue, setTransitionValue] = useState({from: ''});
     const [transition, setTransition] = useState(true);
     const [className, setClassname] = useState('initializeTransition');
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
     const userDifferences: number[] = [];
     valgomatIsInProgress(true);
 
@@ -110,7 +109,7 @@ const Valgomat = () => {
                                 <h1 className='questionNumber'>Spørsmål {counter}</h1>
                                 <Questions questionTxt={questions.questionTxt}/>
                                 {questions.isStatement ?
-                                    <StatementOrder /> : ''
+                                    <StatementOrder sharedWords={questions.sharedWords}/> : ''
                                 }
                                 {questions.isImageSelection ?
                                     <ImageSelection
@@ -177,7 +176,6 @@ const Valgomat = () => {
                             )}
                             <div className='dynamicFooter'>
                                 <button className='valgomatButton' onClick={() => handleTransition(false)}>Forrige</button>
-                                <ProgressBar completed={100}/>
                             </div>
                         </div>
                     </>
