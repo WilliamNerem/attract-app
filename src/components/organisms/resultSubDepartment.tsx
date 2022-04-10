@@ -72,9 +72,16 @@ export const ResultSubDepartment = ({information
             <div className='result'>
                 <div className='gradientDiv'>
                     <ResultText result={''}/>
-                    <p className={'sub-dep'}>{subDepArray[topThreeDep[0]].title+', '+subDepArray[topThreeDep[1]].title+', '+subDepArray[topThreeDep[2]].title}</p>
+                    <div className={'sub-dep'}>
+                    <p>{'Dette er de underavdelingene som kan passe deg:'}</p>
+                        <ul>
+                            <li>{subDepArray[topThreeDep[0]].title}</li>
+                            <li>{subDepArray[topThreeDep[1]].title}</li>
+                            <li>{subDepArray[topThreeDep[2]].title}</li>
+                        </ul>
+                    </div>
                 </div>
-                <div className='carousel'>
+                <div className='subCarousel'>
                     <div className={carousel.first+' leftCarouselItem'}>
                         <InfoCard
                             heading={subDepArray[topThreeDep[2]].title}
