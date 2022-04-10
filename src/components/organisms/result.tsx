@@ -11,6 +11,9 @@ import {State} from "../../redux";
 import {ValgomatPartTwo} from "./valgomatPartTwo";
 import {QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
 import {AlertDialog} from "../atoms/alertDialog";
+import {InfoButton} from "../molecule/infoButton";
+import {ShowExplanation} from "../molecule/showExplanation";
+import Backdrop from "@mui/material/Backdrop";
 
 interface resultProps {
     totalPointsArray: any[]
@@ -26,6 +29,7 @@ export const Result = ({totalPointsArray
     const valPos = totalPointsArray.indexOf(maxVal);
     const result = departments[valPos].name;
     const [isDepClicked, setIsDepClicked] = useState( { strat: false, interactive: false, tech: false});
+    const [open, setOpen] = useState(false);
     let link;
     let infoText;
 
@@ -99,6 +103,10 @@ export const Result = ({totalPointsArray
         setCarousel({first: first, second: second, third: third})
     };
 
+    const handleClick = () => {
+        setOpen(true);
+    };
+
     const onButtonClick = (department: string) => {
         if(department === 'Strategy & Consulting') {
             setIsDepClicked({strat: true, interactive: false, tech: false});
@@ -139,6 +147,7 @@ export const Result = ({totalPointsArray
                 <Navbar/>
                 <div className='result'>
                     <div className='gradientDiv'>
+                        <InfoButton handleClick={handleClick} whiteIcon={true}/>
                         <ResultText result={result}/>
                         <Pallet totalPointsArray={totalPointsArray}/>
                     </div>
@@ -183,6 +192,15 @@ export const Result = ({totalPointsArray
                         <Button href='/' text='Tilbake til forsiden'/>
                     </div>
                 </div>
+                <Backdrop
+                    open={open}
+                    onClick={() => {
+                        setOpen(false);
+                    }}
+                    style={{zIndex: 100}}
+                >
+                    <ShowExplanation questionType={'result'}/>
+                </Backdrop>
             </div>
         );
     }
