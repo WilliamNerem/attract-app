@@ -1,8 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Button } from "../atoms/button";
 import '../../styles/result.style.css';
-import {ResultText} from "../atoms/resultText";
-import {InfoCard} from "../atoms/infoCard";
 import {Navbar} from "../molecule/navbar";
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
@@ -20,7 +17,7 @@ export const ResultSubDepartment = ({information
     const [carousel, setCarousel] = useState({first: 'leftCard', second: 'middleCard', third: 'rightCard'});
     const [disabledButtons, setDisabledButtons] = useState('');
     valgomatIsInProgress(false);
-    const sortedArray = information.sort((a, b) => (a.points > b.points) ? 1 : -1); //sorts array that is sent in as prop, by points, finding the three with most points
+    const sortedArray = information.sort((b, a) => (a.points > b.points) ? 1 : -1); //sorts array that is sent in as prop, by points, finding the three with most points
     console.log(sortedArray)
 
     //have to: make a array with every sub department with info so that we can get the info based on the sorted array above and use it in the return
