@@ -1,7 +1,7 @@
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
-import {social} from "./redux/actionCreators";
+
 
 export const QuestionsPartOne = () => {
     const dispatch = useDispatch();
@@ -68,21 +68,14 @@ export const QuestionsPartOne = () => {
             questionTxt: "Jeg liker å planlegge godt når jeg jobber med oppgaver",
             progress: 10,
             characteristic: practical,
-            isStatement: false,
-            isImageSelection: false,
-            isReversed: true,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            isReversed: true
         },
         {
             questionNumber: 2,
             questionType: 'imageSelection',
             questionTxt: "Velg det bilde som passer deg best",
             progress: 20,
-            characteristic: practical,
-            isStatement: false,
             isImageSelection: true,
-            isReversed: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
             images: ['imgCar', 'imgBike', 'imgMetro']
         },
@@ -92,11 +85,7 @@ export const QuestionsPartOne = () => {
             questionTxt: "Jeg liker å skape ting og jobbe med et produkt jeg kan se",
             progress: 30,
             characteristic: practical,
-            isStatement: false,
-            isImageSelection: false,
-            isReversed: false,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            isReversed: false
         },
         {
             questionNumber: 4,
@@ -104,13 +93,8 @@ export const QuestionsPartOne = () => {
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg ved å trykke på pilene",
             progress: 40,
             sharedWords: 'Jeg synes',
-            characteristic: social,
             isStatement: true,
-            isImageSelection: false,
-            statementArr: statements1,
-            isReversed: false,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            statementArr: statements1
         },
         {
             questionNumber: 5,
@@ -118,11 +102,7 @@ export const QuestionsPartOne = () => {
             questionTxt: "Jeg jobber best med oppgaver alene",
             progress: 50,
             characteristic: social,
-            isStatement: false,
-            isImageSelection: false,
-            isReversed: true,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            isReversed: true
         },
         {
             questionNumber: 6,
@@ -130,21 +110,14 @@ export const QuestionsPartOne = () => {
             questionTxt: "Jeg er flink til å tenke utenfor boksen og komme opp med nye løsninger",
             progress: 60,
             characteristic: creative,
-            isStatement: false,
-            isImageSelection: false,
-            isReversed: false,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            isReversed: false
         },
         {
             questionNumber: 7,
             questionType: 'imageSelection',
             questionTxt: "Velg det bilde som passer deg best",
             progress: 70,
-            characteristic: practical,
-            isStatement: false,
             isImageSelection: true,
-            isReversed: true,
             allocatePoints: [imageSelectorSocial, imageSelectorCreative, imageSelectorPractical],
             images: ['imgCity', 'imgLibrary', 'imgLogo']
         },
@@ -154,11 +127,7 @@ export const QuestionsPartOne = () => {
             questionTxt: "Jeg liker å jobbe innenfor klare rammer så jeg vet hva jeg skal gjøre",
             progress: 80,
             characteristic: creative,
-            isStatement: false,
-            isImageSelection: false,
-            isReversed: true,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            isReversed: true
         },
         {
             questionNumber: 9,
@@ -166,13 +135,8 @@ export const QuestionsPartOne = () => {
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg ved å trykke på pilene",
             progress: 90,
             sharedWords: 'Jeg kunne tenkt meg å',
-            characteristic: social,
             isStatement: true,
-            isImageSelection: false,
-            statementArr: statements2,
-            isReversed: false,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            statementArr: statements2
         },
         {
             questionNumber: 10,
@@ -180,79 +144,240 @@ export const QuestionsPartOne = () => {
             questionTxt: "Jeg er god til å prate for meg selv",
             progress: 100,
             characteristic: social,
-            isStatement: false,
-            isImageSelection: false,
-            isReversed: false,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            isReversed: false
         },
     ];
 };
 
 export const QuestionsDataTech = () => {
+    const dispatch = useDispatch();
+    const { social, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
+    const statements1 = [
+        {
+            id: 1,
+            title: 'Jeg liker Tech sin første underavdeling',
+            department: strategyAndConsultingPoints,
+            initDepartmentPoints: 6
+        },
+        {
+            id: 2,
+            title: 'Jeg liker Tech sin andre underavdeling',
+            department: technologyPoints,
+            initDepartmentPoints: 4
+        },
+        {
+            id: 3,
+            title: 'Jeg liker Tech sin tredje underavdeling',
+            department: interactivePoints,
+            initDepartmentPoints: 2
+        }
+    ];
+
     return [
         {
             questionNumber: 1,
             questionType: 'likertScale',
-            questionTxt: "Dette er første tech spørsmål",
-            progress: 50,
+            questionTxt: "Dette er om Tech sin første underavdeling",
+            progress: 25,
             characteristic: social,
-            isStatement: false,
             isReversed: true
         },
         {
             questionNumber: 2,
             questionType: 'likertScale',
-            questionTxt: "Dette er andre tech spørsmål",
+            questionTxt: "Dette er om Tech sin andre underavdeling",
+            progress: 50,
+            characteristic: social,
+            isReversed: false
+        },
+        {
+            questionNumber: 3,
+            questionType: 'statementOrder',
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            progress: 75,
+            isStatement: true,
+            statementArr: statements1,
+        },
+        {
+            questionNumber: 4,
+            questionType: 'likertScale',
+            questionTxt: "Dette er om Tech sin tredje",
             progress: 100,
             characteristic: social,
-            isStatement: false,
             isReversed: false
         },
     ];
 };
 
 export const QuestionsDataSC = () => {
+    const dispatch = useDispatch();
+    const { allocateStrat_CMTPoints, allocateStrat_Health_PublicPoints, allocateStrat_FinancePoints, allocateStrat_ProductsPoints, allocateStrat_ResourcesPoints } = bindActionCreators(actionCreators, dispatch);
+    const statements1 = [
+        {
+            id: 1,
+            title: 'Jeg liker Products',
+            department: allocateStrat_ProductsPoints,
+            initDepartmentPoints: 6
+        },
+        {
+            id: 2,
+            title: 'Jeg liker Health & Public Service',
+            department: allocateStrat_Health_PublicPoints,
+            initDepartmentPoints: 4
+        },
+        {
+            id: 3,
+            title: 'Jeg liker Resources',
+            department: allocateStrat_ResourcesPoints,
+            initDepartmentPoints: 2
+        },
+    ];
+
+    const statements2 = [
+        {
+            id: 1,
+            title: 'Jeg liker Financial Services',
+            department: allocateStrat_FinancePoints,
+            initDepartmentPoints: 6
+        },
+        {
+            id: 2,
+            title: 'Jeg liker Communciation Media & Technology',
+            department: allocateStrat_CMTPoints,
+            initDepartmentPoints: 4
+        },
+        {
+            id: 3,
+            title: 'Jeg liker Transport (subindustri under Products)',
+            department: allocateStrat_ProductsPoints,
+            initDepartmentPoints: 2
+        },
+    ];
+
+
     return [
         {
             questionNumber: 1,
             questionType: 'likertScale',
-            questionTxt: "Dette er første S&C spørsmål",
-            progress: 50,
-            characteristic: social,
-            isStatement: false,
+            questionTxt: "Dette er om Products",
+            progress: 14,
+            characteristic: allocateStrat_ProductsPoints,
             isReversed: true
         },
         {
             questionNumber: 2,
+            questionType: 'statementOrder',
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            progress: 29,
+            isStatement: true,
+            statementArr: statements1,
+        },
+        {
+            questionNumber: 3,
             questionType: 'likertScale',
-            questionTxt: "Dette er andre S&C spørsmål",
+            questionTxt: "Dette er om Resources",
+            progress: 43,
+            characteristic: allocateStrat_ResourcesPoints,
+            isReversed: true
+        },
+        {
+            questionNumber: 4,
+            questionType: 'likertScale',
+            questionTxt: "Dette er om Health & Public Service",
+            progress: 58,
+            characteristic: allocateStrat_Health_PublicPoints,
+            isReversed: false
+        },
+        {
+            questionNumber: 5,
+            questionType: 'likertScale',
+            questionTxt: "Dette er om Financial Services",
+            progress: 72,
+            characteristic: allocateStrat_FinancePoints,
+            isReversed: true
+        },
+        {
+            questionNumber: 6,
+            questionType: 'statementOrder',
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            progress: 87,
+            isStatement: true,
+            statementArr: statements2,
+        },
+        {
+            questionNumber: 7,
+            questionType: 'likertScale',
+            questionTxt: "Dette er om Communcation Media & Technology",
             progress: 100,
-            characteristic: social,
-            isStatement: false,
+            characteristic: allocateStrat_CMTPoints,
             isReversed: false
         },
     ];
 };
 
 export const QuestionsDataInteractive = () => {
+    const dispatch = useDispatch();
+    const { allocateInteractive_DesignPoints, allocateInteractive_BuildPoints, allocateInteractive_CommunicationsPoints } = bindActionCreators(actionCreators, dispatch);
+    const statements1 = [
+        {
+            id: 1,
+            title: 'Jeg liker Communcations',
+            department: allocateInteractive_CommunicationsPoints,
+            initDepartmentPoints: 6
+        },
+        {
+            id: 2,
+            title: 'Jeg liker Build',
+            department: allocateInteractive_BuildPoints,
+            initDepartmentPoints: 4
+        },
+        {
+            id: 3,
+            title: 'Jeg liker Design',
+            department: allocateInteractive_DesignPoints,
+            initDepartmentPoints: 2
+        }
+    ];
+
     return [
         {
             questionNumber: 1,
             questionType: 'likertScale',
-            questionTxt: "Dette er første Interactive spørsmål",
-            progress: 50,
-            characteristic: social,
-            isStatement: false,
+            questionTxt: "Dette er om Build",
+            progress: 20,
+            characteristic: allocateInteractive_BuildPoints,
             isReversed: true
         },
         {
             questionNumber: 2,
             questionType: 'likertScale',
-            questionTxt: "Dette er andre Interactive spørsmål",
+            questionTxt: "Dette er om Design",
+            progress: 40,
+            characteristic: allocateInteractive_DesignPoints,
+            isReversed: false
+        },
+        {
+            questionNumber: 3,
+            questionType: 'statementOrder',
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            progress: 60,
+            isStatement: true,
+            statementArr: statements1,
+        },
+        {
+            questionNumber: 4,
+            questionType: 'likertScale',
+            questionTxt: "Dette er om Communcations",
+            progress: 80,
+            characteristic: allocateInteractive_CommunicationsPoints,
+            isReversed: false
+        },
+        {
+            questionNumber: 5, // Had to increase to one more question so that statementOrder can check for questionlength
+            questionType: 'likertScale',
+            questionTxt: "Dette er om Fjords",
             progress: 100,
-            characteristic: social,
-            isStatement: false,
+            characteristic: allocateInteractive_DesignPoints,
             isReversed: false
         },
     ];

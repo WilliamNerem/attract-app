@@ -1,4 +1,25 @@
-import { InteractiveSubDivisionActions, InteractiveSubdivisionActionType } from '..';
+export enum InteractiveSubdivisionActionType {
+    DESIGN = 'design',
+    BUILD = 'build',
+    COMMUNICATIONS = 'communications'
+}
+
+interface interactive_DesignAction {
+    type: InteractiveSubdivisionActionType.DESIGN
+    payload: number
+}
+
+interface interactive_BuildAction {
+    type: InteractiveSubdivisionActionType.BUILD
+    payload: number
+}
+
+interface interactive_CommunicationsAction {
+    type: InteractiveSubdivisionActionType.COMMUNICATIONS
+    payload: number
+}
+
+export type InteractiveSubDivisionActions = interactive_DesignAction | interactive_BuildAction | interactive_CommunicationsAction;
 
 export const initialState = {
     subdivisionArr: [

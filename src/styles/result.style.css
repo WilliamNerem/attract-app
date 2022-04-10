@@ -202,3 +202,10 @@ h3 {
 .disabledButtons{
     pointer-events: none;
 }
+
+.sub-dep {
+    color: white;
+    font-family: "Graphik Regular", Arial, sans-serif;
+    font-size: 20px;
+    padding: 2rem;
+}

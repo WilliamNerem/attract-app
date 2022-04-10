@@ -32,7 +32,7 @@ const Valgomat = () => {
     const [transitionValue, setTransitionValue] = useState({from: ''});
     const [transition, setTransition] = useState(true);
     const [className, setClassname] = useState('initializeTransition');
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false)
     const userDifferences: number[] = [];
     valgomatIsInProgress(true);
 
@@ -109,8 +109,18 @@ const Valgomat = () => {
                                 <InfoButton handleClick={handleClick}/>
                                 <h1 className='questionNumber'>Spørsmål {counter}</h1>
                                 <Questions questionTxt={questions.questionTxt}/>
-                                {questions.isStatement ? <StatementOrder sharedWords={questions.sharedWords} /> : questions.isImageSelection ? <ImageSelection pictures={[questions.images[0], questions.images[1], questions.images[2]]} pointAllocater={[questions.allocatePoints[0], questions.allocatePoints[1], questions.allocatePoints[2]]}/> :
-                                    <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/>}
+                                {questions.isStatement ?
+                                    <StatementOrder sharedWords={questions.sharedWords}/> : ''
+                                }
+                                {questions.isImageSelection ?
+                                    <ImageSelection
+                                        pictures={[questions.images[0], questions.images[1], questions.images[2]]}
+                                        pointAllocater={[questions.allocatePoints[0], questions.allocatePoints[1], questions.allocatePoints[2]]}
+                                    /> : ''
+                                }
+                                {questions.characteristic ?
+                                    <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/> : ''
+                                }
                             </animated.div>
                         )}
                     </div>
@@ -142,9 +152,7 @@ const Valgomat = () => {
             const biggestTwoDepartmentPoints = departmentPointsArray.slice().sort((a, b) => b - a).slice(0, 2);
 
             if (counter >= dynamicCounter){
-                return (
-                    <Result totalPointsArray={totalPoints}/>
-                )
+                return (<Result totalPointsArray={totalPoints}/>)
             }
 
             if (biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) {   // Check if number 1 has the same points as number 2 department

@@ -1,5 +1,13 @@
-import {IsInfoClickedActionType} from '..';
-import {IsInfoClickedAction} from "..";
+export enum IsInfoClickedActionType {
+    ISINFOCLICKED = 'isInfoClicked'
+}
+
+interface isInfoClicked {
+    type: IsInfoClickedActionType.ISINFOCLICKED
+    payload: boolean
+}
+
+export type IsInfoClickedAction = isInfoClicked;
 
 const initialState = false;
 

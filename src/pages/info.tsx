@@ -69,8 +69,8 @@ const Info = () => {
                     </div>
                     <div className='infoCards'>
                         <InfoCard
-                            heading='Rekkefølge'
-                            text={'Rekkefølgen består av 3 påstander der du skal rangere disse basert på hvilken du føler passer deg mest. '+
+                            heading='Rangering'
+                            text={'Rangering består av 3 påstander der du skal rangere disse basert på hvilken du føler passer deg best. '+
                             'For å rangere påstandene skal trykker du på pilene ved siden av. Trykk pil opp for å flytte påstanden opp og pil ned for å flytte den ned. '+
                             'Under ser du et eksempel på en besvarelse.'}
                             subHeading='Eksempel:'
@@ -81,7 +81,7 @@ const Info = () => {
                     <div className='infoCards'>
                         <InfoCard
                             heading='Bildevalg'
-                            text={'Bildevalg består av 3 bilder der du skal velge det bildet du føler passer deg mest. '+
+                            text={'Bildevalg består av 3 bilder der du skal velge det bildet du føler passer deg best. '+
                             'Under ser du et eksempel på en besvarelse der personen foretrekker sykkel som transportmiddel.'}
                             subHeading='Eksempel:'
                             exampleImage='imageSelectionExampleImage'

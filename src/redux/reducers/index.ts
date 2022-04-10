@@ -1,9 +1,8 @@
-import { combineReducers } from "redux";
+import {combineReducers} from "redux";
 import { questionCounterReducer } from './questions'
 import { likertAnswerReducer } from "./likert";
 import { algorithmReducer } from "./algorithm";
-import { ResetStatesActionType } from '../actionTypes';
-import { statementOrderReducer, initialState as initStatementOrder } from "./statementOrder";
+import { statementOrderReducer } from "./statementOrder";
 import { initializeStatementOrderReducer } from "./initializeStatementOrder";
 import {departmentsReducer, initialState as initDepartments} from "./departments";
 import {valgomatInProgressReducer} from "./valgomatInProgress";
@@ -32,24 +31,31 @@ const reducers = combineReducers({
     interactiveSubdivision: interactiveSubdivisionReducer
 });
 
+export enum ResetStatesActionType {
+    RESET_STATES = 'resetStates'
+}
+
+interface resetStatesAction {
+    type: ResetStatesActionType.RESET_STATES
+}
+
+export type ResetStatesAction = resetStatesAction
+
 const rootReducer = (state: any, action: any) => {
     if (action.type === ResetStatesActionType.RESET_STATES) {
-        for (let i = 0; i < initDepartments.departmentArr.length; i++){
+        for (let i = 0; i < initDepartments.departmentArr.length; i++) {
             initDepartments.departmentArr[i].points = 0;
         }
-        for (let i = 0; i < initImageSelector.answers.length; i++){
+        for (let i = 0; i < initImageSelector.answers.length; i++) {
             initImageSelector.answers[i].points = 0;
         }
-        initStatementOrder.statementOrderArr = [];
-        state = undefined;
+        for (let i = 0; i < initStratSubdivisions.subdivisionArr.length; i++) {
+            initStratSubdivisions.subdivisionArr[i].points = 0;
+        }
+        for (let i = 0; i < initInteractiveSubDivisions.subdivisionArr.length; i++) {
+            initInteractiveSubDivisions.subdivisionArr[i].points = 0;
+        }
     }
-    for (let i = 0; i < initStratSubdivisions.subdivisionArr.length; i++){
-        initStratSubdivisions.subdivisionArr[i].points = 0;
-    }
-    for (let i = 0; i < initInteractiveSubDivisions.subdivisionArr.length; i++){
-        initInteractiveSubDivisions.subdivisionArr[i].points = 0;
-    }
-
     return reducers(state, action);
 };
 
