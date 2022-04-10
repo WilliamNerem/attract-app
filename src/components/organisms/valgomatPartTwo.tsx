@@ -46,7 +46,7 @@ export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive}:
 
     useEffect(() => {
         reset();
-    }, [])
+    }, []);
 
     const startTransition = useTransition(transition, {
         from: {transform: "translateX(" + transitionValue.from + ")"},

@@ -109,8 +109,18 @@ const Valgomat = () => {
                                 <InfoButton handleClick={handleClick}/>
                                 <h1 className='questionNumber'>Spørsmål {counter}</h1>
                                 <Questions questionTxt={questions.questionTxt}/>
-                                {questions.isStatement ? <StatementOrder /> : questions.isImageSelection ? <ImageSelection pictures={[questions.images[0], questions.images[1], questions.images[2]]} pointAllocater={[questions.allocatePoints[0], questions.allocatePoints[1], questions.allocatePoints[2]]}/> :
-                                    <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/>}
+                                {questions.isStatement ?
+                                    <StatementOrder /> : ''
+                                }
+                                {questions.isImageSelection ?
+                                    <ImageSelection
+                                        pictures={[questions.images[0], questions.images[1], questions.images[2]]}
+                                        pointAllocater={[questions.allocatePoints[0], questions.allocatePoints[1], questions.allocatePoints[2]]}
+                                    /> : ''
+                                }
+                                {questions.characteristic ?
+                                    <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/> : ''
+                                }
                             </animated.div>
                         )}
                     </div>

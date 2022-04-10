@@ -1,12 +1,21 @@
-import { ImageSelectorAnswerAction, ImageSelectorType } from '..';
+export enum ImageSelectorAnswerType {
+    CHECKED = 'checked',
+}
+interface checkedImageAction {
+    type: ImageSelectorAnswerType.CHECKED
+    questionNumber: number
+    checked: number
+}
 
-export const initialState = {
+export type ImageSelectorAnswerAction = checkedImageAction;
+
+const initialState = {
     answers: []
 };
 
 export const imageSelectorAnswerReducer = (state: {questionNumber: number, checked: number}[] = initialState.answers, action: ImageSelectorAnswerAction) => {
     switch (action.type) {
-        case ImageSelectorType.CHECKED:
+        case ImageSelectorAnswerType.CHECKED:
             for (let i = 0; i < state.length; i++){
                 if (state[i].questionNumber === action.questionNumber){
                     state[i].checked = action.checked;

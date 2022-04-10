@@ -1,7 +1,6 @@
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
-import {social} from "./redux/actionCreators";
 
 
 export const QuestionsPartOne = () => {
@@ -69,21 +68,14 @@ export const QuestionsPartOne = () => {
             questionTxt: "Jeg liker å planlegge godt når jeg jobber med oppgaver",
             progress: 10,
             characteristic: practical,
-            isStatement: false,
-            isImageSelection: false,
-            isReversed: true,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            isReversed: true
         },
         {
             questionNumber: 2,
             questionType: 'imageSelection',
             questionTxt: "Velg det bilde som passer deg best",
             progress: 20,
-            characteristic: practical,
-            isStatement: false,
             isImageSelection: true,
-            isReversed: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
             images: ['imgCar', 'imgBike', 'imgMetro']
         },
@@ -93,24 +85,15 @@ export const QuestionsPartOne = () => {
             questionTxt: "Jeg liker å skape ting og jobbe med et produkt jeg kan se",
             progress: 30,
             characteristic: practical,
-            isStatement: false,
-            isImageSelection: false,
-            isReversed: false,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            isReversed: false
         },
         {
             questionNumber: 4,
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 40,
-            characteristic: social,
             isStatement: true,
-            isImageSelection: false,
-            statementArr: statements1,
-            isReversed: false,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            statementArr: statements1
         },
         {
             questionNumber: 5,
@@ -118,11 +101,7 @@ export const QuestionsPartOne = () => {
             questionTxt: "Jeg jobber best med oppgaver alene",
             progress: 50,
             characteristic: social,
-            isStatement: false,
-            isImageSelection: false,
-            isReversed: true,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            isReversed: true
         },
         {
             questionNumber: 6,
@@ -130,21 +109,14 @@ export const QuestionsPartOne = () => {
             questionTxt: "Jeg er flink til å tenke utenfor boksen og komme opp med nye løsninger",
             progress: 60,
             characteristic: creative,
-            isStatement: false,
-            isImageSelection: false,
-            isReversed: false,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            isReversed: false
         },
         {
             questionNumber: 7,
             questionType: 'imageSelection',
             questionTxt: "Velg det bilde som passer deg best",
             progress: 70,
-            characteristic: practical,
-            isStatement: false,
             isImageSelection: true,
-            isReversed: true,
             allocatePoints: [imageSelectorSocial, imageSelectorCreative, imageSelectorPractical],
             images: ['imgCity', 'imgLibrary', 'imgLogo']
         },
@@ -154,24 +126,15 @@ export const QuestionsPartOne = () => {
             questionTxt: "Jeg liker å jobbe innenfor klare rammer så jeg vet hva jeg skal gjøre",
             progress: 80,
             characteristic: creative,
-            isStatement: false,
-            isImageSelection: false,
-            isReversed: true,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            isReversed: true
         },
         {
             questionNumber: 9,
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 90,
-            characteristic: social,
             isStatement: true,
-            isImageSelection: false,
-            statementArr: statements2,
-            isReversed: false,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            statementArr: statements2
         },
         {
             questionNumber: 10,
@@ -179,11 +142,7 @@ export const QuestionsPartOne = () => {
             questionTxt: "Jeg er god til å prate for meg selv",
             progress: 100,
             characteristic: social,
-            isStatement: false,
-            isImageSelection: false,
-            isReversed: false,
-            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            isReversed: false
         },
     ];
 };
@@ -219,7 +178,6 @@ export const QuestionsDataTech = () => {
             questionTxt: "Dette er om Tech sin første underavdeling",
             progress: 25,
             characteristic: social,
-            isStatement: false,
             isReversed: true
         },
         {
@@ -228,7 +186,6 @@ export const QuestionsDataTech = () => {
             questionTxt: "Dette er om Tech sin andre underavdeling",
             progress: 50,
             characteristic: social,
-            isStatement: false,
             isReversed: false
         },
         {
@@ -236,10 +193,8 @@ export const QuestionsDataTech = () => {
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 75,
-            characteristic: social,
             isStatement: true,
             statementArr: statements1,
-            isReversed: false
         },
         {
             questionNumber: 4,
@@ -247,7 +202,6 @@ export const QuestionsDataTech = () => {
             questionTxt: "Dette er om Tech sin tredje",
             progress: 100,
             characteristic: social,
-            isStatement: false,
             isReversed: false
         },
     ];
@@ -255,7 +209,7 @@ export const QuestionsDataTech = () => {
 
 export const QuestionsDataSC = () => {
     const dispatch = useDispatch();
-    const { social, allocateStrat_CMTPoints, allocateStrat_Health_PublicPoints, allocateStrat_FinancePoints, allocateStrat_ProductsPoints, allocateStrat_ResourcesPoints } = bindActionCreators(actionCreators, dispatch);
+    const { allocateStrat_CMTPoints, allocateStrat_Health_PublicPoints, allocateStrat_FinancePoints, allocateStrat_ProductsPoints, allocateStrat_ResourcesPoints } = bindActionCreators(actionCreators, dispatch);
     const statements1 = [
         {
             id: 1,
@@ -306,8 +260,6 @@ export const QuestionsDataSC = () => {
             questionTxt: "Dette er om Products",
             progress: 14,
             characteristic: allocateStrat_ProductsPoints,
-            isStatement: false,
-            isImageSelection: false,
             isReversed: true
         },
         {
@@ -315,11 +267,8 @@ export const QuestionsDataSC = () => {
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 29,
-            characteristic: social,
             isStatement: true,
-            isImageSelection: false,
             statementArr: statements1,
-            isReversed: false
         },
         {
             questionNumber: 3,
@@ -327,8 +276,6 @@ export const QuestionsDataSC = () => {
             questionTxt: "Dette er om Resources",
             progress: 43,
             characteristic: allocateStrat_ResourcesPoints,
-            isStatement: false,
-            isImageSelection: false,
             isReversed: true
         },
         {
@@ -337,8 +284,6 @@ export const QuestionsDataSC = () => {
             questionTxt: "Dette er om Health & Public Service",
             progress: 58,
             characteristic: allocateStrat_Health_PublicPoints,
-            isStatement: false,
-            isImageSelection: false,
             isReversed: false
         },
         {
@@ -347,8 +292,6 @@ export const QuestionsDataSC = () => {
             questionTxt: "Dette er om Financial Services",
             progress: 72,
             characteristic: allocateStrat_FinancePoints,
-            isStatement: false,
-            isImageSelection: false,
             isReversed: true
         },
         {
@@ -356,11 +299,8 @@ export const QuestionsDataSC = () => {
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 87,
-            characteristic: social,
             isStatement: true,
-            isImageSelection: false,
             statementArr: statements2,
-            isReversed: false
         },
         {
             questionNumber: 7,
@@ -368,8 +308,6 @@ export const QuestionsDataSC = () => {
             questionTxt: "Dette er om Communcation Media & Technology",
             progress: 100,
             characteristic: allocateStrat_CMTPoints,
-            isStatement: false,
-            isImageSelection: false,
             isReversed: false
         },
     ];
@@ -406,7 +344,6 @@ export const QuestionsDataInteractive = () => {
             questionTxt: "Dette er om Build",
             progress: 20,
             characteristic: allocateInteractive_BuildPoints,
-            isStatement: false,
             isReversed: true
         },
         {
@@ -415,7 +352,6 @@ export const QuestionsDataInteractive = () => {
             questionTxt: "Dette er om Design",
             progress: 40,
             characteristic: allocateInteractive_DesignPoints,
-            isStatement: false,
             isReversed: false
         },
         {
@@ -423,10 +359,8 @@ export const QuestionsDataInteractive = () => {
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
             progress: 60,
-            characteristic: social,
             isStatement: true,
             statementArr: statements1,
-            isReversed: false
         },
         {
             questionNumber: 4,
@@ -434,7 +368,6 @@ export const QuestionsDataInteractive = () => {
             questionTxt: "Dette er om Communcations",
             progress: 80,
             characteristic: allocateInteractive_CommunicationsPoints,
-            isStatement: false,
             isReversed: false
         },
         {
@@ -443,7 +376,6 @@ export const QuestionsDataInteractive = () => {
             questionTxt: "Dette er om Fjords",
             progress: 100,
             characteristic: allocateInteractive_DesignPoints,
-            isStatement: false,
             isReversed: false
         },
     ];

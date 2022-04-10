@@ -1,37 +1,19 @@
-import {
-    AlgorithmActionType,
-    DepartmentsActionType,
-    ImageSelectorType,
-    InitializeStatementOrderActionType,
-    InteractiveSubdivisionActionType,
-    IsInfoClickedActionType,
-    LikertActionType,
-    QuestionActionType,
-    QuestionPartTwoActionType,
-    ResetStatesActionType,
-    ShowAlertDialogActionType,
-    StatementOrderActionType,
-    StratSubdivisionActionType,
-    ValgomatInProgressActionType
-} from "../actionTypes";
-import {Dispatch} from "redux";
-import {
-    AlgorithmAction,
-    DepartmentsAction,
-    ImageSelectorAction,
-    ImageSelectorAnswerAction,
-    InitializeStatementOrderAction,
-    InteractiveSubDivisionActions,
-    IsInfoClickedAction,
-    LikertAction,
-    QuestionAction,
-    QuestionPartTwoAction,
-    ShowAlertDialogAction,
-    StatementOrderAction,
-    StratSubDivisionActions,
-    ValgomatInProgressAction
-} from "..";
-import {ResetStatesAction} from "../actions/resetStatesAction";
+import { Dispatch } from "redux";
+import { AlgorithmAction, AlgorithmActionType } from '../reducers/algorithm';
+import { DepartmentsAction, DepartmentsActionType } from '../reducers/departments';
+import { ImageSelectorType, ImageSelectorAction } from '../reducers/imageSelector';
+import { ImageSelectorAnswerType, ImageSelectorAnswerAction } from '../reducers/imageSelectorAnswers';
+import { InitializeStatementOrderActionType, InitializeStatementOrderAction } from '../reducers/initializeStatementOrder';
+import { InteractiveSubdivisionActionType, InteractiveSubDivisionActions } from '../reducers/interactiveSubdivision';
+import { IsInfoClickedActionType, IsInfoClickedAction } from '../reducers/isInfoClicked';
+import { LikertActionType, LikertAction } from '../reducers/likert';
+import { QuestionActionType, QuestionAction } from '../reducers/questions';
+import { ShowAlertDialogActionType, ShowAlertDialogAction } from '../reducers/showAlertDialog';
+import { StatementOrderActionType, StatementOrderAction } from '../reducers/statementOrder';
+import { StratSubdivisionActionType, StratSubDivisionActions } from '../reducers/stratSubdivision';
+import { ValgomatInProgressActionType, ValgomatInProgressAction } from '../reducers/valgomatInProgress';
+import { ResetStatesAction, ResetStatesActionType } from "../reducers";
+import { QuestionPartTwoAction, QuestionPartTwoActionType } from "../reducers/questionCounterPartTwo";
 
 export const increaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
@@ -238,7 +220,7 @@ export const imageSelectorPractical = (points: number) => {
 export const imageSelectorChecked = (questionNumber: number, checked: number) => {
     return (dispatch: Dispatch<ImageSelectorAnswerAction>) => {
         dispatch({
-            type: ImageSelectorType.CHECKED,
+            type: ImageSelectorAnswerType.CHECKED,
             questionNumber: questionNumber,
             checked: checked
         })

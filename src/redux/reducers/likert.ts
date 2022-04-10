@@ -1,6 +1,49 @@
-import {LikertAction, LikertActionType} from '..';
+export enum LikertActionType {
+    STRONGLY_DISAGREE = 'strongly_disagree',
+    MODERATLY_DISAGREE = 'moderatly_disagree',
+    NEUTRAL = 'neutral',
+    MODERATLY_AGREE = 'moderatly_agree',
+    STRONGLY_AGREE = 'strongly_agree',
+    RESET = 'reset'
+}
 
-export const initialState = {
+interface stronglyDisagreeAction {
+    type: LikertActionType.STRONGLY_DISAGREE
+    payload: number
+    questionNumber: number
+}
+
+interface moderatlyDisagreeAction {
+    type: LikertActionType.MODERATLY_DISAGREE
+    payload: number
+    questionNumber: number
+}
+
+interface neutralAction {
+    type: LikertActionType.NEUTRAL
+    payload: number
+    questionNumber: number
+}
+
+interface moderatlyAgreeAction {
+    type: LikertActionType.MODERATLY_AGREE
+    payload: number
+    questionNumber: number
+}
+
+interface stronglyAgreeAction {
+    type: LikertActionType.STRONGLY_AGREE
+    payload: number
+    questionNumber: number
+}
+
+interface reset {
+    type: LikertActionType.RESET
+}
+
+export type LikertAction = stronglyDisagreeAction | moderatlyDisagreeAction | neutralAction | moderatlyAgreeAction | stronglyAgreeAction | reset;
+
+const initialState = {
     answers: []
 };
 
@@ -37,7 +80,7 @@ export const likertAnswerReducer = (state: number[] = initialState.answers, acti
             }
             return [...state, action.payload];
         case LikertActionType.RESET:
-            return []
+            return [];
         default:
             return state
     }
