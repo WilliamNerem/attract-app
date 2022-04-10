@@ -16,12 +16,11 @@ export const ResultSubDepartment = ({information
 
 }: resultSubDepProps) => {
     const dispatch = useDispatch();
-    const { valgomatIsInProgress, setCounterPartTwo } = bindActionCreators(actionCreators, dispatch);
+    const { setCounterPartTwo } = bindActionCreators(actionCreators, dispatch);
     const [carousel, setCarousel] = useState({first: 'leftCard', second: 'middleCard', third: 'rightCard'});
     const [disabledButtons, setDisabledButtons] = useState('');
     const [topThreeDep, setTopThreeDep] = useState([0, 0, 0]);
     const [backToResult, setBackToResult] = useState(false);
-    valgomatIsInProgress(false);
     const sortedArray = information.sort((a, b) => (a.points < b.points) ? 1 : -1); //sorts array that is sent in as prop, by points, finding the three with most points
     const subDepArray = SubDepartments();
 
