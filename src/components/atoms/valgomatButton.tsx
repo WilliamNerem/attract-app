@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/valgomatButton.style.css'
 import {useSelector} from "react-redux";
-import {State} from "../../redux/reducers";
+import {State} from "../../redux";
 
 interface valgomatButtonProps {
     nextTransition: Function

@@ -3,7 +3,7 @@ import '../../styles/statementItem.style.css';
 import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators, State} from "../../redux";
-import {QuestionsPartOne} from "../../questions";
+import {QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech, QuestionsPartOne} from "../../questions";
 import {useTransition, animated} from 'react-spring'
 
 interface statementItemProps {
@@ -19,10 +19,28 @@ interface statementItemProps {
         transitionDown: number,
         startTransition: boolean
     }
+    questionArray?: any[]
 }
 
-export const StatementItem = ({index, positionInStatementOrder, position, questionNumber, transitionPx, handleTransition, transitionValues}: statementItemProps) => {
-    const statementArray = QuestionsPartOne()[questionNumber].statementArr;
+export const StatementItem = ({index, positionInStatementOrder, position, transitionPx, handleTransition, transitionValues, questionArray}: statementItemProps) => {
+    const counter = useSelector((state: State) => state.questionCounter);
+    const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
+
+    let arrayLength = questionArray?.length;
+    let statementArray = questionArray;
+    if(counterPartTwo === 1) {
+        statementArray = QuestionsPartOne()[counter - 1].statementArr;
+    }
+    if(arrayLength === 7) { // Has to hardcode this and needs to be changed if size increases
+        statementArray = QuestionsDataSC()[counterPartTwo - 1].statementArr;
+    }
+    else if(arrayLength === 5) { // Has to hardcode this and needs to be changed if size increases
+        statementArray = QuestionsDataInteractive()[counterPartTwo - 1].statementArr;
+    }
+    else if(arrayLength === 4) { // Has to hardcode this and needs to be changed if size increases
+        statementArray = QuestionsDataTech()[counterPartTwo - 1].statementArr;
+    }
+
     const statementOrder = useSelector((state: State) => state.statementOrder);
     const dispatch = useDispatch();
     const {
