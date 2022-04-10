@@ -112,3 +112,17 @@ a {
     display: block;
     padding-bottom: 15px;
 }
+
+.linkWrapper{
+    position: relative;
+}
+
+.linkToNewPage{
+    background-image: url("../images/new_tab_purple.png");
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    display: inline-block;
+    position: absolute;
+    margin-left: 10px;
+}
