@@ -107,7 +107,7 @@ export const StatementOrder = ({questionArray, sharedWords}: statementOrderProps
 
     return (
         <div className='statementOrderMargin'>
-            <h3>{sharedWords}</h3>
+            <p className='statementOrderSharedWords'>{sharedWords}</p>
             {statementList}
         </div>
     );

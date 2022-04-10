@@ -83,19 +83,19 @@ div.singlePallet{
 .palletPlacementHeightFirst{
     height: 104px;
     max-height: 104px;
-    transition: max-height .7s ease-in;
+    transition: max-height 1s ease-in-out;
 }
 
 .palletPlacementHeightSecond{
     height: 71px;
     max-height: 104px;
-    transition: max-height .7s ease-in;
+    transition: max-height 1s ease-in-out;
 }
 
 .palletPlacementHeightThird{
     height: 38px;
     max-height: 104px;
-    transition: max-height .7s ease-in;
+    transition: max-height 1s ease-in-out;
 }
 
 h3 {
