@@ -14,12 +14,14 @@ import {Link} from "react-router-dom";
 
 interface alertDialogProps {
     end : boolean
+    backToResult ?: boolean
     totalPointsArray ?: number[]
     setIsDepClicked ?: React.Dispatch<React.SetStateAction<{ strat: boolean; interactive: boolean; tech: boolean; }>>
 }
 
 export const AlertDialog = ({
     end,
+    backToResult,
     totalPointsArray,
     setIsDepClicked
 }: alertDialogProps) => {
@@ -53,6 +55,32 @@ export const AlertDialog = ({
         }
         return (
             <Result totalPointsArray={pointsArray}/>
+        )
+    }
+
+    if(backToResult) {
+        return (
+            <div data-testid={'endAlertDialog'}>
+                <Dialog
+                    open={true}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                        {"Tilbake til resultatsiden?"}
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description" data-testid={'endDialogText'}>
+                            Er du sikker på at du vil gå tilbake til resultatsiden?
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <a className='alertButton' onClick={() => handleDecrease()}>Nei</a>
+                        <a data-testid={'yesButton'} className='alertButton' onClick={() => {setUpdate(true)}}>Ja</a>
+                    </DialogActions>
+                </Dialog>
+            </div>
         )
     }
 

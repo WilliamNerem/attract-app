@@ -33,6 +33,7 @@ export const Result = ({totalPointsArray
         if (counterPartTwo === 0){
             setIsDepClicked({ strat: false, interactive: false, tech: false});
         }
+        // setCounterPartTwo(1)
     }, []);
 
     useEffect(() => {
@@ -115,7 +116,7 @@ export const Result = ({totalPointsArray
     if (counterPartTwo === 0){
         return (
             <>
-                <AlertDialog end={true} totalPointsArray={totalPointsArray} setIsDepClicked={setIsDepClicked}/>
+                <AlertDialog end={true} backToResult={true} totalPointsArray={totalPointsArray} setIsDepClicked={setIsDepClicked}/>
             </>
         )
     } else if (isDepClicked.tech) {

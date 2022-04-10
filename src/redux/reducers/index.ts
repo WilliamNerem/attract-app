@@ -55,6 +55,7 @@ const rootReducer = (state: any, action: any) => {
         for (let i = 0; i < initInteractiveSubDivisions.subdivisionArr.length; i++) {
             initInteractiveSubDivisions.subdivisionArr[i].points = 0;
         }
+        state = undefined;
     }
     return reducers(state, action);
 };

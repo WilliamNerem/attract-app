@@ -7,7 +7,6 @@ import {actionCreators} from "../../redux";
 import {SubDepartments} from "../../subDepartments";
 import {ResultText} from "../atoms/resultText";
 import {InfoCard} from "../atoms/infoCard";
-import { Button } from "../atoms/button";
 
 interface resultSubDepProps {
     information: any[]
@@ -17,10 +16,11 @@ export const ResultSubDepartment = ({information
 
 }: resultSubDepProps) => {
     const dispatch = useDispatch();
-    const { valgomatIsInProgress } = bindActionCreators(actionCreators, dispatch);
+    const { valgomatIsInProgress, setCounterPartTwo } = bindActionCreators(actionCreators, dispatch);
     const [carousel, setCarousel] = useState({first: 'leftCard', second: 'middleCard', third: 'rightCard'});
     const [disabledButtons, setDisabledButtons] = useState('');
     const [topThreeDep, setTopThreeDep] = useState([0, 0, 0]);
+    const [backToResult, setBackToResult] = useState(false);
     valgomatIsInProgress(false);
     const sortedArray = information.sort((a, b) => (a.points < b.points) ? 1 : -1); //sorts array that is sent in as prop, by points, finding the three with most points
     const subDepArray = SubDepartments();
@@ -29,7 +29,6 @@ export const ResultSubDepartment = ({information
         let arr: any[] | ((prevState: number[]) => number[]) = [];
         for (let subDep of subDepArray) {
             if (sortedArray[0].subdivision === subDep.id) {
-                console.log('Første plass: ' + sortedArray[0].subdivision + subDep.id + subDepArray.indexOf(subDep))
                 arr.splice(0, 0, subDepArray.indexOf(subDep))
             }
             if (sortedArray[1].subdivision === subDep.id) {
@@ -61,6 +60,13 @@ export const ResultSubDepartment = ({information
         setCarousel({first: first, second: second, third: third})
     };
 
+    const handleClick = () => {
+        setBackToResult(true);
+    }
+
+    if(backToResult) {
+        setCounterPartTwo(0)
+    }
     return(
         <div data-testid={'resultComponent'} className='wrapper'>
             <Navbar/>
@@ -104,7 +110,7 @@ export const ResultSubDepartment = ({information
                     <a className={disabledButtons+' rightArrow'} onClick={handleRightArrow}/>
                 </div>
                 <div className='buttonDiv'>
-                    <Button href='/' text='Tilbake til forsiden'/>
+                    <button className={'btn-goToSubDep'} onClick={handleClick}>Tilbake til resultatsiden</button>
                 </div>
             </div>
         </div>
