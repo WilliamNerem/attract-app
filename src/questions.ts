@@ -101,8 +101,9 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 4,
             questionType: 'statementOrder',
-            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg ved å trykke på pilene",
             progress: 40,
+            sharedWords: 'Jeg synes',
             characteristic: social,
             isStatement: true,
             isImageSelection: false,
@@ -162,8 +163,9 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 9,
             questionType: 'statementOrder',
-            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg ved å trykke på pilene",
             progress: 90,
+            sharedWords: 'Jeg kunne tenkt meg å',
             characteristic: social,
             isStatement: true,
             isImageSelection: false,

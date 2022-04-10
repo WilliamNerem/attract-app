@@ -6,7 +6,11 @@ import {actionCreators} from "../../redux";
 import {StatementItem} from "../atoms/statementItem";
 import {QuestionsPartOne} from "../../questions";
 
-export const StatementOrder = () => {
+interface statementOrderProps {
+    sharedWords: string
+}
+
+export const StatementOrder = ({sharedWords}: statementOrderProps) => {
     const counter = useSelector((state: State) => state.questionCounter);
     const statementOrder = useSelector((state: State) => state.statementOrder);
     const initializeStatementOrderArray = useSelector((state: State) => state.initializeStatementOrder);
@@ -85,6 +89,7 @@ export const StatementOrder = () => {
 
     return (
         <div className='statementOrderMargin'>
+            <h3>{sharedWords}</h3>
             {statementList}
         </div>
     );

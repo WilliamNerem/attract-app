@@ -32,7 +32,7 @@ div.singlePallet{
 }
 
 #first .singlePalletDiv{
-    height: 66px;
+    height: 104px;
 }
 
 #second{
@@ -42,19 +42,18 @@ div.singlePallet{
 }
 
 #second .singlePalletDiv{
-    height: 33px;
+    height: 71px;
     margin-right: 1px;
 }
 
 #third{
     right: 0;
-    bottom: 1px;
+    bottom: 0;
     text-align: center;
 }
 
 #third .singlePalletDiv{
-    height: 0;
-    margin-left: 1px;
+    height: 38px;
 }
 
 .singlePalletPlacement{
@@ -71,13 +70,34 @@ div.singlePallet{
 }
 
 .palletPlacement{
+    height: 0;
+    max-height: 0;
     background: white;
     color: black;
     mix-blend-mode: screen;
     font-size: 2em;
     text-align: center;
-    margin-bottom: -1px;
+    margin-bottom: 5px;
 }
+
+.palletPlacementHeightFirst{
+    height: 104px;
+    max-height: 104px;
+    transition: max-height .7s ease-in;
+}
+
+.palletPlacementHeightSecond{
+    height: 71px;
+    max-height: 104px;
+    transition: max-height .7s ease-in;
+}
+
+.palletPlacementHeightThird{
+    height: 38px;
+    max-height: 104px;
+    transition: max-height .7s ease-in;
+}
+
 h3 {
     font-size: 0.88em;
     padding-bottom: 5px;
@@ -147,13 +167,13 @@ h3 {
 
 .rightArrow{
     position: absolute;
+    padding: 20px 10px;
     background: url("../Icons/accenture_arrow_right.png") no-repeat center;
-    top: 10px;
     display: block;
     width: 21px;
     height: 30px;
     background-size: 21px 30px;
-    right: 2vw;
+    right: 0;
     z-index: 5;
 }
 
@@ -164,13 +184,13 @@ h3 {
 
 .leftArrow{
     position: absolute;
-    top: 10px;
+    padding: 20px 10px;
     background: url("../Icons/accenture_arrow_left.png") no-repeat center;
     display: block;
     width: 21px;
     height: 30px;
     background-size: 21px 30px;
-    left: 2vw;
+    left: 0;
     z-index: 5;
 }
 
