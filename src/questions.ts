@@ -15,9 +15,6 @@ export const QuestionsPartOne = () => {
         imageSelectorStrategyAndConsulting,
         imageSelectorTechnology,
         imageSelectorInteractive,
-        imageSelectorSocial,
-        imageSelectorCreative,
-        imageSelectorPractical
     } = bindActionCreators(actionCreators, dispatch);
     const statements1 = [
         {
@@ -73,11 +70,11 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 2,
             questionType: 'imageSelection',
-            questionTxt: "Velg det bilde som passer deg best",
+            questionTxt: "Velg den jobbsituasjonen du helst ville vært i",
             progress: 20,
             isImageSelection: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['imgCar', 'imgBike', 'imgMetro']
+            images: ['SC_work', 'Technology_work', 'Interactive_work']
         },
         {
             questionNumber: 3,
@@ -114,11 +111,11 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 7,
             questionType: 'imageSelection',
-            questionTxt: "Velg det bilde som passer deg best",
+            questionTxt: "Velg den klesstilen du ville foretrukket på jobb",
             progress: 70,
             isImageSelection: true,
-            allocatePoints: [imageSelectorSocial, imageSelectorCreative, imageSelectorPractical],
-            images: ['imgCity', 'imgLibrary', 'imgLogo']
+            allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
+            images: ['SC_DC', 'Technology_DC', 'Interactive_DC']
         },
         {
             questionNumber: 8,
