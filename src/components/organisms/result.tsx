@@ -20,6 +20,8 @@ export const Result = ({totalPointsArray
 
 }: resultProps) => {
     const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
+    const stratSub = useSelector((state: State) => state.stratSubdivision);
+    const interactiveSub = useSelector((state: State) => state.interactiveSubdivision);
     const [carousel, setCarousel] = useState({first: 'leftCard', second: 'middleCard', third: 'rightCard'});
     const [disabledButtons, setDisabledButtons] = useState('');
     const maxVal = Math.max(...totalPointsArray);
@@ -28,6 +30,7 @@ export const Result = ({totalPointsArray
     const [isDepClicked, setIsDepClicked] = useState( { strat: false, interactive: false, tech: false});
     let link;
     let infoText;
+    let subDep;
 
     useEffect(() => {
         if (counterPartTwo === 0){
@@ -49,7 +52,8 @@ export const Result = ({totalPointsArray
                 'løsninger for private- og offentlige aktører. Du vil jobbe i store og små ' +
                 'prosjektteam hvor man samarbeider på tvers av avdelinger for å løse problemstillinger innenfor et mangfold av ' +
                 'industrier.',
-            infoSubText: 'I følge valgomaten passer du ikke best i Strategy & Consulting, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.'
+            infoSubText: 'I følge valgomaten passer du ikke best i Strategy & Consulting, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.',
+            subDep: stratSub
         },
         {
             title: 'Technology',
@@ -57,7 +61,8 @@ export const Result = ({totalPointsArray
             infoText: 'I Technology blir du involvert i noen av Norges mest spennende og meningsfylte IT-prosjekter. Sammen ' +
                 'med kunden leverer vi innovative løsninger som bidrar til verdiskaping både for bedrifter og samfunnet. Vi ' +
                 'satser stort innenfor skyløsninger, digital infrastruktur, digitalisering og prosessautomatisering.',
-            infoSubText: 'I følge valgomaten passer du ikke best i Technology, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.'
+            infoSubText: 'I følge valgomaten passer du ikke best i Technology, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.',
+            subDep: [],
         },
         {
             title: 'Interactive',
@@ -65,21 +70,25 @@ export const Result = ({totalPointsArray
             infoText: 'Hos Interactive jobber designere og kreatørene. Vi skaper løsninger ved å kombinere kreativitet og fokus på sluttbruker med ' +
                 'teknisk innsikt og gjennomføringsevne. Interactive-teamet bruker en kombinasjon av design, markedsføring, innhold og forretningsforståelse ' +
                 'til å skape innovative og bransjeledende brukeropplevelser.',
-            infoSubText: 'I følge valgomaten passer du ikke best i Interactive, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.'
+            infoSubText: 'I følge valgomaten passer du ikke best i Interactive, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.',
+            subDep: interactiveSub
         }
     ];
 
     if (result === 'Strategy & Consulting') {
         link = information[0].link;
         infoText = information[0].infoText;
+        subDep = information[0].subDep;
         information.splice(0, 1)
     } else if (result === 'Technology') {
         link = information[1].link;
         infoText = information[1].infoText;
+        subDep = information[1].subDep;
         information.splice(1, 1)
     } else if (result === 'Interactive') {
         link = information[2].link;
         infoText = information[2].infoText;
+        subDep = information[2].subDep;
         information.splice(2, 1)
     } else {
         link = 'https://www.accenture.com/no-en';
@@ -153,6 +162,7 @@ export const Result = ({totalPointsArray
                                 subText={information[0].infoSubText}
                                 linkText={'Les mer om ' + information[0].title}
                                 onButtonClick={() => onButtonClick(information[0].title)}
+                                subDepArr={information[0].subDep}
                             />
                         </div>
                         <div className={carousel.second + ' middleCarouselItem'}>
@@ -164,6 +174,7 @@ export const Result = ({totalPointsArray
                                 subText={'Neste steg er å bli kjent med ' + result + '.'}
                                 linkText={'Les mer om ' + result}
                                 onButtonClick={() => onButtonClick(result)}
+                                subDepArr={subDep}
                             />
                         </div>
                         <div className={carousel.third + ' rightCarouselItem'}>
@@ -175,6 +186,7 @@ export const Result = ({totalPointsArray
                                 subText={information[1].infoSubText}
                                 linkText={'Les mer om ' + information[1].title}
                                 onButtonClick={() => onButtonClick(information[1].title)}
+                                subDepArr={information[1].subDep}
                             />
                         </div>
                         <a className={disabledButtons + ' leftArrow'} onClick={handleLeftArrow}/>
