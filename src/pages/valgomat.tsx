@@ -27,6 +27,7 @@ const Valgomat = () => {
     const algoArray = useSelector((state: State) => state.characteristicPoints);
     const departmentsArray = useSelector((state: State) => state.departmentsAlgorithm);
     const isShowAlertDialog = useSelector((state: State) => state.showAlertDialog);
+    const subValgomatInProgress = useSelector((state: State) => state.subValgomatInProgress);
     const imageSelector = useSelector((state: State) => state.imageSelector);
     const [transitionValue, setTransitionValue] = useState({from: ''});
     const [transition, setTransition] = useState(true);
@@ -87,7 +88,7 @@ const Valgomat = () => {
     if (counter === 0) {
         showAlertDialog(true);
     }
-    if (isShowAlertDialog) {
+    if (isShowAlertDialog && !subValgomatInProgress) {
         return (
             <AlertDialog end={false}/>
         )

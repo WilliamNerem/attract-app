@@ -6,11 +6,12 @@ import {Pallet} from "../atoms/pallet";
 import {InfoCard} from "../atoms/infoCard";
 import {Navbar} from "../molecule/navbar";
 import {departments} from "../../departments";
-import {useSelector} from "react-redux";
-import {State} from "../../redux";
+import {useDispatch, useSelector} from "react-redux";
+import {actionCreators, State} from "../../redux";
 import {ValgomatPartTwo} from "./valgomatPartTwo";
 import {QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
 import {AlertDialog} from "../atoms/alertDialog";
+import {bindActionCreators} from "redux";
 
 interface resultProps {
     totalPointsArray: any[]
@@ -19,11 +20,16 @@ interface resultProps {
 export const Result = ({totalPointsArray
 
 }: resultProps) => {
+    const dispatch = useDispatch();
+    const { subValgomatIsInProgress } = bindActionCreators(actionCreators, dispatch);
     const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
     const stratSub = useSelector((state: State) => state.stratSubdivision);
     const interactiveSub = useSelector((state: State) => state.interactiveSubdivision);
+    const showAlertDialog = useSelector((state: State) => state.showAlertDialog);
+    const subValgomatInProgress = useSelector((state: State) => state.subValgomatInProgress);
     const [carousel, setCarousel] = useState({first: 'leftCard', second: 'middleCard', third: 'rightCard'});
     const [disabledButtons, setDisabledButtons] = useState('');
+    const [currentDep, setCurrentDep] = useState('null')
     const maxVal = Math.max(...totalPointsArray);
     const valPos = totalPointsArray.indexOf(maxVal);
     const result = departments[valPos].name;
@@ -36,7 +42,6 @@ export const Result = ({totalPointsArray
         if (counterPartTwo === 0){
             setIsDepClicked({ strat: false, interactive: false, tech: false});
         }
-        // setCounterPartTwo(1)
     }, []);
 
     useEffect(() => {
@@ -112,12 +117,18 @@ export const Result = ({totalPointsArray
     const onButtonClick = (department: string) => {
         if(department === 'Strategy & Consulting') {
             setIsDepClicked({strat: true, interactive: false, tech: false});
+            subValgomatIsInProgress(true);
+            setCurrentDep('strat');
         }
         if(department === 'Interactive') {
             setIsDepClicked({strat: false, interactive: true, tech: false});
+            subValgomatIsInProgress(true);
+            setCurrentDep('int');
         }
         if(department === 'Technology') {
             setIsDepClicked({strat: false, interactive: false, tech: true});
+            subValgomatIsInProgress(true);
+            setCurrentDep('tech');
         }
 
     };
@@ -125,22 +136,27 @@ export const Result = ({totalPointsArray
     if (counterPartTwo === 0){
         return (
             <>
-                <AlertDialog end={true} backToResult={true} totalPointsArray={totalPointsArray} setIsDepClicked={setIsDepClicked}/>
+                <AlertDialog end={true} backToResult={true} totalPointsArray={totalPointsArray} setIsDepClicked={setIsDepClicked} currentDep={currentDep}/>
             </>
+        )
+    }else
+    if (showAlertDialog && subValgomatInProgress) {
+        return (
+            <AlertDialog end={false} setIsDepClicked={setIsDepClicked} />
         )
     } else if (isDepClicked.tech) {
         return (
-            <ValgomatPartTwo questionArray={QuestionsDataTech()} isTech={true}/>
+            <ValgomatPartTwo questionArray={QuestionsDataTech()} isTech={true} setIsDepClicked={setIsDepClicked}/>
         )
     }
     else if (isDepClicked.interactive) {
         return (
-            <ValgomatPartTwo questionArray={QuestionsDataInteractive()} isInteractive={true}/>
+            <ValgomatPartTwo questionArray={QuestionsDataInteractive()} isInteractive={true} setIsDepClicked={setIsDepClicked}/>
         )
     }
     else if (isDepClicked.strat) {
         return (
-            <ValgomatPartTwo questionArray={QuestionsDataSC()} isStrat={true}/>
+            <ValgomatPartTwo questionArray={QuestionsDataSC()} isStrat={true} setIsDepClicked={setIsDepClicked}/>
         )
     }
     else {

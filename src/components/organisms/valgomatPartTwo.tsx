@@ -19,9 +19,10 @@ interface valgoMatPartTwoProps {
     isTech?: boolean
     isStrat?: boolean
     isInteractive?: boolean
+    setIsDepClicked?: React.Dispatch<React.SetStateAction<{ strat: boolean; interactive: boolean; tech: boolean; }>>
 }
 
-export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive}: valgoMatPartTwoProps) => {
+export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive, setIsDepClicked}: valgoMatPartTwoProps) => {
     const dispatch = useDispatch();
     const {
         increaseCounterPartTwo,
@@ -113,7 +114,7 @@ export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive}:
         }
         if (counter > questionArray.length){
             const information = (isStrat ? stratSub : (isInteractive ? interactiveSub : (isTech ? [] : [])));
-            return (<ResultSubDepartment information={information}/>)
+            return (<ResultSubDepartment information={information} setIsDepClicked={setIsDepClicked}/>)
         }
     }
 

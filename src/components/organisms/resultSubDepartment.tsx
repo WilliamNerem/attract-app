@@ -1,22 +1,19 @@
 import React, {useEffect, useState} from "react";
 import '../../styles/result.style.css';
 import {Navbar} from "../molecule/navbar";
-import {useDispatch} from "react-redux";
-import {bindActionCreators} from "redux";
-import {actionCreators} from "../../redux";
 import {SubDepartments} from "../../subDepartments";
 import {ResultText} from "../atoms/resultText";
 import {InfoCard} from "../atoms/infoCard";
+import {AlertDialog} from "../atoms/alertDialog";
 
 interface resultSubDepProps {
     information: any[]
+    setIsDepClicked?: React.Dispatch<React.SetStateAction<{ strat: boolean; interactive: boolean; tech: boolean; }>>
 }
 
-export const ResultSubDepartment = ({information
+export const ResultSubDepartment = ({information, setIsDepClicked
 
 }: resultSubDepProps) => {
-    const dispatch = useDispatch();
-    const { setCounterPartTwo } = bindActionCreators(actionCreators, dispatch);
     const [carousel, setCarousel] = useState({first: 'leftCard', second: 'middleCard', third: 'rightCard'});
     const [disabledButtons, setDisabledButtons] = useState('');
     const [topThreeDep, setTopThreeDep] = useState([0, 0, 0]);
@@ -64,7 +61,9 @@ export const ResultSubDepartment = ({information
     }
 
     if(backToResult) {
-        setCounterPartTwo(0)
+        return (
+            <AlertDialog end={false} backToResult={true} setBackToResult={setBackToResult} setIsDepClicked={setIsDepClicked}/>
+        )
     }
     return(
         <div data-testid={'resultComponent'} className='wrapper'>
