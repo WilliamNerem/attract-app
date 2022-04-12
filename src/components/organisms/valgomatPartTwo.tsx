@@ -1,6 +1,6 @@
 import {Navbar} from "../molecule/navbar";
 import {animated, useTransition} from "react-spring";
-import {InfoButton} from "../molecule/infoButton";
+import {InfoButton} from "../atoms/infoButton";
 import {Questions} from "../atoms/questions";
 import {StatementOrder} from "../molecule/statementOrder";
 import {LikertScale} from "../atoms/likertScale";

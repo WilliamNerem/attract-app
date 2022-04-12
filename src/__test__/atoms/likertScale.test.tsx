@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import {LikertScale} from "../components/atoms/likertScale";
+import {LikertScale} from "../../components/atoms/likertScale";
 import {Provider} from "react-redux";
-import {store} from "../redux";
+import {store} from "../../redux";
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"
 afterEach(cleanup);

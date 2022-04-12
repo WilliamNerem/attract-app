@@ -6,6 +6,6 @@ interface infoButtonProps {
 
 export const InfoButton = ({handleClick}: infoButtonProps) => {
     return(
-        <a className='infoButton' onClick={handleClick}/>
+        <a className='infoButton' onClick={handleClick} data-testid={'infoButton'}/>
     );
 };

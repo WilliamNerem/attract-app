@@ -14,7 +14,7 @@ import {ValgomatFooter} from "../components/molecule/valgomatFooter";
 import {bindActionCreators} from "redux";
 import {useTransition, animated} from 'react-spring';
 import {useEffect, useState} from "react";
-import {InfoButton} from "../components/molecule/infoButton";
+import {InfoButton} from "../components/atoms/infoButton";
 import {ShowExplanation} from "../components/molecule/showExplanation";
 import Backdrop from "@mui/material/Backdrop";
 import {Result} from "../components/organisms/result";

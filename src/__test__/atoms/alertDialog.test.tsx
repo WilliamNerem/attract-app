@@ -1,8 +1,8 @@
 import React from 'react';
 import {render, cleanup, fireEvent} from "@testing-library/react";
-import {AlertDialog} from "../components/atoms/alertDialog";
+import {AlertDialog} from "../../components/atoms/alertDialog";
 import {Provider} from "react-redux";
-import {store} from "../redux";
+import {store} from "../../redux";
 import {BrowserRouter as Router} from "react-router-dom";
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"

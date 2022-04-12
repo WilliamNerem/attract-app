@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import { render, cleanup } from "@testing-library/react";
-import {StatementItem} from "../components/atoms/statementItem";
+import {StatementItem} from "../../components/atoms/statementItem";
 import {Provider} from "react-redux";
-import {store} from "../redux";
+import {store} from "../../redux";
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"
 afterEach(cleanup);

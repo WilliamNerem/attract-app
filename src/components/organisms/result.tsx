@@ -154,7 +154,7 @@ export const Result = ({totalPointsArray
                                 onButtonClick={() => onButtonClick(information[0].title)}
                             />
                         </div>
-                        <div className={carousel.second + ' middleCarouselItem'}>
+                        <div className={carousel.second + ' middleCarouselItem'} data-testid={'carouselFront'}>
                             <InfoCard
                                 heading={result}
                                 link={link}
@@ -177,7 +177,7 @@ export const Result = ({totalPointsArray
                             />
                         </div>
                         <a className={disabledButtons + ' leftArrow'} onClick={handleLeftArrow}/>
-                        <a className={disabledButtons + ' rightArrow'} onClick={handleRightArrow}/>
+                        <a className={disabledButtons + ' rightArrow'} onClick={handleRightArrow} data-testid={'rightArrow'}/>
                     </div>
                     <div className='buttonDiv'>
                         <Button href='/' text='Tilbake til forsiden'/>
