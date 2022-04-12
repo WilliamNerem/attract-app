@@ -13,16 +13,17 @@ export const Navbar = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const inProgress = useSelector((state: State) => state.valgomatInProgress);
-    const { showAlertDialog } = bindActionCreators(actionCreators, dispatch);
+    const { showAlertDialog, isInfoClicked } = bindActionCreators(actionCreators, dispatch);
     const [open, setOpen] = useState(false);
     const [height, setHeight] = useState<string|number>(0);
     const [hamburgerToggled, setHamburgerToggled] = useState(false);
 
-    const handleClick = () => {
+    const handleClick = (isInfo: boolean) => {
         if (inProgress) {
             showAlertDialog(true);
+            isInfoClicked(isInfo);
         } else {
-            navigate('/');
+            isInfo ? navigate('/info') : navigate('/');
         }
     };
 
@@ -39,7 +40,10 @@ export const Navbar = () => {
     return(
         <div className='navMargin'>
             <div className='nav'>
-                <a onClick={handleClick}><img className='logo' src={Acc_Logo_Black_Purple_RGB} alt='logo'/></a>
+                <a className={'navbar-item-logo'} onClick={() => handleClick(false)}><img className='logo' src={Acc_Logo_Black_Purple_RGB} alt='logo'/></a>
+                <a className={'navbar-item'} onClick={() => handleClick(false)}>Hjem</a>
+                <a className={'navbar-item'} onClick={() => handleClick(true)}>Informasjon</a>
+                <a className={'navbar-item'} href={'/valgomat'}>Valgomat</a>
                 <HamburgerMenu hamburgerToggled={hamburgerToggled} setHamburgerToggled={setHamburgerToggled} height={height}/>
             </div>
             <Backdrop
