@@ -136,7 +136,7 @@ export const Result = ({totalPointsArray
     if (counterPartTwo === 0){
         return (
             <>
-                <AlertDialog end={true} backToResult={true} totalPointsArray={totalPointsArray} setIsDepClicked={setIsDepClicked} currentDep={currentDep}/>
+                <AlertDialog end={false} backToResult={true} totalPointsArray={totalPointsArray} setIsDepClicked={setIsDepClicked} currentDep={currentDep}/>
             </>
         )
     }else
