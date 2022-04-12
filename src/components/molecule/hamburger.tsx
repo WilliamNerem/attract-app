@@ -5,7 +5,7 @@ import '../../styles/navbar.style.css'
 import AnimateHeight from "react-animate-height";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {State} from "../../redux/reducers";
+import {State} from "../../redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 

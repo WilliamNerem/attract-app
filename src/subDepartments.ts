@@ -1,9 +1,3 @@
-import {useDispatch} from "react-redux";
-import {bindActionCreators} from "redux";
-import {actionCreators} from './redux'
-import {social} from "./redux/actionCreators";
-
-
 export const SubDepartments = () => {
 
     return [
