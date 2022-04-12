@@ -32,8 +32,8 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
         e.preventDefault();
 
         emailjs.sendForm(
-            'service_7wih987',
-            'template_xazuq1h',
+            'service_7wih987',  // Service ID of EmailJS
+            'template_xazuq1h', // Template ID of the template used in EmailJS
             e.currentTarget,  // This is the form itself
             'BlXHardObV5exxTHW')
             .then(() => {
