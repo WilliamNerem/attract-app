@@ -36,12 +36,10 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
             'template_xazuq1h',
             e.currentTarget,  // This is the form itself
             'BlXHardObV5exxTHW')
-            .then((result) => {
+            .then(() => {
                 setErrorMessage("Resultatet ble sendt!");
-                console.log("Mail sent! " + result.text);
-            }, (error) => {
+            }, () => {
                 setErrorMessage("Resultatet ble ikke sendt, prøv igjen senere");
-                console.log("Mail didn't send " + error.text);
             });
     };
 
