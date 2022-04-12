@@ -1,8 +1,7 @@
 .info{
     margin: auto;
-    width: 100vw;
+    width: 100%;
     text-align: center;
-    min-height: 80vh;
     height: auto;
 }
 
@@ -33,8 +32,10 @@
 }
 
 .grayBackgroundInfo{
+    text-align: center;
     padding-bottom: 48px;
     background: #f2f2f2;
+    width: 100%;
 }
 
 .firstValgomatCard{
@@ -46,4 +47,67 @@
     color: white;
     padding-top: 50px;
     padding-bottom: 80px;
+}
+
+/* styling for desktop */
+@media screen and (min-width: 1200px){
+
+    .infoCards {
+        display: inline-flex;
+        margin: 0 1.5rem;
+    }
+
+    .infoText {
+        font-family: "Graphik Black", Arial, sans-serif;
+        font-size: 65px;
+    }
+
+    .infoSubText {
+        font-family: "Graphik Medium", Arial, sans-serif;
+        font-size: 18px;
+    }
+
+    .headingValgomatInfo {
+        background-image: none;
+    }
+
+    .headingValgomatInfo .infoText {
+        color: black;
+        font-size: 48px;
+        font-family: "Graphik Semibold", Arial, sans-serif;
+    }
+
+    .headingValgomatInfo .infoSubText {
+        color: black;
+        font-size: 16px;
+        font-family: "Graphik Regular", Arial, sans-serif;
+    }
+
+    .valgomatInfo-wrapper .infoCards {
+        width: 70% !important;
+    }
+
+    .info-wrapper .infoCards {
+        width: 70% !important;
+    }
+}
+
+@media screen and (min-width: 1310px){
+
+    .infoCard {
+        width: 22em;
+    }
+
+}
+
+@media screen and (min-width: 1500px){
+
+    .valgomatInfo-wrapper .infoCards {
+        width: 50% !important;
+    }
+
+    .info-wrapper .infoCards {
+        width: 50% !important;
+    }
+
 }

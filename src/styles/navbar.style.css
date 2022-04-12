@@ -73,7 +73,7 @@ a.hamburgerItemLinkActive:hover, a.hamburgerItemLinkActive:active {
 }
 
 /* styling for desktop */
-@media screen and (min-device-width: 1200px){
+@media screen and (min-width: 1200px){
     .hamburger {
         display: none;
     }

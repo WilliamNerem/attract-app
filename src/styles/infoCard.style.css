@@ -8,6 +8,8 @@
     background-color: white;
     text-align: left;
     overflow: hidden;
+    font-family: "Graphik Regular", Arial, sans-serif;
+    font-size: 16px;
 }
 
 .expanded{
@@ -131,4 +133,28 @@ a {
     display: inline-block;
     position: absolute;
     margin-left: 10px;
+}
+
+.dropdown {
+    cursor: pointer;
+}
+
+/* styling for desktop */
+@media screen and (min-width: 1200px){
+
+    .minimized {
+        width: 100% !important;
+        margin-bottom: 4rem;
+        max-height: 60px;
+    }
+
+    .expanded {
+        width: 100% !important;
+        margin-bottom: 4rem;
+    }
+
+    .infoCardHeading {
+        font-size: 25px;
+        font-family: "Graphik Black", Arial, sans-serif;
+    }
 }

@@ -2,9 +2,9 @@
     position: relative;
     display: inline-block;
     margin: auto;
-    width: 100vw;
+    width: 100%;
     text-align: center;
-    height: 93vh;
+    height: 90vh;
 }
 
 .imageDiv{
@@ -60,4 +60,13 @@
 
 .bottomSpace{
     height: 3em;
+}
+
+/* styling for desktop */
+@media screen and (min-width: 1200px){
+
+    .headerHome {
+        font-family: "Graphik Black", Arial, sans-serif;
+        font-size: 65px;
+    }
 }

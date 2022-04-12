@@ -32,6 +32,7 @@ export const InfoCard = ({
 }: infoCardProps) => {
     const [className, setClassName] = useState('');
     const [iconClassName, setIconClassName] = useState('');
+    const [dropdownClassName, setDropdownClassName] = useState('');
     const [showSubDep, setShowSubDep] = useState(false);
     const newLineText = text.split('¤').map((str) => <p>{str}</p>);
     const [sortedArray, setSortedArray] = useState(subDepArr || []);
@@ -42,6 +43,7 @@ export const InfoCard = ({
         if (isDropdown){
             setClassName('minimized');
             setIconClassName('dropdownIcon dropdownIconStandard');
+            setDropdownClassName('dropdown');
         }
 
         if(subDepArr && !showSubDep) {
@@ -82,7 +84,7 @@ export const InfoCard = ({
 
     return(
         <div className={className+' infoCard'} data-testid={'infoCard'}>
-            <div onClick={dropdown} data-testid={'infoCardDropdown'}>
+            <div onClick={dropdown} className={dropdownClassName} data-testid={'infoCardDropdown'}>
                 <h1 className={'infoCardHeading'}>{heading}</h1>
                 <div className={iconClassName}/>
             </div>

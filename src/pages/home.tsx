@@ -29,14 +29,16 @@ const Home = () => {
                         <Link to="/valgomat" className='start' >START VALGOMAT</Link>
                     </div>
                 </div>
-                <InfoCard
-                    heading={'Accenture'}
-                    subHeading={'Vi er et globalt team'}
-                    text={aboutText}
-                    subText={aboutSubText}
-                    link={'https://www.accenture.com/no-en/about/company-index'}
-                    linkText={'Les mer om Accenture her'}
-                />
+                <div className='infoCards firstValgomatCard'>
+                    <InfoCard
+                        heading={'Accenture'}
+                        subHeading={'Vi er et globalt team'}
+                        text={aboutText}
+                        subText={aboutSubText}
+                        link={'https://www.accenture.com/no-en/about/company-index'}
+                        linkText={'Les mer om Accenture her'}
+                    />
+                </div>
                 <div className='infoCards'>
                     <InfoCard
                         heading={'Valgomat'}
