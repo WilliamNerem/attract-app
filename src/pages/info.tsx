@@ -3,6 +3,7 @@ import {ResetStates} from "../resetStates";
 import {InfoCard} from "../components/atoms/infoCard";
 import React from "react";
 import '../styles/info.style.css'
+import {Footer} from "../components/molecule/footer";
 
 const Info = () => {
     ResetStates();
@@ -101,6 +102,7 @@ const Info = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 };
