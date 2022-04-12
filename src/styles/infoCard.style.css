@@ -68,6 +68,12 @@
     background: url("../images/bildevalg_eksempel.png") no-repeat center;
 }
 
+.resultExampleImage{
+    width: 272px;
+    height: 277px;
+    background: url("../images/resultat_eksempel.png") no-repeat center;
+}
+
 a {
     font-family: "Graphik Semibold", Arial, sans-serif;
     color: #0041f0;
