@@ -143,12 +143,9 @@ export const Result = ({totalPointsArray
 
     if (counterPartTwo === 0){
         return (
-            <>
-                <AlertDialog end={false} backToResult={true} totalPointsArray={totalPointsArray} setIsDepClicked={setIsDepClicked} currentDep={currentDep}/>
-            </>
+            <AlertDialog end={false} backToResult={true} totalPointsArray={totalPointsArray} setIsDepClicked={setIsDepClicked} currentDep={currentDep}/>
         )
-    }else
-    if (showAlertDialog && subValgomatInProgress) {
+    }else if (showAlertDialog && subValgomatInProgress) {
         return (
             <AlertDialog end={false} setIsDepClicked={setIsDepClicked} />
         )

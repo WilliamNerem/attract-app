@@ -70,6 +70,7 @@ export const AlertDialog = ({
 
     const handleBackToResult = () => {
         if (counterPartTwo === 0 && setIsDepClicked){
+            console.log('skal inn hit')
             increaseCounterPartTwo();
             if (currentDep === 'strat') {
                 resetStratSubDivision();
