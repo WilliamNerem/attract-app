@@ -61,7 +61,7 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
     if (checked) {
         return (
             <div className="emailSender">
-                <label id="checkLabel">Ønsker du å bli tilsendt resultatet på e-post?</label>
+                <label id="checkLabel">Jeg ønsker å bli tilsendt resultatet på e-post</label>
                 <input id="emailCheckBox" type="checkbox" onChange={handleChange}/>
                 <form
                     className="contact-form"
