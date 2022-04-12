@@ -6,16 +6,16 @@ import {Pallet} from "../atoms/pallet";
 import {InfoCard} from "../atoms/infoCard";
 import {Navbar} from "../molecule/navbar";
 import {departments} from "../../departments";
+import {useDispatch, useSelector} from "react-redux";
+import {actionCreators, State} from "../../redux";
 import {ValgomatPartTwo} from "./valgomatPartTwo";
 import {QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
 import {AlertDialog} from "../atoms/alertDialog";
-import {useDispatch, useSelector} from "react-redux";
-import {actionCreators, State} from "../../redux";
-import {bindActionCreators} from "redux";
+import EmailDepSender from "../atoms/emailDepSender";
 import {InfoButton} from "../molecule/infoButton";
-import {EmailDepSender} from "../atoms/emailDepSender";
-import Backdrop from "@mui/material/Backdrop";
 import {ShowExplanation} from "../molecule/showExplanation";
+import Backdrop from "@mui/material/Backdrop";
+import {bindActionCreators} from "redux";
 
 interface resultProps {
     totalPointsArray: any[]
