@@ -8,7 +8,7 @@ interface palletProps {
 
 export const Pallet = ({totalPointsArray}: palletProps) => { // Strat is 0, tech is 1, inter is 2
     const sortedArr = totalPointsArray.slice().sort((a, b) => b - a).slice(0,3);
-    const maximumPoints = 12;
+    const maximumPoints = 14; // 6 + 6 + 1 + 1 (Order + Order + Image + Image)
     let depArr: number[] = [] ;
     depArr = [sortedArr.indexOf(totalPointsArray[0]), sortedArr.indexOf(totalPointsArray[1]), sortedArr.indexOf(totalPointsArray[2])]; //Index of strat, tech and inter
 

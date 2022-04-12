@@ -209,3 +209,13 @@ h3 {
     font-size: 20px;
     padding: 2rem;
 }
+
+input[type=submit]:disabled{
+    color: red;
+    font-size: 20px;
+}
+
+input[type=submit]{
+    color: green;
+    font-size: 20px;
+}

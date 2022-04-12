@@ -11,6 +11,7 @@ import {State} from "../../redux";
 import {ValgomatPartTwo} from "./valgomatPartTwo";
 import {QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
 import {AlertDialog} from "../atoms/alertDialog";
+import EmailDepSender from "../atoms/emailDepSender";
 
 interface resultProps {
     totalPointsArray: any[]
@@ -179,6 +180,7 @@ export const Result = ({totalPointsArray
                         <a className={disabledButtons + ' leftArrow'} onClick={handleLeftArrow}/>
                         <a className={disabledButtons + ' rightArrow'} onClick={handleRightArrow}/>
                     </div>
+                    <EmailDepSender chosenDep={result}/>
                     <div className='buttonDiv'>
                         <Button href='/' text='Tilbake til forsiden'/>
                     </div>
