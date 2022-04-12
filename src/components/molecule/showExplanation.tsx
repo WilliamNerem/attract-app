@@ -23,11 +23,17 @@ export const ShowExplanation = ({questionType}: showExplanationProps) => {
             'For å rangere påstandene skal knappene trykkes på. Trykk pil opp for å flytte påstanden opp og pil ned for å flytte den ned. '+
             'Under ser du et eksempel på en besvarelse.';
         exampleImage = 'statementOrderExampleImage';
-    } else {
+    } else if (questionType === 'imageSelection') {
         heading = 'Bildevalg';
         text = 'Bildevalg består av 3 bilder der du skal velge det bildet du føler passer deg best. '+
             'Under ser du et eksempel på en besvarelse der personen foretrekker sykkel som transportmiddel.';
         exampleImage='imageSelectionExampleImage';
+    } else {
+        heading = 'Resultat';
+        text = 'Resultatet viser din score for hver avdeling. Du ser en pall med første-, andre- og '+
+            'tredjeplass i tillegg til prosentandelen hver avdeling passer deg. Det er også informasjon om hver avdeling '+
+            'under pallen der du kan klikke på pilene for å lese om de andre avdelingene';
+        exampleImage = 'resultExampleImage';
     }
 
 

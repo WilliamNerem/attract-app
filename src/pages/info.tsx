@@ -3,6 +3,7 @@ import {ResetStates} from "../resetStates";
 import {InfoCard} from "../components/atoms/infoCard";
 import React from "react";
 import '../styles/info.style.css'
+import {Footer} from "../components/molecule/footer";
 
 const Info = () => {
     ResetStates();
@@ -88,8 +89,20 @@ const Info = () => {
                             isDropdown={true}
                         />
                     </div>
+                    <div className='infoCards'>
+                        <InfoCard
+                            heading='Resultat'
+                            text={'Resultatet viser din score for hver avdeling. Du ser en pall med første-, andre- og '+
+                            'tredjeplass i tillegg til prosentandelen hver avdeling passer deg. Det er også informasjon om hver avdeling '+
+                            'under pallen der du kan klikke på pilene for å lese om de andre avdelingene'}
+                            subHeading='Eksempel:'
+                            exampleImage='resultExampleImage'
+                            isDropdown={true}
+                        />
+                    </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 };
