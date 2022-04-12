@@ -61,14 +61,14 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
     if (checked) {
         return (
             <div className="emailSender">
-                <label id="checkLabel">Jeg ønsker å bli tilsendt resultatet på e-post</label>
+                <label htmlFor="emailCheckBox" id="checkLabel">Jeg ønsker å bli tilsendt resultatet på e-post</label>
                 <input id="emailCheckBox" type="checkbox" onChange={handleChange}/>
                 <form
                     className="contact-form"
                     onSubmit={sendEmail}>
-                    <label id="emailLabel">Skriv inn din e-post:</label>
-                    <input type="email" onChange={e => validateEmail(e.currentTarget.value)} name="user_email" className="form-control" placeholder="dinepost@epost.com"/>
-                    <label id="errorEmail">{errorMessage}</label>
+                    <label htmlFor="user_email" id="emailLabel">Skriv inn din e-post:</label>
+                    <input type="email" onChange={e => validateEmail(e.currentTarget.value)} id="user_email" name="user_email" className="form-control" placeholder="dinepost@epost.com"/>
+                    <p id="errorEmail">{errorMessage}</p>
                     <input type="hidden" name="emailString" value={emailString} />
                     <input disabled={isDisabled} type="submit" id="email_submit" value="Send" className="form-control btn btn-primary"/>
                 </form>
@@ -77,7 +77,7 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
     } else {
         return (
             <div className="emailSender">
-                <label id="checkLabel">Ønsker du å bli tilsendt resultatet på e-post?</label>
+                <label htmlFor="emailCheckBox" id="checkLabel">Jeg ønsker å bli tilsendt resultatet på e-post</label>
                 <input id="emailCheckBox" type="checkbox" onChange={handleChange}/>
             </div>
         )
