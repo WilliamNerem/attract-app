@@ -13,9 +13,11 @@ import {imageSelectorAnswerReducer} from "./imageSelectorAnswers";
 import {stratSubdivisionReducer, initialState as initStratSubdivisions} from "./stratSubdivision";
 import {interactiveSubdivisionReducer, initialState as initInteractiveSubDivisions} from "./interactiveSubdivision";
 import {questionCounterPartTwoReducer} from "./questionCounterPartTwo";
+import {subValgomatInProgressReducer} from "./subValgomatInProgress";
 
 const reducers = combineReducers({
     valgomatInProgress: valgomatInProgressReducer,
+    subValgomatInProgress: subValgomatInProgressReducer,
     showAlertDialog: showAlertDialogReducer,
     isInfoClicked: isInfoClickedReducer,
     questionCounter: questionCounterReducer,
@@ -32,14 +34,29 @@ const reducers = combineReducers({
 });
 
 export enum ResetStatesActionType {
-    RESET_STATES = 'resetStates'
+    RESET_STATES = 'resetStates',
+    RESET_STRAT_SUBDIVISON = 'resetStratSubDivision',
+    RESET_INT_SUBDIVISON = 'resetIntSubDivision',
+    RESET_TECH_SUBDIVISON = 'resetTechSubDivision'
 }
 
 interface resetStatesAction {
     type: ResetStatesActionType.RESET_STATES
 }
 
-export type ResetStatesAction = resetStatesAction
+interface resetStratSubDivisionAction {
+    type: ResetStatesActionType.RESET_STRAT_SUBDIVISON
+}
+
+interface resetIntSubDivisionAction {
+    type: ResetStatesActionType.RESET_INT_SUBDIVISON
+}
+
+interface resetTechSubDivisionAction {
+    type: ResetStatesActionType.RESET_TECH_SUBDIVISON
+}
+
+export type ResetStatesAction = resetStatesAction | resetStratSubDivisionAction | resetIntSubDivisionAction | resetTechSubDivisionAction
 
 const rootReducer = (state: any, action: any) => {
     if (action.type === ResetStatesActionType.RESET_STATES) {
@@ -55,7 +72,23 @@ const rootReducer = (state: any, action: any) => {
         for (let i = 0; i < initInteractiveSubDivisions.subdivisionArr.length; i++) {
             initInteractiveSubDivisions.subdivisionArr[i].points = 0;
         }
+        state = undefined;
     }
+
+    if (action.type === ResetStatesActionType.RESET_STRAT_SUBDIVISON) {
+        for (let i = 0; i < initStratSubdivisions.subdivisionArr.length; i++) {
+            initStratSubdivisions.subdivisionArr[i].points = 0;
+        }
+    }
+
+    if (action.type === ResetStatesActionType.RESET_INT_SUBDIVISON) {
+        for (let i = 0; i < initInteractiveSubDivisions.subdivisionArr.length; i++) {
+            initInteractiveSubDivisions.subdivisionArr[i].points = 0;
+        }
+    }
+
+    // copy the one over for tech to reset tech sub division
+
     return reducers(state, action);
 };
 

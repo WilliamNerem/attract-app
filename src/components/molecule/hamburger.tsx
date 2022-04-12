@@ -5,7 +5,7 @@ import '../../styles/navbar.style.css'
 import AnimateHeight from "react-animate-height";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {State} from "../../redux/reducers";
+import {State} from "../../redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 
@@ -44,7 +44,7 @@ export const HamburgerMenu = ({
                 height={height}
                 className='hamburgerItems'
             >
-                <HamburgerItem itemText={'Home'} link={inProgress ? '' : '/'} onClick={() => handleClick(false)}/>
+                <HamburgerItem itemText={'Hjem'} link={inProgress ? '' : '/'} onClick={() => handleClick(false)}/>
                 <HamburgerItem itemText={'Valgomat'} link={'/valgomat'}/>
                 <HamburgerItem itemText={'Informasjon'} link={inProgress ? '' : '/info'} onClick={() => handleClick(true)}/>
             </AnimateHeight>

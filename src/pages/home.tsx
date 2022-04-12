@@ -3,6 +3,7 @@ import { Navbar } from "../components/molecule/navbar";
 import '../styles/home.style.css';
 import { InfoCard } from "../components/atoms/infoCard";
 import { ResetStates } from "../resetStates";
+import {Footer} from "../components/molecule/footer";
 
 const Home = () => {
     ResetStates();
@@ -56,6 +57,7 @@ const Home = () => {
                 </div>
             </div>
             <div className='bottomSpace'/>
+            <Footer/>
         </>
     )
 };
