@@ -12,7 +12,6 @@ import '../styles/valgomat.style.css';
 import {DynamicQuestion} from "../components/atoms/dynamicQuestion";
 import {ValgomatFooter} from "../components/molecule/valgomatFooter";
 import {bindActionCreators} from "redux";
-import {useTransition, animated} from 'react-spring';
 import {useEffect, useState} from "react";
 import {InfoButton} from "../components/atoms/infoButton";
 import {ShowExplanation} from "../components/molecule/showExplanation";
@@ -27,8 +26,8 @@ const Valgomat = () => {
     const algoArray = useSelector((state: State) => state.characteristicPoints);
     const departmentsArray = useSelector((state: State) => state.departmentsAlgorithm);
     const isShowAlertDialog = useSelector((state: State) => state.showAlertDialog);
+    const subValgomatInProgress = useSelector((state: State) => state.subValgomatInProgress);
     const imageSelector = useSelector((state: State) => state.imageSelector);
-    const [transitionValue, setTransitionValue] = useState({from: ''});
     const [transition, setTransition] = useState(true);
     const [className, setClassname] = useState('initializeTransition');
     const [open, setOpen] = useState(false);
@@ -38,36 +37,40 @@ const Valgomat = () => {
     useEffect(() => {
         if (transition){
             setTransition(!transition);
-            setClassname('initializeTransition');
         }
     },[counter]);
 
-    const startTransition = useTransition(transition, {
-        from: {transform: "translateX("+transitionValue.from+")"},
-        enter: {transform: "translateX(0)"}
-    });
+    if (className === 'fromRight' || className === 'fromLeft'){
+        setTimeout((() => {
+            setClassname('initializeTransition');
+        }), 50);
+    }
 
     const handleTransition = (
         isNext: boolean
     ) => {
         if (!isNext) {
-            setClassname('animatedDivLeaveNext');
-            setTransition(!transition);
-            setTimeout((decreaseCounter), 200);
-            if (!transition){
-                setTransitionValue({from: '-100vw'});
-            } else {
-                setTransitionValue({from: '100vw'});
-            }
-        } else {
             setClassname('animatedDivLeaveLast');
             setTransition(!transition);
-            setTimeout((increaseCounter), 200);
-            if (!transition){
-                setTransitionValue({from: '100vw'});
-            } else {
-                setTransitionValue({from: '-100vw'});
-            }
+            setTimeout((() => {
+                if (!transition){
+                    setClassname('fromLeft');
+                } else {
+                    setClassname('fromRight');
+                }
+                decreaseCounter();
+            }), 200);
+        } else {
+            setClassname('animatedDivLeaveNext');
+            setTransition(!transition);
+            setTimeout((() => {
+                if (!transition){
+                    setClassname('fromRight');
+                } else {
+                    setClassname('fromLeft');
+                }
+                increaseCounter();
+            }), 200);
         }
     };
 
@@ -87,7 +90,7 @@ const Valgomat = () => {
     if (counter === 0) {
         showAlertDialog(true);
     }
-    if (isShowAlertDialog) {
+    if (isShowAlertDialog && !subValgomatInProgress) {
         return (
             <AlertDialog end={false}/>
         )
@@ -100,11 +103,11 @@ const Valgomat = () => {
     for (let questions of QuestionsPartOne()) {
         if (counter === questions.questionNumber) {
             return (
-                <div className='bodyValgomat'>
+                <div className='bodyValgomat' data-testid={'valgomat'}>
                     <div className={'valgomat'}>
                         <Navbar/>
-                        {startTransition((style) =>
-                            <animated.div style={style} className={className}>
+                        {
+                            <div className={className} data-testid={'valgomatComponent'}>
                                 <InfoButton handleClick={handleClick}/>
                                 <h1 className='questionNumber'>Spørsmål {counter}</h1>
                                 <Questions questionTxt={questions.questionTxt}/>
@@ -120,8 +123,8 @@ const Valgomat = () => {
                                 {questions.characteristic ?
                                     <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/> : ''
                                 }
-                            </animated.div>
-                        )}
+                            </div>
+                        }
                     </div>
                     <ValgomatFooter completed={questions.progress} nextTransition={handleTransition}/>
                     <Backdrop
@@ -129,6 +132,7 @@ const Valgomat = () => {
                         onClick={() => {
                             setOpen(false);
                         }}
+                        data-testid='showExplanation'
                     >
                         <ShowExplanation questionType={questions.questionType}/>
                     </Backdrop>
@@ -167,13 +171,13 @@ const Valgomat = () => {
                     <>
                         <div className='bodyValgomat'>
                             <Navbar/>
-                            {startTransition((style) =>
-                                <animated.div style={style} className={className}>
+                            {
+                                <div className={className}>
                                     <h1 className='questionNumber'>Spørsmål {counter}</h1>
                                     <p className='valgomatQuestion'>Trykk på den påstanden som passer best</p>
                                     <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
-                                </animated.div>
-                            )}
+                                </div>
+                            }
                             <div className='dynamicFooter'>
                                 <button className='valgomatButton' onClick={() => handleTransition(false)}>Forrige</button>
                             </div>

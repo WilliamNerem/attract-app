@@ -1,0 +1,98 @@
+.footerWrapper{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: black;
+}
+
+.footer{
+    height: 150px;
+    margin: 10px 20px 10px 20px;
+    background-color: black;
+    border-top: solid white 1px;
+    border-bottom: solid white 1px;
+    position: relative;
+}
+
+.links{
+    margin: 30px 0 30px 0;
+}
+
+.greaterThanDiv{
+    margin-top: 20px;
+    position: absolute;
+}
+
+.greaterThan{
+    background-image: url("../Icons/Acc_GT_Dimensional_RGB.svg");
+    width: 40px;
+    height: 40px;
+    background-size: 40px 40px;
+}
+
+.pagelinkDiv{
+    margin-left: 50px;
+}
+
+.pagelink{
+    color: white;
+    margin-left: 20px;
+}
+
+.iconLinks{
+    margin: 30px 0 0 50px;
+}
+
+.iconWrapper{
+    position: relative;
+    border: 2px solid white;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin: 0 0 0 20px;
+    display: inline-block;
+}
+
+.linkedIn{
+    position: absolute;
+    margin: 5px 0 0 5px;
+    background: url("../Icons/linkedIn_logo.jpg") no-repeat center;
+    background-size: 15px 15px;
+    height: 20px;
+    width: 20px;
+}
+
+.twitter{
+    position: absolute;
+    margin: 5px 0 0 5px;
+    background: url("../Icons/twitter_logo.png") no-repeat center;
+    background-size: 15px 12px;
+    height: 20px;
+    width: 20px;
+}
+
+.facebook{
+    position: absolute;
+    margin: 5px 0 0 5px;
+    background: url("../Icons/facebook_logo.png") no-repeat center;
+    background-size: 18px 18px;
+    height: 20px;
+    width: 20px;
+}
+
+.instagram{
+    position: absolute;
+    margin: 5px 0 0 5px;
+    background: url("../Icons/instagram_logo.png") no-repeat center;
+    background-size: 15px 15px;
+    height: 20px;
+    width: 20px;
+}
+
+.youtube{
+    position: absolute;
+    margin: 5px 0 0 5px;
+    background: url("../Icons/youtube_logo.png") no-repeat center;
+    background-size: 15px 11px;
+    height: 20px;
+    width: 20px;
+}

@@ -106,7 +106,7 @@ export const StatementOrder = ({questionArray, sharedWords}: statementOrderProps
     });
 
     return (
-        <div className='statementOrderMargin'>
+        <div className='statementOrderMargin' data-testid={'statementOrder'}>
             <p className='statementOrderSharedWords' data-testid={'sharedWords'}>{sharedWords}</p>
             {statementList}
         </div>

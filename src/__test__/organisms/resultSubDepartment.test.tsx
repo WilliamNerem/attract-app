@@ -1,19 +1,34 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import {BrowserRouter as Router} from "react-router-dom";
-import {store} from "../../redux";
-import {Provider} from "react-redux";
+import {actionCreators, State, store} from "../../redux";
+import {Provider, useDispatch, useSelector} from "react-redux";
 import {fireEvent, render} from "@testing-library/react";
-import {Result} from "../../components/organisms/result";
+import {ResultSubDepartment} from "../../components/organisms/resultSubDepartment";
+import {bindActionCreators} from "redux";
 
-describe('Result render', () => {
+const WrapperStrategy = () => {
+    const dispatch = useDispatch();
+    const {resetStates, allocateStrat_ProductsPoints, allocateStrat_ResourcesPoints, allocateStrat_FinancePoints, allocateStrat_Health_PublicPoints} = bindActionCreators(actionCreators, dispatch);
+    resetStates();
+    const stratSub = useSelector((state: State) => state.stratSubdivision);
+    allocateStrat_ProductsPoints(5);
+    allocateStrat_ResourcesPoints(3);
+    allocateStrat_FinancePoints(7);
+    allocateStrat_Health_PublicPoints(1);
+    return(
+        <ResultSubDepartment information={stratSub} />
+    );
+};
+
+describe('Result sub department render', () => {
 
     it('should render without crashing', () => {
         const div = document.createElement("div");
         ReactDOM.render(
             <Provider store={store}>
                 <Router>
-                    <Result totalPointsArray={[5, 6, 7]}/>
+                    <ResultSubDepartment information={[]}/>
                 </Router>
             </Provider>
             , div
@@ -24,39 +39,24 @@ describe('Result render', () => {
         const {getByTestId} = render(
             <Provider store={store}>
                 <Router>
-                    <Result totalPointsArray={[5, 6, 7]}/>
+                    <WrapperStrategy />
                 </Router>
             </Provider>
         );
-        expect(getByTestId('carouselFront')).toHaveTextContent('Interactive');
+        expect(getByTestId('carouselFront')).toHaveTextContent('Financial Services');
     });
 
     it('should move carousel when arrow is clicked', () => {
         const {getByTestId} = render(
             <Provider store={store}>
                 <Router>
-                    <Result totalPointsArray={[5, 6, 7]}/>
+                    <WrapperStrategy />
                 </Router>
             </Provider>
         );
         expect(getByTestId('carouselFront')).toHaveClass('middleCard middleCarouselItem');
         fireEvent.click(getByTestId('rightArrow'));
         expect(getByTestId('carouselFront')).toHaveClass('leftCard middleCarouselItem');
-    });
-
-    it('should display correct explanation when when info button is clicked', () => {
-        const { getByTestId } = render(
-            <Provider store={store}>
-                <Router>
-                    <Result totalPointsArray={[5, 6, 7]}/>
-                </Router>
-            </Provider>
-        );
-
-        expect(getByTestId('showExplanation')).toHaveStyle('opacity: 0');
-        fireEvent.click(getByTestId('infoButton'));
-        expect(getByTestId('showExplanation')).toHaveStyle('opacity: 1');
-        expect(getByTestId('resultComponent')).toHaveTextContent('Resultatet viser din score');
     });
 
 });

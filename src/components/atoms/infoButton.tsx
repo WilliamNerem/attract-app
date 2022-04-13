@@ -2,10 +2,16 @@ import React from "react";
 
 interface infoButtonProps {
     handleClick: React.MouseEventHandler<HTMLAnchorElement>
+    whiteIcon?: boolean
 }
 
-export const InfoButton = ({handleClick}: infoButtonProps) => {
+export const InfoButton = ({handleClick, whiteIcon}: infoButtonProps) => {
+    let classname = 'infoButton';
+
+    if (whiteIcon){
+        classname = 'infoButtonWhite';
+    }
     return(
-        <a className='infoButton' onClick={handleClick} data-testid={'infoButton'}/>
+        <a className={classname} onClick={handleClick} data-testid={'infoButton'}/>
     );
 };

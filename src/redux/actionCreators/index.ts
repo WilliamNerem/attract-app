@@ -14,6 +14,7 @@ import { StratSubdivisionActionType, StratSubDivisionActions } from '../reducers
 import { ValgomatInProgressActionType, ValgomatInProgressAction } from '../reducers/valgomatInProgress';
 import { ResetStatesAction, ResetStatesActionType } from "../reducers";
 import { QuestionPartTwoAction, QuestionPartTwoActionType } from "../reducers/questionCounterPartTwo";
+import {SubValgomatInProgressAction, SubValgomatInProgressActionType} from "../reducers/subValgomatInProgress";
 
 export const increaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
@@ -235,6 +236,22 @@ export const resetStates = () => {
     }
 };
 
+export const resetStratSubDivision = () => {
+    return (dispatch: Dispatch<ResetStatesAction>) => {
+        dispatch({
+            type: ResetStatesActionType.RESET_STRAT_SUBDIVISON
+        })
+    }
+};
+
+export const resetIntSubDivision = () => {
+    return (dispatch: Dispatch<ResetStatesAction>) => {
+        dispatch({
+            type: ResetStatesActionType.RESET_INT_SUBDIVISON
+        })
+    }
+};
+
 export const increaseStatementOrder = (id: number, position: number) => {
     return (dispatch: Dispatch<StatementOrderAction>) => {
         dispatch({
@@ -310,6 +327,15 @@ export const valgomatIsInProgress = (inAction: boolean) => {
     return (dispatch: Dispatch<ValgomatInProgressAction>) => {
         dispatch({
             type: ValgomatInProgressActionType.VALGOMATINPROGRESS,
+            payload: inAction
+        })
+    }
+};
+
+export const subValgomatIsInProgress = (inAction: boolean) => {
+    return (dispatch: Dispatch<SubValgomatInProgressAction>) => {
+        dispatch({
+            type: SubValgomatInProgressActionType.SUBVALGOMATINPROGRESS,
             payload: inAction
         })
     }

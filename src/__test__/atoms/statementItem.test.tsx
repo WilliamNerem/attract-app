@@ -33,7 +33,7 @@ describe('Statement item render', () => {
         const { container, getByTestId } = render(
             <Provider store={store}>
                 <StatementItem
-                    questionNumber={2}
+                    questionNumber={4}
                     transitionPx={0}
                     key={0}
                     index={0}
@@ -44,7 +44,7 @@ describe('Statement item render', () => {
                 />
             </Provider>
         );
-        expect(getByTestId("statementItem")).toHaveTextContent('Jeg synes det virker spennende å komme opp med nye idéer og jobbe videre med de');
+        expect(getByTestId("statementItemText")).toHaveTextContent('det virker spennende å komme opp med nye idéer og jobbe videre med de');
         expect(container.getElementsByClassName('buttonUpGray').length).toBe(1);
         expect(container.getElementsByClassName('buttonDown').length).toBe(1);
     });
