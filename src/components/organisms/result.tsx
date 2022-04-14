@@ -12,6 +12,7 @@ import {ValgomatPartTwo} from "./valgomatPartTwo";
 import {QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
 import {AlertDialog} from "../atoms/alertDialog";
 import {InfoButton} from "../atoms/infoButton";
+import EmailDepSender from "../atoms/emailDepSender";
 import {ShowExplanation} from "../molecule/showExplanation";
 import Backdrop from "@mui/material/Backdrop";
 import {bindActionCreators} from "redux";
@@ -214,6 +215,7 @@ export const Result = ({totalPointsArray
                         <a className={disabledButtons + ' leftArrow'} onClick={handleLeftArrow}/>
                         <a className={disabledButtons + ' rightArrow'} onClick={handleRightArrow} data-testid={'rightArrow'}/>
                     </div>
+                    <EmailDepSender chosenDep={result}/>
                     <div className='buttonDiv'>
                         <Button href='/' text='Tilbake til forsiden'/>
                     </div>
