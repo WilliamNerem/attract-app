@@ -39,9 +39,7 @@ export const Result = ({totalPointsArray
     const result = departments[valPos].name;
     const [isDepClicked, setIsDepClicked] = useState( { strat: false, interactive: false, tech: false});
     const [open, setOpen] = useState(false);
-    let link;
-    let infoText;
-    let subDep;
+
 
     useEffect(() => {
         if (counterPartTwo === 0){
@@ -54,56 +52,20 @@ export const Result = ({totalPointsArray
         setTimeout(() => setDisabledButtons(''), 700)
     }, [carousel]);
 
-    const information = [
-        {
-            title: 'Strategy & Consulting',
-            link: 'https://www.accenture.com/no-en/about/consulting-index',
-            infoText: 'I Strategy & Consulting vil du være med på å definere og implementere morgendagens teknologiske ' +
-                'løsninger for private- og offentlige aktører. Du vil jobbe i store og små ' +
-                'prosjektteam hvor man samarbeider på tvers av avdelinger for å løse problemstillinger innenfor et mangfold av ' +
-                'industrier.',
-            infoSubText: 'I følge valgomaten passer du ikke best i Strategy & Consulting, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.',
-            subDep: stratSub
-        },
-        {
-            title: 'Technology',
-            link: 'https://www.accenture.com/no-en/about/technology-index',
-            infoText: 'I Technology blir du involvert i noen av Norges mest spennende og meningsfylte IT-prosjekter. Sammen ' +
-                'med kunden leverer vi innovative løsninger som bidrar til verdiskaping både for bedrifter og samfunnet. Vi ' +
-                'satser stort innenfor skyløsninger, digital infrastruktur, digitalisering og prosessautomatisering.',
-            infoSubText: 'I følge valgomaten passer du ikke best i Technology, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.',
-            subDep: [],
-        },
-        {
-            title: 'Interactive',
-            link: 'https://www.accenture.com/no-en/about/accenture-interactive-index',
-            infoText: 'Hos Interactive jobber designere og kreatørene. Vi skaper løsninger ved å kombinere kreativitet og fokus på sluttbruker med ' +
-                'teknisk innsikt og gjennomføringsevne. Interactive-teamet bruker en kombinasjon av design, markedsføring, innhold og forretningsforståelse ' +
-                'til å skape innovative og bransjeledende brukeropplevelser.',
-            infoSubText: 'I følge valgomaten passer du ikke best i Interactive, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.',
-            subDep: interactiveSub
-        }
-    ];
 
-    if (result === 'Strategy & Consulting') {
-        link = information[0].link;
-        infoText = information[0].infoText;
-        subDep = information[0].subDep;
-        information.splice(0, 1)
-    } else if (result === 'Technology') {
-        link = information[1].link;
-        infoText = information[1].infoText;
-        subDep = information[1].subDep;
-        information.splice(1, 1)
-    } else if (result === 'Interactive') {
-        link = information[2].link;
-        infoText = information[2].infoText;
-        subDep = information[2].subDep;
-        information.splice(2, 1)
-    } else {
-        link = 'https://www.accenture.com/no-en';
-        infoText = 'Ingen info å finne';
+    const sortedArr = totalPointsArray.slice().sort((a, b) => b - a).slice(0,3);
+    let depArr: number[] = [] ;
+    depArr = [sortedArr.indexOf(totalPointsArray[0]), sortedArr.indexOf(totalPointsArray[1]), sortedArr.indexOf(totalPointsArray[2])]; //Index of strat, tech and inter
+
+    if(sortedArr[1] === sortedArr[2]) {
+        depArr[totalPointsArray.lastIndexOf(sortedArr[1])] = sortedArr.lastIndexOf(sortedArr[1]); // Differentiate indexes of the same value
     }
+
+    const depAtPlacement = (position: number) => {
+        return departments[depArr.indexOf(position)];
+    };
+
+
 
     const handleRightArrow = () => {
         const first = carousel.third;
@@ -178,38 +140,38 @@ export const Result = ({totalPointsArray
                     <div className='carousel'>
                         <div className={carousel.first + ' leftCarouselItem'}>
                             <InfoCard
-                                heading={information[0].title}
-                                link={information[0].link}
-                                text={information[0].infoText}
+                                heading={depAtPlacement(1).title}
+                                link={depAtPlacement(1).link}
+                                text={depAtPlacement(1).infoTextCard}
                                 subHeading={'Veien videre'}
-                                subText={information[0].infoSubText}
-                                linkText={'Les mer om ' + information[0].title}
-                                onButtonClick={() => onButtonClick(information[0].title)}
-                                subDepArr={information[0].subDep}
+                                subText={depAtPlacement(1).infoSubText}
+                                linkText={'Les mer om ' + depAtPlacement(1).title}
+                                onButtonClick={() => onButtonClick(depAtPlacement(1).title)}
+                                subDepArr={[]}
                             />
                         </div>
                         <div className={carousel.second + ' middleCarouselItem'}>
                             <InfoCard
-                                heading={result}
-                                link={link}
-                                text={infoText}
+                                heading={depAtPlacement(0).title}
+                                link={depAtPlacement(0).link}
+                                text={depAtPlacement(0).infoTextCard}
                                 subHeading={'Veien videre'}
-                                subText={'Neste steg er å bli kjent med ' + result + '.'}
-                                linkText={'Les mer om ' + result}
-                                onButtonClick={() => onButtonClick(result)}
-                                subDepArr={subDep}
+                                subText={depAtPlacement(0).infoSubText}
+                                linkText={'Les mer om ' + depAtPlacement(0).title}
+                                onButtonClick={() => onButtonClick(depAtPlacement(0).title)}
+                                subDepArr={[]}
                             />
                         </div>
                         <div className={carousel.third + ' rightCarouselItem'}>
                             <InfoCard
-                                heading={information[1].title}
-                                link={information[1].link}
-                                text={information[1].infoText}
+                                heading={depAtPlacement(2).title}
+                                link={depAtPlacement(2).link}
+                                text={depAtPlacement(2).infoTextCard}
                                 subHeading={'Veien videre'}
-                                subText={information[1].infoSubText}
-                                linkText={'Les mer om ' + information[1].title}
-                                onButtonClick={() => onButtonClick(information[1].title)}
-                                subDepArr={information[1].subDep}
+                                subText={depAtPlacement(2).infoSubText}
+                                linkText={'Les mer om ' + depAtPlacement(2).title}
+                                onButtonClick={() => onButtonClick(depAtPlacement(2).title)}
+                                subDepArr={[]}
                             />
                         </div>
                         <a className={disabledButtons + ' leftArrow'} onClick={handleLeftArrow}/>

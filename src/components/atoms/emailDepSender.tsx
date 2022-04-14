@@ -24,7 +24,7 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
 
     if(chosenDepartment !== undefined) {
         emailString = 'Avdelingen du passer best inn i er ' + chosenDepartment.title + '! <br><br>'
-            + chosenDepartment.infoText + '<br>Hvis du ønsker å besøke hjemmesiden til ' + chosenDepartment.title + ' så kan du trykke her : '
+            + chosenDepartment.infoTextEmail + '<br>Hvis du ønsker å besøke hjemmesiden til ' + chosenDepartment.title + ' så kan du trykke her : '
             + chosenDepartment.link + '.'
     }
 
