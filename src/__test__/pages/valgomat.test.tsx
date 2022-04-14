@@ -1,18 +1,26 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import {Provider, useDispatch} from "react-redux";
-import {actionCreators, store} from "../../redux";
+import {Provider} from "react-redux";
 import {BrowserRouter as Router} from "react-router-dom";
 import {fireEvent, render} from "@testing-library/react";
 import Valgomat from "../../pages/valgomat";
-import {bindActionCreators} from "redux";
+import {applyMiddleware, createStore} from "redux";
+import rootReducer from "../../redux/reducers";
+import {composeWithDevTools} from "redux-devtools-extension";
+import thunk from "redux-thunk";
 
 const Wrapper = () => {
-    const dispatch = useDispatch();
-    const { resetStates } = bindActionCreators(actionCreators, dispatch);
-    resetStates();
     return(
-        <Valgomat />
+        <Provider store={
+            createStore(
+                rootReducer,
+                composeWithDevTools(applyMiddleware(thunk))
+            )
+        }>
+            <Router>
+                <Valgomat />
+            </Router>
+        </Provider>
     );
 };
 
@@ -21,22 +29,14 @@ describe('Valgomat render', () => {
     it('should render without crashing', () => {
         const div = document.createElement("div");
         ReactDOM.render(
-            <Provider store={store}>
-                <Router>
-                    <Wrapper />
-                </Router>
-            </Provider>
+            <Wrapper />
             , div
         );
     });
 
     it('should move component when next or last is clicked', async () => {
         const { container, getByTestId } = render(
-            <Provider store={store}>
-                <Router>
-                    <Wrapper />
-                </Router>
-            </Provider>
+            <Wrapper />
         );
 
         expect(getByTestId('valgomatComponent')).toHaveClass('initializeTransition');
@@ -50,11 +50,7 @@ describe('Valgomat render', () => {
     it('should render correct question and component', async () => {
 
         const { container, getByTestId } = render(
-            <Provider store={store}>
-                <Router>
-                    <Wrapper />
-                </Router>
-            </Provider>
+            <Wrapper />
         );
 
         expect(getByTestId('valgomatComponent')).toHaveTextContent('Spørsmål 1');
@@ -79,11 +75,7 @@ describe('Valgomat render', () => {
 
     it('should display correct explanation when when info button is clicked', async () => {
         const { container, getByTestId } = render(
-            <Provider store={store}>
-                <Router>
-                    <Wrapper />
-                </Router>
-            </Provider>
+            <Wrapper />
         );
 
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 0');

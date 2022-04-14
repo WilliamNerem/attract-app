@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import {Provider, useDispatch} from "react-redux";
-import {actionCreators, store} from "../../redux";
+import {Provider} from "react-redux";
 import {BrowserRouter as Router} from "react-router-dom";
 import {fireEvent, render} from "@testing-library/react";
-import {bindActionCreators} from "redux";
+import {applyMiddleware, createStore} from "redux";
 import {ValgomatPartTwo} from "../../components/organisms/valgomatPartTwo";
 import {QuestionsDataSC} from "../../questions";
+import rootReducer from "../../redux/reducers";
+import {composeWithDevTools} from "redux-devtools-extension";
+import thunk from "redux-thunk";
 
 const Wrapper = () => {
-    const dispatch = useDispatch();
-    const { resetStates } = bindActionCreators(actionCreators, dispatch);
-    resetStates();
     return(
         <ValgomatPartTwo  questionArray={QuestionsDataSC()}/>
     );
@@ -22,7 +21,12 @@ describe('Valgomat part two render', () => {
     it('should render without crashing', () => {
         const div = document.createElement("div");
         ReactDOM.render(
-            <Provider store={store}>
+            <Provider store={
+                createStore(
+                    rootReducer,
+                    composeWithDevTools(applyMiddleware(thunk))
+                )
+            }>
                 <Router>
                     <Wrapper />
                 </Router>
@@ -33,7 +37,12 @@ describe('Valgomat part two render', () => {
 
     it('should move component when next or last is clicked', async () => {
         const { container, getByTestId } = render(
-            <Provider store={store}>
+            <Provider store={
+                createStore(
+                    rootReducer,
+                    composeWithDevTools(applyMiddleware(thunk))
+                )
+            }>
                 <Router>
                     <Wrapper />
                 </Router>
@@ -51,7 +60,12 @@ describe('Valgomat part two render', () => {
     it('should render correct question and component', async () => {
 
         const { container, getByTestId } = render(
-            <Provider store={store}>
+            <Provider store={
+                createStore(
+                    rootReducer,
+                    composeWithDevTools(applyMiddleware(thunk))
+                )
+            }>
                 <Router>
                     <Wrapper />
                 </Router>
@@ -70,7 +84,12 @@ describe('Valgomat part two render', () => {
 
     it('should display correct explanation when when info button is clicked', async () => {
         const { container, getByTestId } = render(
-            <Provider store={store}>
+            <Provider store={
+                createStore(
+                    rootReducer,
+                    composeWithDevTools(applyMiddleware(thunk))
+                )
+            }>
                 <Router>
                     <Wrapper />
                 </Router>

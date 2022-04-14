@@ -8,6 +8,10 @@ afterEach(cleanup);
 
 describe('Single Pallet render', () => {
 
+    afterEach(() => {
+        document.getElementsByTagName('html')[0].innerHTML = '';
+    });
+
     it('should render without crashing', () => {
         const div = document.createElement("div");
         ReactDOM.render(
@@ -16,12 +20,12 @@ describe('Single Pallet render', () => {
         );
     });
 
-    it('should render correct palletPlacement when passed id', () => {
-        const { container } = render(
-            <SinglePallet id={'second'} placement={'0'} percent={60} />
+    it('should render correct palletPlacement when passed id', async () => {
+        const { getByTestId } = render(
+            <SinglePallet id={'second'} placement={'2'} percent={60} />
         );
-        const testPlacement = container.getElementsByClassName('palletPlacement');
-        expect(testPlacement[0]).toHaveTextContent("2");
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        expect(getByTestId('palletPlacement')).toHaveTextContent("2");
 
     });
 

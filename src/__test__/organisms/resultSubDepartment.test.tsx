@@ -9,12 +9,11 @@ import {bindActionCreators} from "redux";
 
 const WrapperStrategy = () => {
     const dispatch = useDispatch();
-    const {resetStates, allocateStrat_ProductsPoints, allocateStrat_ResourcesPoints, allocateStrat_FinancePoints, allocateStrat_Health_PublicPoints} = bindActionCreators(actionCreators, dispatch);
-    resetStates();
+    const {allocateStrat_ProductsPoints, allocateStrat_ResourcesPoints, allocateStrat_FinancePoints, allocateStrat_Health_PublicPoints} = bindActionCreators(actionCreators, dispatch);
     const stratSub = useSelector((state: State) => state.stratSubdivision);
     allocateStrat_ProductsPoints(5);
     allocateStrat_ResourcesPoints(3);
-    allocateStrat_FinancePoints(7);
+    allocateStrat_FinancePoints(10);
     allocateStrat_Health_PublicPoints(1);
     return(
         <ResultSubDepartment information={stratSub} />
@@ -28,7 +27,7 @@ describe('Result sub department render', () => {
         ReactDOM.render(
             <Provider store={store}>
                 <Router>
-                    <ResultSubDepartment information={[]}/>
+                    <WrapperStrategy />
                 </Router>
             </Provider>
             , div
