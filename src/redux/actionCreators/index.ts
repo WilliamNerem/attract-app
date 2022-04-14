@@ -15,6 +15,7 @@ import { ValgomatInProgressActionType, ValgomatInProgressAction } from '../reduc
 import { ResetStatesAction, ResetStatesActionType } from "../reducers";
 import { QuestionPartTwoAction, QuestionPartTwoActionType } from "../reducers/questionCounterPartTwo";
 import {SubValgomatInProgressAction, SubValgomatInProgressActionType} from "../reducers/subValgomatInProgress";
+import {TechnologySubDivisionActions, TechnologySubdivisionActionType} from "../reducers/technologySubdivision";
 
 export const increaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
@@ -426,6 +427,42 @@ export const allocateInteractive_CommunicationsPoints = (points: number) => {
     return (dispatch: Dispatch<InteractiveSubDivisionActions>) => {
         dispatch({
             type: InteractiveSubdivisionActionType.COMMUNICATIONS,
+            payload: points
+        })
+    }
+};
+
+export const allocateTechnology_CIEPoints = (points: number) => {
+    return (dispatch: Dispatch<TechnologySubDivisionActions>) => {
+        dispatch({
+            type: TechnologySubdivisionActionType.CIE,
+            payload: points
+        })
+    }
+};
+
+export const allocateTechnology_IPSPoints = (points: number) => {
+    return (dispatch: Dispatch<TechnologySubDivisionActions>) => {
+        dispatch({
+            type: TechnologySubdivisionActionType.IPS,
+            payload: points
+        })
+    }
+};
+
+export const allocateTechnology_IPDPoints = (points: number) => {
+    return (dispatch: Dispatch<TechnologySubDivisionActions>) => {
+        dispatch({
+            type: TechnologySubdivisionActionType.IPD,
+            payload: points
+        })
+    }
+};
+
+export const allocateTechnology_SecurityPoints = (points: number) => {
+    return (dispatch: Dispatch<TechnologySubDivisionActions>) => {
+        dispatch({
+            type: TechnologySubdivisionActionType.SECURITY,
             payload: points
         })
     }
