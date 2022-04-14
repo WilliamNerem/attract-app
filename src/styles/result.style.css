@@ -217,6 +217,7 @@ h3 {
     color: white;
     font-family: "Graphik Regular", Arial, sans-serif;
     font-size: 20px;
+    padding: 2rem;
 }
 
 .sub-dep p{
@@ -228,4 +229,14 @@ h3 {
     text-align: left;
     margin: auto;
     width: fit-content;
+}
+
+input[type=submit]:disabled{
+    color: red;
+    font-size: 20px;
+}
+
+input[type=submit]{
+    color: green;
+    font-size: 20px;
 }
