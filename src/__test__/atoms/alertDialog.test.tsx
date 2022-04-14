@@ -20,6 +20,30 @@ describe('Alert Dialog render', () => {
 
     });
 
+    it('should render back to result alert dialog with correct information', () => {
+
+        const {getByTestId} = render(
+            <Provider store={store}>
+                <AlertDialog end={false} backToResult={true} />
+            </Provider>
+        );
+
+        expect(getByTestId('backToResultAlertDialogText')).toHaveTextContent('Er du sikker på at du vil gå tilbake til resultatsiden?')
+
+    });
+
+    it('should render alert dialog with correct information when end is false', () => {
+
+        const {getByTestId} = render(
+            <Provider store={store}>
+                <AlertDialog end={false} />
+            </Provider>
+        );
+
+        expect(getByTestId('progressDialogText')).toHaveTextContent('Er du sikker på at du vil avslutte valgomaten?')
+
+    });
+
     it('should render alert dialog for when user clicks home while in progress ', () => {
         const { getByTestId } = render(
             <Provider store={store}>

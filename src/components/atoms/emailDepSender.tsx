@@ -60,25 +60,25 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
 
     if (checked) {
         return (
-            <div className="emailSender">
+            <div className="emailSender" data-testid='emailSender'>
                 <label htmlFor="emailCheckBox" id="checkLabel">Jeg ønsker å bli tilsendt resultatet på e-post</label>
-                <input id="emailCheckBox" type="checkbox" onChange={handleChange}/>
+                <input id="emailCheckBox" type="checkbox" onChange={handleChange} data-testid='emailCheckbox'/>
                 <form
                     className="contact-form"
                     onSubmit={sendEmail}>
                     <label htmlFor="user_email" id="emailLabel">Skriv inn din e-post:</label>
-                    <input type="email" onChange={e => validateEmail(e.currentTarget.value)} id="user_email" name="user_email" className="form-control" placeholder="dinepost@epost.com"/>
-                    <p id="errorEmail">{errorMessage}</p>
+                    <input type="email" onChange={e => validateEmail(e.currentTarget.value)} id="user_email" name="user_email" className="form-control" placeholder="dinepost@epost.com" data-testid='emailInput'/>
+                    <p id="errorEmail" data-testid='emailError'>{errorMessage}</p>
                     <input type="hidden" name="emailString" value={emailString} />
-                    <input disabled={isDisabled} type="submit" id="email_submit" value="Send" className="form-control btn btn-primary"/>
+                    <input disabled={isDisabled} type="submit" id="email_submit" value="Send" className="form-control btn btn-primary" data-testid='emailSend'/>
                 </form>
             </div>
         )
     } else {
         return (
-            <div className="emailSender">
+            <div className="emailSender" data-testid='emailSender'>
                 <label htmlFor="emailCheckBox" id="checkLabel">Jeg ønsker å bli tilsendt resultatet på e-post</label>
-                <input id="emailCheckBox" type="checkbox" onChange={handleChange}/>
+                <input id="emailCheckBox" type="checkbox" onChange={handleChange} data-testid='emailCheckbox'/>
             </div>
         )
     }

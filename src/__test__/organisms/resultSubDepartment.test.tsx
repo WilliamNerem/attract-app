@@ -9,14 +9,13 @@ import {bindActionCreators} from "redux";
 
 const WrapperStrategy = () => {
     const dispatch = useDispatch();
-    const {allocateStrat_ProductsPoints, allocateStrat_ResourcesPoints, allocateStrat_FinancePoints, allocateStrat_Health_PublicPoints} = bindActionCreators(actionCreators, dispatch);
-    const stratSub = useSelector((state: State) => state.stratSubdivision);
-    allocateStrat_ProductsPoints(5);
-    allocateStrat_ResourcesPoints(3);
-    allocateStrat_FinancePoints(10);
-    allocateStrat_Health_PublicPoints(1);
+    const {allocateInteractive_DesignPoints, allocateInteractive_BuildPoints, allocateInteractive_CommunicationsPoints} = bindActionCreators(actionCreators, dispatch);
+    const intSub = useSelector((state: State) => state.interactiveSubdivision);
+    allocateInteractive_DesignPoints(5);
+    allocateInteractive_BuildPoints(3);
+    allocateInteractive_CommunicationsPoints(10);
     return(
-        <ResultSubDepartment information={stratSub} />
+        <ResultSubDepartment information={intSub} />
     );
 };
 
@@ -42,7 +41,7 @@ describe('Result sub department render', () => {
                 </Router>
             </Provider>
         );
-        expect(getByTestId('carouselFront')).toHaveTextContent('Financial Services');
+        expect(getByTestId('carouselFront')).toHaveTextContent('Communications');
     });
 
     it('should move carousel when arrow is clicked', () => {

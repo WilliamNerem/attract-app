@@ -106,7 +106,7 @@ export const AlertDialog = ({
                         {"Tilbake til resultatsiden?"}
                     </DialogTitle>
                     <DialogContent>
-                        <DialogContentText id="alert-dialog-description" data-testid={'endDialogText'}>
+                        <DialogContentText id="alert-dialog-description" data-testid={'backToResultAlertDialogText'}>
                             Er du sikker på at du vil gå tilbake til resultatsiden?
                         </DialogContentText>
                     </DialogContent>
