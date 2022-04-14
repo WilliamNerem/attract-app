@@ -46,16 +46,11 @@
     text-decoration: none;
     text-align: center;
     font-family: "Graphik Black", Arial, sans-serif;
-    /*
-    hvit tekst med border
-     */
     color: white;
     -webkit-text-stroke: 1px darkgreen;
-    /*
-    lilla tekst
-    color: #a100ff;
-     */
     font-size: 17px;
+    border: 0 solid #05ffb2;
+    transition: all 0.2s ease-out;
 }
 
 .bottomSpace{

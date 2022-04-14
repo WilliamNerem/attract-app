@@ -54,6 +54,7 @@
     width: 30px;
     height: 30px;
     background-size: 30px 30px;
+    cursor: pointer;
 }
 
 .infoButtonWhite{
@@ -87,12 +88,6 @@
     width: 30px;
     height: 30px;
     background-size: 30px 30px;
-}
-
-@media (max-height: 745px) {
-    .statementOrderMargin{
-        margin-top: 1rem;
-    }
 }
 
 .dynamicFooter{
@@ -161,4 +156,24 @@
     display: inline-block;
     width: 55vw;
     margin: 0 0 0 10px;
+}
+
+@media screen and (max-height: 745px) {
+    .statementOrderMargin{
+        margin-top: 1rem;
+    }
+}
+
+/* styling for desktop */
+@media screen and (min-width: 1200px) {
+    .questionNumber {
+        font-family: "Graphik Semibold", Arial, sans-serif;
+        font-size: 52px;
+    }
+
+    .valgomatQuestion {
+        font-family: "Graphik Light", Arial, sans-serif;
+        font-size: 30px;
+        margin-top: 3rem;
+    }
 }

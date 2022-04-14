@@ -23,6 +23,11 @@
   src: url('Fonts/Graphik-Medium.ttf');
 }
 
+@font-face {
+  font-family: "Graphik Light";
+  src: url("Fonts/Graphik-Light.ttf");
+}
+
 body {
   margin: 0;
   font-family: 'Graphik Regular', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

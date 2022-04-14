@@ -9,16 +9,18 @@
     position: relative;
     width: 85vw;
     margin: auto;
+    text-align: center;
 }
 .likertInput{
     display: none;
 }
 .likertLabel{
     display: inline-block;
-    width: 10vw;
-    padding-bottom: 10vw;
+    width: 10.95vw;
+    padding-bottom: 10.95vw;
     margin: 0 2.5vw;
-    border: 1vw solid #bbb;
+    border: .05vw solid #ccc;
+    background-color: #f2f2f2;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -28,7 +30,7 @@
     top: 0;
     width: 7vw;
     padding-bottom: 7vw;
-    margin: 2.5vw 0 0 5vw;
+    margin: 2.25vw 0 0 6.1vw;
     background: #a100ff;
     border-radius: 50%;
     animation-timing-function: ease-in-out;
@@ -37,10 +39,10 @@
     transition: 0.5s left 0.1s ease-in-out;
 }
 #stronglyDisagree:checked  ~ #slider{ animation-name: stronglyDisagree; left:0; }
-#moderatelyDisagree:checked  ~ #slider{ animation-name: moderatelyDisagree; left:17vw; }
-#neutral:checked  ~ #slider{ animation-name: neutral; left:34vw; }
-#moderatelyAgree:checked  ~ #slider{ animation-name: moderatelyAgree; left:51vw; }
-#stronglyAgree:checked  ~ #slider{ animation-name: stronglyAgree; left:68vw; }
+#moderatelyDisagree:checked  ~ #slider{ animation-name: moderatelyDisagree; left:16.4vw; }
+#neutral:checked  ~ #slider{ animation-name: neutral; left:32.9vw; }
+#moderatelyAgree:checked  ~ #slider{ animation-name: moderatelyAgree; left:49.4vw; }
+#stronglyAgree:checked  ~ #slider{ animation-name: stronglyAgree; left:65.8vw; }
 
 @keyframes stronglyDisagree{ 30%, 70% { transform: scale(0.7); } }
 @keyframes moderatelyDisagree{ 30%, 70% { transform: scale(0.7); } }
@@ -52,6 +54,7 @@
     position: relative;
     width: 90vw;
     margin: auto;
+    text-align: center;
 }
 
 .text {
@@ -66,4 +69,102 @@
     position: relative;
     display: inline-block;
     width: 12vw;
+}
+
+/* styling for desktop */
+@media screen and (min-width: 700px) {
+
+    .text {
+        width: 10vw;
+    }
+
+    .likertText {
+        width: fit-content;
+    }
+
+    .likertLabel {
+        width: 5vw;
+        padding-bottom: 5vw;
+        margin: 0 2vw;
+    }
+
+    .likertScale {
+        width: fit-content;
+    }
+
+    #slider {
+        width: 3vw;
+        padding-bottom: 3vw;
+        margin: 1.1vw 0 0 3.05vw;
+    }
+
+    #stronglyDisagree:checked  ~ #slider{ animation-name: stronglyDisagree; left:0; }
+    #moderatelyDisagree:checked  ~ #slider{ animation-name: moderatelyDisagree; left:9.4vw; }
+    #neutral:checked  ~ #slider{ animation-name: neutral; left:18.65vw; }
+    #moderatelyAgree:checked  ~ #slider{ animation-name: moderatelyAgree; left:27.9vw; }
+    #stronglyAgree:checked  ~ #slider{ animation-name: stronglyAgree; left:37.2vw; }
+
+}
+
+@media screen and (min-width: 1000px) {
+
+    #stronglyDisagree:checked  ~ #slider{ animation-name: stronglyDisagree; left:0; }
+    #moderatelyDisagree:checked  ~ #slider{ animation-name: moderatelyDisagree; left:9.2vw; }
+    #neutral:checked  ~ #slider{ animation-name: neutral; left:18.3vw; }
+    #moderatelyAgree:checked  ~ #slider{ animation-name: moderatelyAgree; left:27.45vw; }
+    #stronglyAgree:checked  ~ #slider{ animation-name: stronglyAgree; left:36.6vw; }
+}
+
+@media screen and (min-width: 1500px) {
+
+    .text {
+        width: 10vw;
+    }
+
+    .likertLabel {
+        width: 4vw;
+        padding-bottom: 4vw;
+    }
+
+    #slider {
+        width: 2.5vw;
+        padding-bottom: 2.5vw;
+        margin: 0.8vw 0 0 2.8vw;
+    }
+
+    #stronglyDisagree:checked  ~ #slider{ animation-name: stronglyDisagree; left:0; }
+    #moderatelyDisagree:checked  ~ #slider{ animation-name: moderatelyDisagree; left:8.15vw; }
+    #neutral:checked  ~ #slider{ animation-name: neutral; left:16.25vw; }
+    #moderatelyAgree:checked  ~ #slider{ animation-name: moderatelyAgree; left:24.35vw; }
+    #stronglyAgree:checked  ~ #slider{ animation-name: stronglyAgree; left:32.55vw; }
+}
+
+@media screen and (min-width: 1900px) {
+
+    .text {
+        font-family: "Graphik Light", Arial, sans-serif;
+        font-size: 20px;
+        width: 5vw;
+    }
+
+    .textDivider {
+        width: 9vw;
+    }
+
+    .likertLabel {
+        width: 2.5vw;
+        padding-bottom: 2.5vw;
+    }
+
+    #slider {
+        width: 1.5vw;
+        padding-bottom: 1.5vw;
+        margin: 0.6vw 0 0 2.5vw;
+    }
+
+    #stronglyDisagree:checked  ~ #slider{ animation-name: stronglyDisagree; left:0; }
+    #moderatelyDisagree:checked  ~ #slider{ animation-name: moderatelyDisagree; left:6.65vw; }
+    #neutral:checked  ~ #slider{ animation-name: neutral; left:13.3vw; }
+    #moderatelyAgree:checked  ~ #slider{ animation-name: moderatelyAgree; left:19.9vw; }
+    #stronglyAgree:checked  ~ #slider{ animation-name: stronglyAgree; left:26.5vw; }
 }
