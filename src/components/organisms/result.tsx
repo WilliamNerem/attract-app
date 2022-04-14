@@ -27,8 +27,6 @@ export const Result = ({totalPointsArray
     const dispatch = useDispatch();
     const { subValgomatIsInProgress } = bindActionCreators(actionCreators, dispatch);
     const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
-    const stratSub = useSelector((state: State) => state.stratSubdivision);
-    const interactiveSub = useSelector((state: State) => state.interactiveSubdivision);
     const showAlertDialog = useSelector((state: State) => state.showAlertDialog);
     const subValgomatInProgress = useSelector((state: State) => state.subValgomatInProgress);
     const [carousel, setCarousel] = useState({first: 'leftCard', second: 'middleCard', third: 'rightCard'});
@@ -177,7 +175,7 @@ export const Result = ({totalPointsArray
                         <a className={disabledButtons + ' leftArrow'} onClick={handleLeftArrow}/>
                         <a className={disabledButtons + ' rightArrow'} onClick={handleRightArrow}/>
                     </div>
-                    <EmailDepSender chosenDep={result}/>
+                    <EmailDepSender totalPointsArray={totalPointsArray}/>
                     <div className='buttonDiv'>
                         <Button href='/' text='Tilbake til forsiden'/>
                     </div>

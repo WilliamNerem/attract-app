@@ -5,28 +5,30 @@ import {departments} from "../../departments";
 
 
 interface emailDepSenderProps {
-   chosenDep: string
+    totalPointsArray: any[]
 }
 
-export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
+export const EmailDepSender = ({totalPointsArray} : emailDepSenderProps) => {
     const [checked, setChecked] = useState(false);
     const [email, setEmail] = useState("");
     const [isDisabled, setIsDisabled] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
-    let chosenDepartment;
     let emailString;
+    const sortedArr = totalPointsArray.slice().sort((a, b) => b - a).slice(0,3);
+    let depArr: number[] = [] ;
+    depArr = [sortedArr.indexOf(totalPointsArray[0]), sortedArr.indexOf(totalPointsArray[1]), sortedArr.indexOf(totalPointsArray[2])]; //Index of strat, tech and inter
 
-    for(let department of departments) {
-        if(department.title === chosenDep) {
-            chosenDepartment = department;
-        }
+    if(sortedArr[1] === sortedArr[2]) {
+        depArr[totalPointsArray.lastIndexOf(sortedArr[1])] = sortedArr.lastIndexOf(sortedArr[1]); // Differentiate indexes of the same value
     }
 
-    if(chosenDepartment !== undefined) {
-        emailString = 'Avdelingen du passer best inn i er ' + chosenDepartment.title + '! <br><br>'
-            + chosenDepartment.infoTextEmail + '<br>Hvis du ønsker å besøke hjemmesiden til ' + chosenDepartment.title + ' så kan du trykke her : '
-            + chosenDepartment.link + '.'
-    }
+    const depAtPlacement = (position: number) => {
+        return departments[depArr.indexOf(position)];
+    };
+    emailString = 'Avdelingen du passer best inn i er ' + depAtPlacement(0).title + ', etterfulgt av ' + depAtPlacement(1).title + ' på andreplass og '
+        + depAtPlacement(2).title + ' på tredjeplass!' + '<br><br>'
+        + depAtPlacement(0).infoTextEmail + '<br>Hvis du ønsker å besøke hjemmesiden til ' + depAtPlacement(0).title + ' så kan du trykke her : '
+        + depAtPlacement(0).link + '.'
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
