@@ -11,8 +11,8 @@ import {actionCreators, State} from "../../redux";
 import {ValgomatPartTwo} from "./valgomatPartTwo";
 import {QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
 import {AlertDialog} from "../atoms/alertDialog";
+import {InfoButton} from "../atoms/infoButton";
 import EmailDepSender from "../atoms/emailDepSender";
-import {InfoButton} from "../molecule/infoButton";
 import {ShowExplanation} from "../molecule/showExplanation";
 import Backdrop from "@mui/material/Backdrop";
 import {bindActionCreators} from "redux";
@@ -33,7 +33,7 @@ export const Result = ({totalPointsArray
     const subValgomatInProgress = useSelector((state: State) => state.subValgomatInProgress);
     const [carousel, setCarousel] = useState({first: 'leftCard', second: 'middleCard', third: 'rightCard'});
     const [disabledButtons, setDisabledButtons] = useState('');
-    const [currentDep, setCurrentDep] = useState('null')
+    const [currentDep, setCurrentDep] = useState('null');
     const maxVal = Math.max(...totalPointsArray);
     const valPos = totalPointsArray.indexOf(maxVal);
     const result = departments[valPos].name;
@@ -171,7 +171,7 @@ export const Result = ({totalPointsArray
                 <Navbar/>
                 <div className='result'>
                     <div className='gradientDiv'>
-                        <InfoButton handleClick={handleClick} whiteIcon={true}/>
+                        <InfoButton handleClick={handleClick} whiteIcon={true} data-testid='infoButton'/>
                         <ResultText result={result}/>
                         <Pallet totalPointsArray={totalPointsArray}/>
                     </div>
@@ -188,7 +188,7 @@ export const Result = ({totalPointsArray
                                 subDepArr={information[0].subDep}
                             />
                         </div>
-                        <div className={carousel.second + ' middleCarouselItem'}>
+                        <div className={carousel.second + ' middleCarouselItem'} data-testid={'carouselFront'}>
                             <InfoCard
                                 heading={result}
                                 link={link}
@@ -213,7 +213,7 @@ export const Result = ({totalPointsArray
                             />
                         </div>
                         <a className={disabledButtons + ' leftArrow'} onClick={handleLeftArrow}/>
-                        <a className={disabledButtons + ' rightArrow'} onClick={handleRightArrow}/>
+                        <a className={disabledButtons + ' rightArrow'} onClick={handleRightArrow} data-testid={'rightArrow'}/>
                     </div>
                     <EmailDepSender chosenDep={result}/>
                     <div className='buttonDiv'>
@@ -226,6 +226,7 @@ export const Result = ({totalPointsArray
                         setOpen(false);
                     }}
                     style={{zIndex: 100}}
+                    data-testid='showExplanation'
                 >
                     <ShowExplanation questionType={'result'}/>
                 </Backdrop>

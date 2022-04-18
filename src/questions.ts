@@ -19,19 +19,19 @@ export const QuestionsPartOne = () => {
     const statements1 = [
         {
             id: 1,
-            title: 'det virker spennende å komme opp med nye idéer og jobbe videre med de',
+            title: 'Jeg er komfortabel med å bruke verktøy som Excel og Powerpoint',
             department: strategyAndConsultingPoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
-            title: 'det er spennende å sette meg inn i nye teknologier',
+            title: 'Jeg har lyst til å lage grunnmuren til programvarer ved hjelp av verktøy og teknologier(Java, Python, C++, JavaScript, Databaser)',
             department: technologyPoints,
             initDepartmentPoints: 4
         },
         {
             id: 3,
-            title: 'design er spennende',
+            title: 'Jeg har lyst å ta i bruk verktøy for å utforme brukervennlig design (CSS, UX Design, Figma)',
             department: interactivePoints,
             initDepartmentPoints: 2
         }
@@ -62,10 +62,10 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 1,
             questionType: 'likertScale',
-            questionTxt: "Jeg liker å planlegge godt når jeg jobber med oppgaver",
+            questionTxt: "Jeg liker å ta fatt på nye oppgaver uten å planlegge nøye",
             progress: 10,
             characteristic: practical,
-            isReversed: true
+            isReversed: false
         },
         {
             questionNumber: 2,
@@ -79,9 +79,9 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 3,
             questionType: 'likertScale',
-            questionTxt: "Jeg liker å skape ting og jobbe med et produkt jeg kan se",
+            questionTxt: "Jeg har lyst til å være med på å bestemme hvordan et produkt skal se ut",
             progress: 30,
-            characteristic: practical,
+            characteristic: creative,
             isReversed: false
         },
         {
@@ -89,22 +89,22 @@ export const QuestionsPartOne = () => {
             questionType: 'statementOrder',
             questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg ved å trykke på pilene",
             progress: 40,
-            sharedWords: 'Jeg synes',
+            sharedWords: '',
             isStatement: true,
             statementArr: statements1
         },
         {
             questionNumber: 5,
             questionType: 'likertScale',
-            questionTxt: "Jeg jobber best med oppgaver alene",
+            questionTxt: "Jeg har god formidlingsevne",
             progress: 50,
             characteristic: social,
-            isReversed: true
+            isReversed: false
         },
         {
             questionNumber: 6,
             questionType: 'likertScale',
-            questionTxt: "Jeg er flink til å tenke utenfor boksen og komme opp med nye løsninger",
+            questionTxt: "Jeg er flink til å se forskjellige måter en oppgave kan løses på",
             progress: 60,
             characteristic: creative,
             isReversed: false
@@ -121,10 +121,10 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 8,
             questionType: 'likertScale',
-            questionTxt: "Jeg liker å jobbe innenfor klare rammer så jeg vet hva jeg skal gjøre",
+            questionTxt: "Jeg ser viktigheten av å utføre gode brukertester",
             progress: 80,
-            characteristic: creative,
-            isReversed: true
+            characteristic: practical,
+            isReversed: false
         },
         {
             questionNumber: 9,
@@ -138,7 +138,7 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 10,
             questionType: 'likertScale',
-            questionTxt: "Jeg er god til å prate for meg selv",
+            questionTxt: "Jeg har ikke problemer med at arbeidet mitt blir kvalitetssikret og at jeg får tilbakemeldinger om hva som kunne vært gjort bedre",
             progress: 100,
             characteristic: social,
             isReversed: false
@@ -146,7 +146,7 @@ export const QuestionsPartOne = () => {
     ];
 };
 
-export const QuestionsDataTech = () => {
+export const QuestionsDataTech = () => {    // Not added new questions for part 2
     const dispatch = useDispatch();
     const { social, strategyAndConsultingPoints, technologyPoints, interactivePoints } = bindActionCreators(actionCreators, dispatch);
     const statements1 = [
@@ -207,7 +207,7 @@ export const QuestionsDataTech = () => {
     ];
 };
 
-export const QuestionsDataSC = () => {
+export const QuestionsDataSC = () => {      // Not added new questions for part 2
     const dispatch = useDispatch();
     const { allocateStrat_CMTPoints, allocateStrat_Health_PublicPoints, allocateStrat_FinancePoints, allocateStrat_ProductsPoints, allocateStrat_ResourcesPoints } = bindActionCreators(actionCreators, dispatch);
     const statements1 = [
@@ -315,25 +315,46 @@ export const QuestionsDataSC = () => {
     ];
 };
 
-export const QuestionsDataInteractive = () => {
+export const QuestionsDataInteractive = () => {  // Questions ok for now
     const dispatch = useDispatch();
     const { allocateInteractive_DesignPoints, allocateInteractive_BuildPoints, allocateInteractive_CommunicationsPoints } = bindActionCreators(actionCreators, dispatch);
     const statements1 = [
         {
             id: 1,
-            title: 'Communcations',
+            title: 'Et produkt blir aldri bedre enn markedsføringen sin',
             department: allocateInteractive_CommunicationsPoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
-            title: 'Build',
+            title: 'Det må mer enn reklame til for å bygge opp en merkevare',
             department: allocateInteractive_BuildPoints,
             initDepartmentPoints: 4
         },
         {
             id: 3,
-            title: 'Design',
+            title: 'Noe av det aller viktigste til et produkt er hvordan det ser ut',
+            department: allocateInteractive_DesignPoints,
+            initDepartmentPoints: 2
+        }
+    ];
+
+    const statements2 = [
+        {
+            id: 1,
+            title: 'brukertesting',
+            department: allocateInteractive_CommunicationsPoints,
+            initDepartmentPoints: 6
+        },
+        {
+            id: 2,
+            title: 'å forvandle produkter og tjenester til noe nytt',
+            department: allocateInteractive_BuildPoints,
+            initDepartmentPoints: 4
+        },
+        {
+            id: 3,
+            title: 'å lage brukervennlige grensesnitt',
             department: allocateInteractive_DesignPoints,
             initDepartmentPoints: 2
         }
@@ -343,15 +364,15 @@ export const QuestionsDataInteractive = () => {
         {
             questionNumber: 1,
             questionType: 'likertScale',
-            questionTxt: "Dette er om Build",
+            questionTxt: "eg synes det er spennende å innhente innsikt om mennesker og bedrifter",
             progress: 20,
             characteristic: allocateInteractive_BuildPoints,
-            isReversed: true
+            isReversed: false
         },
         {
             questionNumber: 2,
             questionType: 'likertScale',
-            questionTxt: "Dette er om Design",
+            questionTxt: "Jeg jobber gjerne tett opp med kunden for å forbedre kundeopplevelsen",
             progress: 40,
             characteristic: allocateInteractive_DesignPoints,
             isReversed: false
@@ -359,8 +380,8 @@ export const QuestionsDataInteractive = () => {
         {
             questionNumber: 3,
             questionType: 'statementOrder',
-            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg",
-            sharedWords: 'Jeg liker',
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg ved å trykke på pilene",
+            sharedWords: 'Jeg mener at',
             progress: 60,
             isStatement: true,
             statementArr: statements1,
@@ -368,18 +389,19 @@ export const QuestionsDataInteractive = () => {
         {
             questionNumber: 4,
             questionType: 'likertScale',
-            questionTxt: "Dette er om Communcations",
+            questionTxt: "Jeg har lyst å jobbe med utvikling av kundereiser",
             progress: 80,
             characteristic: allocateInteractive_CommunicationsPoints,
             isReversed: false
         },
         {
-            questionNumber: 5, // Had to increase to one more question so that statementOrder can check for questionlength
-            questionType: 'likertScale',
-            questionTxt: "Dette er om Fjords",
+            questionNumber: 5,
+            questionType: 'statementOrder',
+            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg ved å trykke på pilene",
+            sharedWords: 'Jeg kunne tenkt meg å jobbe med',
             progress: 100,
-            characteristic: allocateInteractive_DesignPoints,
-            isReversed: false
+            isStatement: true,
+            statementArr: statements2,
         },
     ];
 };

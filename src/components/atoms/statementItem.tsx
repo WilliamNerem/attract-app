@@ -97,7 +97,7 @@ export const StatementItem = ({index, positionInStatementOrder, position, transi
             </div>
             {transition((style) =>
                 <animated.div className='statement' style={style}>
-                    <div className='textContainer'>
+                    <div className='textContainer' data-testid={'statementItemText'}>
                         {title}
                     </div>
                 </animated.div>

@@ -84,3 +84,37 @@
 @keyframes firstImageSelection{ 30%, 70% { transform: scale(0.7); } }
 @keyframes secondImageSelection{ 30%, 70% { transform: scale(0.7); } }
 @keyframes thirdImageSelection{ 30%, 70% { transform: scale(0.7); } }
+
+@media screen and (min-width: 1900px) {
+    .imageSelectionRadio{
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        right: 7vw;
+        display: inline-block;
+        width: 10vw;
+        height: 10vw;
+        border: 1vw solid #bbb;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    #imageSelectionSlider{
+        position: absolute;
+        width: 7vw;
+        right: 9.4vw;
+        padding-bottom: 7vw;
+        margin: 2.5vw 0 0 5vw;
+        background: #a100ff;
+        border-radius: 50%;
+        animation-timing-function: ease-in-out;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+        transition: 0.5s ease-in-out;
+    }
+    #firstImageSelection:checked  ~ #imageSelectionSlider{ animation-name: firstImageSelection; top:42px; }
+    #secondImageSelection:checked  ~ #imageSelectionSlider{ animation-name: secondImageSelection; top:201px; }
+    #thirdImageSelection:checked  ~ #imageSelectionSlider{ animation-name: thirdImageSelection; top:360px; }
+
+}

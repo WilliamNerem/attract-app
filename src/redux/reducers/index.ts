@@ -14,6 +14,7 @@ import {stratSubdivisionReducer, initialState as initStratSubdivisions} from "./
 import {interactiveSubdivisionReducer, initialState as initInteractiveSubDivisions} from "./interactiveSubdivision";
 import {questionCounterPartTwoReducer} from "./questionCounterPartTwo";
 import {subValgomatInProgressReducer} from "./subValgomatInProgress";
+import {technologySubdivisionReducer, initialState as initTechnologySubDivisions} from "./technologySubdivision";
 
 const reducers = combineReducers({
     valgomatInProgress: valgomatInProgressReducer,
@@ -30,7 +31,8 @@ const reducers = combineReducers({
     imageSelector: imageSelectorReducer,
     imageSelectorAnswer: imageSelectorAnswerReducer,
     stratSubdivision: stratSubdivisionReducer,
-    interactiveSubdivision: interactiveSubdivisionReducer
+    interactiveSubdivision: interactiveSubdivisionReducer,
+    technologySubdivision: technologySubdivisionReducer
 });
 
 export enum ResetStatesActionType {
@@ -72,6 +74,9 @@ const rootReducer = (state: any, action: any) => {
         for (let i = 0; i < initInteractiveSubDivisions.subdivisionArr.length; i++) {
             initInteractiveSubDivisions.subdivisionArr[i].points = 0;
         }
+        for (let i = 0; i < initTechnologySubDivisions.subdivisionArr.length; i++) {
+            initTechnologySubDivisions.subdivisionArr[i].points = 0;
+        }
         state = undefined;
     }
 
@@ -87,7 +92,11 @@ const rootReducer = (state: any, action: any) => {
         }
     }
 
-    // copy the one over for tech to reset tech sub division
+    if (action.type === ResetStatesActionType.RESET_TECH_SUBDIVISON) {
+        for (let i = 0; i < initTechnologySubDivisions.subdivisionArr.length; i++) {
+            initTechnologySubDivisions.subdivisionArr[i].points = 0;
+        }
+    }
 
     return reducers(state, action);
 };

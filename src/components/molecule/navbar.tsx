@@ -38,9 +38,9 @@ export const Navbar = () => {
     }, [hamburgerToggled]);
 
     return(
-        <div className='navMargin'>
+        <div className='navMargin' data-testid={'navbar'}>
             <div className='nav'>
-                <a className={'navbar-item-logo'} onClick={() => handleClick(false)}><img className='logo' src={Acc_Logo_Black_Purple_RGB} alt='logo'/></a>
+                <a className={'navbar-item-logo'} onClick={() => handleClick(false)} data-testid={'navLogo'}><img className='logo' src={Acc_Logo_Black_Purple_RGB} alt='logo'/></a>
                 <a className={'navbar-item'} onClick={() => handleClick(false)}>Hjem</a>
                 <a className={'navbar-item'} onClick={() => handleClick(true)}>Informasjon</a>
                 <a className={'navbar-item'} href={'/valgomat'}>Valgomat</a>

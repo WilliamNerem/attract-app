@@ -12,6 +12,6 @@ export const InfoButton = ({handleClick, whiteIcon}: infoButtonProps) => {
         classname = 'infoButtonWhite';
     }
     return(
-        <a className={classname} onClick={handleClick}/>
+        <a className={classname} onClick={handleClick} data-testid={'infoButton'}/>
     );
 };
