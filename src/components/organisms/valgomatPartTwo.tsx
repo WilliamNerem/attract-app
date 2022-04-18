@@ -1,6 +1,5 @@
 import {Navbar} from "../molecule/navbar";
-import {animated, useTransition} from "react-spring";
-import {InfoButton} from "../molecule/infoButton";
+import {InfoButton} from "../atoms/infoButton";
 import {Questions} from "../atoms/questions";
 import {StatementOrder} from "../molecule/statementOrder";
 import {LikertScale} from "../atoms/likertScale";
@@ -32,7 +31,6 @@ export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive, 
     const counter = useSelector((state: State) => state.questionCounterPartTwo);
     const stratSub = useSelector((state: State) => state.stratSubdivision);
     const interactiveSub = useSelector((state: State) => state.interactiveSubdivision);
-    const [transitionValue, setTransitionValue] = useState({from: ''});
     const [transition, setTransition] = useState(true);
     const [className, setClassname] = useState('initializeTransition');
     const [open, setOpen] = useState(false);
@@ -41,7 +39,6 @@ export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive, 
     useEffect(() => {
         if (transition) {
             setTransition(!transition);
-            setClassname('initializeTransition');
         }
     }, [counter]);
 
@@ -49,32 +46,37 @@ export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive, 
         reset();
     }, []);
 
-    const startTransition = useTransition(transition, {
-        from: {transform: "translateX(" + transitionValue.from + ")"},
-        enter: {transform: "translateX(0)"}
-    });
+    if (className === 'fromRight' || className === 'fromLeft'){
+        setTimeout((() => {
+            setClassname('initializeTransition');
+        }), 50);
+    }
 
     const handleTransition = (
         isNext: boolean
     ) => {
         if (!isNext) {
-            setClassname('animatedDivLeaveNext');
-            setTransition(!transition);
-            setTimeout((decreaseCounterPartTwo), 200);
-            if (!transition) {
-                setTransitionValue({from: '-100vw'});
-            } else {
-                setTransitionValue({from: '100vw'});
-            }
-        } else {
             setClassname('animatedDivLeaveLast');
             setTransition(!transition);
-            setTimeout((increaseCounterPartTwo), 200);
-            if (!transition) {
-                setTransitionValue({from: '100vw'});
-            } else {
-                setTransitionValue({from: '-100vw'});
-            }
+            setTimeout((() => {
+                if (!transition){
+                    setClassname('fromLeft');
+                } else {
+                    setClassname('fromRight');
+                }
+                decreaseCounterPartTwo();
+            }), 200);
+        } else {
+            setClassname('animatedDivLeaveNext');
+            setTransition(!transition);
+            setTimeout((() => {
+                if (!transition){
+                    setClassname('fromRight');
+                } else {
+                    setClassname('fromLeft');
+                }
+                increaseCounterPartTwo();
+            }), 200);
         }
     };
 
@@ -85,11 +87,11 @@ export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive, 
     for (let questions of questionArray) {
         if (counter === questions.questionNumber) {
             return (
-                <div className='bodyValgomat'>
+                <div className='bodyValgomat' data-testid={'valgomatPartTwo'}>
                     <div className={'valgomat'}>
                         <Navbar/>
-                        {startTransition((style) =>
-                            <animated.div style={style} className={className}>
+                        {
+                            <div className={className} data-testid={'valgomatPartTwoComponent'}>
                                 <InfoButton handleClick={handleClick}/>
                                 <h1 className='questionNumber'>Spørsmål {counter}</h1>
                                 <Questions questionTxt={questions.questionTxt}/>
@@ -97,8 +99,8 @@ export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive, 
                                     <LikertScale questionNumber={questions.questionNumber}
                                                  characteristic={questions.characteristic} // This is not characteristic, will be a subdepartment
                                                  isReversed={questions.isReversed}/>}
-                            </animated.div>
-                        )}
+                            </div>
+                        }
                     </div>
                     <ValgomatFooter completed={questions.progress} nextTransition={handleTransition}/>
                     <Backdrop
@@ -106,6 +108,7 @@ export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive, 
                         onClick={() => {
                             setOpen(false);
                         }}
+                        data-testid='showExplanation'
                     >
                         <ShowExplanation questionType={questions.questionType}/>
                     </Backdrop>

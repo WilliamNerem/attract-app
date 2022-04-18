@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import { render, cleanup } from "@testing-library/react";
-import {Questions} from "../components/atoms/questions";
+import {Questions} from "../../components/atoms/questions";
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"
 afterEach(cleanup);

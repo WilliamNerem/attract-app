@@ -7,7 +7,7 @@ import Valgomat from "./pages/valgomat";
 import Info from "./pages/info";
 import { Provider } from "react-redux";
 import { store } from "./redux";
-import InvalidNotFoundPage from "./components/atoms/invalidNotFoundPage";
+import NotFoundPage from "./components/atoms/invalidNotFoundPage";
 
 export default function App() {
     return (
@@ -17,7 +17,7 @@ export default function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="valgomat" element={<Valgomat />} />
                     <Route path="info" element={<Info />} />
-                    <Route path="*" element={<InvalidNotFoundPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </HashRouter>
         </Provider>

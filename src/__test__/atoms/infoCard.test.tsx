@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import {InfoCard} from "../components/atoms/infoCard";
+import {InfoCard} from "../../components/atoms/infoCard";
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"
 afterEach(cleanup);

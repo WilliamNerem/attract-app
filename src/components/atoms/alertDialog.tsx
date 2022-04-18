@@ -71,7 +71,6 @@ export const AlertDialog = ({
 
     const handleBackToResult = () => {
         if (counterPartTwo === 0 && setIsDepClicked){
-            console.log('skal inn hit')
             increaseCounterPartTwo();
             if (currentDep === 'strat') {
                 resetStratSubDivision();
@@ -93,7 +92,7 @@ export const AlertDialog = ({
                 setIsDepClicked({strat: false, interactive: false, tech: false})
             }
         }
-    }
+    };
 
     if(backToResult) {
         return (
@@ -108,7 +107,7 @@ export const AlertDialog = ({
                         {"Tilbake til resultatsiden?"}
                     </DialogTitle>
                     <DialogContent>
-                        <DialogContentText id="alert-dialog-description" data-testid={'endDialogText'}>
+                        <DialogContentText id="alert-dialog-description" data-testid={'backToResultAlertDialogText'}>
                             Er du sikker på at du vil gå tilbake til resultatsiden?
                         </DialogContentText>
                     </DialogContent>

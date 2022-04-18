@@ -32,17 +32,36 @@
 }
 
 .initializeTransition{
-    transform: translateX(0);
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    transition: 350ms;
+}
+
+.fromLeft{
+    position: absolute;
+    width: 100vw;
+    left: -100vw;
+}
+
+.fromRight{
+    position: absolute;
+    width: 100vw;
+    left: 100vw;
 }
 
 .animatedDivLeaveNext{
     position: absolute;
-    left: 100vw;
+    width: 100vw;
+    transform: translateX(-100vw);
+    transition: 350ms;
 }
 
 .animatedDivLeaveLast{
     position: absolute;
-    left: -100vw;
+    width: 100vw;
+    transform: translateX(100vw);
+    transition: 350ms;
 }
 
 .infoButton{

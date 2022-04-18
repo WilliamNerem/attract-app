@@ -55,7 +55,7 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
         <div className='imageSelection' data-testid={'imageSelection'}>
             <label htmlFor="firstImageSelection">
                 <div className='imageSelectionLabel'>
-                    <div className={'imageSelectionImage ' + pictures[0]}/>
+                    <div className={'imageSelectionImage ' + pictures[0]} data-testid={'firstImage'}/>
                     <div className='imageSelectionRadio'/>
                 </div>
             </label>
@@ -67,11 +67,12 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
                 value='1'
                 checked={handleDefaultCheked(1)}
                 onChange={() => handleChange(1, pointAllocater[0])}
+                data-testid={'firstInput'}
             />
 
             <label htmlFor="secondImageSelection">
                 <div className='imageSelectionLabel'>
-                    <div className={'imageSelectionImage ' + pictures[1]}/>
+                    <div className={'imageSelectionImage ' + pictures[1]} data-testid={'secondImage'}/>
                     <div className='imageSelectionRadio'/>
                 </div>
             </label>
@@ -83,10 +84,11 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
                 value='2'
                 checked={handleChecked(2)}
                 onChange={() => handleChange(2, pointAllocater[1])}
+                data-testid={'secondInput'}
             />
             <label htmlFor="thirdImageSelection">
                 <div className='imageSelectionLabel'>
-                    <div className={'imageSelectionImage ' + pictures[2]}/>
+                    <div className={'imageSelectionImage ' + pictures[2]} data-testid={'thirdImage'}/>
                     <div className='imageSelectionRadio'/>
                 </div>
             </label>
@@ -98,6 +100,7 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
                 value='3'
                 checked={handleChecked(3)}
                 onChange={() => handleChange(3, pointAllocater[2])}
+                data-testid={'thirdInput'}
             />
             <span id="imageSelectionSlider"/>
         </div>
