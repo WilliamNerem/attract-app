@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import { render, cleanup } from "@testing-library/react";
 import {Provider} from "react-redux";
-import {store} from "../redux";
-import {DynamicQuestion} from "../components/atoms/dynamicQuestion";
+import {store} from "../../redux";
+import {DynamicQuestion} from "../../components/atoms/dynamicQuestion";
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"
 afterEach(cleanup);

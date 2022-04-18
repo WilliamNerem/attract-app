@@ -35,7 +35,7 @@ export const HamburgerMenu = ({
     };
 
     return(
-        <div className='hamburger'>
+        <div className='hamburger' data-testid={'hamburger'}>
             <Hamburger toggled={hamburgerToggled} onToggle={() => {
                 setHamburgerToggled(!hamburgerToggled);
             }} />

@@ -34,7 +34,7 @@ export const SinglePallet = ({id, placement, percent}: singlePalletProps) => {
     return(
         <div id={id} className='singlePallet'>
             <h3 className='singlePalletPlacement nonHoverPlacement'>{placement}</h3>
-            <div className={'palletPlacement ' + palletPlacementHeight}>{palletPlace}</div>
+            <div className={'palletPlacement ' + palletPlacementHeight} data-testid='palletPlacement'>{palletPlace}</div>
             <h4 className='percent'>{percent+'%'}</h4>
         </div>
     );

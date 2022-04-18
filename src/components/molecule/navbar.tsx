@@ -37,9 +37,9 @@ export const Navbar = () => {
     }, [hamburgerToggled]);
 
     return(
-        <div className='navMargin'>
+        <div className='navMargin' data-testid={'navbar'}>
             <div className='nav'>
-                <a onClick={handleClick}><img className='logo' src={Acc_Logo_Black_Purple_RGB} alt='logo'/></a>
+                <a onClick={handleClick} data-testid={'navLogo'}><img className='logo' src={Acc_Logo_Black_Purple_RGB} alt='logo'/></a>
                 <HamburgerMenu hamburgerToggled={hamburgerToggled} setHamburgerToggled={setHamburgerToggled} height={height}/>
             </div>
             <Backdrop

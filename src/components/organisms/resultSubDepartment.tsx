@@ -58,7 +58,7 @@ export const ResultSubDepartment = ({information, setIsDepClicked
 
     const handleClick = () => {
         setBackToResult(true);
-    }
+    };
 
     if(backToResult) {
         return (
@@ -91,7 +91,7 @@ export const ResultSubDepartment = ({information, setIsDepClicked
                             linkText={'Les mer om '+subDepArray[topThreeDep[2]].title}
                         />
                     </div>
-                    <div className={carousel.second+' middleCarouselItem'}>
+                    <div className={carousel.second+' middleCarouselItem'} data-testid='carouselFront'>
                         <InfoCard
                             heading={subDepArray[topThreeDep[0]].title}
                             link={subDepArray[topThreeDep[0]].link}
@@ -112,7 +112,7 @@ export const ResultSubDepartment = ({information, setIsDepClicked
                         />
                     </div>
                     <a className={disabledButtons+' leftArrow'} onClick={handleLeftArrow} />
-                    <a className={disabledButtons+' rightArrow'} onClick={handleRightArrow}/>
+                    <a className={disabledButtons+' rightArrow'} onClick={handleRightArrow} data-testid='rightArrow'/>
                 </div>
                 <div className='buttonDiv'>
                     <button className={'btn-goToSubDep'} onClick={handleClick}>Tilbake til resultatsiden</button>

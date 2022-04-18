@@ -1,8 +1,8 @@
 import React from 'react';
 import {render, cleanup, fireEvent} from "@testing-library/react";
-import {AlertDialog} from "../components/atoms/alertDialog";
+import {AlertDialog} from "../../components/atoms/alertDialog";
 import {Provider} from "react-redux";
-import {store} from "../redux";
+import {store} from "../../redux";
 import {BrowserRouter as Router} from "react-router-dom";
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"
@@ -17,6 +17,30 @@ describe('Alert Dialog render', () => {
                 <AlertDialog end={true} />
             </Provider>
         )
+
+    });
+
+    it('should render back to result alert dialog with correct information', () => {
+
+        const {getByTestId} = render(
+            <Provider store={store}>
+                <AlertDialog end={false} backToResult={true} />
+            </Provider>
+        );
+
+        expect(getByTestId('backToResultAlertDialogText')).toHaveTextContent('Er du sikker på at du vil gå tilbake til resultatsiden?')
+
+    });
+
+    it('should render alert dialog with correct information when end is false', () => {
+
+        const {getByTestId} = render(
+            <Provider store={store}>
+                <AlertDialog end={false} />
+            </Provider>
+        );
+
+        expect(getByTestId('progressDialogText')).toHaveTextContent('Er du sikker på at du vil avslutte valgomaten?')
 
     });
 
