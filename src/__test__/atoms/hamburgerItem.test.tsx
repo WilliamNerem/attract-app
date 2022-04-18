@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import { render, cleanup } from "@testing-library/react";
-import {HamburgerItem} from "../components/atoms/hamburgerItem";
+import {HamburgerItem} from "../../components/atoms/hamburgerItem";
 import {Provider} from "react-redux";
-import {store} from "../redux";
+import {store} from "../../redux";
 import {BrowserRouter as Router} from "react-router-dom";
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../../styles/valgomatButton.style.css'
 import {useSelector} from "react-redux";
 import {State} from "../../redux";
@@ -9,17 +9,30 @@ interface valgomatButtonProps {
 
 export const ValgomatButton = ({nextTransition}: valgomatButtonProps) => {
     const counter = useSelector((state: State) => state.questionCounter);
+    const [disableButton, setDisableButton] = useState(false);
     let lastText = 'Forrige';
     if (counter === 1){
         lastText = 'Hjem';
     }
 
     const next = () => {
-        nextTransition(true);
+        if (!disableButton){
+            nextTransition(true);
+            setDisableButton(true);
+            setTimeout((() => {
+                setDisableButton(false);
+            }), 250);
+        }
     };
 
     const last = () => {
-        nextTransition(false);
+        if (!disableButton){
+            nextTransition(false);
+            setDisableButton(true);
+            setTimeout((() => {
+                setDisableButton(false);
+            }), 250);
+        }
     };
 
     return (
