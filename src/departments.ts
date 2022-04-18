@@ -1,10 +1,10 @@
 export const departments = [
     {
         name: 'Strategy & Consulting',
-        social: 9,
-        creative: 7,
-        practical: 3,
-        possibleDifference: 20,
+        social: 7,
+        creative: 5,
+        practical: 2,
+        possibleDifference: 17,
         title: 'Strategy & Consulting',
         link: 'https://www.accenture.com/no-en/about/consulting-index',
         infoText: 'I Strategy & Consulting vil du være med på å definere og implementere morgendagens teknologiske ' +
@@ -15,10 +15,10 @@ export const departments = [
     },
     {
         name: 'Technology',
-        social: 6,
+        social: 7,
         creative: 7,
-        practical: 8,
-        possibleDifference: 18,
+        practical: 5,
+        possibleDifference: 16,
         title: 'Technology',
         link: 'https://www.accenture.com/no-en/about/technology-index',
         infoText: 'I Technology blir du involvert i noen av Norges mest spennende og meningsfylte IT-prosjekter. Sammen ' +
@@ -29,8 +29,8 @@ export const departments = [
     {
         name: 'Interactive',
         social: 8,
-        creative: 9,
-        practical: 6,
+        creative: 8,
+        practical: 7,
         possibleDifference: 20,
         title: 'Interactive',
         link: 'https://www.accenture.com/no-en/about/accenture-interactive-index',

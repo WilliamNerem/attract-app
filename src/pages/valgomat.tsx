@@ -143,22 +143,18 @@ const Valgomat = () => {
         if (counter >= QuestionsPartOne().length + 1) { // When last question is asked or when
             const dynamicCounter = QuestionsPartOne().length + 2;
             let totalPoints: number[] = [];
-            let departmentPointsArray: number[] = [];
 
             userDifferences.map((differenceCharacteristic, index) => {
-                const departmentPoints = departmentPointsArray[index] = departmentsArray[index].points + imageSelector[index].points;  // Setting departmentPoints and the new array together
-                const characteristicPoints = (differenceCharacteristic * (3 / departments[index].possibleDifference));
-                totalPoints = [...totalPoints, departmentPoints - characteristicPoints];
+                const characteristicPoints = (differenceCharacteristic * (2 / departments[index].possibleDifference));  //Changed from characteristic being worth 1/3 of departmentpoints to being worth 1/2 because of new and better characteristic questions
+                totalPoints = [...totalPoints, (departmentsArray[index].points + imageSelector[index].points) - characteristicPoints];
             });
 
             const biggestTwoTotal = totalPoints.slice().sort((a, b) => b - a).slice(0, 2); // Needs to be here if not it will always go to dynamic site
-            const biggestTwoDepartmentPoints = departmentPointsArray.slice().sort((a, b) => b - a).slice(0, 2);
 
             if (counter >= dynamicCounter){
                 return (<Result totalPointsArray={totalPoints}/>)
             }
-
-            if (biggestTwoDepartmentPoints[0] !== biggestTwoDepartmentPoints[1]) {   // Check if number 1 has the same points as number 2 department
+            if (biggestTwoTotal[0] > (biggestTwoTotal[1] +1)) {   // Check if number 1 has atleast 2 more points than number 2
                 return (
                     <>
                         <AlertDialog end={true} totalPointsArray={totalPoints}/>
@@ -187,10 +183,7 @@ const Valgomat = () => {
             }
         }
     }
-
     return null;
 };
-
-
 
 export default Valgomat;

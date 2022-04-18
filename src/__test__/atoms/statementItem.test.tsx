@@ -41,7 +41,7 @@ describe('Statement item render', () => {
                 <Wrapper />
             </Provider>
         );
-        expect(getByTestId("statementItemText")).toHaveTextContent('det virker spennende å komme opp med nye idéer og jobbe videre med de');
+        expect(getByTestId("statementItemText")).toHaveTextContent('Jeg er komfortabel med å bruke verktøy som Excel og Powerpoint');
         expect(container.getElementsByClassName('buttonUpGray').length).toBe(1);
         expect(container.getElementsByClassName('buttonDown').length).toBe(1);
     });
