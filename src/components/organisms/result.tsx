@@ -29,6 +29,9 @@ export const Result = ({totalPointsArray
     const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
     const showAlertDialog = useSelector((state: State) => state.showAlertDialog);
     const subValgomatInProgress = useSelector((state: State) => state.subValgomatInProgress);
+    const interactiveSub = useSelector((state: State) => state.interactiveSubdivision);
+    const techSub = useSelector((state: State) => state.technologySubdivision);
+    const stratSub = useSelector((state: State) => state.stratSubdivision);
     const [carousel, setCarousel] = useState({first: 'leftCard', second: 'middleCard', third: 'rightCard'});
     const [disabledButtons, setDisabledButtons] = useState('');
     const [currentDep, setCurrentDep] = useState('null');
@@ -44,6 +47,19 @@ export const Result = ({totalPointsArray
             setIsDepClicked({ strat: false, interactive: false, tech: false});
         }
     }, []);
+
+
+    const setSubDep = (name: string) => {  // Set sub departmentarray so that the result can be shown on infocards later
+        if(name === 'Strategy & Consulting') {
+            return stratSub;
+        }
+        else if(name === 'Technology') {
+            return techSub;
+        }
+        else {
+            return interactiveSub;
+        }
+    }
 
     useEffect(() => {
         setDisabledButtons('disabledButtons');
@@ -145,7 +161,7 @@ export const Result = ({totalPointsArray
                                 subText={depAtPlacement(1).infoSubText}
                                 linkText={'Les mer om ' + depAtPlacement(1).title}
                                 onButtonClick={() => onButtonClick(depAtPlacement(1).title)}
-                                subDepArr={[]}
+                                subDepArr={setSubDep(depAtPlacement(1).title)}
                             />
                         </div>
                         <div className={carousel.second + ' middleCarouselItem'} data-testid={'carouselFront'}>
@@ -157,7 +173,7 @@ export const Result = ({totalPointsArray
                                 subText={depAtPlacement(0).infoSubText}
                                 linkText={'Les mer om ' + depAtPlacement(0).title}
                                 onButtonClick={() => onButtonClick(depAtPlacement(0).title)}
-                                subDepArr={[]}
+                                subDepArr={setSubDep(depAtPlacement(0).title)}
                             />
                         </div>
                         <div className={carousel.third + ' rightCarouselItem'}>
@@ -169,7 +185,7 @@ export const Result = ({totalPointsArray
                                 subText={depAtPlacement(2).infoSubText}
                                 linkText={'Les mer om ' + depAtPlacement(2).title}
                                 onButtonClick={() => onButtonClick(depAtPlacement(2).title)}
-                                subDepArr={[]}
+                                subDepArr={setSubDep(depAtPlacement(2).title)}
                             />
                         </div>
                         <a className={disabledButtons + ' leftArrow'} onClick={handleLeftArrow}/>

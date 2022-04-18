@@ -1,5 +1,3 @@
-import {useSelector} from "react-redux";
-import {State} from "./redux";
 export const departments = [
     {
         name: 'Strategy & Consulting',
@@ -34,6 +32,7 @@ export const departments = [
             'med kunden leverer vi innovative løsninger som bidrar til verdiskaping både for bedrifter og samfunnet. Vi ' +
             'satser stort innenfor skyløsninger, digital infrastruktur, digitalisering og prosessautomatisering.',
         infoSubText: 'I følge valgomaten passer du ikke best i Technology, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.',
+        subDep: undefined
     },
     {
         name: 'Interactive',
@@ -50,5 +49,6 @@ export const departments = [
             'teknisk innsikt og gjennomføringsevne. Interactive-teamet bruker en kombinasjon av design, markedsføring, innhold og forretningsforståelse ' +
             'til å skape innovative og bransjeledende brukeropplevelser.',
         infoSubText: 'I følge valgomaten passer du ikke best i Interactive, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.',
+        subDep: undefined
     },
 ];
