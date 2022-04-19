@@ -9,6 +9,22 @@
 .imageSelectionLabel{
     position: relative;
     margin-top: 30px;
+    height: 129px;
+}
+
+.imageLoaderWrapper{
+    display: inline-block;
+    position: relative;
+    width: 250px;
+    height: 125px;
+    left: 10vw;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    transition: opacity 1s;
+}
+
+.imageLoader{
+    margin: 50px 0 0 100px;
 }
 
 .imageSelectionImage{
@@ -18,36 +34,19 @@
     height: 125px;
     left: 10vw;
     border-radius: 10px;
+    transition: opacity .5s;
 }
 
-.Interactive_DC{
-    background: url("../images/Interactive_DC.jpg") no-repeat center;
-    background-size: 250px 125px;
+.imageSpinner{
+
 }
 
-.Interactive_work{
-    background: url("../images/Interactive_work.jpg") no-repeat center;
-    background-size: 250px 125px;
+.imageHidden{
+    opacity: 0;
 }
 
-.Technology_DC{
-    background: url("../images/Technology_DC.jpg") no-repeat center;
-    background-size: 250px 125px;
-}
-
-.Technology_work{
-    background: url("../images/Technology_work.jpg") no-repeat center;
-    background-size: 250px 125px;
-}
-
-.SC_DC{
-    background: url("../images/SC_DC.jpg") no-repeat center;
-    background-size: 250px 125px;
-}
-
-.SC_work{
-    background: url("../images/SC_work.jpg") no-repeat center;
-    background-size: 250px 125px;
+.imageVisible{
+    opacity: 1;
 }
 
 .imageSelectionRadio{

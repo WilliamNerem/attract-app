@@ -1,6 +1,12 @@
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
+import TechWork from "./images/Technology_work.jpg";
+import TechDC from "./images/Technology_DC.jpg";
+import SCWork from "./images/SC_work.jpg";
+import SCDC from "./images/SC_DC.jpg";
+import InteractiveWork from "./images/Interactive_work.jpg";
+import InteractiveDC from "./images/Interactive_DC.jpg";
 
 
 export const QuestionsPartOne = () => {
@@ -74,7 +80,7 @@ export const QuestionsPartOne = () => {
             progress: 20,
             isImageSelection: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['SC_work', 'Technology_work', 'Interactive_work']
+            images: [SCWork, TechWork, InteractiveWork]
         },
         {
             questionNumber: 3,
@@ -116,7 +122,7 @@ export const QuestionsPartOne = () => {
             progress: 70,
             isImageSelection: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['SC_DC', 'Technology_DC', 'Interactive_DC']
+            images: [SCDC, TechDC, InteractiveDC]
         },
         {
             questionNumber: 8,
