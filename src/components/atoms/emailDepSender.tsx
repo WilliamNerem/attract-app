@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import '../../styles/result.style.css'
 import emailjs from "@emailjs/browser";
 import {departments} from "../../departments";
+import AnimateHeight from "react-animate-height";
+import {PulseLoader} from "react-spinners";
 
 
 interface emailDepSenderProps {
@@ -13,6 +15,8 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
     const [email, setEmail] = useState("");
     const [isDisabled, setIsDisabled] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
+    const [height, setHeight] = useState<string|number>(0);
+    const [isSending, setIsSending] = useState(false);
     let chosenDepartment;
     let emailString;
 
@@ -30,7 +34,7 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        setIsSending(true);
         emailjs.sendForm(
             'service_7wih987',  // Service ID of EmailJS
             'template_xazuq1h', // Template ID of the template used in EmailJS
@@ -38,8 +42,10 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
             'BlXHardObV5exxTHW')
             .then(() => {
                 setErrorMessage("Resultatet ble sendt!");
+                setIsSending(false);
             }, () => {
                 setErrorMessage("Resultatet ble ikke sendt, prøv igjen senere");
+                setIsSending(false);
             });
     };
 
@@ -54,34 +60,58 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
         setIsDisabled(!(validateEmail(email)));
     }, [email]);
 
+    useEffect(() => {
+        if (checked) {
+            setHeight(120);
+        } else {
+            setHeight(0);
+        }
+    }, [checked]);
+
     const handleChange = () => {
         setChecked(!checked);
     };
 
-    if (checked) {
-        return (
-            <div className="emailSender" data-testid='emailSender'>
-                <label htmlFor="emailCheckBox" id="checkLabel">Jeg ønsker å bli tilsendt resultatet på e-post</label>
+    return (
+        <div className="emailSender" data-testid='emailSender'>
+            <div className='emailDivider'/>
+            <label htmlFor="emailCheckBox" id="checkLabel">
+                Jeg ønsker å bli tilsendt resultatet på e-post
                 <input id="emailCheckBox" type="checkbox" onChange={handleChange} data-testid='emailCheckbox'/>
+                <div className={checked ? 'emailCustomCheckBoxChecked' : 'emailCustomCheckBox'}/>
+            </label>
+            <AnimateHeight
+                duration={500}
+                height={height}
+                data-testid='emailForm'
+            >
                 <form
-                    className="contact-form"
-                    onSubmit={sendEmail}>
-                    <label htmlFor="user_email" id="emailLabel">Skriv inn din e-post:</label>
-                    <input type="email" onChange={e => validateEmail(e.currentTarget.value)} id="user_email" name="user_email" className="form-control" placeholder="dinepost@epost.com" data-testid='emailInput'/>
+                    className={'contact-form'}
+                    onSubmit={sendEmail}
+                >
+                    <div style={{display: "inline-block", width: "200px"}}>
+                        <label htmlFor="user_email" id="emailLabel">Skriv inn din e-post:</label>
+                        <input type="email" onChange={e => validateEmail(e.currentTarget.value)} id="user_email" name="user_email" className="inputEmail" placeholder="dinepost@epost.com" data-testid='emailInput'/>
+                    </div>
+                    <button disabled={isDisabled} type="submit" id="email_submit" data-testid='emailSend' className='btnSendEmail'>
+                        {isSending ?
+                            <PulseLoader
+                                size={10}
+                                margin={2}
+                                speedMultiplier={0.7}
+                                color={'#a100ff'}
+                            />
+                            :
+                            'Send'
+                        }
+                    </button>
                     <p id="errorEmail" data-testid='emailError'>{errorMessage}</p>
                     <input type="hidden" name="emailString" value={emailString} />
-                    <input disabled={isDisabled} type="submit" id="email_submit" value="Send" className="form-control btn btn-primary" data-testid='emailSend'/>
                 </form>
-            </div>
-        )
-    } else {
-        return (
-            <div className="emailSender" data-testid='emailSender'>
-                <label htmlFor="emailCheckBox" id="checkLabel">Jeg ønsker å bli tilsendt resultatet på e-post</label>
-                <input id="emailCheckBox" type="checkbox" onChange={handleChange} data-testid='emailCheckbox'/>
-            </div>
-        )
-    }
+            </AnimateHeight>
+            <div className='emailDivider'/>
+        </div>
+    )
 };
 
 export default EmailDepSender;

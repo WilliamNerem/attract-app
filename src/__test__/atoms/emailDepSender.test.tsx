@@ -17,11 +17,11 @@ describe('Email dep sender render', () => {
         const { getByTestId } = render(
             <EmailDepSender chosenDep='Interactive' />
         );
-        expect(getByTestId('emailSender')).not.toHaveTextContent('Skriv inn din e-post');
+        expect(getByTestId('emailForm')).toHaveStyle('height: 0');
         fireEvent.click(getByTestId('emailCheckbox'));
-        expect(getByTestId('emailSender')).toHaveTextContent('Skriv inn din e-post');
+        expect(getByTestId('emailForm')).toHaveStyle('height: 120px');
         fireEvent.click(getByTestId('emailCheckbox'));
-        expect(getByTestId('emailSender')).not.toHaveTextContent('Skriv inn din e-post');
+        expect(getByTestId('emailForm')).toHaveStyle('height: 0');
     });
 
     it('should have disabled button when invalid email',  () => {
