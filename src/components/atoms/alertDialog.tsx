@@ -112,7 +112,7 @@ export const AlertDialog = ({
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <a className='alertButton' onClick={() => handleClose()}>Nei</a>
+                        <a data-testid={'noButton'} className='alertButton' onClick={() => handleClose()}>Nei</a>
                         <a data-testid={'yesButton'} className='alertButton' onClick={() => {handleBackToResult()}}>Ja</a>
                     </DialogActions>
                 </Dialog>
@@ -138,7 +138,7 @@ export const AlertDialog = ({
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <a className='alertButton' onClick={() => handleDecrease()}>Nei</a>
+                        <a data-testid={'noButton'} className='alertButton' onClick={() => handleDecrease()}>Nei</a>
                         <a data-testid={'yesButton'} className='alertButton' onClick={() => {setUpdate(true)}}>Ja</a>
                     </DialogActions>
                 </Dialog>
@@ -162,8 +162,8 @@ export const AlertDialog = ({
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <a className='alertButton' onClick={handleClose}>Nei</a>
-                        {isInfo ? <Link className='alertButton' to='/info'>Ja</Link> : <a className='alertButton' href='/'>Ja</a>}
+                        <a data-testid={'noButton'} className='alertButton' onClick={handleClose}>Nei</a>
+                        {isInfo ? <Link data-testid={'yesButton'} className='alertButton' to='/info'>Ja</Link> : <a className='alertButton' href='/'>Ja</a>}
                     </DialogActions>
                 </Dialog>
             </div>

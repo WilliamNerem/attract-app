@@ -1,15 +1,28 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import {Provider} from "react-redux";
+import {Provider, useDispatch} from "react-redux";
 import {BrowserRouter as Router} from "react-router-dom";
 import {fireEvent, render} from "@testing-library/react";
 import Valgomat from "../../pages/valgomat";
-import {applyMiddleware, createStore} from "redux";
+import {applyMiddleware, bindActionCreators, createStore} from "redux";
 import rootReducer from "../../redux/reducers";
 import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
+import {actionCreators} from "../../redux";
 
-const Wrapper = () => {
+interface wrapperProps {
+    counter?: number
+}
+
+const Wrapper = ({counter}: wrapperProps) => {
+    const dispatch = useDispatch();
+    const { setCounter } = bindActionCreators(actionCreators, dispatch);
+    if (counter){
+        setCounter(counter);
+    }
+    if (counter === 11){
+
+    }
     return(
         <Provider store={
             createStore(
@@ -104,6 +117,12 @@ describe('Valgomat render', () => {
         fireEvent.click(getByTestId('infoButton'));
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 1');
         expect(getByTestId('valgomat')).toHaveTextContent('Rangering består av 3 påstander');
+    });
+
+    it('should render dynamic question when there is no clear first place', () => {
+        const { container, getByTestId } = render(
+            <Wrapper counter={11}/>
+        );
     });
 
 });

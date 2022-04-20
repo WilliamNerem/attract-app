@@ -4,9 +4,12 @@ import {AlertDialog} from "../../components/atoms/alertDialog";
 import {Provider} from "react-redux";
 import {store} from "../../redux";
 import {BrowserRouter as Router} from "react-router-dom";
-
-// mocking of component render - not necessary unless error with "found multiple element with data-testid"
-afterEach(cleanup);
+import fn = jest.fn;
+import {applyMiddleware, createStore} from "redux";
+import rootReducer from "../../redux/reducers";
+import {composeWithDevTools} from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import Valgomat from "../../pages/valgomat";
 
 describe('Alert Dialog render', () => {
 
@@ -77,5 +80,21 @@ describe('Alert Dialog render', () => {
         expect(getByTestId('resultComponent'));
     });
 
+    it('should close alert dialog when no is clicked', () => {
+        const { getByTestId } = render(
+            <Provider store={
+                createStore(
+                    rootReducer,
+                    composeWithDevTools(applyMiddleware(thunk))
+                )
+            }>
+                <Router>
+                    <AlertDialog end={false} backToResult={true} />
+                </Router>
+            </Provider>
+        );
+        fireEvent.click(getByTestId('yesButton'));
+        expect(getByTestId('likertScale'));
+    });
 
 });
