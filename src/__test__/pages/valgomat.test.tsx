@@ -73,6 +73,39 @@ describe('Valgomat render', () => {
         expect(getByTestId('statementOrder')).toBeInTheDocument();
     });
 
+    it('should render dynamic question when there is no clear first place', async () => {
+        const { container, getByTestId } = render(
+            <Wrapper />
+        );
+
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('buttonDown')[0]);
+        fireEvent.click(container.getElementsByClassName('buttonDown')[1]);
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('buttonUp')[1]);
+        fireEvent.click(container.getElementsByClassName('buttonUp')[0]);
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+
+        expect(getByTestId('dynamicQuestion'))
+    });
+
     it('should display correct explanation when when info button is clicked', async () => {
         const { container, getByTestId } = render(
             <Wrapper />

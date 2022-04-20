@@ -11,7 +11,7 @@ const Info = () => {
     return (
         <>
             <Navbar/>
-            <div className='info'>
+            <div className='info' data-testid={'infoPage'}>
                 <div className='gradientDiv'>
                     <h1 className='infoText'>Accenture sine avdelinger</h1>
                     <p className='infoSubText'>Under finner du informasjon om hvordan Accenture er bygget opp. Trykk på boksene for å få vite mer om hver avdeling</p>
