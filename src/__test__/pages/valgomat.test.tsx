@@ -1,28 +1,15 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import {Provider, useDispatch} from "react-redux";
+import {Provider} from "react-redux";
 import {BrowserRouter as Router} from "react-router-dom";
 import {fireEvent, render} from "@testing-library/react";
 import Valgomat from "../../pages/valgomat";
-import {applyMiddleware, bindActionCreators, createStore} from "redux";
+import {applyMiddleware, createStore} from "redux";
 import rootReducer from "../../redux/reducers";
 import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import {actionCreators} from "../../redux";
 
-interface wrapperProps {
-    counter?: number
-}
-
-const Wrapper = ({counter}: wrapperProps) => {
-    const dispatch = useDispatch();
-    const { setCounter } = bindActionCreators(actionCreators, dispatch);
-    if (counter){
-        setCounter(counter);
-    }
-    if (counter === 11){
-
-    }
+const Wrapper = () => {
     return(
         <Provider store={
             createStore(
@@ -86,6 +73,39 @@ describe('Valgomat render', () => {
         expect(getByTestId('statementOrder')).toBeInTheDocument();
     });
 
+    it('should render dynamic question when there is no clear first place', async () => {
+        const { container, getByTestId } = render(
+            <Wrapper />
+        );
+
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('buttonDown')[0]);
+        fireEvent.click(container.getElementsByClassName('buttonDown')[1]);
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('buttonUp')[1]);
+        fireEvent.click(container.getElementsByClassName('buttonUp')[0]);
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+
+        expect(getByTestId('dynamicQuestion'))
+    });
+
     it('should display correct explanation when when info button is clicked', async () => {
         const { container, getByTestId } = render(
             <Wrapper />
@@ -117,12 +137,6 @@ describe('Valgomat render', () => {
         fireEvent.click(getByTestId('infoButton'));
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 1');
         expect(getByTestId('valgomat')).toHaveTextContent('Rangering består av 3 påstander');
-    });
-
-    it('should render dynamic question when there is no clear first place', () => {
-        const { container, getByTestId } = render(
-            <Wrapper counter={11}/>
-        );
     });
 
 });

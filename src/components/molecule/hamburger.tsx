@@ -43,6 +43,7 @@ export const HamburgerMenu = ({
                 duration={300}
                 height={height}
                 className='hamburgerItems'
+                data-testid={'hamburgerMenuHeight'}
             >
                 <HamburgerItem itemText={'Hjem'} link={inProgress ? '' : '/'} onClick={() => handleClick(false)}/>
                 <HamburgerItem itemText={'Valgomat'} link={'/valgomat'}/>

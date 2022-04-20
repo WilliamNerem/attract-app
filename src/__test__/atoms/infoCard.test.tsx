@@ -41,4 +41,22 @@ describe('Info card render', () => {
         fireEvent.click(getByTestId('infoCardDropdown'));
         expect(container.getElementsByClassName('expanded').length).toBe(1);
     });
+
+    it('should render subdepartments if there are departmentpoints', () => {
+        const { getByTestId } = render(
+            <InfoCard
+                heading={'Heading'}
+                text={'Text'}
+                isDropdown={true}
+                onButtonClick={() => {}}
+                subDepArr={[
+                    {subdivision: "communications", points: 4},
+                    {subdivision: "build", points: 8},
+                    {subdivision: "design", points: 12}
+                    ]}
+            />
+        );
+
+        expect(getByTestId('infoCardSubDep'));
+    });
 });
