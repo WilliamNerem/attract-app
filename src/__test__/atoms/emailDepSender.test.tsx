@@ -8,14 +8,14 @@ describe('Email dep sender render', () => {
     it('should render without crashing', () => {
         const div = document.createElement("div");
         ReactDOM.render(
-            <EmailDepSender chosenDep='Interactive' />
+            <EmailDepSender totalPointsArray={[5, 6, 7]} />
             , div
         );
     });
 
     it('should render input box when checkbox is checked', () => {
         const { getByTestId } = render(
-            <EmailDepSender chosenDep='Interactive' />
+            <EmailDepSender totalPointsArray={[5, 6, 7]} />
         );
         expect(getByTestId('emailSender')).not.toHaveTextContent('Skriv inn din e-post');
         fireEvent.click(getByTestId('emailCheckbox'));
@@ -26,7 +26,7 @@ describe('Email dep sender render', () => {
 
     it('should have disabled button when invalid email',  () => {
         const { getByTestId } = render(
-            <EmailDepSender chosenDep='Interactive' />
+            <EmailDepSender totalPointsArray={[5, 6, 7]} />
         );
         fireEvent.click(getByTestId('emailCheckbox'));
         fireEvent.change(getByTestId('emailInput'), {target: {value: 'testingNonEmail.com'}});
@@ -35,7 +35,7 @@ describe('Email dep sender render', () => {
 
     it('should not have disabled button when valid email',  () => {
         const { getByTestId } = render(
-            <EmailDepSender chosenDep='Interactive' />
+            <EmailDepSender totalPointsArray={[5, 6, 7]} />
         );
         fireEvent.click(getByTestId('emailCheckbox'));
         fireEvent.change(getByTestId('emailInput'), {target: {value: 'test@email.com'}});
