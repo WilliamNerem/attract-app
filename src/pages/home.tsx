@@ -3,10 +3,25 @@ import { Navbar } from "../components/molecule/navbar";
 import '../styles/home.style.css';
 import { InfoCard } from "../components/atoms/infoCard";
 import { ResetStates } from "../resetStates";
-import {Footer} from "../components/molecule/footer";
+import { Footer } from "../components/molecule/footer";
+import i18n from '../i18n';
+import { useTranslation } from "react-i18next";
+import {useState} from "react";
+import Text from "../components/atoms/text";
+
 
 const Home = () => {
+    const [locale, setLocale] = useState(i18n.language);
+    i18n.on('languageChanged', (lng) => setLocale(i18n.language));
     ResetStates();
+
+  const changeLocale = (l: string) =>  {
+        if (locale !== l) {
+            i18n.changeLanguage(l);
+        }
+    }
+
+    const { t } = useTranslation();
 
     const aboutText = 'Vårt formål er å innfri løftet om teknologi og menneskelig oppfinnsomhet. ' +
         'Vi hjelper våre kunder å bli den neste og beste versjonen av seg selv.';
@@ -23,7 +38,10 @@ const Home = () => {
         <>
             <Navbar/>
             <div className='home'>
+                <Text></Text>
                 <div className='imageDiv'>
+                    <button onClick={() => changeLocale('en')}>English </button>
+                    <button onClick={() => changeLocale('no')}>Norsk </button>
                     <h1 className='headerHome'>Finn ut hvor i Accenture du passer best inn</h1>
                     <div className='startWrapper'>
                         <Link to="/valgomat" className='start' >START VALGOMAT</Link>
@@ -41,7 +59,7 @@ const Home = () => {
                     <InfoCard
                         heading={'Valgomat'}
                         text={aboutValgomat}
-                        subText={aboutValgomatSubText}
+                        subText={t('aboutValgomatSubText')}
                         linkText={'Les mer om hvordan valgomaten fungerer her'}
                         link={'/info'}
                         singlePageLink={true}
@@ -59,6 +77,7 @@ const Home = () => {
             <div className='bottomSpace'/>
             <Footer/>
         </>
+
     )
 };
 
