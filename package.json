@@ -28,6 +28,7 @@
     "react-i18next": "^11.16.6",
     "react-redux": "^7.2.6",
     "react-scripts": "5.0.0",
+    "react-spinners": "^0.11.0",
     "react-spring": "^9.4.4",
     "redux": "latest",
     "redux-devtools-extension": "^2.13.9",

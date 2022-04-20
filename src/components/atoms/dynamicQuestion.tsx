@@ -79,7 +79,7 @@ export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => 
     }
 
     return(
-        <div className={'dynamicQuestion'}>
+        <div className={'dynamicQuestion'} data-testid={'dynamicQuestion'}>
             {alert}
             <div className='dynamicButtonDivOne' data-testid={'dynamicQuestionOne'}>
                 <p className='dynamicText'>{statement1}</p>

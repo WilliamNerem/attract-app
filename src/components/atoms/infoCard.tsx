@@ -93,7 +93,7 @@ export const InfoCard = ({
             {onButtonClick && (
                 showSubDep ? (
                     <div>
-                        <h2 className={'infoCardSubHeading'}>Underavdelinger i {heading} som passer deg:</h2>
+                        <h2 className={'infoCardSubHeading'} data-testid={'infoCardSubDep'}>Underavdelinger i {heading} som passer deg:</h2>
                         <ul>
                             <li>{subDepArray[topThreeDep[0]].title}</li>
                             <li>{subDepArray[topThreeDep[1]].title}</li>
