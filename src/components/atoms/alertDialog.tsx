@@ -30,7 +30,7 @@ export const AlertDialog = ({
 }: alertDialogProps) => {
     const pointsArray = totalPointsArray;
     const dispatch = useDispatch();
-    const {increaseCounter, decreaseCounter, showAlertDialog, increaseCounterPartTwo, resetStratSubDivision, resetIntSubDivision, subValgomatIsInProgress, setCounterPartTwo} = bindActionCreators(actionCreators, dispatch);
+    const {increaseCounter, decreaseCounter, showAlertDialog, increaseCounterPartTwo, resetStratSubDivision, resetIntSubDivision, subValgomatIsInProgress, setCounterPartTwo, isInfoClicked} = bindActionCreators(actionCreators, dispatch);
     const [update, setUpdate] = useState(false);
     const counter = useSelector((state: State) => state.questionCounter);
     const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
@@ -44,6 +44,7 @@ export const AlertDialog = ({
         } else if(counterPartTwo === 0) {
             increaseCounterPartTwo();
         }
+        isInfoClicked(false);
         showAlertDialog(false);
         if (setBackToResult) {
             setBackToResult(false);
@@ -111,7 +112,7 @@ export const AlertDialog = ({
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <a className='alertButton' onClick={() => handleClose()}>Nei</a>
+                        <a data-testid={'noButton'} className='alertButton' onClick={() => handleClose()}>Nei</a>
                         <a data-testid={'yesButton'} className='alertButton' onClick={() => {handleBackToResult()}}>Ja</a>
                     </DialogActions>
                 </Dialog>
@@ -137,7 +138,7 @@ export const AlertDialog = ({
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <a className='alertButton' onClick={() => handleDecrease()}>Nei</a>
+                        <a data-testid={'noButton'} className='alertButton' onClick={() => handleDecrease()}>Nei</a>
                         <a data-testid={'yesButton'} className='alertButton' onClick={() => {setUpdate(true)}}>Ja</a>
                     </DialogActions>
                 </Dialog>
@@ -161,8 +162,8 @@ export const AlertDialog = ({
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <a className='alertButton' onClick={handleClose}>Nei</a>
-                        {isInfo ? <Link className='alertButton' to='/info'>Ja</Link> : <a className='alertButton' href='/'>Ja</a>}
+                        <a data-testid={'noButton'} className='alertButton' onClick={handleClose}>Nei</a>
+                        {isInfo ? <Link data-testid={'yesButton'} className='alertButton' to='/info'>Ja</Link> : <a className='alertButton' href='/'>Ja</a>}
                     </DialogActions>
                 </Dialog>
             </div>

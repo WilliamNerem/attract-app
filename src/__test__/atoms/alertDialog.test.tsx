@@ -1,12 +1,14 @@
 import React from 'react';
-import {render, cleanup, fireEvent} from "@testing-library/react";
+import {render, fireEvent} from "@testing-library/react";
 import {AlertDialog} from "../../components/atoms/alertDialog";
 import {Provider} from "react-redux";
 import {store} from "../../redux";
 import {BrowserRouter as Router} from "react-router-dom";
-
-// mocking of component render - not necessary unless error with "found multiple element with data-testid"
-afterEach(cleanup);
+import {applyMiddleware, createStore} from "redux";
+import rootReducer from "../../redux/reducers";
+import {composeWithDevTools} from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import Valgomat from "../../pages/valgomat";
 
 describe('Alert Dialog render', () => {
 
@@ -77,5 +79,24 @@ describe('Alert Dialog render', () => {
         expect(getByTestId('resultComponent'));
     });
 
+    it('should close alert dialog when no is clicked', async () => {
+        const { container, getByTestId } = render(
+            <Provider store={
+                createStore(
+                    rootReducer,
+                    composeWithDevTools(applyMiddleware(thunk))
+                )
+            }>
+                <Router>
+                    <Valgomat />
+                </Router>
+            </Provider>
+        );
+        fireEvent.click(container.getElementsByClassName('valgomatButton')[0]);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        expect(getByTestId('progressAlertDialog'));
+        fireEvent.click(getByTestId('noButton'));
+        expect(getByTestId('likertScale'));
+    });
 
 });
