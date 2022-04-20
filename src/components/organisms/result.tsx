@@ -59,7 +59,7 @@ export const Result = ({totalPointsArray
         else {
             return interactiveSub;
         }
-    }
+    };
 
     useEffect(() => {
         setDisabledButtons('disabledButtons');
