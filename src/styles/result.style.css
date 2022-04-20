@@ -246,6 +246,11 @@ h3 {
     display: none;
 }
 
+.sendEmailWrapper{
+    display: inline-block;
+    width: 200px;
+}
+
 .emailCustomCheckBox{
     position: absolute;
     width: 25px;
@@ -258,15 +263,7 @@ h3 {
 }
 
 .emailCustomCheckBoxChecked{
-    position: absolute;
-    width: 25px;
-    top: 10px;
-    right: -5em;
-    height: 25px;
-    border: 1px solid #a100ff;
-    border-radius: 3px;
     background: url("../Icons/Accenture_checkmark_white.png") no-repeat center #a100ff;
-    transition: background-color .5s;
 }
 
 #emailLabel{
@@ -306,9 +303,6 @@ h3 {
 
 .inputEmail:focus{
     outline: none;
-}
-
-.inputEmail:active{
 }
 
 .emailDivider{

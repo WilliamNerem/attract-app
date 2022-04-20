@@ -78,7 +78,7 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
             <label htmlFor="emailCheckBox" id="checkLabel">
                 Jeg ønsker å bli tilsendt resultatet på e-post
                 <input id="emailCheckBox" type="checkbox" onChange={handleChange} data-testid='emailCheckbox'/>
-                <div className={checked ? 'emailCustomCheckBoxChecked' : 'emailCustomCheckBox'}/>
+                <div className={`emailCustomCheckBox ${checked ? 'emailCustomCheckBoxChecked' : ''}`}/>
             </label>
             <AnimateHeight
                 duration={500}
@@ -89,7 +89,7 @@ export const EmailDepSender = ({chosenDep} : emailDepSenderProps) => {
                     className={'contact-form'}
                     onSubmit={sendEmail}
                 >
-                    <div style={{display: "inline-block", width: "200px"}}>
+                    <div className='sendEmailWrapper'>
                         <label htmlFor="user_email" id="emailLabel">Skriv inn din e-post:</label>
                         <input type="email" onChange={e => validateEmail(e.currentTarget.value)} id="user_email" name="user_email" className="inputEmail" placeholder="dinepost@epost.com" data-testid='emailInput'/>
                     </div>
