@@ -141,7 +141,7 @@ h3 {
 
 .carousel{
     position: relative;
-    height: 550px;
+    min-height: 600px;
 }
 
 .subCarousel {
@@ -238,24 +238,34 @@ h3 {
 }
 
 #checkLabel{
-    font-size: 20px;
     position: relative;
+}
+
+.emailTitle{
+    font-size: 20px;
+    width: 60vw;
+    max-width: 420px;
+    display: inline-block;
 }
 
 #emailCheckBox{
     display: none;
 }
 
+.emailTitleWrapper{
+    display: flex;
+    align-items: center;
+}
+
 .sendEmailWrapper{
     display: inline-block;
-    width: 200px;
+    width: 180px;
 }
 
 .emailCustomCheckBox{
-    position: absolute;
+    display: inline-block;
+    margin: 0 0 0 30px;
     width: 25px;
-    top: 10px;
-    right: -5em;
     height: 25px;
     border: 1px solid #a100ff;
     border-radius: 3px;
@@ -296,7 +306,7 @@ h3 {
     height: 25px;
     margin-top: 5px;
     font-size: 16px;
-    width: 185px;
+    width: 170px;
     border: none;
     border-bottom: 2px solid #7500c0;
 }
@@ -314,4 +324,29 @@ h3 {
 
 .contact-form{
     margin-top: 20px;
+}
+
+@media screen and (min-width: 700px){
+    .emailCustomCheckBox{
+        left: 450px;
+    }
+
+    .emailSender{
+        text-align: center;
+    }
+
+    .sendEmailWrapper{
+        width: 350px;
+    }
+
+    .emailTitleWrapper{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 349px){
+    .btnSendEmail{
+        margin: 10px 0 0 0;
+        display: block;
+    }
 }
