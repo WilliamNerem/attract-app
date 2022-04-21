@@ -2,5 +2,12 @@
   "greeting": "Hello",
   "text": "Thank you for visiting our website.",
   "language": "Language",
-  "aboutValgomatSubText": "This valgomat rocks!"
+  "aboutValgomatSubText": "Dummy English",
+  "subHeading": "We're a global team",
+  "headerHome": "Dummy English",
+  "start": "START TEST",
+  "aboutText": "Dummy English",
+  "aboutSubText": "Dummy English",
+  "linkText": "Dummy English",
+  "aboutValgomat": "Dummy English"
 }
