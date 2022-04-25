@@ -48,6 +48,7 @@ export const HamburgerMenu = ({
                 <HamburgerItem itemText={'Hjem'} link={inProgress ? '' : '/'} onClick={() => handleClick(false)}/>
                 <HamburgerItem itemText={'Valgomat'} link={'/valgomat'}/>
                 <HamburgerItem itemText={'Informasjon'} link={inProgress ? '' : '/info'} onClick={() => handleClick(true)}/>
+                <HamburgerItem link={''}/>
             </AnimateHeight>
 
         </div>

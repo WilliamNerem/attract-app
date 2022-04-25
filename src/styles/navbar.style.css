@@ -66,3 +66,30 @@ a.hamburgerItemLinkActive:hover, a.hamburgerItemLinkActive:active {
     font: 16px "Graphik Semibold", Arial, sans-serif;
     overflow: hidden;
 }
+
+.countryFlags{
+    display: flex;
+}
+
+.usFlag{
+    width: 39.5px;
+}
+
+.noFlag{
+    width: 39.5px;
+}
+
+.flagdivider{
+    width: 1px;
+    background-color: #ccc;
+    display: inline-block;
+}
+
+.flagWrapper{
+    display: inline-block;
+    padding: 10px 30px;
+}
+
+.languageActive{
+    background-color: #f2f2f2;
+}
