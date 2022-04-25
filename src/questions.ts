@@ -1,9 +1,11 @@
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
+import {useTranslation} from "react-i18next";
 
 
 export const QuestionsPartOne = () => {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const {
         social,
@@ -19,19 +21,19 @@ export const QuestionsPartOne = () => {
     const statements1 = [
         {
             id: 1,
-            title: 'Jeg er komfortabel med å bruke verktøy som Excel og Powerpoint',
+            title: t('qS11'), // questionStatement1Question1
             department: strategyAndConsultingPoints,
             initDepartmentPoints: 6
         },
         {
             id: 2,
-            title: 'Jeg har lyst til å lage grunnmuren til programvarer ved hjelp av verktøy og teknologier(Java, Python, C++, JavaScript, Databaser)',
+            title: t('qS12'),
             department: technologyPoints,
             initDepartmentPoints: 4
         },
         {
             id: 3,
-            title: 'Jeg har lyst å ta i bruk verktøy for å utforme brukervennlig design (CSS, UX Design, Figma)',
+            title: t('qS13'),
             department: interactivePoints,
             initDepartmentPoints: 2
         }
@@ -62,7 +64,7 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 1,
             questionType: 'likertScale',
-            questionTxt: "Jeg liker å ta fatt på nye oppgaver uten å planlegge nøye",
+            questionTxt: t('q1'),
             progress: 10,
             characteristic: practical,
             isReversed: false
@@ -70,7 +72,7 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 2,
             questionType: 'imageSelection',
-            questionTxt: "Velg den jobbsituasjonen du helst ville vært i",
+            questionTxt: t('q2'),
             progress: 20,
             isImageSelection: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],

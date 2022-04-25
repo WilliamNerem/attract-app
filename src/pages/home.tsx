@@ -7,11 +7,10 @@ import { Footer } from "../components/molecule/footer";
 import i18n from '../i18n';
 import { useTranslation } from "react-i18next";
 import {useState} from "react";
-import Text from "../components/atoms/text";
 
 const Home = () => {
     const [locale, setLocale] = useState(i18n.language);
-    i18n.on('languageChanged', (lng) => setLocale(i18n.language));
+    i18n.on('languageChanged', () => setLocale(i18n.language));
     ResetStates();
 
   const changeLocale = (l: string) =>  {
@@ -24,7 +23,6 @@ const Home = () => {
         <>
             <Navbar/>
             <div className='home'>
-                <Text></Text>
                 <div className='imageDiv'>
                     <button onClick={() => changeLocale('en')}>English </button>
                     <button onClick={() => changeLocale('no')}>Norsk </button>
@@ -43,18 +41,18 @@ const Home = () => {
                 />
                 <div className='infoCards'>
                     <InfoCard
-                        heading={'Valgomat'}
+                        heading={t('heading')}
                         text={t('aboutValgomat')}
                         subText={t('aboutValgomatSubText')}
-                        linkText={'Les mer om hvordan valgomaten fungerer her'}
+                        linkText={t('linkTextValgomat')}
                         link={'/info'}
                         singlePageLink={true}
                     />
                 </div>
                 <div className='infoCards'>
                     <InfoCard
-                        heading={'Kontakt'}
-                        text={'Følg våre sosiale medier:'}
+                        heading={t('headingContact')}
+                        text={t('headingSoMe')}
                         link={'https://www.linkedin.com/company/accenture-nordics/'}
                         linkText={'Linkedin'}
                     />
