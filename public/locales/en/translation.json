@@ -26,5 +26,18 @@
   "q7": "Dummy English q",
   "q8": "Dummy English q",
   "q9": "Dummy English q",
-  "q10": "Dummy English q"
+  "q9Shared": "Dummy English",
+  "q10": "Dummy English q",
+  "alertBackTitle": "Dummy English",
+  "alertBack": "Dummy English",
+  "alertConfirm": "Yes",
+  "alertDeny": "No",
+  "alertFinishTitle": "Dummy English",
+  "alertFinish": "Dummy English",
+  "dynamicS1": "Dummy English",
+  "dynamicS2": "Dummy English",
+  "dynamicS3": "Dummy English",
+  "dynamicS4": "Dummy English",
+  "dynamicS5": "Dummy English",
+  "dynamicS6": "Dummy English"
 }

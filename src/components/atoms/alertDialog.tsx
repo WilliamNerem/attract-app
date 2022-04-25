@@ -11,6 +11,7 @@ import '../../styles/alertDialogFunction.style.css';
 import {Result} from "../organisms/result";
 import {useState} from "react";
 import {Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 interface alertDialogProps {
     end : boolean
     backToResult ?: boolean
@@ -37,6 +38,7 @@ export const AlertDialog = ({
     const isInfo = useSelector((state: State) => state.isInfoClicked);
     const subValgomatInProgress = useSelector((state: State) => state.subValgomatInProgress);
     const isShowAlertDialog = useSelector((state: State) => state.showAlertDialog);
+    const { t } = useTranslation();
 
     const handleClose = () => {
         if (counter === 0) {
@@ -104,16 +106,16 @@ export const AlertDialog = ({
                     aria-describedby="alert-dialog-description"
                 >
                     <DialogTitle id="alert-dialog-title">
-                        {"Tilbake til resultatsiden?"}
+                        {t('alertBackTitle')}
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description" data-testid={'backToResultAlertDialogText'}>
-                            Er du sikker på at du vil gå tilbake til resultatsiden?
+                            {t('alertBack')}
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <a data-testid={'noButton'} className='alertButton' onClick={() => handleClose()}>Nei</a>
-                        <a data-testid={'yesButton'} className='alertButton' onClick={() => {handleBackToResult()}}>Ja</a>
+                        <a data-testid={'noButton'} className='alertButton' onClick={() => handleClose()}>{t('alertDeny')}</a>
+                        <a data-testid={'yesButton'} className='alertButton' onClick={() => {handleBackToResult()}}>{t('alertConfirm')}</a>
                     </DialogActions>
                 </Dialog>
             </div>

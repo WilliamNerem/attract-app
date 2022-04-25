@@ -81,7 +81,7 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 3,
             questionType: 'likertScale',
-            questionTxt: "Jeg har lyst til å være med på å bestemme hvordan et produkt skal se ut",
+            questionTxt: t('q3'),
             progress: 30,
             characteristic: creative,
             isReversed: false
@@ -89,7 +89,7 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 4,
             questionType: 'statementOrder',
-            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg ved å trykke på pilene",
+            questionTxt: t('q4'),
             progress: 40,
             sharedWords: '',
             isStatement: true,
@@ -98,7 +98,7 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 5,
             questionType: 'likertScale',
-            questionTxt: "Jeg har god formidlingsevne",
+            questionTxt: t('q5'),
             progress: 50,
             characteristic: social,
             isReversed: false
@@ -106,7 +106,7 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 6,
             questionType: 'likertScale',
-            questionTxt: "Jeg er flink til å se forskjellige måter en oppgave kan løses på",
+            questionTxt: t('q6'),
             progress: 60,
             characteristic: creative,
             isReversed: false
@@ -114,7 +114,7 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 7,
             questionType: 'imageSelection',
-            questionTxt: "Velg den klesstilen du ville foretrukket på jobb",
+            questionTxt: t('q7'),
             progress: 70,
             isImageSelection: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
@@ -123,7 +123,7 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 8,
             questionType: 'likertScale',
-            questionTxt: "Jeg ser viktigheten av å utføre gode brukertester",
+            questionTxt: t('q8'),
             progress: 80,
             characteristic: practical,
             isReversed: false
@@ -131,16 +131,16 @@ export const QuestionsPartOne = () => {
         {
             questionNumber: 9,
             questionType: 'statementOrder',
-            questionTxt: "Sett påstandene i rekkefølge etter hva som passer best for deg ved å trykke på pilene",
+            questionTxt: t('q9'),
             progress: 90,
-            sharedWords: 'Jeg kunne tenkt meg å',
+            sharedWords: t('q9Shared'),
             isStatement: true,
             statementArr: statements2
         },
         {
             questionNumber: 10,
             questionType: 'likertScale',
-            questionTxt: "Jeg har ikke problemer med at arbeidet mitt blir kvalitetssikret og at jeg får tilbakemeldinger om hva som kunne vært gjort bedre",
+            questionTxt: t('q10'),
             progress: 100,
             characteristic: social,
             isReversed: false
