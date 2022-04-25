@@ -18,6 +18,7 @@ import {ShowExplanation} from "../components/molecule/showExplanation";
 import Backdrop from "@mui/material/Backdrop";
 import {Result} from "../components/organisms/result";
 import {ImageSelection} from "../components/atoms/imageSelection";
+import {useTranslation} from "react-i18next";
 
 const Valgomat = () => {
     const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const Valgomat = () => {
     const [transition, setTransition] = useState(true);
     const [className, setClassname] = useState('initializeTransition');
     const [open, setOpen] = useState(false);
+    const { t } = useTranslation();
     const userDifferences: number[] = [];
     valgomatIsInProgress(true);
 
@@ -100,7 +102,7 @@ const Valgomat = () => {
         setOpen(true);
     };
 
-    for (let questions of QuestionsPartOne()) {
+    for (let questions of QuestionsPartOne(t)) {
         if (counter === questions.questionNumber) {
             return (
                 <div className='bodyValgomat' data-testid={'valgomat'}>
@@ -140,8 +142,8 @@ const Valgomat = () => {
             )
         }
 
-        if (counter >= QuestionsPartOne().length + 1) { // When last question is asked or when
-            const dynamicCounter = QuestionsPartOne().length + 2;
+        if (counter >= QuestionsPartOne(t).length + 1) { // When last question is asked or when
+            const dynamicCounter = QuestionsPartOne(t).length + 2;
             let totalPoints: number[] = [];
 
             userDifferences.map((differenceCharacteristic, index) => {
