@@ -13,13 +13,14 @@ describe('Email dep sender render', () => {
         );
     });
 
-    it('should render input box when checkbox is checked', () => {
+    it('should render input box when checkbox is checked', async () => {
         const { getByTestId } = render(
             <EmailDepSender totalPointsArray={[5, 6, 7]} />
         );
         expect(getByTestId('emailForm')).toHaveStyle('height: 0');
         fireEvent.click(getByTestId('emailCheckbox'));
-        expect(getByTestId('emailForm')).toHaveStyle('height: 120px');
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        expect(getByTestId('emailForm')).toHaveStyle('height: auto');
         fireEvent.click(getByTestId('emailCheckbox'));
         expect(getByTestId('emailForm')).toHaveStyle('height: 0');
     });
