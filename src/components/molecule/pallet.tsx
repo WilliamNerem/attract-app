@@ -1,5 +1,5 @@
 import React from "react";
-import {SinglePallet} from "./singlePallet";
+import {SinglePallet} from "../atoms/singlePallet";
 import { departments } from '../../departments'
 
 interface palletProps {

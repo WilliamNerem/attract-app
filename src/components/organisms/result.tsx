@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import { Button } from "../atoms/button";
 import '../../styles/result.style.css';
 import {ResultText} from "../atoms/resultText";
-import {Pallet} from "../atoms/pallet";
+import {Pallet} from "../molecule/pallet";
 import {InfoCard} from "../atoms/infoCard";
 import {Navbar} from "../molecule/navbar";
 import {departments} from "../../departments";
