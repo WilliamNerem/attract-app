@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {useTranslation} from "react-i18next";
 export const NotFoundPage = () => {
+    const { t } = useTranslation();
     return(
         <div>
             <h2 style={{textAlign:"center"}}>
-                En feil oppsto! Klikk <Link to="/">her</Link> for å gå tilbake til forsiden
+                {t('invalidPage1')} <Link to="/">{t('invalidPage2')}</Link> {t('invalidPage3')}
             </h2>
         </div>
     );

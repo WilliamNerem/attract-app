@@ -2,17 +2,19 @@ import React, {useState} from 'react';
 import '../../styles/valgomatButton.style.css'
 import {useSelector} from "react-redux";
 import {State} from "../../redux";
+import {useTranslation} from "react-i18next";
 
 interface valgomatButtonProps {
     nextTransition: Function
 }
 
 export const ValgomatButton = ({nextTransition}: valgomatButtonProps) => {
+    const { t } = useTranslation();
     const counter = useSelector((state: State) => state.questionCounter);
     const [disableButton, setDisableButton] = useState(false);
-    let lastText = 'Forrige';
+    let lastText = t('valgomatButtonPrevious');
     if (counter === 1){
-        lastText = 'Hjem';
+        lastText = t('valgomatButtonHome');
     }
 
     const next = () => {
@@ -38,7 +40,7 @@ export const ValgomatButton = ({nextTransition}: valgomatButtonProps) => {
     return (
         <div className="valgomatButtons">
             <button className='valgomatButton' onClick={last}>{lastText}</button>
-            <button className='valgomatButton' onClick={next}>Neste</button>
+            <button className='valgomatButton' onClick={next}>{t('valgomatButtonNext')}</button>
         </div>
     );
 

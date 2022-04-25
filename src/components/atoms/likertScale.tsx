@@ -3,6 +3,7 @@ import '../../styles/likertScale.style.css'
 import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators, State} from "../../redux";
+import {useTranslation} from "react-i18next";
 
 interface likertScaleProps {
     questionNumber: number
@@ -13,6 +14,7 @@ interface likertScaleProps {
 export const LikertScale = ({questionNumber, characteristic, isReversed}: likertScaleProps) => {
     const likertState = useSelector((state: State) => state.likertAnswer);
     const dispatch = useDispatch();
+    const { t } = useTranslation();
     const {
         stronglyDisagree,
         moderatlyDisagree,
@@ -102,11 +104,11 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
                     <span id="slider"/>
                 </div>
                 <div className='likertText'>
-                    <p className='text'>Helt uenig</p>
+                    <p className='text'>{t('likertDisagree')}</p>
                     <div className='textDivider'/>
-                    <p className='text'>Nøytral</p>
+                    <p className='text'>{t('likertNeutral')}</p>
                     <div className='textDivider'/>
-                    <p className='text'>Helt enig</p>
+                    <p className='text'>{t('likertAgree')}</p>
                 </div>
             </div>
         );
@@ -169,11 +171,11 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
                         <span id="slider"/>
                     </div>
                     <div className='likertText'>
-                        <p className='text'>Helt uenig</p>
+                        <p className='text'>{t('likertDisagree')}</p>
                         <div className='textDivider'/>
-                        <p className='text'>Nøytral</p>
+                        <p className='text'>{t('likertNeutral')}</p>
                         <div className='textDivider'/>
-                        <p className='text'>Helt enig</p>
+                        <p className='text'>{t('likertAgree')}</p>
                     </div>
                 </div>
         )
