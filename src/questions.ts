@@ -1,11 +1,10 @@
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
-import {useTranslation} from "react-i18next";
+import {TFunction} from "i18next";
 
 
-export const QuestionsPartOne = () => {
-    const { t } = useTranslation();
+export const QuestionsPartOne = (t: TFunction) => {
     const dispatch = useDispatch();
     const {
         social,

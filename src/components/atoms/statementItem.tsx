@@ -5,6 +5,7 @@ import {bindActionCreators} from "redux";
 import {actionCreators, State} from "../../redux";
 import {QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech, QuestionsPartOne} from "../../questions";
 import {useTransition, animated} from 'react-spring'
+import {useTranslation} from "react-i18next";
 
 interface statementItemProps {
     key: number
@@ -25,11 +26,12 @@ interface statementItemProps {
 export const StatementItem = ({index, positionInStatementOrder, position, transitionPx, handleTransition, transitionValues, questionArray}: statementItemProps) => {
     const counter = useSelector((state: State) => state.questionCounter);
     const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
+    const { t } = useTranslation();
 
     let arrayLength = questionArray?.length;
     let statementArray = questionArray;
     if(counterPartTwo === 1) {
-        statementArray = QuestionsPartOne()[counter - 1].statementArr;
+        statementArray = QuestionsPartOne(t)[counter - 1].statementArr;
     }
     if(arrayLength === 7) { // Has to hardcode this and needs to be changed if size increases
         statementArray = QuestionsDataSC()[counterPartTwo - 1].statementArr;
