@@ -96,6 +96,16 @@ a {
     border: 0;
     white-space: nowrap;
     margin: .938rem .625rem;
+    transition: linear .2s;
+    cursor: pointer;
+}
+
+.btn-goToSubDep:active {
+    transform: translateY(-5px) translateX(-5px);
+}
+
+.btn-goToSubDep:hover {
+    transform: translateY(-5px) translateX(-5px);
 }
 
 .btn-goToSubDep-behind {
@@ -140,7 +150,7 @@ a {
 }
 
 /* styling for desktop */
-@media screen and (min-width: 1200px){
+@media only screen and (min-width: 1200px){
 
     .minimized {
         width: 100% !important;
@@ -156,5 +166,11 @@ a {
     .infoCardHeading {
         font-size: 25px;
         font-family: "Graphik Black", Arial, sans-serif;
+    }
+}
+
+@media only screen and (min-width: 1310px){
+    .btn-goToSubDep-behind {
+        width: 54%;
     }
 }

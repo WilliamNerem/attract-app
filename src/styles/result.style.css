@@ -9,7 +9,7 @@
 
 .gradientDiv{
     height: 300px;
-    padding-top: 75px;
+    padding-top: 75px !important;
     background-image: url("../images/Accenture_Gradient1.jpg");
     background-size: cover;
 }
@@ -133,6 +133,17 @@ h3 {
     margin: 0.938rem 0.625rem;
 }
 
+.btn:active {
+    border: 4px solid #7500c0;
+    color: white;
+    background-color: #7500c0;
+}
+
+.btn:hover {
+    border: 4px solid #7500c0;
+    color: white;
+    background-color: #7500c0;
+}
 
 .wrapper{
     height: fit-content;
@@ -185,6 +196,7 @@ h3 {
     background-size: 21px 30px;
     right: 0;
     z-index: 5;
+    cursor: pointer;
 }
 
 .rightArrow:active{
@@ -202,6 +214,7 @@ h3 {
     background-size: 21px 30px;
     left: 0;
     z-index: 5;
+    cursor: pointer;
 }
 
 .leftArrow:active{
@@ -270,6 +283,7 @@ h3 {
     border: 1px solid #a100ff;
     border-radius: 3px;
     transition: background-color .5s;
+    cursor: pointer;
 }
 
 .emailCustomCheckBoxChecked{
@@ -295,11 +309,26 @@ h3 {
     font: 18px "Graphik Medium", Arial, sans-serif;
     background-color: white;
     transition: all 0.3s;
+    cursor: pointer;
+}
+
+.btnSendEmail:active {
+    border: 4px solid #7500c0;
+    color: white;
+    background-color: #7500c0;
+}
+
+.btnSendEmail:hover {
+    border: 4px solid #7500c0;
+    color: white;
+    background-color: #7500c0;
 }
 
 #email_submit:disabled{
     color: #96968c;
     border: 4px solid #96968c;
+    cursor: default;
+    background-color: white;
 }
 
 .inputEmail{
@@ -326,6 +355,23 @@ h3 {
     margin-top: 20px;
 }
 
+@media screen and (max-width: 349px){
+    .btnSendEmail{
+        margin: 10px 0 0 0;
+        display: block;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .leftCard {
+        transform: scale(0.6) translateX(-90vw);
+    }
+
+    .rightCard {
+        transform: scale(0.6) translateX(90vw);
+    }
+}
+
 @media screen and (min-width: 700px){
     .emailCustomCheckBox{
         left: 450px;
@@ -342,11 +388,68 @@ h3 {
     .emailTitleWrapper{
         justify-content: center;
     }
+
+    .leftCard {
+        transform: scale(0.6) translateX(-70vw);
+    }
+
+    .rightCard {
+        transform: scale(0.6) translateX(70vw);
+    }
 }
 
-@media screen and (max-width: 349px){
-    .btnSendEmail{
-        margin: 10px 0 0 0;
-        display: block;
+@media screen and (min-width: 1000px){
+    .leftCard {
+        transform: translateX(-32vw);
+    }
+
+    .rightCard {
+        transform: translateX(32vw);
+    }
+
+    .leftArrow {
+        display: none;
+    }
+
+    .rightArrow {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px){
+
+    .gradientDiv {
+        padding-top: 50px !important;
+        height: 400px !important;
+    }
+
+    .resultText {
+        font-family: "Graphik Black", Arial, sans-serif;
+        font-size: 65px;
+        margin-top: 0;
+    }
+
+    .singlePalletDiv {
+        width: 100px;
+    }
+}
+
+@media screen and (min-width: 1800px){
+    .leftCard {
+        transform: translateX(-25vw);
+    }
+
+    .rightCard {
+        transform: translateX(25vw);
+    }
+}
+
+@media screen and (min-width: 2000px){
+    .leftCard {
+        transform: translateX(-20vw);
+    }
+
+    .rightCard {
+        transform: translateX(20vw);
     }
 }
