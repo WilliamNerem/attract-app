@@ -3,9 +3,9 @@
     width: 100%;
     min-height: 60px;
     max-width: 70vw;
-    background-color: #f2f2f2;
-    border: .06em solid #ccc;
-    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 0 0 10px #ddd;
+    border-radius: 0.5rem;
     transition: ease .1s;
     display: flex;
     justify-content: center;
@@ -24,6 +24,7 @@
     float: right;
     height: 80px;
     width: 30%;
+    cursor: pointer;
 }
 
 .buttonUp{
@@ -59,6 +60,7 @@
     width: 100%;
     height: 100%;
     background-size: 30px 21px;
+    cursor: default;
 }
 
 .buttonDownGray{
@@ -66,6 +68,7 @@
     width: 100%;
     height: 100%;
     background-size: 30px 21px;
+    cursor: default;
 }
 
 .container {
@@ -75,14 +78,37 @@
     align-items: center;
     margin: 1rem auto;
     height: 106px;
+    justify-content: center;
 }
 
 .orderNumber {
     margin: 1rem;
+    font-family: "Graphik Medium", Arial, sans-serif;
+    font-size: 1.5rem;
 }
 
 @media (max-height: 640px) {
     .container{
         margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .buttonsContainer {
+        width: 10%;
+    }
+
+    .statement {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .statement {
+        width: 30%;
+    }
+
+    .buttonsContainer {
+        width: 5%;
     }
 }

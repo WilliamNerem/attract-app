@@ -25,10 +25,10 @@
     margin-top: 5rem;
 }
 
-.statementOrderSharedWords{
-    margin: 0 0 0 12vw;
+.statementOrderSharedWords {
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
 }
 
 .initializeTransition{
