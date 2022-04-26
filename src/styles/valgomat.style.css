@@ -22,7 +22,7 @@
 }
 
 .statementOrderMargin{
-    margin-top: 5rem;
+    margin-top: 1rem;
 }
 
 .statementOrderSharedWords {
@@ -197,11 +197,18 @@
     margin: 0 0 0 10px;
 }
 
-@media screen and (max-height: 745px) {
+@media screen and (min-height: 800px) {
     .statementOrderMargin{
-        margin-top: 1rem;
+        margin-top: 5rem;
     }
 }
+
+@media screen and (min-height: 1100px) {
+    .statementOrderMargin{
+        margin-top: 10rem;
+    }
+}
+
 
 @media screen and (max-width: 400px) {
     .dynamicButtonWrapper {
@@ -238,6 +245,10 @@
 
     .dynamicText {
         width: 40vw;
+    }
+
+    .statementOrderSharedWords {
+        font-size: 1.5rem;
     }
 }
 

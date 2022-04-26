@@ -105,10 +105,16 @@
 
 @media screen and (min-width: 1000px) {
     .statement {
-        width: 30%;
+        font-size: 1.25rem;
     }
 
     .buttonsContainer {
         width: 5%;
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .statement {
+        width: 30%;
     }
 }
