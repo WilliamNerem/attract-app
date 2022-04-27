@@ -23,7 +23,7 @@ const Info = () => {
             setOpenSubDep(true);
             setClassNameSubSC('subInfoOpen');
             setTimeout(() => {
-                setWrapperHeight('100vh');
+                setWrapperHeight('95vh');
             }, 500);
         }
         if(department === 'Interactive') {
@@ -31,7 +31,7 @@ const Info = () => {
             setClassNameSubInt('subInfoOpen');
             window.scrollTo({top: 0, behavior: "smooth"});
             setTimeout(() => {
-                setWrapperHeight('100vh');
+                setWrapperHeight('95vh');
             }, 500);
         }
         if(department === 'Technology') {
@@ -39,7 +39,7 @@ const Info = () => {
             setClassNameSubTech('subInfoOpen');
             window.scrollTo({top: 0, behavior: "smooth"});
             setTimeout(() => {
-                setWrapperHeight('100vh');
+                setWrapperHeight('95vh');
             }, 500);
         }
 
@@ -123,58 +123,58 @@ const Info = () => {
                         />
                     </div>
                 </div>
-            </div>
-            <div className='grayBackgroundInfo'>
-                <div className='headingValgomatInfo'>
-                    <h1 className='infoText'>Hvordan besvare valgomaten</h1>
-                    <p className='infoSubText'>Under finner du informasjon om hvordan du besvarer de ulike spørsmålstypene som blir brukt i valgomaten</p>
+                <div className='grayBackgroundInfo'>
+                    <div className='headingValgomatInfo'>
+                        <h1 className='infoText'>Hvordan besvare valgomaten</h1>
+                        <p className='infoSubText'>Under finner du informasjon om hvordan du besvarer de ulike spørsmålstypene som blir brukt i valgomaten</p>
+                    </div>
+                    <div className={'valgomatInfo-wrapper'}>
+                        <div className='infoCards firstValgomatCard'>
+                            <InfoCard
+                                heading='Likert skala'
+                                text={'Likert skalaen består av 5 knapper rangert fra helt uenig til helt enig. '+
+                                'Du skal trykke på knappen du mener passer best for deg med utgangspunkt i påstanden som står ovenfor. '+
+                                'Under ser du et eksempel på et svar som er "Litt enig".'}
+                                exampleImage={'likertScaleExampleImage'}
+                                subHeading='Eksempel:'
+                                isDropdown={true}
+                            />
+                        </div>
+                        <div className='infoCards'>
+                            <InfoCard
+                                heading='Rangering'
+                                text={'Rangering består av 3 påstander der du skal rangere disse basert på hvilken du føler passer deg best. '+
+                                'For å rangere påstandene skal trykker du på pilene ved siden av. Trykk pil opp for å flytte påstanden opp og pil ned for å flytte den ned. '+
+                                'Under ser du et eksempel på en besvarelse.'}
+                                subHeading='Eksempel:'
+                                exampleImage='statementOrderExampleImage'
+                                isDropdown={true}
+                            />
+                        </div>
+                        <div className='infoCards'>
+                            <InfoCard
+                                heading='Bildevalg'
+                                text={'Bildevalg består av 3 bilder der du skal velge det bildet du føler passer deg best. '+
+                                'Under ser du et eksempel på en besvarelse der personen foretrekker sykkel som transportmiddel.'}
+                                subHeading='Eksempel:'
+                                exampleImage='imageSelectionExampleImage'
+                                isDropdown={true}
+                            />
+                        </div>
+                        <div className='infoCards'>
+                            <InfoCard
+                                heading='Resultat'
+                                text={'Resultatet viser din score for hver avdeling. Du ser en pall med første-, andre- og '+
+                                'tredjeplass i tillegg til prosentandelen hver avdeling passer deg. Det er også informasjon om hver avdeling '+
+                                'under pallen der du kan klikke på pilene for å lese om de andre avdelingene'}
+                                subHeading='Eksempel:'
+                                exampleImage='resultExampleImage'
+                                isDropdown={true}
+                            />
+                        </div>
+                    </div>
+                    <Footer/>
                 </div>
-                <div className={'valgomatInfo-wrapper'}>
-                    <div className='infoCards firstValgomatCard'>
-                        <InfoCard
-                            heading='Likert skala'
-                            text={'Likert skalaen består av 5 knapper rangert fra helt uenig til helt enig. '+
-                            'Du skal trykke på knappen du mener passer best for deg med utgangspunkt i påstanden som står ovenfor. '+
-                            'Under ser du et eksempel på et svar som er "Litt enig".'}
-                            exampleImage={'likertScaleExampleImage'}
-                            subHeading='Eksempel:'
-                            isDropdown={true}
-                        />
-                    </div>
-                    <div className='infoCards'>
-                        <InfoCard
-                            heading='Rangering'
-                            text={'Rangering består av 3 påstander der du skal rangere disse basert på hvilken du føler passer deg best. '+
-                            'For å rangere påstandene skal trykker du på pilene ved siden av. Trykk pil opp for å flytte påstanden opp og pil ned for å flytte den ned. '+
-                            'Under ser du et eksempel på en besvarelse.'}
-                            subHeading='Eksempel:'
-                            exampleImage='statementOrderExampleImage'
-                            isDropdown={true}
-                        />
-                    </div>
-                    <div className='infoCards'>
-                        <InfoCard
-                            heading='Bildevalg'
-                            text={'Bildevalg består av 3 bilder der du skal velge det bildet du føler passer deg best. '+
-                            'Under ser du et eksempel på en besvarelse der personen foretrekker sykkel som transportmiddel.'}
-                            subHeading='Eksempel:'
-                            exampleImage='imageSelectionExampleImage'
-                            isDropdown={true}
-                        />
-                    </div>
-                    <div className='infoCards'>
-                        <InfoCard
-                            heading='Resultat'
-                            text={'Resultatet viser din score for hver avdeling. Du ser en pall med første-, andre- og '+
-                            'tredjeplass i tillegg til prosentandelen hver avdeling passer deg. Det er også informasjon om hver avdeling '+
-                            'under pallen der du kan klikke på pilene for å lese om de andre avdelingene'}
-                            subHeading='Eksempel:'
-                            exampleImage='resultExampleImage'
-                            isDropdown={true}
-                        />
-                    </div>
-                </div>
-                <Footer/>
             </div>
             <Backdrop
                 open={openSubDep}

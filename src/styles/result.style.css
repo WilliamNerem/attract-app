@@ -365,6 +365,7 @@ h3 {
     transition-property: left, right;
     transition-duration: .7s;
     transition-timing-function: ease-in-out;
+    width: 100%;
 }
 
 .subInfoOpen{
@@ -377,6 +378,7 @@ h3 {
     transition-duration: .7s;
     transition-timing-function: ease-in-out;
     overflow: scroll;
+    width: 100%;
 }
 
 @media screen and (max-width: 349px){

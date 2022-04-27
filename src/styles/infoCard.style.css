@@ -125,12 +125,12 @@ a {
     padding: .938em .938em;
     font-size: .875em;
     line-height: 1em;
-    width: 70%;
+    width: 190px;
 }
 
 .btn-goToSubDep-wrapper {
     position: relative;
-    z-index: 10;
+    z-index: 1;
     border-radius: 0;
     transition: all .3s ease-out;
     display: block;
@@ -163,7 +163,7 @@ a {
 /* styling for desktop */
 @media only screen and (min-width: 1200px){
 
-    .minimized {
+    .minimized, .minimizedLongText {
         width: 100% !important;
         margin-bottom: 4rem;
         max-height: 60px;
@@ -177,11 +177,5 @@ a {
     .infoCardHeading {
         font-size: 25px;
         font-family: "Graphik Black", Arial, sans-serif;
-    }
-}
-
-@media only screen and (min-width: 1310px){
-    .btn-goToSubDep-behind {
-        width: 54%;
     }
 }

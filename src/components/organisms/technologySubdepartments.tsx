@@ -17,18 +17,20 @@ export const TechnologySubDepartments = ({close}: props) => {
                     <h1 className='infoText'>Technology sine underavdelinger</h1>
                     <p className='infoSubText'>Under finner du informasjon om underavdelingene i Technology</p>
                 </div>
-                <InfoCard heading='CIE' text='text' isDropdown={true}/>
-                <div className='infoCards'>
-                    <InfoCard heading='IPS' text='text' isDropdown={true}/>
+                <div className={'info-wrapper'}>
+                    <div className='infoCards firstValgomatCard'>
+                        <InfoCard heading='CIE' text='text' isDropdown={true}/>
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard heading='IPS' text='text' isDropdown={true}/>
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard heading='IPD' text='text' isDropdown={true}/>
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard heading='Security' text='text' isDropdown={true}/>
+                    </div>
                 </div>
-                <div className='infoCards'>
-                    <InfoCard heading='IPD' text='text' isDropdown={true}/>
-                </div>
-                <div className='infoCards'>
-                    <InfoCard heading='Security' text='text' isDropdown={true}/>
-                </div>
-                <br/>
-                <br/>
             </div>
         </>
     )

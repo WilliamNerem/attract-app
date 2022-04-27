@@ -35,7 +35,6 @@
 
 .grayBackgroundInfo{
     text-align: center;
-    padding-bottom: 48px;
     background: #f2f2f2;
     width: 100%;
 }
@@ -66,6 +65,7 @@
     width: 18px;
     height: 26px;
     background-size: 18px 26px;
+    cursor: pointer;
 }
 
 .backText{
@@ -73,6 +73,7 @@
     font-weight: bold;
     font-size: 18px;
     margin: 0 0 0 8px;
+    cursor: pointer;
 }
 
 /* styling for desktop */
