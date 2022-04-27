@@ -5,6 +5,7 @@
     width: 100vw;
     text-align: center;
     height: fit-content;
+    overflow: hidden;
 }
 
 .gradientDiv{
@@ -146,8 +147,8 @@ h3 {
 }
 
 .wrapper{
-    height: fit-content;
     overflow: hidden;
+    position: relative;
 }
 
 .carousel{
@@ -353,6 +354,29 @@ h3 {
 
 .contact-form{
     margin-top: 20px;
+}
+
+.subInfoClosed{
+    position: absolute;
+    left: 100vw;
+    min-height: 100%;
+    z-index: 9;
+    background-color: white;
+    transition-property: left, right;
+    transition-duration: .7s;
+    transition-timing-function: ease-in-out;
+}
+
+.subInfoOpen{
+    position: absolute;
+    left: 0;
+    height: 100vh;
+    z-index: 9;
+    background-color: white;
+    transition-property: left, right;
+    transition-duration: .7s;
+    transition-timing-function: ease-in-out;
+    overflow: scroll;
 }
 
 @media screen and (max-width: 349px){

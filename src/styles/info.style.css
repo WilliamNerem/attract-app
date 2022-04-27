@@ -3,6 +3,8 @@
     width: 100%;
     text-align: center;
     height: auto;
+    overflow: hidden;
+    position: relative;
 }
 
 .gradientDiv{
@@ -47,6 +49,30 @@
     color: white;
     padding-top: 50px;
     padding-bottom: 80px;
+}
+
+.backToResult{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 20px;
+    left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.backArrowWhite{
+    background: transparent url("../Icons/back_arrow_white.svg") no-repeat center;
+    width: 18px;
+    height: 26px;
+    background-size: 18px 26px;
+}
+
+.backText{
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 0 0 8px;
 }
 
 /* styling for desktop */

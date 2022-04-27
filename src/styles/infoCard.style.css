@@ -22,10 +22,17 @@
     transition: max-height 600ms ease-out;
 }
 
+.minimizedLongText{
+    max-height: 80px;
+    transition: max-height 600ms ease-out;
+}
+
 .infoCardHeading{
     font-size: 20px;
     font-family: "Graphik Black", Arial, sans-serif;
     display: inline-block;
+    width: 90%;
+    margin-right: 5%;
 }
 
 .infoCardSubHeading{
@@ -40,7 +47,6 @@
     background-size: 15px 15px;
     display: inline-block;
     float: right;
-    margin-top: 20px;
 }
 
 .dropdownIconStandard{
@@ -143,6 +149,11 @@ a {
     display: inline-block;
     position: absolute;
     margin-left: 10px;
+}
+
+.infoCardDropdown{
+    display: flex;
+    align-items: center;
 }
 
 .dropdown {
