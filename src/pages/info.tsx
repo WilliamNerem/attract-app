@@ -25,7 +25,7 @@ const Info = () => {
             setOpenSubDep(true);
             setClassNameSubSC('subInfoOpen');
             setTimeout(() => {
-                setWrapperHeight('100vh');
+                setWrapperHeight('95vh');
             }, 500);
         }
         if(department === 'Interactive') {
@@ -33,7 +33,7 @@ const Info = () => {
             setClassNameSubInt('subInfoOpen');
             window.scrollTo({top: 0, behavior: "smooth"});
             setTimeout(() => {
-                setWrapperHeight('100vh');
+                setWrapperHeight('95vh');
             }, 500);
         }
         if(department === 'Technology') {
@@ -41,7 +41,7 @@ const Info = () => {
             setClassNameSubTech('subInfoOpen');
             window.scrollTo({top: 0, behavior: "smooth"});
             setTimeout(() => {
-                setWrapperHeight('100vh');
+                setWrapperHeight('95vh');
             }, 500);
         }
 
@@ -82,71 +82,83 @@ const Info = () => {
                     <h1 className='infoText'>{t('infoH1')}</h1>
                     <p className='infoSubText'>{t('infoH1Sub')}</p>
                 </div>
-                <InfoCard heading='Strategy & Consulting' text={t('infoCardTextSC')}
-                    linkText={t('infoCardLinkSC')}
-                    link='https://www.accenture.com/no-en/about/consulting-index'
-                    isDropdown={true}
-                    onButtonClick={() => onButtonClick('Strategy & Consulting')}
-                />
-                <div className='infoCards'>
-                    <InfoCard heading='Technology' text={t('infoCardTextTech')}
-                        linkText={t('infoCardLinkTect')}
-                        link='https://www.accenture.com/no-en/about/technology-index'
-                        isDropdown={true}
-                        onButtonClick={() => onButtonClick('Technology')}
-                    />
-                </div>
-                <div className='infoCards'>
-                    <InfoCard heading='Interactive' text={t('infoCardTextInteractive')}
-                        linkText={t('infoCardLinkInteractive')}
-                        link='https://www.accenture.com/no-en/about/accenture-interactive-index'
-                        isDropdown={true}
-                        onButtonClick={() => onButtonClick('Interactive')}
-                    />
+                <div className={'info-wrapper'}>
+                    <div className='infoCards firstValgomatCard'>
+                        <InfoCard
+                            heading='Strategy & Consulting'
+                            text={t('infoCardTextSC')}
+                            linkText={t('infoCardLinkSC')}
+                            link='https://www.accenture.com/no-en/about/consulting-index'
+                            isDropdown={true}
+                            onButtonClick={() => onButtonClick('Strategy & Consulting')}
+                        />
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard
+                            heading='Technology'
+                            text={t('infoCardTextTech')}
+                            linkText={t('infoCardLinkTect')}
+                            link='https://www.accenture.com/no-en/about/technology-index'
+                            isDropdown={true}
+                            onButtonClick={() => onButtonClick('Technology')}
+                        />
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard
+                            heading='Interactive'
+                            text={t('infoCardTextInteractive')}
+                            linkText={t('infoCardLinkInteractive')}
+                            link='https://www.accenture.com/no-en/about/accenture-interactive-index'
+                            isDropdown={true}
+                            onButtonClick={() => onButtonClick('Interactive')}
+                        />
+                    </div>
                 </div>
                 <div className='grayBackgroundInfo'>
                     <div className='headingValgomatInfo'>
                         <h1 className='infoText'>{t('infoH1Answer')}</h1>
                         <p className='infoSubText'>{t('infoH1AnswerSub')}</p>
                     </div>
-                    <div className='infoCards firstValgomatCard'>
-                        <InfoCard
-                            heading={t('explanationLikertHeading')}
-                            text={t('explanationLikert')}
-                            exampleImage={'likertScaleExampleImage'}
-                            subHeading={t('explanationExample')}
-                            isDropdown={true}
-                        />
+                    <div className={'valgomatInfo-wrapper'}>
+                        <div className='infoCards firstValgomatCard'>
+                            <InfoCard
+                                heading={t('explanationLikertHeading')}
+                                text={t('explanationLikert')}
+                                exampleImage={'likertScaleExampleImage'}
+                                subHeading={t('explanationExample')}
+                                isDropdown={true}
+                            />
+                        </div>
+                        <div className='infoCards'>
+                            <InfoCard
+                                heading={t('explanationStatementHeading')}
+                                text={t('explanationStatement')}
+                                subHeading={t('explanationExample')}
+                                exampleImage='statementOrderExampleImage'
+                                isDropdown={true}
+                            />
+                        </div>
+                        <div className='infoCards'>
+                            <InfoCard
+                                heading={t('explanationImageHeading')}
+                                text={t('explanationImage')}
+                                subHeading={t('explanationExample')}
+                                exampleImage='imageSelectionExampleImage'
+                                isDropdown={true}
+                            />
+                        </div>
+                        <div className='infoCards'>
+                            <InfoCard
+                                heading={t('explanationResultHeading')}
+                                text={t('explanationResult')}
+                                subHeading={t('explanationExample')}
+                                exampleImage='resultExampleImage'
+                                isDropdown={true}
+                            />
+                        </div>
                     </div>
-                    <div className='infoCards'>
-                        <InfoCard
-                            heading={t('explanationStatementHeading')}
-                            text={t('explanationStatement')}
-                            subHeading={t('explanationExample')}
-                            exampleImage='statementOrderExampleImage'
-                            isDropdown={true}
-                        />
-                    </div>
-                    <div className='infoCards'>
-                        <InfoCard
-                            heading={t('explanationImageHeading')}
-                            text={t('explanationImage')}
-                            subHeading={t('explanationExample')}
-                            exampleImage='imageSelectionExampleImage'
-                            isDropdown={true}
-                        />
-                    </div>
-                    <div className='infoCards'>
-                        <InfoCard
-                            heading={t('explanationResultHeading')}
-                            text={t('explanationResult')}
-                            subHeading={t('explanationExample')}
-                            exampleImage='resultExampleImage'
-                            isDropdown={true}
-                        />
-                    </div>
+                    <Footer/>
                 </div>
-                <Footer/>
             </div>
             <Backdrop
                 open={openSubDep}

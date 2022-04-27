@@ -17,15 +17,17 @@ export const InteractiveSubDepartments = ({close}: props) => {
                     <h1 className='infoText'>Interactive sine underavdelinger</h1>
                     <p className='infoSubText'>Under finner du informasjon om underavdelingene i Interactive</p>
                 </div>
-                <InfoCard heading='Build' text='text' isDropdown={true}/>
-                <div className='infoCards'>
-                    <InfoCard heading='Design' text='text' isDropdown={true}/>
+                <div className={'info-wrapper'}>
+                    <div className='infoCards firstValgomatCard'>
+                        <InfoCard heading='Build' text='text' isDropdown={true}/>
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard heading='Design' text='text' isDropdown={true}/>
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard heading='Communications' text='text' isDropdown={true}/>
+                    </div>
                 </div>
-                <div className='infoCards'>
-                    <InfoCard heading='Communications' text='text' isDropdown={true}/>
-                </div>
-                <br/>
-                <br/>
             </div>
         </>
     )

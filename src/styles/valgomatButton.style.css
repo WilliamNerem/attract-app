@@ -16,11 +16,26 @@
     display: inline-block;
     font: 18px "Graphik Medium", Arial, sans-serif;
     background-color: white;
-    transition: all 0.3s;
+    transition: all 0.3s ;
+    cursor: pointer;
 }
 
 .valgomatButton:active {
     border: 4px solid #7500c0;
     color: white;
     background-color: #7500c0;
+}
+
+/* styling for desktop */
+@media screen and (min-width: 1200px){
+
+    .valgomatButton {
+        width: 200px;
+    }
+
+    .valgomatButton:hover {
+        border: 4px solid #7500c0;
+        color: white;
+        background-color: #7500c0;
+    }
 }

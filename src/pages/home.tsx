@@ -21,14 +21,16 @@ const Home = () => {
                         <Link to="/valgomat" className='start' >{t('start')}</Link>
                     </div>
                 </div>
-                <InfoCard
-                    heading={'Accenture'}
-                    subHeading={t('subHeading')}
-                    text={t('aboutText')}
-                    subText={t('aboutSubText')}
-                    link={'https://www.accenture.com/no-en/about/company-index'}
-                    linkText={t('linkText')}
-                />
+                <div className='infoCards firstValgomatCard'>
+                    <InfoCard
+                        heading={'Accenture'}
+                        subHeading={t('subHeading')}
+                        text={t('aboutText')}
+                        subText={t('aboutSubText')}
+                        link={'https://www.accenture.com/no-en/about/company-index'}
+                        linkText={t('linkText')}
+                    />
+                </div>
                 <div className='infoCards'>
                     <InfoCard
                         heading={t('heading')}
