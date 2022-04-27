@@ -1,19 +1,83 @@
 import {Navbar} from "../components/molecule/navbar";
 import {ResetStates} from "../resetStates";
 import {InfoCard} from "../components/atoms/infoCard";
-import React from "react";
+import React, {useState} from "react";
 import '../styles/info.style.css'
 import {Footer} from "../components/molecule/footer";
 import {useTranslation} from "react-i18next";
+import Backdrop from "@mui/material/Backdrop";
+import {StrategyAndConsultingSubDepartments} from "../components/organisms/strategyAndConsultingSubdepartments";
+import {TechnologySubDepartments} from "../components/organisms/technologySubdepartments";
+import {InteractiveSubDepartments} from "../components/organisms/interactiveSubdepartments";
 
 const Info = () => {
+    const [openSubDep, setOpenSubDep] = useState(false);
+    const [classNameSubSC, setClassNameSubSC] = useState('subInfoClosed');
+    const [classNameSubTech, setClassNameSubTech] = useState('subInfoClosed');
+    const [classNameSubInt, setClassNameSubInt] = useState('subInfoClosed');
+    const [wrapperHeight, setWrapperHeight] = useState('auto');
     ResetStates();
     const { t } = useTranslation();
+
+    const onButtonClick = (department: string) => {
+        if(department === 'Strategy & Consulting') {
+            window.scrollTo({top: 0, behavior: "smooth"});
+            setOpenSubDep(true);
+            setClassNameSubSC('subInfoOpen');
+            setTimeout(() => {
+                setWrapperHeight('100vh');
+            }, 500);
+        }
+        if(department === 'Interactive') {
+            setOpenSubDep(true);
+            setClassNameSubInt('subInfoOpen');
+            window.scrollTo({top: 0, behavior: "smooth"});
+            setTimeout(() => {
+                setWrapperHeight('100vh');
+            }, 500);
+        }
+        if(department === 'Technology') {
+            setOpenSubDep(true);
+            setClassNameSubTech('subInfoOpen');
+            window.scrollTo({top: 0, behavior: "smooth"});
+            setTimeout(() => {
+                setWrapperHeight('100vh');
+            }, 500);
+        }
+
+    };
 
     return (
         <>
             <Navbar/>
-            <div className='info' data-testid={'infoPage'}>
+            <div className='info' data-testid={'infoPage'} style={{height: wrapperHeight}}>
+                <div className={classNameSubSC}>
+                    <StrategyAndConsultingSubDepartments close={() => {
+                        setClassNameSubSC('subInfoClosed');
+                        setWrapperHeight('auto');
+                        setTimeout(() => {
+                            setOpenSubDep(false);
+                        }, 300);
+                    }}/>
+                </div>
+                <div className={classNameSubTech}>
+                    <TechnologySubDepartments close={() => {
+                        setClassNameSubTech('subInfoClosed');
+                        setWrapperHeight('auto');
+                        setTimeout(() => {
+                            setOpenSubDep(false);
+                        }, 300);
+                    }}/>
+                </div>
+                <div className={classNameSubInt}>
+                    <InteractiveSubDepartments close={() => {
+                        setClassNameSubInt('subInfoClosed');
+                        setWrapperHeight('auto');
+                        setTimeout(() => {
+                            setOpenSubDep(false);
+                        }, 300);
+                    }}/>
+                </div>
                 <div className='gradientDiv'>
                     <h1 className='infoText'>{t('infoH1')}</h1>
                     <p className='infoSubText'>{t('infoH1Sub')}</p>
@@ -22,12 +86,14 @@ const Info = () => {
                     linkText={t('infoCardLinkSC')}
                     link='https://www.accenture.com/no-en/about/consulting-index'
                     isDropdown={true}
+                    onButtonClick={() => onButtonClick('Strategy & Consulting')}
                 />
                 <div className='infoCards'>
                     <InfoCard heading='Technology' text={t('infoCardTextTech')}
                         linkText={t('infoCardLinkTect')}
                         link='https://www.accenture.com/no-en/about/technology-index'
                         isDropdown={true}
+                        onButtonClick={() => onButtonClick('Technology')}
                     />
                 </div>
                 <div className='infoCards'>
@@ -35,6 +101,7 @@ const Info = () => {
                         linkText={t('infoCardLinkInteractive')}
                         link='https://www.accenture.com/no-en/about/accenture-interactive-index'
                         isDropdown={true}
+                        onButtonClick={() => onButtonClick('Interactive')}
                     />
                 </div>
                 <div className='grayBackgroundInfo'>
@@ -79,8 +146,12 @@ const Info = () => {
                         />
                     </div>
                 </div>
+                <Footer/>
             </div>
-            <Footer/>
+            <Backdrop
+                open={openSubDep}
+                style={{zIndex: 8}}
+            />
         </>
     )
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import {cleanup, render} from "@testing-library/react";
-import {Pallet} from "../../components/atoms/pallet";
+import {Pallet} from "../../components/molecule/pallet";
 
 
 // mocking of component render - not necessary unless error with "found multiple element with data-testid"

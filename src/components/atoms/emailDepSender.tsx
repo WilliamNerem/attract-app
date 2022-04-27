@@ -66,7 +66,7 @@ export const EmailDepSender = ({totalPointsArray} : emailDepSenderProps) => {
 
     useEffect(() => {
         if (checked) {
-            setHeight(120);
+            setHeight('auto');
         } else {
             setHeight(0);
         }
@@ -80,9 +80,11 @@ export const EmailDepSender = ({totalPointsArray} : emailDepSenderProps) => {
         <div className="emailSender" data-testid='emailSender'>
             <div className='emailDivider'/>
             <label htmlFor="emailCheckBox" id="checkLabel">
-                {t('emailCheckBox')}
-                <input id="emailCheckBox" type="checkbox" onChange={handleChange} data-testid='emailCheckbox'/>
-                <div className={`emailCustomCheckBox ${checked ? 'emailCustomCheckBoxChecked' : ''}`}/>
+                <div className='emailTitleWrapper' data-testid='emailCheckbox'>
+                    <p className='emailTitle'> {t('emailCheckBox')}</p>
+                    <input id="emailCheckBox" type="checkbox" onChange={handleChange}/>
+                    <div className={`emailCustomCheckBox ${checked ? 'emailCustomCheckBoxChecked' : ''}`}/>
+                </div>
             </label>
             <AnimateHeight
                 duration={500}

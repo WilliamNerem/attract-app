@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 
 const Home = () => {
     ResetStates();
+    window.scrollTo({top: 0});
     const { t } = useTranslation();
 
     return (
@@ -50,7 +51,6 @@ const Home = () => {
             <div className='bottomSpace'/>
             <Footer/>
         </>
-
     )
 };
 
