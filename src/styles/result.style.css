@@ -400,11 +400,17 @@ h3 {
 
 @media screen and (min-width: 1000px){
     .leftCard {
-        transform: translateX(-32vw);
+        transform: none;
+        position: unset;
     }
 
     .rightCard {
-        transform: translateX(32vw);
+        transform: none;
+        position: unset;
+    }
+
+    .middleCard {
+        position: unset;
     }
 
     .leftArrow {
@@ -413,6 +419,12 @@ h3 {
 
     .rightArrow {
         display: none;
+    }
+
+    .carousel {
+        display: flex;
+        justify-content: center;
+        column-gap: 20px;
     }
 }
 
@@ -429,27 +441,42 @@ h3 {
         margin-top: 0;
     }
 
-    .singlePalletDiv {
-        width: 100px;
-    }
-}
-
-@media screen and (min-width: 1800px){
-    .leftCard {
-        transform: translateX(-25vw);
+    div.singlePallet {
+        width: 150px;
     }
 
-    .rightCard {
-        transform: translateX(25vw);
-    }
-}
-
-@media screen and (min-width: 2000px){
-    .leftCard {
-        transform: translateX(-20vw);
+    .singlePalletPlacement {
+        font-size: 1.2em;
     }
 
-    .rightCard {
-        transform: translateX(20vw);
+    .palletPlacement {
+        font-size: 2.5em;
     }
+
+    .palletPlacementHeightFirst {
+        height: 136px;
+        max-height: 136px;
+    }
+
+    .palletPlacementHeightSecond {
+        height: 90px;
+    }
+
+    .palletPlacementHeightThird {
+        height: 54px;
+    }
+
+    .pallet {
+        width: 465px;
+        height: 192px;
+    }
+
+    #first {
+        left: 160px;
+    }
+
+    .percent {
+        font-size: 1.2em;
+    }
+
 }
