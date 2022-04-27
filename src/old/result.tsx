@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from "react";
+import React, {} from "react";
+/*
 import { Button } from "../atoms/button";
 import '../../styles/result.style.css';
 import {ResultText} from "../atoms/resultText";
@@ -17,7 +18,7 @@ import {ShowExplanation} from "../molecule/showExplanation";
 import Backdrop from "@mui/material/Backdrop";
 import {bindActionCreators} from "redux";
 import {useTranslation} from "react-i18next";
-
+// Old part two file, saved in case of wanting to do questions instead of info
 interface resultProps {
     totalPointsArray: any[]
 }
@@ -211,4 +212,4 @@ export const Result = ({totalPointsArray
             </div>
         );
     }
-};
+}; */

@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 const Home = () => {
     ResetStates();
     const { t } = useTranslation();
+
     return (
         <>
             <Navbar/>

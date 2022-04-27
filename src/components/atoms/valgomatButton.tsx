@@ -12,7 +12,7 @@ export const ValgomatButton = ({nextTransition}: valgomatButtonProps) => {
     const { t } = useTranslation();
     const counter = useSelector((state: State) => state.questionCounter);
     const [disableButton, setDisableButton] = useState(false);
-    let lastText = t('valgomatButtonPrevious');
+    let lastText = t('valgomatButtonPrev');
     if (counter === 1){
         lastText = t('valgomatButtonHome');
     }

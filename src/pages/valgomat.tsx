@@ -79,7 +79,7 @@ const Valgomat = () => {
     const checkDepartment = () => {
         let difference = 0;
 
-        for (let dep of departments) {
+        for (let dep of departments(t)) {
             difference = 0;
             difference += Math.abs(dep.social - (algoArray[0] + imageSelector[3].points));
             difference += Math.abs(dep.creative - (algoArray[1] + imageSelector[4].points));
@@ -111,7 +111,7 @@ const Valgomat = () => {
                         {
                             <div className={className} data-testid={'valgomatComponent'}>
                                 <InfoButton handleClick={handleClick}/>
-                                <h1 className='questionNumber'>Spørsmål {counter}</h1>
+                                <h1 className='questionNumber'>{t('questionPreText')} {counter}</h1>
                                 <Questions questionTxt={questions.questionTxt}/>
                                 {questions.isStatement ?
                                     <StatementOrder sharedWords={questions.sharedWords}/> : ''
@@ -147,7 +147,7 @@ const Valgomat = () => {
             let totalPoints: number[] = [];
 
             userDifferences.map((differenceCharacteristic, index) => {
-                const characteristicPoints = (differenceCharacteristic * (2 / departments[index].possibleDifference));  //Changed from characteristic being worth 1/3 of departmentpoints to being worth 1/2 because of new and better characteristic questions
+                const characteristicPoints = (differenceCharacteristic * (2 / departments(t)[index].possibleDifference));  //Changed from characteristic being worth 1/3 of departmentpoints to being worth 1/2 because of new and better characteristic questions
                 totalPoints = [...totalPoints, (departmentsArray[index].points + imageSelector[index].points) - characteristicPoints];
             });
 
@@ -171,13 +171,13 @@ const Valgomat = () => {
                             <Navbar/>
                             {
                                 <div className={className}>
-                                    <h1 className='questionNumber'>Spørsmål {counter}</h1>
-                                    <p className='valgomatQuestion'>Trykk på den påstanden som passer best</p>
+                                    <h1 className='questionNumber'>{t('questionPreText')} {counter}</h1>
+                                    <p className='valgomatQuestion'>{t('valgomatClaim')}</p>
                                     <DynamicQuestion firstDep={firstDep} secondDep={secondDep}/>
                                 </div>
                             }
                             <div className='dynamicFooter'>
-                                <button className='valgomatButton' onClick={() => handleTransition(false)}>Forrige</button>
+                                <button className='valgomatButton' onClick={() => handleTransition(false)}>{t('valgomatButtonPrev')}</button>
                             </div>
                         </div>
                     </>

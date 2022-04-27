@@ -12,6 +12,7 @@ import {actionCreators, State} from "../../redux";
 import {useEffect, useState} from "react";
 import {bindActionCreators} from "redux";
 import {ResultSubDepartment} from "./resultSubDepartment";
+import {useTranslation} from "react-i18next";
 
 interface valgoMatPartTwoProps {
     questionArray: any[]
@@ -22,6 +23,7 @@ interface valgoMatPartTwoProps {
 }
 
 export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive, setIsDepClicked}: valgoMatPartTwoProps) => {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const {
         increaseCounterPartTwo,
@@ -93,7 +95,7 @@ export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive, 
                         {
                             <div className={className} data-testid={'valgomatPartTwoComponent'}>
                                 <InfoButton handleClick={handleClick}/>
-                                <h1 className='questionNumber'>Spørsmål {counter}</h1>
+                                <h1 className='questionNumber'>{t('questionPreText')} {counter}</h1>
                                 <Questions questionTxt={questions.questionTxt}/>
                                 {questions.isStatement ? <StatementOrder questionArray={questionArray} sharedWords={questions.sharedWords}/> :
                                     <LikertScale questionNumber={questions.questionNumber}

@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react";
-import '../../styles/infoCard.style.css';
+import React, {} from "react";
+import '../../styles/infoCard.style.css'; /*
 import {Link} from "react-router-dom";
 import {SubDepartments} from "../../subDepartments";
 import {useTranslation} from "react-i18next";
-
+// Old part two file, saved in case of wanting to do questions instead of info
 interface infoCardProps {
     heading: string
     subHeading?: string
@@ -119,4 +119,4 @@ export const InfoCard = ({
             )}
         </div>
     );
-};
+}; */

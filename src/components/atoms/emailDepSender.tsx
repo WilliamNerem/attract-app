@@ -29,11 +29,11 @@ export const EmailDepSender = ({totalPointsArray} : emailDepSenderProps) => {
     }
 
     const depAtPlacement = (position: number) => {
-        return departments[depArr.indexOf(position)];
+        return departments(t)[depArr.indexOf(position)];
     };
-    emailString = 'Avdelingen du passer best inn i er ' + depAtPlacement(0).title + ', etterfulgt av ' + depAtPlacement(1).title + ' på andreplass og ' // Need to translate the email, not sure how
-        + depAtPlacement(2).title + ' på tredjeplass!' + '<br><br>'
-        + depAtPlacement(0).infoTextEmail + '<br>Hvis du ønsker å besøke hjemmesiden til ' + depAtPlacement(0).title + ' så kan du trykke her : '
+    emailString = t('emailString1') + depAtPlacement(0).title + t('emailString2') + depAtPlacement(1).title + t('emailString3')
+        + depAtPlacement(2).title + t('emailString4') + '<br><br>'
+        + depAtPlacement(0).infoTextEmail1 + '<br>' + depAtPlacement(0).infoTextEmail2 + '<br>' + t('emailString5') + depAtPlacement(0).title + t('emailString6')
         + depAtPlacement(0).link + '.';
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {

@@ -132,16 +132,16 @@ export const AlertDialog = ({
                     aria-describedby="alert-dialog-description"
                 >
                     <DialogTitle id="alert-dialog-title">
-                        {"Fullføre valgomaten?"}
+                        {t('alertFinishTitle')}
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description" data-testid={'endDialogText'}>
-                            Er du sikker på at du vil fullføre valgomaten?
+                            {t('alertFinish')}
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <a data-testid={'noButton'} className='alertButton' onClick={() => handleDecrease()}>Nei</a>
-                        <a data-testid={'yesButton'} className='alertButton' onClick={() => {setUpdate(true)}}>Ja</a>
+                        <a data-testid={'noButton'} className='alertButton' onClick={() => handleDecrease()}>{t('alertDeny')}</a>
+                        <a data-testid={'yesButton'} className='alertButton' onClick={() => {setUpdate(true)}}>{t('alertConfirm')}</a>
                     </DialogActions>
                 </Dialog>
             </div>
@@ -156,16 +156,16 @@ export const AlertDialog = ({
                     aria-describedby="alert-dialog-description"
                 >
                     <DialogTitle id="alert-dialog-title">
-                        {"Avslutte valgomaten?"}
+                        {t('alertQuitTitle')}
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description" data-testid={'progressDialogText'}>
-                            Er du sikker på at du vil avslutte valgomaten?
+                            {t('alertQuit')}
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <a data-testid={'noButton'} className='alertButton' onClick={handleClose}>Nei</a>
-                        {isInfo ? <Link data-testid={'yesButton'} className='alertButton' to='/info'>Ja</Link> : <a className='alertButton' href='/'>Ja</a>}
+                        <a data-testid={'noButton'} className='alertButton' onClick={handleClose}>{t('alertDeny')}</a>
+                        {isInfo ? <Link data-testid={'yesButton'} className='alertButton' to='/info'>Ja</Link> : <a className='alertButton' href='/'>{t('alertConfirm')}</a>}
                     </DialogActions>
                 </Dialog>
             </div>

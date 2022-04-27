@@ -23,7 +23,7 @@ export const ShowExplanation = ({questionType}: showExplanationProps) => {
         exampleImage = 'statementOrderExampleImage';
     } else if (questionType === 'imageSelection') {
         heading = t('explanationImageHeading');
-        text = t('explanationImageHeading');
+        text = t('explanationImage');
         exampleImage='imageSelectionExampleImage';
     } else {
         heading = t('explanationResultHeading');

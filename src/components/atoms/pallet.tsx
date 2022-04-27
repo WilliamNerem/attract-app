@@ -1,12 +1,14 @@
 import React from "react";
 import {SinglePallet} from "./singlePallet";
 import { departments } from '../../departments'
+import {useTranslation} from "react-i18next";
 
 interface palletProps {
     totalPointsArray: number[]
 }
 
 export const Pallet = ({totalPointsArray}: palletProps) => { // Strat is 0, tech is 1, inter is 2
+    const { t } = useTranslation();
     const sortedArr = totalPointsArray.slice().sort((a, b) => b - a).slice(0,3);
     const maximumPoints = 14; // 6 + 6 + 1 + 1 (Order + Order + Image + Image)
     let depArr: number[] = [] ;
@@ -17,7 +19,7 @@ export const Pallet = ({totalPointsArray}: palletProps) => { // Strat is 0, tech
     }
 
     const placement = (position: number) => {
-        return departments[depArr.indexOf(position)].name;
+        return departments(t)[depArr.indexOf(position)].name;
     };
 
     const percent = (position: number) => {
