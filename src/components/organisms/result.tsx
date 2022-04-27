@@ -10,6 +10,7 @@ import {InfoButton} from "../atoms/infoButton";
 import EmailDepSender from "../atoms/emailDepSender";
 import {ShowExplanation} from "../molecule/showExplanation";
 import Backdrop from "@mui/material/Backdrop";
+import {useTranslation} from "react-i18next";
 import {StrategyAndConsultingSubDepartments} from "./strategyAndConsultingSubdepartments";
 import {TechnologySubDepartments} from "./technologySubdepartments";
 import {InteractiveSubDepartments} from "./interactiveSubdepartments";
@@ -24,8 +25,9 @@ export const Result = ({totalPointsArray
     const [carousel, setCarousel] = useState({first: 'leftCard', second: 'middleCard', third: 'rightCard'});
     const [disabledButtons, setDisabledButtons] = useState('');
     const maxVal = Math.max(...totalPointsArray);
+    const { t } = useTranslation();
     const valPos = totalPointsArray.indexOf(maxVal);
-    const result = departments[valPos].name;
+    const result = departments(t)[valPos].name;
     const [open, setOpen] = useState(false);
     const [openSubDep, setOpenSubDep] = useState(false);
     const [classNameSubSC, setClassNameSubSC] = useState('subInfoClosed');
@@ -48,7 +50,7 @@ export const Result = ({totalPointsArray
     }
 
     const depAtPlacement = (position: number) => {
-        return departments[depArr.indexOf(position)];
+        return departments(t)[depArr.indexOf(position)];
     };
 
     const handleRightArrow = () => {
@@ -154,9 +156,9 @@ export const Result = ({totalPointsArray
                             heading={depAtPlacement(1).title}
                             link={depAtPlacement(1).link}
                             text={depAtPlacement(1).infoTextCard}
-                            subHeading={'Veien videre'}
+                            subHeading={t('resultSubHeading')}
                             subText={depAtPlacement(1).infoSubText}
-                            linkText={'Les mer om ' + depAtPlacement(1).title}
+                            linkText={t('resultSubText') + depAtPlacement(1).title}
                             onButtonClick={() => onButtonClick(depAtPlacement(1).title)}
                         />
                     </div>
@@ -165,9 +167,9 @@ export const Result = ({totalPointsArray
                             heading={depAtPlacement(0).title}
                             link={depAtPlacement(0).link}
                             text={depAtPlacement(0).infoTextCard}
-                            subHeading={'Veien videre'}
+                            subHeading={t('resultSubHeading')}
                             subText={depAtPlacement(0).infoSubText}
-                            linkText={'Les mer om ' + depAtPlacement(0).title}
+                            linkText={t('resultSubText') + depAtPlacement(0).title}
                             onButtonClick={() => onButtonClick(depAtPlacement(0).title)}
                         />
                     </div>
@@ -176,9 +178,9 @@ export const Result = ({totalPointsArray
                             heading={depAtPlacement(2).title}
                             link={depAtPlacement(2).link}
                             text={depAtPlacement(2).infoTextCard}
-                            subHeading={'Veien videre'}
+                            subHeading={t('resultSubHeading')}
                             subText={depAtPlacement(2).infoSubText}
-                            linkText={'Les mer om ' + depAtPlacement(2).title}
+                            linkText={t('resultSubText') + depAtPlacement(2).title}
                             onButtonClick={() => onButtonClick(depAtPlacement(2).title)}
                         />
                     </div>
@@ -187,7 +189,7 @@ export const Result = ({totalPointsArray
                 </div>
                 <EmailDepSender totalPointsArray={totalPointsArray}/>
                 <div className='buttonDiv'>
-                    <Button href='/' text='Tilbake til forsiden'/>
+                    <Button href='/' text={t('resultHome')}/>
                 </div>
             </div>
         </div>

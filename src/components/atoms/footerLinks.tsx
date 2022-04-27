@@ -1,7 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 export const FooterLinks = () => {
+    const { t } = useTranslation();
     return(
         <div className='links'>
             <div className='greaterThanDiv'>
@@ -10,9 +12,9 @@ export const FooterLinks = () => {
                 </a>
             </div>
             <div className='pagelinkDiv'>
-                <Link to={'/'} className='pagelink'>Hjem</Link>
-                <Link to={'/valgomat'} className='pagelink'>Valgomat</Link>
-                <Link to={'/info'} className='pagelink'>Informasjon</Link>
+                <Link to={'/'} className='pagelink'>{t('home')}</Link>
+                <Link to={'/valgomat'} className='pagelink'>{t('valgomat')}</Link>
+                <Link to={'/info'} className='pagelink'>{t('information')}</Link>
             </div>
             <div className='iconLinks'>
                 <a href={'https://www.linkedin.com/company/accenture-nordics/'} target={'_blank'} rel="noopener noreferrer" className='linkTag'>

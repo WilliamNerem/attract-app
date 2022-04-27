@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import '../../styles/infoCard.style.css';
 import {Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 interface infoCardProps {
     heading: string
@@ -30,6 +31,7 @@ export const InfoCard = ({
     const [className, setClassName] = useState('');
     const [iconClassName, setIconClassName] = useState('');
     const newLineText = text.split('¤').map((str) => <p>{str}</p>);
+    const { t } = useTranslation();
     const [isLongHeading, setIsLongHeading] = useState(false);
 
     useEffect(() => {
@@ -70,8 +72,8 @@ export const InfoCard = ({
             <p className={'infoCardText'}>{subText}</p>
             {onButtonClick && (
                 <div className='btn-goToSubDep-wrapper'>
-                    <button className={'btn-goToSubDep'} onClick={onButtonClick}>Underavdelinger</button>
-                    <div className={'btn-goToSubDep-behind'} aria-hidden={true}>Underavdelinger</div>
+                    <button className={'btn-goToSubDep'} onClick={onButtonClick}>{t('miniValgomat')}</button>
+                    <div className={'btn-goToSubDep-behind'} aria-hidden={true}>{t('miniValgomat')}</div>
                 </div>
             )}
             {link && (

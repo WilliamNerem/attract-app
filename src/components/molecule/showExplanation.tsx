@@ -1,38 +1,33 @@
 import {InfoCard} from "../atoms/infoCard";
 import React from "react";
+import {useTranslation} from "react-i18next";
 
 interface showExplanationProps {
     questionType: string
 }
 
 export const ShowExplanation = ({questionType}: showExplanationProps) => {
+    const { t } = useTranslation();
 
     let heading;
     let text;
     let exampleImage;
 
     if (questionType === 'likertScale'){
-        heading = 'Likert-skala';
-        text = 'Likert-skalaen består av 5 knapper fra helt uenig til helt enig. '+
-            'Du skal trykke på knappen du mener passer best for deg med utgangspunkt i spørsmålet som står ovenfor. '+
-            'Under ser du et eksempel av en person som har svart "Litt enig".';
+        heading = t('explanationLikertHeading');
+        text = t('explanationLikert');
         exampleImage = 'likertScaleExampleImage';
     } else if (questionType === 'statementOrder') {
-        heading = 'Rangering';
-        text = 'Rangering består av 3 påstander der du skal rangere disse basert på hvilken du føler passer deg best. '+
-            'For å rangere påstandene skal knappene trykkes på. Trykk pil opp for å flytte påstanden opp og pil ned for å flytte den ned. '+
-            'Under ser du et eksempel på en besvarelse.';
+        heading = t('explanationStatementHeading');
+        text = t('explanationStatement');
         exampleImage = 'statementOrderExampleImage';
     } else if (questionType === 'imageSelection') {
-        heading = 'Bildevalg';
-        text = 'Bildevalg består av 3 bilder der du skal velge det bildet du føler passer deg best. '+
-            'Under ser du et eksempel på en besvarelse der personen foretrekker sykkel som transportmiddel.';
+        heading = t('explanationImageHeading');
+        text = t('explanationImage');
         exampleImage='imageSelectionExampleImage';
     } else {
-        heading = 'Resultat';
-        text = 'Resultatet viser din score for hver avdeling. Du ser en pall med første-, andre- og '+
-            'tredjeplass i tillegg til prosentandelen hver avdeling passer deg. Det er også informasjon om hver avdeling '+
-            'under pallen der du kan klikke på pilene for å lese om de andre avdelingene';
+        heading = t('explanationResultHeading');
+        text = t('explanationResult');
         exampleImage = 'resultExampleImage';
     }
 
@@ -41,7 +36,7 @@ export const ShowExplanation = ({questionType}: showExplanationProps) => {
         <InfoCard
             heading={heading}
             text={text}
-            subHeading='Eksempel:'
+            subHeading={t('explanationExample')}
             exampleImage={exampleImage}
         />
     );

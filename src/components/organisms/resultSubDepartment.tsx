@@ -5,6 +5,7 @@ import {SubDepartments} from "../../subDepartments";
 import {ResultText} from "../atoms/resultText";
 import {InfoCard} from "../atoms/infoCard";
 import {AlertDialog} from "../atoms/alertDialog";
+import {useTranslation} from "react-i18next";
 
 interface resultSubDepProps {
     information: any[]
@@ -19,7 +20,8 @@ export const ResultSubDepartment = ({information, setIsDepClicked
     const [topThreeDep, setTopThreeDep] = useState([0, 0, 0]);
     const [backToResult, setBackToResult] = useState(false);
     const sortedArray = information.sort((a, b) => (a.points < b.points) ? 1 : -1); //sorts array that is sent in as prop, by points, finding the three with most points
-    const subDepArray = SubDepartments();
+    const { t } = useTranslation();
+    const subDepArray = SubDepartments(t);
 
     useEffect(() => {
         let arr: any[] | ((prevState: number[]) => number[]) = [];
@@ -72,7 +74,7 @@ export const ResultSubDepartment = ({information, setIsDepClicked
                 <div className='gradientDiv'>
                     <ResultText result={''}/>
                     <div className={'sub-dep'}>
-                    <p>{'Dette er de underavdelingene som kan passe deg:'}</p>
+                    <p>{t('subDivisionFit')}</p>
                         <ul>
                             <li>{subDepArray[topThreeDep[0]].title}</li>
                             <li>{subDepArray[topThreeDep[1]].title}</li>
@@ -86,9 +88,9 @@ export const ResultSubDepartment = ({information, setIsDepClicked
                             heading={subDepArray[topThreeDep[2]].title}
                             link={subDepArray[topThreeDep[2]].link}
                             text={subDepArray[topThreeDep[2]].infoText}
-                            subHeading={'Veien videre'}
+                            subHeading={t('resultSubHeading')}
                             subText={subDepArray[topThreeDep[2]].infoSubText}
-                            linkText={'Les mer om '+subDepArray[topThreeDep[2]].title}
+                            linkText={t('resultSubText') + subDepArray[topThreeDep[2]].title}
                         />
                     </div>
                     <div className={carousel.second+' middleCarouselItem'} data-testid='carouselFront'>
@@ -96,9 +98,9 @@ export const ResultSubDepartment = ({information, setIsDepClicked
                             heading={subDepArray[topThreeDep[0]].title}
                             link={subDepArray[topThreeDep[0]].link}
                             text={subDepArray[topThreeDep[0]].infoText}
-                            subHeading={'Veien videre'}
+                            subHeading={t('resultSubHeading')}
                             subText={subDepArray[topThreeDep[0]].infoSubText}
-                            linkText={'Les mer om '+subDepArray[topThreeDep[0]].title}
+                            linkText={t('resultSubText') + subDepArray[topThreeDep[0]].title}
                         />
                     </div>
                     <div className={carousel.third+' rightCarouselItem'}>
@@ -106,16 +108,16 @@ export const ResultSubDepartment = ({information, setIsDepClicked
                             heading={subDepArray[topThreeDep[1]].title}
                             link={subDepArray[topThreeDep[1]].link}
                             text={subDepArray[topThreeDep[1]].infoText}
-                            subHeading={'Veien videre'}
+                            subHeading={t('resultSubHeading')}
                             subText={subDepArray[topThreeDep[1]].infoSubText}
-                            linkText={'Les mer om '+subDepArray[topThreeDep[1]].title}
+                            linkText={t('resultSubText') + subDepArray[topThreeDep[1]].title}
                         />
                     </div>
                     <a className={disabledButtons+' leftArrow'} onClick={handleLeftArrow} />
                     <a className={disabledButtons+' rightArrow'} onClick={handleRightArrow} data-testid='rightArrow'/>
                 </div>
                 <div className='buttonDiv'>
-                    <button className={'btn-goToSubDep'} onClick={handleClick}>Tilbake til resultatsiden</button>
+                    <button className={'btn-goToSubDep'} onClick={handleClick}>{t('subResultHome')}</button>
                 </div>
             </div>
         </div>
