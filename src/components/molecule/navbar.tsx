@@ -27,6 +27,18 @@ export const Navbar = () => {
         }
     };
 
+    // Function for key press down for tab index
+    const handleKeyPress = (e: KeyboardEvent, isInfo: boolean) => {
+        if (e.key === "Enter" || e.key === "Space") {
+            if (inProgress) {
+                showAlertDialog(true);
+                isInfoClicked(isInfo);
+            } else {
+                isInfo ? navigate('/info') : navigate('/');
+            }
+        }
+    }
+
     useEffect(() => {
         if (hamburgerToggled) {
             setHeight('auto');
@@ -40,11 +52,43 @@ export const Navbar = () => {
     return(
         <div className='navMargin' data-testid={'navbar'}>
             <div className='nav'>
-                <a className={'navbar-item-logo'} onClick={() => handleClick(false)} data-testid={'navLogo'}><img className='logo' src={Acc_Logo_Black_Purple_RGB} alt='logo'/></a>
-                <a className={'navbar-item'} onClick={() => handleClick(false)}>Hjem</a>
-                <a className={'navbar-item'} onClick={() => handleClick(true)}>Informasjon</a>
-                <a className={'navbar-item'} href={'/valgomat'}>Valgomat</a>
-                <HamburgerMenu hamburgerToggled={hamburgerToggled} setHamburgerToggled={setHamburgerToggled} height={height}/>
+                <a
+                    className={'navbar-item-logo'}
+                    onClick={() => handleClick(false)}
+                    data-testid={'navLogo'}
+                >
+                    <img
+                        className='logo'
+                        src={Acc_Logo_Black_Purple_RGB}
+                        alt='logo'
+                        tabIndex={0}
+                    />
+                </a>
+                <a
+                    className={'navbar-item'}
+                    onClick={() => handleClick(false)}
+                    tabIndex={0}
+                >
+                    Hjem
+                </a>
+                <a
+                    className={'navbar-item'}
+                    onClick={() => handleClick(true)}
+                    tabIndex={0}
+                >
+                    Informasjon
+                </a>
+                <a
+                    className={'navbar-item'}
+                    href={'#/valgomat'}
+                >
+                    Valgomat
+                </a>
+                <HamburgerMenu
+                    hamburgerToggled={hamburgerToggled}
+                    setHamburgerToggled={setHamburgerToggled}
+                    height={height}
+                />
             </div>
             <Backdrop
                 sx={{ zIndex: 9 }}
