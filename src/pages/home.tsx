@@ -7,6 +7,7 @@ import {Footer} from "../components/molecule/footer";
 
 const Home = () => {
     ResetStates();
+    window.scrollTo({top: 0});
 
     const aboutText = 'Vårt formål er å innfri løftet om teknologi og menneskelig oppfinnsomhet. ' +
         'Vi hjelper våre kunder å bli den neste og beste versjonen av seg selv.';
