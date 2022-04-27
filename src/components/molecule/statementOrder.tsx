@@ -5,6 +5,7 @@ import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 import {StatementItem} from "../atoms/statementItem";
 import {QuestionsPartOne, QuestionsDataInteractive, QuestionsDataSC, QuestionsDataTech} from "../../questions";
+import {useTranslation} from "react-i18next";
 
 interface statementOrderProps {
     questionArray?: any[]
@@ -21,6 +22,7 @@ export const StatementOrder = ({questionArray, sharedWords}: statementOrderProps
         transitionDown: -1,
         startTransition: true
     });
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const { initializeStatementOrder, addStatementOrder } = bindActionCreators(actionCreators, dispatch);
 
@@ -28,7 +30,7 @@ export const StatementOrder = ({questionArray, sharedWords}: statementOrderProps
     let statementArr = questionArray;   // Can put below code into a function since it's duplicate with statementItem
     let currentCounter = counterPartTwo; // Have to switch between counter and counterPartTwo
     if(counterPartTwo === 1) {
-        statementArr = QuestionsPartOne()[counter - 1].statementArr;
+        statementArr = QuestionsPartOne(t)[counter - 1].statementArr;
         currentCounter = counter;
     }
     if(arrayLength === 7) { // Has to hardcode this and needs to be changed if size increases

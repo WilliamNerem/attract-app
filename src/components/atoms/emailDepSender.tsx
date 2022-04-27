@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 import {departments} from "../../departments";
 import AnimateHeight from "react-animate-height";
 import {PulseLoader} from "react-spinners";
+import {useTranslation} from "react-i18next";
 
 
 interface emailDepSenderProps {
@@ -20,6 +21,7 @@ export const EmailDepSender = ({totalPointsArray} : emailDepSenderProps) => {
     let emailString;
     const sortedArr = totalPointsArray.slice().sort((a, b) => b - a).slice(0,3);
     let depArr: number[] = [] ;
+    const { t } = useTranslation();
     depArr = [sortedArr.indexOf(totalPointsArray[0]), sortedArr.indexOf(totalPointsArray[1]), sortedArr.indexOf(totalPointsArray[2])]; //Index of strat, tech and inter
 
     if(sortedArr[1] === sortedArr[2]) {
@@ -27,11 +29,11 @@ export const EmailDepSender = ({totalPointsArray} : emailDepSenderProps) => {
     }
 
     const depAtPlacement = (position: number) => {
-        return departments[depArr.indexOf(position)];
+        return departments(t)[depArr.indexOf(position)];
     };
-    emailString = 'Avdelingen du passer best inn i er ' + depAtPlacement(0).title + ', etterfulgt av ' + depAtPlacement(1).title + ' på andreplass og '
-        + depAtPlacement(2).title + ' på tredjeplass!' + '<br><br>'
-        + depAtPlacement(0).infoTextEmail + '<br>Hvis du ønsker å besøke hjemmesiden til ' + depAtPlacement(0).title + ' så kan du trykke her : '
+    emailString = t('emailString1') + depAtPlacement(0).title + t('emailString2') + depAtPlacement(1).title + t('emailString3')
+        + depAtPlacement(2).title + t('emailString4') + '<br><br>'
+        + depAtPlacement(0).infoTextEmail1 + '<br>' + depAtPlacement(0).infoTextEmail2 + '<br>' + t('emailString5') + depAtPlacement(0).title + t('emailString6')
         + depAtPlacement(0).link + '.';
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,10 +45,10 @@ export const EmailDepSender = ({totalPointsArray} : emailDepSenderProps) => {
             e.currentTarget,  // This is the form itself
             'BlXHardObV5exxTHW')
             .then(() => {
-                setErrorMessage("Resultatet ble sendt!");
+                setErrorMessage(t('emailSent'));
                 setIsSending(false);
             }, () => {
-                setErrorMessage("Resultatet ble ikke sendt, prøv igjen senere");
+                setErrorMessage(t('emailDidntSend'));
                 setIsSending(false);
             });
     };
@@ -79,7 +81,7 @@ export const EmailDepSender = ({totalPointsArray} : emailDepSenderProps) => {
             <div className='emailDivider'/>
             <label htmlFor="emailCheckBox" id="checkLabel">
                 <div className='emailTitleWrapper' data-testid='emailCheckbox'>
-                    <p className='emailTitle'>Jeg ønsker å bli tilsendt resultatet på e-post</p>
+                    <p className='emailTitle'> {t('emailCheckBox')}</p>
                     <input id="emailCheckBox" type="checkbox" onChange={handleChange}/>
                     <div className={`emailCustomCheckBox ${checked ? 'emailCustomCheckBoxChecked' : ''}`}/>
                 </div>
@@ -94,8 +96,8 @@ export const EmailDepSender = ({totalPointsArray} : emailDepSenderProps) => {
                     onSubmit={sendEmail}
                 >
                     <div className='sendEmailWrapper'>
-                        <label htmlFor="user_email" id="emailLabel">Skriv inn din e-post:</label>
-                        <input type="email" onChange={e => validateEmail(e.currentTarget.value)} id="user_email" name="user_email" className="inputEmail" placeholder="dinepost@epost.com" data-testid='emailInput'/>
+                        <label htmlFor="user_email" id="emailLabel">{t('emailLabel')}</label>
+                        <input type="email" onChange={e => validateEmail(e.currentTarget.value)} id="user_email" name="user_email" className="inputEmail" placeholder={t('emailPlaceholder')} data-testid='emailInput'/>
                     </div>
                     <button disabled={isDisabled} type="submit" id="email_submit" data-testid='emailSend' className='btnSendEmail'>
                         {isSending ?

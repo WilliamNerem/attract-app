@@ -1,4 +1,4 @@
-import {useDispatch} from "react-redux";
+import {} from "react-redux";  /*
 import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
 import {TFunction} from "i18next";
@@ -405,4 +405,4 @@ export const QuestionsDataInteractive = () => {  // Questions ok for now
             statementArr: statements2,
         },
     ];
-};
+}; */

@@ -8,6 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
+import {useTranslation} from "react-i18next";
 
 
 interface DynamicQuestionProps {
@@ -20,6 +21,7 @@ export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => 
     const { technologyPoints, strategyAndConsultingPoints, interactivePoints, increaseCounter } = bindActionCreators(actionCreators, dispatch);
     const [update, setUpdate] = useState(false);
     const [alert, setAlert] = useState(<></>);
+    const { t } = useTranslation();
 
     let statement1 = '';
     let statement2 = '';
@@ -45,16 +47,16 @@ export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => 
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    {"Fullføre valgomaten?"}
+                    {t('alertFinishTitle')}
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        Er du sikker på at du vil fullføre valgomaten?
+                        {t('alertFinish')}
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <a className='alertButton' onClick={() => setAlert(<></>)}>Nei</a>
-                    <a className='alertButton' onClick={() => {handleClick(department)}}>Ja</a>
+                    <a className='alertButton' onClick={() => setAlert(<></>)}>{t('alertDeny')}</a>
+                    <a className='alertButton' onClick={() => {handleClick(department)}}>{t('alertConfirm')}</a>
                 </DialogActions>
             </Dialog>
         </div>);
@@ -62,18 +64,18 @@ export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => 
     };
 
     if (firstDep + secondDep === 3) { //Then we know it's tech vs interactive
-        statement1 = 'Det viktigste for meg er at produktet fungerer godt ved hjelp av en smart teknisk løsning';
-        statement2 = 'Det er viktig for meg at et produkt ser bra ut';
+        statement1 = t('dynamicS1')
+        statement2 = t('dynamicS2')
         department1 = 'technology';
         department2 = 'interactive';
     } else if (firstDep + secondDep === 2) {
-        statement1 = 'Jeg liker business';
-        statement2 = 'Jeg liker design';
+        statement1 = t('dynamicS3')
+        statement2 = t('dynamicS4')
         department1 = 'strategyAndConsulting';
         department2 = 'interactive';
     } else if (firstDep + secondDep === 1) {
-        statement1 = 'Jeg foretrekker å bytte arbeidsmiljø ofte';
-        statement2 = 'Jeg jobber gjerne på et prosjekt i lang tid';
+        statement1 = t('dynamicS5')
+        statement2 = t('dynamicS6')
         department1 = 'strategyAndConsulting';
         department2 = 'technology';
     }
@@ -84,13 +86,13 @@ export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => 
             <div className='dynamicButtonDivOne' data-testid={'dynamicQuestionOne'}>
                 <p className='dynamicText'>{statement1}</p>
                 <div className='dynamicButtonWrapper'>
-                    <button className='dynamicButton' onClick={() => showAlert(department1)}>VELG</button>
+                    <button className='dynamicButton' onClick={() => showAlert(department1)}>{t('dynamicChoose')}</button>
                 </div>
             </div>
             <div className='dynamicButtonDivTwo' data-testid={'dynamicQuestionTwo'}>
                 <p className='dynamicText'>{statement2}</p>
                 <div className='dynamicButtonWrapper'>
-                    <button className='dynamicButton' onClick={() => showAlert(department2)}>VELG</button>
+                    <button className='dynamicButton' onClick={() => showAlert(department2)}>{t('dynamicChoose')}</button>
                 </div>
             </div>
         </div>
