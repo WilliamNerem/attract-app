@@ -29,7 +29,6 @@ export const InfoCard = ({
 }: infoCardProps) => {
     const [className, setClassName] = useState('');
     const [iconClassName, setIconClassName] = useState('');
-    const [dropdownClassName, setDropdownClassName] = useState('');
     const newLineText = text.split('¤').map((str) => <p>{str}</p>);
     const [isLongHeading, setIsLongHeading] = useState(false);
 
@@ -42,7 +41,6 @@ export const InfoCard = ({
                 setClassName('minimized');
             }
             setIconClassName('dropdownIcon dropdownIconStandard');
-            setDropdownClassName('dropdown');
         }
     }, []);
 
@@ -62,7 +60,7 @@ export const InfoCard = ({
 
     return(
         <div className={className+' infoCard'} data-testid={'infoCard'}>
-            <div onClick={dropdown} className={dropdownClassName + ' infoCardDropdown'} data-testid={'infoCardDropdown'}>
+            <div onClick={dropdown} className={'infoCardDropdown'} data-testid={'infoCardDropdown'}>
                 <h1 className={'infoCardHeading'}>{heading}</h1>
                 <div className={iconClassName}/>
             </div>

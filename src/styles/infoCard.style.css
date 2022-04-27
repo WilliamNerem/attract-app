@@ -154,12 +154,8 @@ a {
 .infoCardDropdown{
     display: flex;
     align-items: center;
-}
-
-.dropdown {
     cursor: pointer;
 }
-
 /* styling for desktop */
 @media only screen and (min-width: 1200px){
 
