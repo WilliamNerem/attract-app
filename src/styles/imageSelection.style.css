@@ -10,6 +10,7 @@
     position: relative;
     margin-top: 30px;
     text-align: center;
+    cursor: pointer;
 }
 
 .imageLoaderWrapper{
@@ -34,6 +35,16 @@
     height: 125px;
     border-radius: 10px;
     transition: opacity .5s;
+}
+
+.imageSelectionImage:hover {
+    opacity: 0.5;
+}
+
+.img-overlay {
+    background-color: black;
+    width: fit-content;
+    height: fit-content;
 }
 
 .imageHidden{
@@ -76,12 +87,18 @@
 
 #firstImageSelection:checked ~ label[for=firstImageSelection] #firstImage{
     border: #a100ff 7px solid;
+    opacity: 1;
+    cursor: default;
 }
 #secondImageSelection:checked ~ label[for=secondImageSelection] #secondImage{
     border: #a100ff 7px solid;
+    opacity: 1;
+    cursor: default;
 }
 #thirdImageSelection:checked ~ label[for=thirdImageSelection] #thirdImage{
     border: #a100ff 7px solid;
+    opacity: 1;
+    cursor: default;
 }
 
 /* Style for Desktop */
@@ -108,7 +125,6 @@
     .imageSelectionLabel {
         width: fit-content;
         display: inline-flex;
-        cursor: pointer;
         margin-top: 10vw;
     }
 
