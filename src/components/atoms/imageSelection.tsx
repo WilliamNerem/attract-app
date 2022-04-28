@@ -53,56 +53,53 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
 
     return(
         <div className='imageSelection' data-testid={'imageSelection'}>
-            <label htmlFor="firstImageSelection">
-                <div className='imageSelectionLabel'>
-                    <div className={'imageSelectionImage ' + pictures[0]} data-testid={'firstImage'}/>
-                    <div className='imageSelectionRadio'/>
-                </div>
-            </label>
             <input
                 id="firstImageSelection"
                 className='imageSelectionItem'
-                name="radio"
-                type="radio"
+                name="checkbox"
+                type="checkbox"
                 value='1'
                 checked={handleDefaultCheked(1)}
                 onChange={() => handleChange(1, pointAllocater[0])}
                 data-testid={'firstInput'}
             />
-
-            <label htmlFor="secondImageSelection">
+            <label htmlFor="firstImageSelection">
                 <div className='imageSelectionLabel'>
-                    <div className={'imageSelectionImage ' + pictures[1]} data-testid={'secondImage'}/>
-                    <div className='imageSelectionRadio'/>
+                    <div id={'firstImage'} className={'imageSelectionImage ' + pictures[0]} data-testid={'firstImage'}/>
                 </div>
             </label>
+
             <input
                 id="secondImageSelection"
                 className='imageSelectionItem'
-                name="radio"
-                type="radio"
+                name="checkbox"
+                type="checkbox"
                 value='2'
                 checked={handleChecked(2)}
                 onChange={() => handleChange(2, pointAllocater[1])}
                 data-testid={'secondInput'}
             />
-            <label htmlFor="thirdImageSelection">
+            <label htmlFor="secondImageSelection">
                 <div className='imageSelectionLabel'>
-                    <div className={'imageSelectionImage ' + pictures[2]} data-testid={'thirdImage'}/>
-                    <div className='imageSelectionRadio'/>
+                    <div id={'secondImage'} className={'imageSelectionImage ' + pictures[1]} data-testid={'secondImage'}/>
                 </div>
             </label>
+
             <input
                 id="thirdImageSelection"
                 className='imageSelectionItem'
-                name="radio"
-                type="radio"
+                name="checkbox"
+                type="checkbox"
                 value='3'
                 checked={handleChecked(3)}
                 onChange={() => handleChange(3, pointAllocater[2])}
                 data-testid={'thirdInput'}
             />
-            <span id="imageSelectionSlider"/>
+            <label htmlFor="thirdImageSelection">
+                <div className='imageSelectionLabel'>
+                    <div id={'thirdImage'} className={'imageSelectionImage ' + pictures[2]} data-testid={'thirdImage'}/>
+                </div>
+            </label>
         </div>
     );
 };
