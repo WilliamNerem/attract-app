@@ -64,18 +64,18 @@ export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => 
     };
 
     if (firstDep + secondDep === 3) { //Then we know it's tech vs interactive
-        statement1 = t('dynamicS1')
-        statement2 = t('dynamicS2')
+        statement1 = t('dynamicS1');
+        statement2 = t('dynamicS2');
         department1 = 'technology';
         department2 = 'interactive';
     } else if (firstDep + secondDep === 2) {
-        statement1 = t('dynamicS3')
-        statement2 = t('dynamicS4')
+        statement1 = t('dynamicS3');
+        statement2 = t('dynamicS4');
         department1 = 'strategyAndConsulting';
         department2 = 'interactive';
     } else if (firstDep + secondDep === 1) {
-        statement1 = t('dynamicS5')
-        statement2 = t('dynamicS6')
+        statement1 = t('dynamicS5');
+        statement2 = t('dynamicS6');
         department1 = 'strategyAndConsulting';
         department2 = 'technology';
     }

@@ -51,15 +51,17 @@ describe('Image selection render', () => {
         );
     });
 
-    it('should render image selection with correct values', () => {
+    it('should render image selection with correct values', async () => {
         const { getByTestId } = render(
             <Provider store={store}>
                 <ImageSelection pictures={['first', 'second', 'third']} pointAllocater={[() => {}, () => {}, () => {}]}/>
             </Provider>
         );
-        expect(getByTestId("firstImage")).toHaveClass('first');
-        expect(getByTestId("secondImage")).toHaveClass('second');
-        expect(getByTestId("thirdImage")).toHaveClass('third');
+
+        await new Promise((resolve) => setTimeout(resolve, 400));
+        expect(getByTestId("firstImage")).toHaveAttribute('src', 'first');
+        expect(getByTestId("secondImage")).toHaveAttribute('src', 'second');
+        expect(getByTestId("thirdImage")).toHaveAttribute('src', 'third');
     });
 
 

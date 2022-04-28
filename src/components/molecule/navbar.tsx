@@ -37,7 +37,7 @@ export const Navbar = () => {
                 isInfo ? navigate('/info') : navigate('/');
             }
         }
-    }
+    };
 
     useEffect(() => {
         if (hamburgerToggled) {
