@@ -9,6 +9,7 @@ import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import i18n from "../../i18n";
 
 export const Navbar = () => {
     const navigate = useNavigate();
@@ -18,7 +19,18 @@ export const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [height, setHeight] = useState<string|number>(0);
     const [hamburgerToggled, setHamburgerToggled] = useState(false);
+    const [locale, setLocale] = useState(i18n.language);
+    const [isEnglish, setIsEnglish] = useState(false);
+    i18n.on('languageChanged', () => setLocale(i18n.language));
     const { t } = useTranslation();
+
+    useEffect(() => {
+        if (locale === 'en'){
+            setIsEnglish(true);
+        } else {
+            setIsEnglish(false);
+        }
+    }, [locale]);
 
     const handleClick = (isInfo: boolean) => {
         if (inProgress) {
@@ -50,6 +62,12 @@ export const Navbar = () => {
             setOpen(false);
         }
     }, [hamburgerToggled]);
+
+    const changeLocale = (l: string) =>  {
+        if (locale !== l) {
+            i18n.changeLanguage(l);
+        }
+    };
 
     return(
         <div className='navMargin' data-testid={'navbar'}>
@@ -91,6 +109,24 @@ export const Navbar = () => {
                     setHamburgerToggled={setHamburgerToggled}
                     height={height}
                 />
+                <div className={'countryFlagsDesktop navbar-item'} data-testid={'hamburgerItemLanguage'}>
+                    <div className={'flagdivider'}/>
+                    <div className={`flagWrapper ${isEnglish ? 'languageActive' : ''}`} onClick={() => changeLocale('en')}>
+                        <img
+                            alt="English"
+                            src="http://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg"
+                            className={'usFlag'}
+                        />
+                    </div>
+                    <div className={'flagdivider'}/>
+                    <div className={`flagWrapper ${isEnglish ? '' : 'languageActive'}`} onClick={() => changeLocale('no')}>
+                        <img
+                            alt="Norwegian"
+                            src="http://purecatamphetamine.github.io/country-flag-icons/3x2/NO.svg"
+                            className={'noFlag'}
+                        />
+                    </div>
+                </div>
             </div>
             <Backdrop
                 sx={{ zIndex: 9 }}
