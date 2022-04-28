@@ -67,12 +67,12 @@ export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => 
         statement1 = t('dynamicS1');
         statement2 = t('dynamicS2');
         department1 = 'technology';
-        department2 = 'interactive';
+        department2 = 'song';
     } else if (firstDep + secondDep === 2) {
         statement1 = t('dynamicS3');
         statement2 = t('dynamicS4');
         department1 = 'strategyAndConsulting';
-        department2 = 'interactive';
+        department2 = 'song';
     } else if (firstDep + secondDep === 1) {
         statement1 = t('dynamicS5');
         statement2 = t('dynamicS6');

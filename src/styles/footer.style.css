@@ -38,6 +38,26 @@
     margin-left: 20px;
 }
 
+.pagelinkSmall{
+    color: white;
+    margin: 10px 0 10px 0;
+    font-size: 12px;
+}
+
+.linkWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.smallLinkWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    margin: 0 20px 0 20px;
+}
+
 .iconLinks{
     margin: 30px 0 0 50px;
 }
@@ -95,4 +115,30 @@
     background-size: 15px 11px;
     height: 20px;
     width: 20px;
+}
+
+.copyright{
+    color: white;
+    font-size: 12px;
+    margin: 10px 0 10px 0;
+}
+
+@media screen and (min-width: 578px){
+    .copyright{
+        margin: 10px 0 10px auto;
+    }
+}
+
+@media screen and (min-width: 720px){
+    .iconLinks{
+        margin: 0 0 0 auto;
+    }
+
+    .greaterThanDiv{
+        margin: 0;
+    }
+
+    .footer{
+        height: 100px;
+    }
 }
