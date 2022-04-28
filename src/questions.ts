@@ -3,11 +3,11 @@ import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
 import {TFunction} from "i18next";
 import TechWork from "./images/Technology_work.jpg";
-import TechDC from "./images/Technology_DC.jpg";
+import TechTask from "./images/Technology_task.jpg";
 import SCWork from "./images/SC_work.jpg";
-import SCDC from "./images/SC_DC.jpg";
+import SCTask from "./images/SC_task.jpg";
 import InteractiveWork from "./images/Interactive_work.jpg";
-import InteractiveDC from "./images/Interactive_DC.jpg";
+import InteractiveTask from "./images/Song_task.jpg";
 
 
 export const QuestionsPartOne = (t: TFunction) => {
@@ -123,7 +123,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             progress: 70,
             isImageSelection: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: [SCDC, TechDC, InteractiveDC]
+            images: [SCTask, TechTask, InteractiveTask]
         },
         {
             questionNumber: 8,

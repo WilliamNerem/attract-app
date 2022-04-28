@@ -69,52 +69,28 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
 
     return(
         <div className='imageSelection' data-testid={'imageSelection'}>
-            <label htmlFor="firstImageSelection">
-                <div className='imageSelectionLabel'>
-                    {isTransitionDone ?
-                        <img
-                            src={pictures[0]}
-                            className={`imageSelectionImage ${showImages ? 'imageVisible' : 'imageHidden'}`}
-                            data-testid={'firstImage'}
-                            alt={pictures[0]}
-                            onLoad={() => setFirstImgIsLoading(false)}
-                        />
-                        :
-                        <div className='imageLoaderWrapper'>
-                            <div className='imageLoader'>
-                                <PulseLoader
-                                    size={15}
-                                    margin={2}
-                                    speedMultiplier={0.7}
-                                    color={'#a100ff'}
-                                />
-                            </div>
-                        </div>
-                    }
-                    <div className='imageSelectionRadio'/>
-                </div>
-            </label>
             <input
                 id="firstImageSelection"
                 className='imageSelectionItem'
-                name="radio"
-                type="radio"
+                name="checkbox"
+                type="checkbox"
                 value='1'
                 checked={handleDefaultCheked(1)}
                 onChange={() => handleChange(1, pointAllocater[0])}
                 data-testid={'firstInput'}
             />
-
-            <label htmlFor="secondImageSelection">
+            <label htmlFor="firstImageSelection">
                 <div className='imageSelectionLabel'>
                     {isTransitionDone ?
-                        <img
-                            src={pictures[1]}
-                            className={`imageSelectionImage ${showImages ? 'imageVisible' : 'imageHidden'}`}
-                            data-testid={'secondImage'}
-                            alt={pictures[1]}
-                            onLoad={() => setSecondImgIsLoading(false)}
-                        />
+                        <div className={'image-wrapper'} id={'firstImage'}>
+                            <img
+                                src={pictures[0]}
+                                className={`imageSelectionImage ${showImages ? 'imageVisible' : 'imageHidden'}`}
+                                data-testid={'firstImage'}
+                                alt={pictures[0]}
+                                onLoad={() => setFirstImgIsLoading(false)}
+                            />
+                        </div>
                         :
                         <div className='imageLoaderWrapper'>
                             <div className='imageLoader'>
@@ -130,26 +106,29 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
                     <div className='imageSelectionRadio'/>
                 </div>
             </label>
+
             <input
                 id="secondImageSelection"
                 className='imageSelectionItem'
-                name="radio"
-                type="radio"
+                name="checkbox"
+                type="checkbox"
                 value='2'
                 checked={handleChecked(2)}
                 onChange={() => handleChange(2, pointAllocater[1])}
                 data-testid={'secondInput'}
             />
-            <label htmlFor="thirdImageSelection">
+            <label htmlFor="secondImageSelection">
                 <div className='imageSelectionLabel'>
                     {isTransitionDone ?
-                        <img
-                            src={pictures[2]}
-                            className={`imageSelectionImage ${showImages ? 'imageVisible' : 'imageHidden'}`}
-                            data-testid={'thirdImage'}
-                            alt={pictures[2]}
-                            onLoad={() => setThirdImgIsLoading(false)}
-                        />
+                        <div className={'image-wrapper'} id={'secondImage'}>
+                            <img
+                                src={pictures[1]}
+                                className={`imageSelectionImage ${showImages ? 'imageVisible' : 'imageHidden'}`}
+                                data-testid={'secondImage'}
+                                alt={pictures[1]}
+                                onLoad={() => setSecondImgIsLoading(false)}
+                            />
+                        </div>
                         :
                         <div className='imageLoaderWrapper'>
                             <div className='imageLoader'>
@@ -165,17 +144,44 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
                     <div className='imageSelectionRadio'/>
                 </div>
             </label>
+
             <input
                 id="thirdImageSelection"
                 className='imageSelectionItem'
-                name="radio"
-                type="radio"
+                name="checkbox"
+                type="checkbox"
                 value='3'
                 checked={handleChecked(3)}
                 onChange={() => handleChange(3, pointAllocater[2])}
                 data-testid={'thirdInput'}
             />
-            <span id="imageSelectionSlider"/>
+            <label htmlFor="thirdImageSelection">
+                <div className='imageSelectionLabel'>
+                    {isTransitionDone ?
+                        <div className={'image-wrapper'} id={'thirdImage'}>
+                            <img
+                                src={pictures[2]}
+                                className={`imageSelectionImage ${showImages ? 'imageVisible' : 'imageHidden'}`}
+                                data-testid={'thirdImage'}
+                                alt={pictures[2]}
+                                onLoad={() => setThirdImgIsLoading(false)}
+                            />
+                        </div>
+                        :
+                        <div className='imageLoaderWrapper'>
+                            <div className='imageLoader'>
+                                <PulseLoader
+                                    size={15}
+                                    margin={2}
+                                    speedMultiplier={0.7}
+                                    color={'#a100ff'}
+                                />
+                            </div>
+                        </div>
+                    }
+                    <div className='imageSelectionRadio'/>
+                </div>
+            </label>
         </div>
     );
 };
