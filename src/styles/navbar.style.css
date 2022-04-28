@@ -68,6 +68,13 @@ a.hamburgerItemLinkActive:hover, a.hamburgerItemLinkActive:active {
     overflow: hidden;
 }
 
+.countryFlagsDesktop{
+    display: flex;
+    height: 54px;
+    margin: 0 0 0 auto;
+    padding: 0 !important;
+}
+
 .countryFlags{
     display: flex;
 }
