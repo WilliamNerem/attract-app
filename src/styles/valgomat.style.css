@@ -22,13 +22,13 @@
 }
 
 .statementOrderMargin{
-    margin-top: 5rem;
+    margin-top: 1rem;
 }
 
-.statementOrderSharedWords{
-    margin: 0 0 0 12vw;
+.statementOrderSharedWords {
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
 }
 
 .initializeTransition{
@@ -73,6 +73,7 @@
     width: 30px;
     height: 30px;
     background-size: 30px 30px;
+    cursor: pointer;
 }
 
 .infoButtonWhite{
@@ -84,9 +85,21 @@
     width: 30px;
     height: 30px;
     background-size: 30px 30px;
+    cursor: pointer;
 }
 
 .infoButton:active{
+    display: block;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    background-image: url("../Icons/accenture_info_active.svg");
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+}
+
+.infoButton:hover{
     display: block;
     position: absolute;
     right: 2rem;
@@ -108,10 +121,15 @@
     background-size: 30px 30px;
 }
 
-@media (max-height: 745px) {
-    .statementOrderMargin{
-        margin-top: 1rem;
-    }
+.infoButtonWhite:hover{
+    display: block;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    background-image: url("../Icons/accenture_info_active.svg");
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
 }
 
 .dynamicFooter{
@@ -127,25 +145,15 @@
     height: 100px;
 }
 
-.dynamicQuestion{
-    min-height: 70vh;
+.dynamicQuestion {
+    margin-top: 5rem;
 }
 
-.dynamicButtonDivOne{
-    position: absolute;
+.dynamicButtonDiv{
     width: 90vw;
     border: 1px solid #ccc;
     padding: 30px 0;
-    margin: 60px 0 0 5%;
-}
-
-.dynamicButtonDivTwo{
-    position: absolute;
-    top: 300px;
-    width: 90vw;
-    border: 1px solid #ccc;
-    padding: 30px 0;
-    margin: 20px 0 0 5%;
+    margin: 2rem auto;
 }
 
 .dynamicButton{
@@ -160,6 +168,7 @@
     left: -4px;
     top: -6px;
     transition: linear .2s;
+    cursor: pointer;
 }
 
 .dynamicButtonWrapper{
@@ -169,9 +178,15 @@
     width: 100px;
     height: 50px;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .dynamicButton:active{
+    transform: translateY(-5px) translateX(-5px);
+    transition: linear .2s;
+}
+
+.dynamicButton:hover{
     transform: translateY(-5px) translateX(-5px);
     transition: linear .2s;
 }
@@ -180,4 +195,80 @@
     display: inline-block;
     width: 55vw;
     margin: 0 0 0 10px;
+}
+
+@media screen and (min-height: 800px) {
+    .statementOrderMargin{
+        margin-top: 5rem;
+    }
+}
+
+@media screen and (min-height: 1100px) {
+    .statementOrderMargin{
+        margin-top: 10rem;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .dynamicButtonWrapper {
+        margin-left: 2px;
+    }
+}
+
+/* styling for desktop */
+
+@media screen and (min-width: 550px) {
+    .dynamicButtonDiv{
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .dynamicButtonDiv {
+        width: 80vw;
+    }
+
+    .dynamicButtonWrapper {
+        margin-top: -0.5rem;
+    }
+
+    .dynamicQuestion {
+        margin-top: 8rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .dynamicButtonDiv {
+        width: 60vw;
+    }
+
+    .dynamicText {
+        width: 40vw;
+    }
+
+    .statementOrderSharedWords {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .questionNumber {
+        font-family: "Graphik Semibold", Arial, sans-serif;
+        font-size: 52px;
+    }
+
+    .valgomatQuestion {
+        font-family: "Graphik Light", Arial, sans-serif;
+        font-size: 30px;
+        margin-top: 3rem;
+    }
+
+    .dynamicButtonDiv {
+        width: 50vw;
+    }
+
+    .dynamicText {
+        width: 35vw;
+    }
 }

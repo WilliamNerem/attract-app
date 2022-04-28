@@ -1,13 +1,7 @@
-import {useDispatch} from "react-redux";
+import {} from "react-redux";  /*
 import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
 import {TFunction} from "i18next";
-import TechWork from "./images/Technology_work.jpg";
-import TechDC from "./images/Technology_DC.jpg";
-import SCWork from "./images/SC_work.jpg";
-import SCDC from "./images/SC_DC.jpg";
-import InteractiveWork from "./images/Interactive_work.jpg";
-import InteractiveDC from "./images/Interactive_DC.jpg";
 
 
 export const QuestionsPartOne = (t: TFunction) => {
@@ -81,7 +75,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             progress: 20,
             isImageSelection: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: [SCWork, TechWork, InteractiveWork]
+            images: ['SC_work', 'Technology_work', 'Interactive_work']
         },
         {
             questionNumber: 3,
@@ -123,7 +117,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             progress: 70,
             isImageSelection: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: [SCDC, TechDC, InteractiveDC]
+            images: ['SC_DC', 'Technology_DC', 'Interactive_DC']
         },
         {
             questionNumber: 8,
@@ -411,4 +405,4 @@ export const QuestionsDataInteractive = () => {  // Questions ok for now
             statementArr: statements2,
         },
     ];
-};
+}; */

@@ -19,3 +19,28 @@
     font-weight: bold;
     font-size: 13px;
 }
+
+/* styling for desktop */
+@media screen and (min-width: 1200px){
+
+    .progressContainer {
+        width: 70vw;
+        margin: 2vw auto;
+    }
+
+    .progressFiller {
+        padding: 5px;
+    }
+
+    .progressLabel {
+        font-size: 20px;
+        font-family: "Graphik Semibold", Arial, sans-serif;
+    }
+}
+
+@media screen and (min-width: 1500px){
+
+    .progressContainer {
+        width: 50vw;
+    }
+}

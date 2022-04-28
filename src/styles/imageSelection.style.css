@@ -37,16 +37,42 @@
     transition: opacity .5s;
 }
 
-.imageSpinner{
-
-}
-
 .imageHidden{
     opacity: 0;
 }
 
 .imageVisible{
     opacity: 1;
+}
+
+.Interactive_DC{
+    background: url("../images/Interactive_DC.jpg") no-repeat center;
+    background-size: 250px;
+}
+
+.Interactive_work{
+    background: url("../images/Interactive_work.jpg") no-repeat center;
+    background-size: 250px;
+}
+
+.Technology_DC{
+    background: url("../images/Technology_DC.jpg") no-repeat center;
+    background-size: 250px;
+}
+
+.Technology_work{
+    background: url("../images/Technology_work.jpg") no-repeat center;
+    background-size: 250px;
+}
+
+.SC_DC{
+    background: url("../images/SC_DC.jpg") no-repeat center;
+    background-size: 250px;
+}
+
+.SC_work{
+    background: url("../images/SC_work.jpg") no-repeat center;
+    background-size: 250px;
 }
 
 .imageSelectionRadio{
@@ -83,3 +109,81 @@
 @keyframes firstImageSelection{ 30%, 70% { transform: scale(0.7); } }
 @keyframes secondImageSelection{ 30%, 70% { transform: scale(0.7); } }
 @keyframes thirdImageSelection{ 30%, 70% { transform: scale(0.7); } }
+
+@media screen and (min-width: 1366px) {
+    .imageSelectionRadio{
+        top: 20vw;
+        width: 2vw;
+        height: 2vw;
+        border: .05vw solid #ccc;
+        background-color: #f2f2f2;
+        margin-right: 7vw;
+    }
+
+    #imageSelectionSlider{
+        width: 1.5vw;
+        padding-bottom: 1.5vw;
+        margin: 20.7vw 15.45vw;
+    }
+
+    .Interactive_DC, .Interactive_work, .Technology_DC, .Technology_work, .SC_DC, .SC_work{
+        background-size: 400px;
+    }
+
+    .imageSelectionImage{
+        display: inline-block;
+        position: relative;
+        width: 400px;
+        height: 225px;
+        left: 0;
+        border-radius: 10px;
+        margin: 1vw;
+    }
+
+    .imageSelectionLabel {
+        width: fit-content;
+        display: inline-flex;
+        cursor: pointer;
+    }
+
+    .imageSelection {
+        width: fit-content;
+        margin: 4vw auto;
+    }
+
+    #firstImageSelection:checked  ~ #imageSelectionSlider{ animation-name: firstImageSelection; left: 0; top: 0;}
+    #secondImageSelection:checked  ~ #imageSelectionSlider{ animation-name: secondImageSelection; left: 31.285vw; top: 0; }
+    #thirdImageSelection:checked  ~ #imageSelectionSlider{ animation-name: thirdImageSelection; left: 62.55vw; top: 0; }
+
+}
+
+@media screen and (min-width: 1536px) {
+    .imageSelectionRadio {
+        top: 20vw;
+        margin-right: 7vw;
+    }
+
+    #imageSelectionSlider {
+        margin: 20.35vw 15.5vw;
+    }
+
+    .Interactive_DC, .Interactive_work, .Technology_DC, .Technology_work, .SC_DC, .SC_work{
+        background-size: 450px;
+    }
+
+    .imageSelectionImage{
+        width: 450px;
+        height: 250px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+
+    #imageSelectionSlider {
+        margin: 18.35vw 9.65vw;
+    }
+
+    #secondImageSelection:checked  ~ #imageSelectionSlider{ animation-name: secondImageSelection; left: 25.45vw; top: 0; }
+    #thirdImageSelection:checked  ~ #imageSelectionSlider{ animation-name: thirdImageSelection; left: 50.85vw; top: 0; }
+
+}
