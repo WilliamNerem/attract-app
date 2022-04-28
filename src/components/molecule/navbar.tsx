@@ -8,6 +8,7 @@ import {State} from "../../redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../../redux";
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 export const Navbar = () => {
     const navigate = useNavigate();
@@ -17,6 +18,7 @@ export const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [height, setHeight] = useState<string|number>(0);
     const [hamburgerToggled, setHamburgerToggled] = useState(false);
+    const { t } = useTranslation();
 
     const handleClick = (isInfo: boolean) => {
         if (inProgress) {
@@ -37,7 +39,7 @@ export const Navbar = () => {
                 isInfo ? navigate('/info') : navigate('/');
             }
         }
-    }
+    };
 
     useEffect(() => {
         if (hamburgerToggled) {
@@ -69,20 +71,20 @@ export const Navbar = () => {
                     onClick={() => handleClick(false)}
                     tabIndex={0}
                 >
-                    Hjem
+                    {t('home')}
                 </a>
                 <a
                     className={'navbar-item'}
                     onClick={() => handleClick(true)}
                     tabIndex={0}
                 >
-                    Informasjon
+                    {t('information')}
                 </a>
                 <a
                     className={'navbar-item'}
                     href={'#/valgomat'}
                 >
-                    Valgomat
+                    {t('valgomat')}
                 </a>
                 <HamburgerMenu
                     hamburgerToggled={hamburgerToggled}

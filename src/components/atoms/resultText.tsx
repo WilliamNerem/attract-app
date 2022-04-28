@@ -18,7 +18,7 @@ export const ResultText = ({result}: resultTextProps) => {
             <h2 className='resultText'>{t('resultTech')}</h2>
         );
     }
-    else if (result === 'Interactive') {
+    else if (result === 'Song') {
         return(
             <h2 className='resultText'>{t('resultInteractive')}</h2>
         );

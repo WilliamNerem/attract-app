@@ -83,8 +83,9 @@
 
 .orderNumber {
     margin: 1rem;
-    font-family: "Graphik Medium", Arial, sans-serif;
+    font-family: "Graphik Regular", Arial, sans-serif;
     font-size: 1.5rem;
+    width: 35px;
 }
 
 @media (max-height: 640px) {

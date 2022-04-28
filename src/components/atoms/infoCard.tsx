@@ -80,7 +80,7 @@ export const InfoCard = ({
                 singlePageLink ?
                 <Link to={link}>{linkText ? linkText : link.toString()}</Link> :
                 <div className='linkWrapper'>
-                    <a href={link} target={'_blank'} rel="noopener noreferrer">{linkText ? linkText : link.toString()}</a>
+                    <a href={link} target={'_blank'} rel="noopener noreferrer" className='linkText'>{linkText ? linkText : link.toString()}</a>
                     <div className='linkToNewPage'/>
                 </div>
             )}

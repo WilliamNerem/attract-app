@@ -2,6 +2,12 @@ import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from './redux'
 import {TFunction} from "i18next";
+import TechWork from "./images/Technology_work.jpg";
+import TechTask from "./images/Technology_task.jpg";
+import SCWork from "./images/SC_work.jpg";
+import SCTask from "./images/SC_task.jpg";
+import InteractiveWork from "./images/Interactive_work.jpg";
+import InteractiveTask from "./images/Song_task.jpg";
 
 
 export const QuestionsPartOne = (t: TFunction) => {
@@ -75,7 +81,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             progress: 20,
             isImageSelection: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['SC_work', 'Technology_work', 'Interactive_work']
+            images: [SCWork, TechWork, InteractiveWork]
         },
         {
             questionNumber: 3,
@@ -117,7 +123,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             progress: 70,
             isImageSelection: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['SC_task', 'Technology_task', 'Song_task']
+            images: [SCTask, TechTask, InteractiveTask]
         },
         {
             questionNumber: 8,

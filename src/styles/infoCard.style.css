@@ -58,6 +58,13 @@
     transition: transform 300ms ease;
 }
 
+.homePageImage{
+    width: 272px;
+    height: 250px;
+    background: url("../images/homePageImage.png") no-repeat center;
+    margin: auto;
+}
+
 .statementOrderExampleImage{
     width: 272px;
     height: 250px;
@@ -139,6 +146,13 @@ a {
 
 .linkWrapper{
     position: relative;
+    display: flex;
+    column-gap: 10px;
+    justify-content: center;
+}
+
+.linkText{
+    max-width: 85%;
 }
 
 .linkToNewPage{
@@ -146,9 +160,6 @@ a {
     width: 20px;
     height: 20px;
     background-size: 20px 20px;
-    display: inline-block;
-    position: absolute;
-    margin-left: 10px;
 }
 
 .infoCardDropdown{

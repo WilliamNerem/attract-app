@@ -1,7 +1,7 @@
 export enum DepartmentsActionType {
     STRATEGYANDCONSULTING = 'strategyAndConsulting',
     TECHNOLOGY = 'technology',
-    INTERACTIVE = 'interactive'
+    INTERACTIVE = 'song'
 }
 
 interface strategyAndConsultingAction {

@@ -18,7 +18,7 @@ describe('Result text render', () => {
 
     it('should render correct text with department prop', () => {
         const { container } = render(
-            <ResultText result={'Interactive'} />
+            <ResultText result={'Song'} />
         );
         const testText = container.getElementsByClassName('resultText');
         expect(testText[0]).toHaveTextContent("Du er designeren!");
