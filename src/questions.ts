@@ -96,7 +96,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             questionType: 'statementOrder',
             questionTxt: t('q4'),
             progress: 40,
-            sharedWords: '',
+            sharedWords: t('q4Shared'),
             isStatement: true,
             statementArr: statements1
         },
