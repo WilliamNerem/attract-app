@@ -168,7 +168,7 @@ export const Result = ({totalPointsArray
                             link={depAtPlacement(0).link}
                             text={depAtPlacement(0).infoTextCard}
                             subHeading={t('resultSubHeading')}
-                            subText={depAtPlacement(0).infoSubText}
+                            subText={depAtPlacement(0).firstInfoSubText}
                             linkText={t('resultSubText') + depAtPlacement(0).title}
                             onButtonClick={() => onButtonClick(depAtPlacement(0).title)}
                         />

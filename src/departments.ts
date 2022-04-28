@@ -12,7 +12,8 @@ export const departments = (t: TFunction) => {
             infoTextEmail1: t('depSCInfoTextEmail1'),
             infoTextEmail2: t('depSCInfoTextEmail2'),
             infoTextCard: t('depSCInfoTextEmail1') + t('depSCInfoTextEmail2'),
-            infoSubText: t('depSCInfoSubText')
+            infoSubText: t('depSCInfoSubText'),
+            firstInfoSubText: t('sepSCFirstInfoSubText')
         },
         {
             name: 'Technology',
@@ -25,7 +26,8 @@ export const departments = (t: TFunction) => {
             infoTextEmail1: t('depTechInfoTextEmail1'),
             infoTextEmail2: t('depTechInfoTextEmail2'),
             infoTextCard: t('depTechInfoTextEmail1') + t('depTechInfoTextEmail2'),
-            infoSubText: t('depTechInfoSubText')
+            infoSubText: t('depTechInfoSubText'),
+            firstInfoSubText: t('sepTechFirstInfoSubText')
         },
         {
             name: 'Song',
@@ -38,7 +40,8 @@ export const departments = (t: TFunction) => {
             infoTextEmail1: t('depInteractiveInfoTextEmail1'),
             infoTextEmail2: t('depInteractiveInfoTextEmail2'),
             infoTextCard: t('depInteractiveInfoTextEmail1') + t('depInteractiveInfoTextEmail2'),
-            infoSubText: t('depInteractiveInfoSubText')
+            infoSubText: t('depInteractiveInfoSubText'),
+            firstInfoSubText: t('sepInteractiveFirstInfoSubText')
         },
     ];
 };
