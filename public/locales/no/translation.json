@@ -28,7 +28,7 @@
   "q4Shared": "Jeg kunne tenkt meg å",
   "q5": "Jeg har god formidlingsevne",
   "q6": "Jeg har lyst til å planlegge nye strategier og rådgi organisasjoner",
-  "q7": "Velg det bilde som beskriver best hva du ønsker å jobbe med",
+  "q7": "Velg det bildet som beskriver best hva du ønsker å jobbe med",
   "q8": "Jeg foretrekker å implementere og vedlikeholde løsninger fremfor å planlegge og analysere hvordan løsningen bør implementeres",
   "q9": "Sett påstandene i rekkefølge etter hva som passer best for deg ved å trykke på pilene",
   "q9Shared": "Jeg har lyst til å",
@@ -101,7 +101,7 @@
   "depSCInfoTextEmail1":"I Strategy & Consulting vil du være med på å definere og implementere morgendagens teknologiske løsninger for private- og offentlige aktører.",
   "depSCInfoTextEmail2":"Du vil jobbe i store og små prosjektteam hvor man samarbeider på tvers av avdelinger for å løse problemstillinger innenfor et mangfold av industrier.",
   "depSCInfoSubText": "I følge valgomaten passer du ikke best i Strategy & Consulting, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.",
-  "sepSCFirstInfoSubText": "Neste steg er å bli kjent med Strategy & Consulting.",
+  "depSCFirstInfoSubText": "Neste steg er å bli kjent med Strategy & Consulting.",
   "depTechInfoTextEmail1":"I Technology blir du involvert i noen av Norges mest spennende og meningsfylte IT-prosjekter. Sammen med kunden leverer vi innovative løsninger som bidrar til verdiskaping både for bedrifter og samfunnet.",
   "depTechInfoTextEmail2":"Vi satser stort innenfor skyløsninger, digital infrastruktur, digitalisering og prosessautomatisering.",
   "depTechInfoSubText": "I følge valgomaten passer du ikke best i Technology, men dette betyr ikke at det ikke finnes muligheter for deg i denne avdelingen.",
@@ -154,5 +154,7 @@
   "subDepScTO": "I Talent & Organization jobber vi med forretningsledere for å adressere deres behov og tilbyr hjelp for å levere bedre resultater. Vi hjelper IT ledere med å omforme funksjonalitet for å oppnå ønsket resultat og skape et produkt som samsvarer med forretningsstrategien.",
   "subDepScSCO": "I Supply Chains and Operations jobber vi med å omgjøre forretninger med de nyeste teknologiene og gjør de data-drevene. Her kombineres funksjonelle ferdigheter, bedriftsrådgivning og kunnskap om teknologistrategi.",
   "subDepScCSS": "Info kommer senere",
-  "subDepScCEV": "I CFO & Enterprise value jobber vi med våre kunder for å hjelpe dem å omgjøre forretningene deres med Finance funksjonen som startpunkt. CFO & EV proffer, som jobber i Strategy & Consulting, hjelper kundenes industrier med: «Digital Finance», «Enterprise Operating Model», «Enterprise Value», «Enterprise Analytics» og «Digital Risk and Compliance»."
+  "subDepScCEV": "I CFO & Enterprise value jobber vi med våre kunder for å hjelpe dem å omgjøre forretningene deres med Finance funksjonen som startpunkt. CFO & EV proffer, som jobber i Strategy & Consulting, hjelper kundenes industrier med: «Digital Finance», «Enterprise Operating Model», «Enterprise Value», «Enterprise Analytics» og «Digital Risk and Compliance».",
+  "subDepTechHeader": "Technology sine underavdelinger",
+  "subDepTechText": "Under finner du informasjon om underavdelingene i Technology"
 }

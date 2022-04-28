@@ -198,3 +198,11 @@
         height: 320px;
     }
 }
+
+@media screen and (max-height: 970px) {
+
+    .imageSelectionLabel{
+        margin-top: 20px;
+    }
+
+}

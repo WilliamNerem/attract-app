@@ -13,7 +13,7 @@
 }
 
 .expanded{
-    max-height: 700px;
+    max-height: 900px;
     transition: max-height 600ms ease-in;
 }
 
@@ -142,6 +142,7 @@ a {
     transition: all .3s ease-out;
     display: block;
     padding-bottom: 15px;
+    text-align: -webkit-center;
 }
 
 .linkWrapper{

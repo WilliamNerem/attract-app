@@ -97,7 +97,7 @@ const Info = () => {
                         <InfoCard
                             heading='Technology'
                             text={t('infoCardTextTech')}
-                            linkText={t('infoCardLinkTect')}
+                            linkText={t('infoCardLinkTech')}
                             link='https://www.accenture.com/no-en/about/technology-index'
                             isDropdown={true}
                             onButtonClick={() => onButtonClick('Technology')}

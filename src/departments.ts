@@ -13,7 +13,7 @@ export const departments = (t: TFunction) => {
             infoTextEmail2: t('depSCInfoTextEmail2'),
             infoTextCard: t('depSCInfoTextEmail1') + t('depSCInfoTextEmail2'),
             infoSubText: t('depSCInfoSubText'),
-            firstInfoSubText: t('sepSCFirstInfoSubText')
+            firstInfoSubText: t('depSCFirstInfoSubText')
         },
         {
             name: 'Technology',
