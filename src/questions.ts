@@ -117,7 +117,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             progress: 70,
             isImageSelection: true,
             allocatePoints: [imageSelectorStrategyAndConsulting, imageSelectorTechnology, imageSelectorInteractive],
-            images: ['sc_task', 'tech_task', 'song_task']
+            images: ['SC_task', 'Technology_task', 'Song_task']
         },
         {
             questionNumber: 8,

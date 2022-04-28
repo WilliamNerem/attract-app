@@ -20,8 +20,8 @@
     border-radius: 10px;
 }
 
-.Interactive_DC{
-    background: url("../images/Interactive_DC.jpg") no-repeat center;
+.Song_task{
+    background: url("../images/Song_task.jpg") no-repeat center;
     background-size: 250px;
 }
 
@@ -30,8 +30,8 @@
     background-size: 250px;
 }
 
-.Technology_DC{
-    background: url("../images/Technology_DC.jpg") no-repeat center;
+.Technology_task{
+    background: url("../images/Technology_task.jpg") no-repeat center;
     background-size: 250px;
 }
 
@@ -40,8 +40,8 @@
     background-size: 250px;
 }
 
-.SC_DC{
-    background: url("../images/SC_DC.jpg") no-repeat center;
+.SC_task{
+    background: url("../images/SC_task.jpg") no-repeat center;
     background-size: 250px;
 }
 
@@ -101,7 +101,7 @@
         margin: 20.7vw 15.45vw;
     }
 
-    .Interactive_DC, .Interactive_work, .Technology_DC, .Technology_work, .SC_DC, .SC_work{
+    .Song_task, .Interactive_work, .Technology_DC, .Technology_task, .SC_task, .SC_work{
         background-size: 400px;
     }
 
@@ -142,7 +142,7 @@
         margin: 20.35vw 15.5vw;
     }
 
-    .Interactive_DC, .Interactive_work, .Technology_DC, .Technology_work, .SC_DC, .SC_work{
+    .Song_task, .Interactive_work, .Technology_task, .Technology_work, .SC_task, .SC_work{
         background-size: 450px;
     }
 
