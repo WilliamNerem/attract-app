@@ -8,7 +8,7 @@
 
 .imageSelectionLabel{
     position: relative;
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
     cursor: pointer;
 }
@@ -18,7 +18,7 @@
     position: relative;
     width: 250px;
     height: 125px;
-    left: 10vw;
+    text-align: center;
     border-radius: 10px;
     border: 1px solid #cccccc;
     transition: opacity 1s;
@@ -31,14 +31,25 @@
 .imageSelectionImage{
     display: inline-block;
     position: relative;
-    width: 250px;
-    height: 125px;
+    width: 200px;
+    height: 120px;
     border-radius: 10px;
     transition: opacity .5s;
+    margin: 0;
+    border: white solid 5px;
+    vertical-align: bottom;
 }
 
-.imageSelectionImage:hover {
+.image-wrapper:hover {
     opacity: 0.5;
+}
+
+.image-wrapper {
+    border: white 7px solid;
+    border-radius: 20px;
+    transition: all .5s;
+    width: fit-content;
+    margin: auto;
 }
 
 .img-overlay {
@@ -110,16 +121,15 @@
 
     .imageSelectionImage{
         width: 300px;
-        height: 150px;
+        height: 175px;
     }
 
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1200px) {
     .imageSelectionImage{
         display: inline-block;
         position: relative;
-        margin: 1vw;
     }
 
     .imageSelectionLabel {
@@ -141,9 +151,13 @@
         width: 275px;
         height: 175px;
     }
+
+    .image-wrapper {
+        margin: 1vw;
+    }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1400px) {
     .Song_task, .Interactive_work, .Technology_task, .Technology_work, .SC_task, .SC_work{
         background-size: 400px;
     }
