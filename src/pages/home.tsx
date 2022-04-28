@@ -33,20 +33,19 @@ const Home = () => {
                 </div>
                 <div className='infoCards'>
                     <InfoCard
+                        heading={t('headingImageCard')}
+                        text={t('aboutImageCard')}
+                        exampleImage={'homePageImage'}
+                    />
+                </div>
+                <div className='infoCards'>
+                    <InfoCard
                         heading={t('heading')}
                         text={t('aboutValgomat')}
                         subText={t('aboutValgomatSubText')}
                         linkText={t('linkTextValgomat')}
                         link={'/info'}
                         singlePageLink={true}
-                    />
-                </div>
-                <div className='infoCards'>
-                    <InfoCard
-                        heading={t('headingContact')}
-                        text={t('headingSoMe')}
-                        link={'https://www.linkedin.com/company/accenture-nordics/'}
-                        linkText={'Linkedin'}
                     />
                 </div>
             </div>

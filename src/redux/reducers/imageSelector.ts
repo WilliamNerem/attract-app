@@ -1,7 +1,7 @@
 export enum ImageSelectorType {
     STRATEGYANDCONSULTING = 'strategyImgSelector',
     TECHNOLOGY = 'technologyImgSelector',
-    INTERACTIVE = 'interactiveImgSelector',
+    INTERACTIVE = 'songImgSelector',
     SOCIAL = 'socialImgSelector',
     CREATIVE = 'creativeImgSelector',
     PRACTICAL = 'practicalImgSelector'

@@ -58,7 +58,7 @@
 }
 
 /* styling for desktop */
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1420px){
 
     .headerHome {
         font-family: "Graphik Black", Arial, sans-serif;

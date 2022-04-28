@@ -58,6 +58,13 @@
     transition: transform 300ms ease;
 }
 
+.homePageImage{
+    width: 272px;
+    height: 250px;
+    background: url("../images/homePageImage.png") no-repeat center;
+    margin: auto;
+}
+
 .statementOrderExampleImage{
     width: 272px;
     height: 250px;

@@ -28,7 +28,7 @@ const Info = () => {
                 setWrapperHeight('95vh');
             }, 500);
         }
-        if(department === 'Interactive') {
+        if(department === 'Song') {
             setOpenSubDep(true);
             setClassNameSubInt('subInfoOpen');
             window.scrollTo({top: 0, behavior: "smooth"});
@@ -105,12 +105,12 @@ const Info = () => {
                     </div>
                     <div className='infoCards'>
                         <InfoCard
-                            heading='Interactive'
+                            heading='Song'
                             text={t('infoCardTextInteractive')}
                             linkText={t('infoCardLinkInteractive')}
                             link='https://www.accenture.com/no-en/about/accenture-interactive-index'
                             isDropdown={true}
-                            onButtonClick={() => onButtonClick('Interactive')}
+                            onButtonClick={() => onButtonClick('Song')}
                         />
                     </div>
                 </div>

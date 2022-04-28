@@ -80,7 +80,7 @@ export const Result = ({totalPointsArray
                 setWrapperHeight('100vh');
             }, 500);
         }
-        if(department === 'Interactive') {
+        if(department === 'Song') {
             setOpenSubDep(true);
             setClassNameSubInt('subInfoOpen');
             window.scrollTo({top: 0, behavior: "smooth"});

@@ -28,7 +28,7 @@ describe('Result render', () => {
                 </Router>
             </Provider>
         );
-        expect(getByTestId('carouselFront')).toHaveTextContent('Interactive');
+        expect(getByTestId('carouselFront')).toHaveTextContent('Song');
     });
 
     it('should move carousel when arrow is clicked', () => {

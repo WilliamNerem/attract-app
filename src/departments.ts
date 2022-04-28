@@ -28,13 +28,13 @@ export const departments = (t: TFunction) => {
             infoSubText: t('depTechInfoSubText')
         },
         {
-            name: 'Interactive',
+            name: 'Song',
             social: 8,
             creative: 8,
             practical: 7,
             possibleDifference: 20,
-            title: 'Interactive',
-            link: 'https://www.accenture.com/no-en/about/accenture-interactive-index',
+            title: 'Song',
+            link: 'https://www.accenture.com/no-en/about/accenture-song-index',
             infoTextEmail1: t('depInteractiveInfoTextEmail1'),
             infoTextEmail2: t('depInteractiveInfoTextEmail2'),
             infoTextCard: t('depInteractiveInfoTextEmail1') + t('depInteractiveInfoTextEmail2'),
