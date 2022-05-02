@@ -29,7 +29,7 @@ describe('Show explanation render', () => {
             </Provider>
         );
 
-        expect(screen.getByText('Likert-skala')).toBeInTheDocument();
+        expect(screen.getByText('explanationLikertHeading')).toBeInTheDocument();
     });
 
 });
