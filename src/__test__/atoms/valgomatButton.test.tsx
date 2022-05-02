@@ -35,8 +35,8 @@ describe('Valgomat button render', () => {
         );
         const testButton = container.getElementsByClassName('valgomatButton');
 
-        expect(testButton[0]).toHaveTextContent("Hjem");
-        expect(testButton[1]).toHaveTextContent("Neste");
+        expect(testButton[0]).toHaveTextContent("valgomatButtonHome");
+        expect(testButton[1]).toHaveTextContent("valgomatButtonNext");
     });
 
     it('should render next and back buttons on other questions', () => {
@@ -47,7 +47,7 @@ describe('Valgomat button render', () => {
         );
         const testButton = container.getElementsByClassName('valgomatButton');
 
-        expect(testButton[0]).toHaveTextContent("Forrige");
-        expect(testButton[1]).toHaveTextContent("Neste");
+        expect(testButton[0]).toHaveTextContent("valgomatButtonPrev");
+        expect(testButton[1]).toHaveTextContent("valgomatButtonNext");
     });
 });

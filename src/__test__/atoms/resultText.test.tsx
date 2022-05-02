@@ -21,6 +21,6 @@ describe('Result text render', () => {
             <ResultText result={'Song'} />
         );
         const testText = container.getElementsByClassName('resultText');
-        expect(testText[0]).toHaveTextContent("Du er designeren!");
+        expect(testText[0]).toHaveTextContent("resultInteractive");
     })
 });

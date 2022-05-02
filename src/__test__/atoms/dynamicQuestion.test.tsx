@@ -27,8 +27,8 @@ describe('Dynamic Question render', () => {
             </Provider>
         );
 
-        expect(getByTestId("dynamicQuestionOne")).toHaveTextContent("Det viktigste for meg er at produktet fungerer godt ved hjelp av en smart teknisk løsning");
-        expect(getByTestId("dynamicQuestionTwo")).toHaveTextContent("Det er viktig for meg at et produkt ser bra ut");
+        expect(getByTestId("dynamicQuestionOne")).toHaveTextContent("dynamicS1");
+        expect(getByTestId("dynamicQuestionTwo")).toHaveTextContent("dynamicS2");
     });
 
     it('should render strat vs interactive when 0 + 2', () => {
@@ -38,8 +38,8 @@ describe('Dynamic Question render', () => {
             </Provider>
         );
 
-        expect(getByTestId("dynamicQuestionOne")).toHaveTextContent("Jeg liker business");
-        expect(getByTestId("dynamicQuestionTwo")).toHaveTextContent("Jeg liker design");
+        expect(getByTestId("dynamicQuestionOne")).toHaveTextContent("dynamicS3");
+        expect(getByTestId("dynamicQuestionTwo")).toHaveTextContent("dynamicS4");
     });
 
     it('should render strat vs tech when 0 + 1', () => {
@@ -49,8 +49,8 @@ describe('Dynamic Question render', () => {
             </Provider>
         );
 
-        expect(getByTestId("dynamicQuestionOne")).toHaveTextContent("Jeg foretrekker å bytte arbeidsmiljø ofte");
-        expect(getByTestId("dynamicQuestionTwo")).toHaveTextContent("Jeg jobber gjerne på et prosjekt i lang tid");
+        expect(getByTestId("dynamicQuestionOne")).toHaveTextContent("dynamicS5");
+        expect(getByTestId("dynamicQuestionTwo")).toHaveTextContent("dynamicS6");
     });
 
 });
