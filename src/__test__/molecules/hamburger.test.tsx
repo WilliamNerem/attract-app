@@ -59,9 +59,9 @@ describe('Hamburger render', () => {
                 </Router>
             </Provider>
         );
-        expect(container.getElementsByClassName('hamburgerItemLinkActive')[0]).toHaveTextContent('Hjem');
+        expect(container.getElementsByClassName('hamburgerItemLinkActive')[0]).toHaveTextContent('home');
         fireEvent.click(getByTestId('hamburger'));
         fireEvent.click(container.getElementsByClassName('hamburgerItemLink')[1]);
-        expect(container.getElementsByClassName('hamburgerItemLinkActive')[0]).toHaveTextContent('Informasjon');
+        expect(container.getElementsByClassName('hamburgerItemLinkActive')[0]).toHaveTextContent('information');
     });
 });
