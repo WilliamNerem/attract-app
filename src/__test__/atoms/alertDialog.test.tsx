@@ -30,7 +30,7 @@ describe('Alert Dialog render', () => {
             </Provider>
         );
 
-        expect(getByTestId('backToResultAlertDialogText')).toHaveTextContent('Er du sikker på at du vil gå tilbake til resultatsiden?')
+        expect(getByTestId('backToResultAlertDialogText')).toHaveTextContent('alertBack')
 
     });
 
@@ -42,7 +42,7 @@ describe('Alert Dialog render', () => {
             </Provider>
         );
 
-        expect(getByTestId('progressDialogText')).toHaveTextContent('Er du sikker på at du vil avslutte valgomaten?')
+        expect(getByTestId('progressDialogText')).toHaveTextContent('alertQuit')
 
     });
 
@@ -53,7 +53,7 @@ describe('Alert Dialog render', () => {
             </Provider>
             );
         expect(getByTestId("progressAlertDialog"));
-        expect(getByTestId("progressDialogText")).toHaveTextContent('Er du sikker på at du vil avslutte valgomaten?');
+        expect(getByTestId("progressDialogText")).toHaveTextContent('alertQuit');
     });
 
     it('should render alert dialog for when user finishes valgomat ', () => {
@@ -63,7 +63,7 @@ describe('Alert Dialog render', () => {
             </Provider>
         );
         expect(getByTestId("endAlertDialog"));
-        expect(getByTestId("endDialogText")).toHaveTextContent('Er du sikker på at du vil fullføre valgomaten?');
+        expect(getByTestId("endDialogText")).toHaveTextContent('alertFinish');
     });
 
     it('should render result if totalPointArray is not undefined and yes button to go to result is clicked ', () => {

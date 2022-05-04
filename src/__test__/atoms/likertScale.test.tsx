@@ -32,9 +32,9 @@ describe('Liker scale render', () => {
                 <LikertScale questionNumber={1} characteristic={() => {}} isReversed={false} />
             </Provider>
         );
-        expect(getByTestId("likertScale")).toHaveTextContent('Helt uenig');
-        expect(getByTestId("likertScale")).toHaveTextContent('Nøytral');
-        expect(getByTestId("likertScale")).toHaveTextContent('Helt enig');
+        expect(getByTestId("likertScale")).toHaveTextContent('likertDisagree');
+        expect(getByTestId("likertScale")).toHaveTextContent('likertNeutral');
+        expect(getByTestId("likertScale")).toHaveTextContent('likertAgree');
     });
 
     it('should update state on click', () => {

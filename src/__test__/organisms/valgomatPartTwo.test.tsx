@@ -72,13 +72,13 @@ describe('Valgomat part two render', () => {
             </Provider>
         );
 
-        expect(getByTestId('valgomatPartTwoComponent')).toHaveTextContent('Spørsmål 1');
+        expect(getByTestId('valgomatPartTwoComponent')).toHaveTextContent('questionPreText 1');
         expect(getByTestId('likertScale')).toBeInTheDocument();
         fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
 
         await new Promise((resolve) => setTimeout(resolve, 300));
 
-        expect(getByTestId('valgomatPartTwoComponent')).toHaveTextContent('Spørsmål 2');
+        expect(getByTestId('valgomatPartTwoComponent')).toHaveTextContent('questionPreText 2');
         expect(getByTestId('statementOrder')).toBeInTheDocument();
     });
 
@@ -99,7 +99,7 @@ describe('Valgomat part two render', () => {
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 0');
         fireEvent.click(getByTestId('infoButton'));
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 1');
-        expect(getByTestId('valgomatPartTwo')).toHaveTextContent('Likert-skalaen består av 5 knapper');
+        expect(getByTestId('valgomatPartTwo')).toHaveTextContent('explanationLikert');
         fireEvent.click(getByTestId('showExplanation'));
         fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
 
@@ -108,7 +108,7 @@ describe('Valgomat part two render', () => {
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 0');
         fireEvent.click(getByTestId('infoButton'));
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 1');
-        expect(getByTestId('valgomatPartTwo')).toHaveTextContent('Rangering består av 3 påstander');
+        expect(getByTestId('valgomatPartTwo')).toHaveTextContent('explanationStatement');
     });
 
 });

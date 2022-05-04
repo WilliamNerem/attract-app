@@ -65,16 +65,35 @@
     margin: auto;
 }
 
+.homePageImageEnglish{
+    width: 272px;
+    height: 250px;
+    background: url("../images/homePageImageEnglish.png") no-repeat center;
+    margin: auto;
+}
+
 .statementOrderExampleImage{
     width: 272px;
     height: 250px;
     background: url("../images/rekkefølge_eksempel.PNG") no-repeat center;
 }
 
+.statementOrderExampleImageEnglish{
+    width: 272px;
+    height: 250px;
+    background: url("../images/rekkefølge_eksempel_english.PNG") no-repeat center;
+}
+
 .likertScaleExampleImage{
     width: 272px;
     height: 86px;
     background: url("../images/likert_eksempel.PNG") no-repeat center;
+}
+
+.likertScaleExampleImageEnglish{
+    width: 272px;
+    height: 86px;
+    background: url("../images/likert_eksempel_english.png") no-repeat center;
 }
 
 .imageSelectionExampleImage{
@@ -87,6 +106,12 @@
     width: 272px;
     height: 277px;
     background: url("../images/resultat_eksempel.png") no-repeat center;
+}
+
+.resultExampleImageEnglish{
+    width: 272px;
+    height: 277px;
+    background: url("../images/resultat_eksempel_english.png") no-repeat center;
 }
 
 a {

@@ -56,7 +56,7 @@ describe('Result render', () => {
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 0');
         fireEvent.click(getByTestId('infoButton'));
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 1');
-        expect(getByTestId('resultComponent')).toHaveTextContent('Resultatet viser din score');
+        expect(getByTestId('resultComponent')).toHaveTextContent('explanationResult');
     });
 
 });

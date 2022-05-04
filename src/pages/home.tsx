@@ -5,6 +5,7 @@ import { InfoCard } from "../components/atoms/infoCard";
 import { ResetStates } from "../resetStates";
 import { Footer } from "../components/molecule/footer";
 import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 
 const Home = () => {
     ResetStates();
@@ -32,11 +33,19 @@ const Home = () => {
                     />
                 </div>
                 <div className='infoCards'>
-                    <InfoCard
-                        heading={t('headingImageCard')}
-                        text={t('aboutImageCard')}
-                        exampleImage={'homePageImage'}
-                    />
+                    {i18n.language === 'en' ?
+                        < InfoCard
+                            heading = {t('headingImageCard')}
+                            text={t('aboutImageCard')}
+                            exampleImage={'homePageImageEnglish'}
+                        />
+                        :
+                        < InfoCard
+                            heading = {t('headingImageCard')}
+                            text={t('aboutImageCard')}
+                            exampleImage={'homePageImage'}
+                        />
+                    }
                 </div>
                 <div className='infoCards'>
                     <InfoCard

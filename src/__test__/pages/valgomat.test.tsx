@@ -26,6 +26,8 @@ const Wrapper = () => {
 
 describe('Valgomat render', () => {
 
+    jest.setTimeout(10000);
+
     it('should render without crashing', () => {
         const div = document.createElement("div");
         ReactDOM.render(
@@ -53,13 +55,13 @@ describe('Valgomat render', () => {
             <Wrapper />
         );
 
-        expect(getByTestId('valgomatComponent')).toHaveTextContent('Spørsmål 1');
+        expect(getByTestId('valgomatComponent')).toHaveTextContent('questionPreText 1');
         expect(getByTestId('likertScale')).toBeInTheDocument();
         fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
 
         await new Promise((resolve) => setTimeout(resolve, 300));
 
-        expect(getByTestId('valgomatComponent')).toHaveTextContent('Spørsmål 2');
+        expect(getByTestId('valgomatComponent')).toHaveTextContent('questionPreText 2');
         expect(getByTestId('imageSelection')).toBeInTheDocument();
         fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
 
@@ -69,7 +71,7 @@ describe('Valgomat render', () => {
 
         await new Promise((resolve) => setTimeout(resolve, 300));
 
-        expect(getByTestId('valgomatComponent')).toHaveTextContent('Spørsmål 4');
+        expect(getByTestId('valgomatComponent')).toHaveTextContent('questionPreText 4');
         expect(getByTestId('statementOrder')).toBeInTheDocument();
     });
 
@@ -114,7 +116,7 @@ describe('Valgomat render', () => {
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 0');
         fireEvent.click(getByTestId('infoButton'));
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 1');
-        expect(getByTestId('valgomat')).toHaveTextContent('Likert-skalaen består av 5 knapper');
+        expect(getByTestId('valgomat')).toHaveTextContent('explanationLikert');
         fireEvent.click(getByTestId('showExplanation'));
         fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
 
@@ -123,7 +125,7 @@ describe('Valgomat render', () => {
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 0');
         fireEvent.click(getByTestId('infoButton'));
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 1');
-        expect(getByTestId('valgomat')).toHaveTextContent('Bildevalg består av 3 bilder');
+        expect(getByTestId('valgomat')).toHaveTextContent('explanationImage');
         fireEvent.click(getByTestId('showExplanation'));
         fireEvent.click(container.getElementsByClassName('valgomatButton')[1]);
 
@@ -136,7 +138,7 @@ describe('Valgomat render', () => {
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 0');
         fireEvent.click(getByTestId('infoButton'));
         expect(getByTestId('showExplanation')).toHaveStyle('opacity: 1');
-        expect(getByTestId('valgomat')).toHaveTextContent('Rangering består av 3 påstander');
+        expect(getByTestId('valgomat')).toHaveTextContent('explanationStatement');
     });
 
 });

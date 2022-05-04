@@ -37,7 +37,7 @@ describe('Pallet render', () => {
 
         expect(container.getElementsByClassName('singlePallet')[1]).toHaveTextContent('Technology');
         expect(container.getElementsByClassName('singlePallet')[1]).toHaveTextContent('64%');
-        expect(container.getElementsByClassName('singlePallet')[0]).toHaveTextContent('Interactive');
+        expect(container.getElementsByClassName('singlePallet')[0]).toHaveTextContent('Song');
         expect(container.getElementsByClassName('singlePallet')[0]).toHaveTextContent('49%');
         expect(container.getElementsByClassName('singlePallet')[2]).toHaveTextContent('Strategy & Consulting');
         expect(container.getElementsByClassName('singlePallet')[2]).toHaveTextContent('32%');
