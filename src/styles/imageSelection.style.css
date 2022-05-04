@@ -17,7 +17,7 @@
     display: inline-block;
     position: relative;
     width: 250px;
-    height: 125px;
+    height: 120px;
     text-align: center;
     border-radius: 10px;
     border: 1px solid #cccccc;
@@ -25,7 +25,14 @@
 }
 
 .imageLoader{
-    margin: 50px 0 0 100px;
+    position: absolute;
+    margin: auto;
+    height: fit-content;
+    width: fit-content;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
 }
 
 .imageSelectionImage{
@@ -124,12 +131,24 @@
         height: 175px;
     }
 
+    .imageLoaderWrapper{
+        width: 300px;
+        height: 175px;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
     .imageSelectionImage{
         display: inline-block;
         position: relative;
+    }
+
+    .imageLoaderWrapper{
+        display: inline-block;
+        position: relative;
+        width: 275px;
+        height: 175px;
     }
 
     .imageSelectionLabel {
@@ -155,6 +174,10 @@
     .image-wrapper {
         margin: 1vw;
     }
+
+    .imageLoaderWrapper{
+        margin: 1vw;
+    }
 }
 
 @media screen and (min-width: 1400px) {
@@ -171,6 +194,11 @@
         height: 250px;
     }
 
+    .imageLoaderWrapper{
+        width: 400px;
+        height: 250px;
+    }
+
 }
 
 @media screen and (min-width: 1536px) {
@@ -179,6 +207,11 @@
     }
 
     .imageSelectionImage{
+        width: 450px;
+        height: 300px;
+    }
+
+    .imageLoaderWrapper{
         width: 450px;
         height: 300px;
     }
@@ -194,6 +227,11 @@
     }
 
     .imageSelectionImage{
+        width: 500px;
+        height: 320px;
+    }
+
+    .imageLoaderWrapper{
         width: 500px;
         height: 320px;
     }
