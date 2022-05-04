@@ -1,7 +1,7 @@
 import {Navbar} from "../components/molecule/navbar";
 import {ResetStates} from "../resetStates";
 import {InfoCard} from "../components/atoms/infoCard";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import '../styles/info.style.css'
 import {Footer} from "../components/molecule/footer";
 import {useTranslation} from "react-i18next";
@@ -9,6 +9,7 @@ import Backdrop from "@mui/material/Backdrop";
 import {StrategyAndConsultingSubDepartments} from "../components/organisms/strategyAndConsultingSubdepartments";
 import {TechnologySubDepartments} from "../components/organisms/technologySubdepartments";
 import {InteractiveSubDepartments} from "../components/organisms/interactiveSubdepartments";
+import i18n from "../i18n";
 
 const Info = () => {
     const [openSubDep, setOpenSubDep] = useState(false);
@@ -16,8 +17,17 @@ const Info = () => {
     const [classNameSubTech, setClassNameSubTech] = useState('subInfoClosed');
     const [classNameSubInt, setClassNameSubInt] = useState('subInfoClosed');
     const [wrapperHeight, setWrapperHeight] = useState('auto');
+    const [imageLanguage, setImageLanguage] = useState({
+        likert: 'likertScaleExampleImage',
+        statementOrder: 'statementOrderExampleImage',
+        result: 'resultExampleImage'
+    });
     ResetStates();
     const { t } = useTranslation();
+
+    useEffect(() => {
+        changeImageLanguage();
+    }, [i18n.language]);
 
     const onButtonClick = (department: string) => {
         if(department === 'Strategy & Consulting') {
@@ -45,6 +55,22 @@ const Info = () => {
             }, 500);
         }
 
+    };
+
+    const changeImageLanguage = () => {
+        if (i18n.language === 'en'){
+            setImageLanguage({
+                likert: 'likertScaleExampleImageEnglish',
+                statementOrder: 'statementOrderExampleImageEnglish',
+                result: 'resultExampleImageEnglish'
+            });
+        } else {
+            setImageLanguage({
+                likert: 'likertScaleExampleImage',
+                statementOrder: 'statementOrderExampleImage',
+                result: 'resultExampleImage'
+            });
+        }
     };
 
     return (
@@ -124,7 +150,7 @@ const Info = () => {
                             <InfoCard
                                 heading={t('explanationLikertHeading')}
                                 text={t('explanationLikert')}
-                                exampleImage={'likertScaleExampleImage'}
+                                exampleImage={imageLanguage.likert}
                                 subHeading={t('explanationExample')}
                                 isDropdown={true}
                             />
@@ -134,7 +160,7 @@ const Info = () => {
                                 heading={t('explanationStatementHeading')}
                                 text={t('explanationStatement')}
                                 subHeading={t('explanationExample')}
-                                exampleImage='statementOrderExampleImage'
+                                exampleImage={imageLanguage.statementOrder}
                                 isDropdown={true}
                             />
                         </div>
@@ -152,7 +178,7 @@ const Info = () => {
                                 heading={t('explanationResultHeading')}
                                 text={t('explanationResult')}
                                 subHeading={t('explanationExample')}
-                                exampleImage='resultExampleImage'
+                                exampleImage={imageLanguage.result}
                                 isDropdown={true}
                             />
                         </div>
