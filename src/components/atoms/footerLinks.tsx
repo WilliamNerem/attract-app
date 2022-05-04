@@ -15,8 +15,8 @@ export const FooterLinks = () => {
                 <div className={'linkWrapper'}>
                     <div className='pagelinkDiv'>
                         <Link to={'/'} className='pagelink'>{t('home')}</Link>
-                        <Link to={'/valgomat'} className='pagelink'>{t('valgomat')}</Link>
                         <Link to={'/info'} className='pagelink'>{t('information')}</Link>
+                        <Link to={'/valgomat'} className='pagelink'>{t('valgomat')}</Link>
                     </div>
                     <div className='iconLinks'>
                         <a href={'https://www.linkedin.com/company/accenture-nordics/'} target={'_blank'} rel="noopener noreferrer" className='linkTag'>
