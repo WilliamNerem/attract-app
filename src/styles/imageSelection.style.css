@@ -259,15 +259,11 @@
 
 @media screen and (max-height: 880px) and (max-width: 1410px) {
     .imageSelectionImage{
-        width: 180px;
-        height: 120px;
         display: inline-block;
         position: relative;
     }
 
     .imageLoaderWrapper{
-        width: 180px;
-        height: 120px;
         display: inline-block;
         position: relative;
         margin: 4vw;
@@ -276,6 +272,34 @@
     .imageSelectionLabel {
         width: fit-content;
         display: inline-flex;
+    }
+
+    .imageSelection {
+        width: fit-content;
+        margin: 4vw auto;
+        text-align: center;
+    }
+
+    .image-wrapper {
+        margin: 2px;
+    }
+}
+
+@media screen and (max-height: 880px) and (max-width: 780px) {
+    .imageSelectionImage{
+        display: block;
+        position: relative;
+    }
+
+    .imageLoaderWrapper{
+        display: block;
+        position: relative;
+        margin: 4vw;
+    }
+
+    .imageSelectionLabel {
+        width: fit-content;
+        display: block;
     }
 
     .imageSelection {
