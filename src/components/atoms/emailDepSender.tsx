@@ -82,7 +82,7 @@ export const EmailDepSender = ({totalPointsArray} : emailDepSenderProps) => {
             <label htmlFor="emailCheckBox" id="checkLabel">
                 <div className='emailTitleWrapper' data-testid='emailCheckbox'>
                     <p className='emailTitle'> {t('emailCheckBox')}</p>
-                    <input id="emailCheckBox" type="checkbox" onChange={handleChange}/>
+                    <input id="emailCheckBox" type="checkbox" onChange={handleChange} tabIndex={0}/>
                     <div className={`emailCustomCheckBox ${checked ? 'emailCustomCheckBoxChecked' : ''}`}/>
                 </div>
             </label>

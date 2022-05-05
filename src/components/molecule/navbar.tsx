@@ -41,18 +41,6 @@ export const Navbar = () => {
         }
     };
 
-    // Function for key press down for tab index
-    const handleKeyPress = (e: React.KeyboardEvent<HTMLAnchorElement>, isInfo: boolean) => {
-        if (e.key === "Enter" || e.key === "Space") {
-            if (inProgress) {
-                showAlertDialog(true);
-                isInfoClicked(isInfo);
-            } else {
-                isInfo ? navigate('/info') : navigate('/');
-            }
-        }
-    };
-
     useEffect(() => {
         if (hamburgerToggled) {
             setHeight('auto');
@@ -69,22 +57,13 @@ export const Navbar = () => {
         }
     };
 
-    // Function for key press down for tab index
-    const handleKeyPressChangeLocale = (e: React.KeyboardEvent<HTMLDivElement>, l: string) => {
-        if (e.key === "Enter" || e.key === "Space") {
-            if (locale !== l) {
-                i18n.changeLanguage(l);
-            }
-        }
-    };
-
     return(
         <div className='navMargin' data-testid={'navbar'}>
             <div className='nav'>
                 <a
                     className={'navbar-item-logo'}
                     onClick={() => handleClick(false)}
-                    onKeyPress={(key => {handleKeyPress(key, false)})}
+                    onKeyPress={() => handleClick(false)}
                     data-testid={'navLogo'}
                 >
                     <img
@@ -97,7 +76,7 @@ export const Navbar = () => {
                 <a
                     className={'navbar-item'}
                     onClick={() => handleClick(false)}
-                    onKeyPress={(key => {handleKeyPress(key, false)})}
+                    onKeyPress={() => handleClick(false)}
                     tabIndex={0}
                 >
                     {t('home')}
@@ -105,7 +84,7 @@ export const Navbar = () => {
                 <a
                     className={'navbar-item'}
                     onClick={() => handleClick(true)}
-                    onKeyPress={(key => {handleKeyPress(key, true)})}
+                    onKeyPress={() => handleClick(true)}
                     tabIndex={0}
                 >
                     {t('information')}
@@ -126,7 +105,7 @@ export const Navbar = () => {
                     <div
                         className={`flagWrapper ${isEnglish ? 'languageActive' : ''}`}
                         onClick={() => changeLocale('en')}
-                        onKeyPress={(key => {handleKeyPressChangeLocale(key, 'en')})}
+                        onKeyPress={() => changeLocale('en')}
                         tabIndex={0}
                     >
                         <img
@@ -139,7 +118,7 @@ export const Navbar = () => {
                     <div
                         className={`flagWrapper ${isEnglish ? '' : 'languageActive'}`}
                         onClick={() => changeLocale('no')}
-                        onKeyPress={(key => {handleKeyPressChangeLocale(key, 'no')})}
+                        onKeyPress={() => changeLocale('no')}
                         tabIndex={0}
                     >
                         <img

@@ -79,7 +79,7 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
                 onChange={() => handleChange(1, pointAllocater[0])}
                 data-testid={'firstInput'}
             />
-            <label htmlFor="firstImageSelection">
+            <label htmlFor="firstImageSelection" onKeyPress={() => handleChange(1, pointAllocater[0])} tabIndex={0}>
                 <div className='imageSelectionLabel'>
                     <div className={'image-wrapper'} id={'firstImage'} style={{display: showImages && isTransitionDone ? 'block' : 'none'}}>
                         <img
@@ -114,7 +114,7 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
                 onChange={() => handleChange(2, pointAllocater[1])}
                 data-testid={'secondInput'}
             />
-            <label htmlFor="secondImageSelection">
+            <label htmlFor="secondImageSelection" onKeyPress={() => handleChange(2, pointAllocater[1])} tabIndex={0}>
                 <div className='imageSelectionLabel'>
                     <div className={'image-wrapper'} id={'secondImage'} style={{display: showImages && isTransitionDone ? 'block' : 'none'}}>
                         <img
@@ -149,7 +149,7 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
                 onChange={() => handleChange(3, pointAllocater[2])}
                 data-testid={'thirdInput'}
             />
-            <label htmlFor="thirdImageSelection">
+            <label htmlFor="thirdImageSelection" onKeyPress={() => handleChange(3, pointAllocater[2])} tabIndex={0}>
                 <div className='imageSelectionLabel'>
                     <div className={'image-wrapper'} id={'thirdImage'} style={{display: showImages && isTransitionDone ? 'block' : 'none'}}>
                         <img

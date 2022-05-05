@@ -32,7 +32,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
     };
 
     const handleChecked = (radioValue: number) => {
-        return radioValue == likertState[questionNumber-1];
+        return radioValue === likertState[questionNumber-1];
     };
 
     const handleDefaultCheked = (radioValue: number) => {
@@ -44,28 +44,11 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
         }
     };
 
-    // Function for key press down for tab index
-    // const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>, answer: Function, radioValue: number) => {
-    //     if (e.key === "Enter" || e.key === "Space") {
-    //         const lastChecked = likertState[questionNumber-1];
-    //         answer(questionNumber);
-    //         const currChecked = likertState[questionNumber-1];
-    //         characteristic(-(lastChecked-3), isReversed);
-    //         characteristic(currChecked-3, isReversed);
-    //     }
-    // };
-
-    // const handleKeyPressChange = (e: React.KeyboardEvent<HTMLInputElement>, radioValue: number) => {
-    //     if (e.key === "Enter" || e.key === "Space") {
-    //         return radioValue == likertState[questionNumber-1];
-    //     }
-    // };
-
     if(questionNumber % 2 !== 0) {
     return(
             <div className='likert' data-testid={'likertScale'}>
                 <div className="likertScale">
-                    <label className='likertLabel' htmlFor="stronglyDisagree" tabIndex={0}/>
+                    <label className='likertLabel' htmlFor="stronglyDisagree" onKeyPress={() => handleChange(stronglyDisagree)} tabIndex={0}/>
                     <input
                         id="stronglyDisagree"
                         className='likertInput'
@@ -77,7 +60,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
                         data-testid={'likertScaleStronglyDisagree'}
                     />
 
-                    <label className='likertLabel' htmlFor="moderatelyDisagree" tabIndex={0}/>
+                    <label className='likertLabel' htmlFor="moderatelyDisagree" onKeyPress={() => handleChange(moderatlyDisagree)} tabIndex={0}/>
                     <input
                         id="moderatelyDisagree"
                         className='likertInput'
@@ -87,7 +70,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
                         checked={handleChecked(2)}
                         onChange={() => handleChange(moderatlyDisagree)}
                     />
-                    <label className='likertLabel' htmlFor="neutral" tabIndex={0}/>
+                    <label className='likertLabel' htmlFor="neutral" onKeyPress={() => handleChange(neutral)} tabIndex={0}/>
                     <input
                         id="neutral"
                         className='likertInput'
@@ -97,7 +80,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
                         checked={handleDefaultCheked(3)}
                         onChange={() => handleChange(neutral)}
                     />
-                    <label className='likertLabel' htmlFor="moderatelyAgree" tabIndex={0}/>
+                    <label className='likertLabel' htmlFor="moderatelyAgree" onKeyPress={() => handleChange(moderatlyAgree)} tabIndex={0}/>
                     <input
                         id="moderatelyAgree"
                         className='likertInput'
@@ -108,7 +91,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
                         onChange={() => handleChange(moderatlyAgree)}
                         data-testid={'likertScaleModeratelyAgree'}
                     />
-                    <label className='likertLabel' htmlFor="stronglyAgree" tabIndex={0}/>
+                    <label className='likertLabel' htmlFor="stronglyAgree" onKeyPress={() => handleChange(stronglyAgree)} tabIndex={0}/>
                     <input
                         id="stronglyAgree"
                         className='likertInput'
@@ -134,7 +117,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
         return(
                 <div className='likert'>
                     <div className="likertScale">
-                        <label className='likertLabel' htmlFor="stronglyDisagree" tabIndex={0}/>
+                        <label className='likertLabel' htmlFor="stronglyDisagree" onKeyPress={() => handleChange(stronglyDisagree)} tabIndex={0}/>
                         <input
                             id="stronglyDisagree"
                             className='likertInput'
@@ -145,7 +128,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
                             onChange={() => handleChange(stronglyDisagree)}
                         />
 
-                        <label className='likertLabel' htmlFor="moderatelyDisagree" tabIndex={0}/>
+                        <label className='likertLabel' htmlFor="moderatelyDisagree" onKeyPress={() => handleChange(moderatlyDisagree)} tabIndex={0}/>
                         <input
                             id="moderatelyDisagree"
                             className='likertInput'
@@ -155,7 +138,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
                             checked={handleChecked(2)}
                             onChange={() => handleChange(moderatlyDisagree)}
                         />
-                        <label className='likertLabel' htmlFor="neutral" tabIndex={0}/>
+                        <label className='likertLabel' htmlFor="neutral" onKeyPress={() => handleChange(neutral)} tabIndex={0}/>
                         <input
                             id="neutral"
                             className='likertInput'
@@ -165,7 +148,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
                             checked={handleDefaultCheked(3)}
                             onChange={() => handleChange(neutral)}
                         />
-                        <label className='likertLabel' htmlFor="moderatelyAgree" tabIndex={0}/>
+                        <label className='likertLabel' htmlFor="moderatelyAgree" onKeyPress={() => handleChange(moderatlyAgree)} tabIndex={0}/>
                         <input
                             id="moderatelyAgree"
                             className='likertInput'
@@ -175,7 +158,7 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
                             checked={handleChecked(4)}
                             onChange={() => handleChange(moderatlyAgree)}
                         />
-                        <label className='likertLabel' htmlFor="stronglyAgree" tabIndex={0}/>
+                        <label className='likertLabel' htmlFor="stronglyAgree" onKeyPress={() => handleChange(stronglyAgree)} tabIndex={0}/>
                         <input
                             id="stronglyAgree"
                             className='likertInput'

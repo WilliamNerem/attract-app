@@ -83,33 +83,6 @@ export const StatementItem = ({index, positionInStatementOrder, position, transi
         }
     };
 
-    // Function for key press down for tab index
-    const handleKeyPressUp = (e: React.KeyboardEvent<HTMLAnchorElement>, statementId: number) => {
-        if (e.key === "Enter" || e.key === "Space") {
-            const prev = statementOrder[positionInStatementOrder][position-1];
-            if (statementArray !== undefined && position != 0) {
-                statementArray[index].department(2);
-                increaseStatementOrder(statementId, positionInStatementOrder);
-                statementArray[prev-1].department(-2);
-                handleTransition(position-1, position, !transitionValues.startTransition);
-            }
-        }
-    };
-
-    // Function for key press down for tab index
-    const handleKeyPressDown = (e: React.KeyboardEvent<HTMLAnchorElement>, statementId: number) => {
-        if (e.key === "Enter" || e.key === "Space") {
-            const next = statementOrder[positionInStatementOrder][position+1];
-            if (statementArray !== undefined && position != 2) {
-                statementArray[index].department(-2);
-                decreaseStatementOrder(statementId, positionInStatementOrder);
-                statementArray[next-1].department(2);
-                handleTransition(position, position+1, !transitionValues.startTransition);
-            }
-        }
-    };
-
-
     let upArrow = 'buttonUp';
     let downArrow = 'buttonDown';
 
@@ -135,13 +108,13 @@ export const StatementItem = ({index, positionInStatementOrder, position, transi
                 <a
                     className={upArrow}
                     onClick={() => handleUp(statementNumber)}
-                    onKeyPress={key => {handleKeyPressUp(key, statementNumber)}}
+                    onKeyPress={() => handleUp(statementNumber)}
                     tabIndex={0}
                 />
                 <a
                     className={downArrow}
                     onClick={() => handleDown(statementNumber)}
-                    onKeyPress={key => {handleKeyPressDown(key, statementNumber)}}
+                    onKeyPress={() => handleDown(statementNumber)}
                     tabIndex={0}
                 />
             </div>

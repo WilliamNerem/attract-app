@@ -114,8 +114,20 @@ export const AlertDialog = ({
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <a data-testid={'noButton'} className='alertButton' onClick={() => handleClose()} tabIndex={0}>{t('alertDeny')}</a>
-                        <a data-testid={'yesButton'} className='alertButton' onClick={() => {handleBackToResult()}} tabIndex={0}>{t('alertConfirm')}</a>
+                        <a
+                            data-testid={'noButton'}
+                            className='alertButton'
+                            onClick={() => handleClose()}
+                            onKeyPress={() => handleClose()}
+                            tabIndex={0}
+                        >{t('alertDeny')}</a>
+                        <a
+                            data-testid={'yesButton'}
+                            className='alertButton'
+                            onClick={() => {handleBackToResult()}}
+                            onKeyPress={() => {handleBackToResult()}}
+                            tabIndex={0}
+                        >{t('alertConfirm')}</a>
                     </DialogActions>
                 </Dialog>
             </div>
@@ -140,8 +152,20 @@ export const AlertDialog = ({
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <a data-testid={'noButton'} className='alertButton' onClick={() => handleDecrease()} tabIndex={0}>{t('alertDeny')}</a>
-                        <a data-testid={'yesButton'} className='alertButton' onClick={() => {setUpdate(true)}} tabIndex={0}>{t('alertConfirm')}</a>
+                        <a
+                            data-testid={'noButton'}
+                            className='alertButton'
+                            onClick={() => handleDecrease()}
+                            onKeyPress={() => handleDecrease()}
+                            tabIndex={0}
+                        >{t('alertDeny')}</a>
+                        <a
+                            data-testid={'yesButton'}
+                            className='alertButton'
+                            onClick={() => {setUpdate(true)}}
+                            onKeyPress={() => setUpdate(true)}
+                            tabIndex={0}
+                        >{t('alertConfirm')}</a>
                     </DialogActions>
                 </Dialog>
             </div>
@@ -164,7 +188,7 @@ export const AlertDialog = ({
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <a data-testid={'noButton'} className='alertButton' onClick={handleClose}>{t('alertDeny')}</a>
+                        <a data-testid={'noButton'} className='alertButton' onClick={handleClose} onKeyPress={handleClose} tabIndex={0}>{t('alertDeny')}</a>
                         {isInfo ? <Link data-testid={'yesButton'} className='alertButton' to='/info'>Ja</Link> : <a className='alertButton' href='/'>{t('alertConfirm')}</a>}
                     </DialogActions>
                 </Dialog>
