@@ -14,6 +14,7 @@ interface infoCardProps {
     exampleImage?: string
     singlePageLink?: boolean
     onButtonClick?: React.MouseEventHandler<HTMLButtonElement>
+    tabIndex?: number
 }
 
 export const InfoCard = ({
@@ -26,14 +27,15 @@ export const InfoCard = ({
      isDropdown,
      exampleImage,
      singlePageLink,
-     onButtonClick
+     onButtonClick,
+    tabIndex,
 }: infoCardProps) => {
     const [className, setClassName] = useState('');
     const [iconClassName, setIconClassName] = useState('');
     const newLineText = text.split('¤').map((str) => <p>{str}</p>);
     const { t } = useTranslation();
     const [isLongHeading, setIsLongHeading] = useState(false);
-    const [tabIndex, setTabIndex] = useState(0)
+    const [tabIndexDropDown, setTabIndexDropDown] = useState(0)
 
     useEffect(() => {
         if (isDropdown){
@@ -44,7 +46,7 @@ export const InfoCard = ({
                 setClassName('minimized');
             }
             setIconClassName('dropdownIcon dropdownIconStandard');
-            setTabIndex(-1);
+            setTabIndexDropDown(-1);
         }
     }, []);
 
@@ -52,7 +54,7 @@ export const InfoCard = ({
         if (className === 'minimized' || className === 'minimizedLongText'){
             setClassName('expanded');
             setIconClassName('dropdownIcon dropdownIconRotated');
-            setTabIndex(0);
+            setTabIndexDropDown(0);
         } else if (className === 'expanded') {
             if (isLongHeading){
                 setClassName('minimizedLongText');
@@ -60,13 +62,13 @@ export const InfoCard = ({
                 setClassName('minimized');
             }
             setIconClassName('dropdownIcon dropdownIconStandard');
-            setTabIndex(-1);
+            setTabIndexDropDown(-1);
         }
     };
 
     return(
         <div className={className+' infoCard'} data-testid={'infoCard'}>
-            <div onClick={dropdown} onKeyPress={dropdown} className={'infoCardDropdown'} data-testid={'infoCardDropdown'} tabIndex={0}>
+            <div onClick={dropdown} onKeyPress={dropdown} className={'infoCardDropdown'} data-testid={'infoCardDropdown'} tabIndex={tabIndex ? tabIndex : 0}>
                 <h1 className={'infoCardHeading'}>{heading}</h1>
                 <div className={iconClassName}/>
             </div>
@@ -76,7 +78,7 @@ export const InfoCard = ({
             <p className={'infoCardText'}>{subText}</p>
             {onButtonClick && (
                 <div className='btn-goToSubDep-wrapper'>
-                    <button className={'btn-goToSubDep'} onClick={onButtonClick} tabIndex={tabIndex}>{t('miniValgomat')}</button>
+                    <button className={'btn-goToSubDep'} onClick={onButtonClick} tabIndex={tabIndex === -1 ? tabIndex : tabIndexDropDown}>{t('miniValgomat')}</button>
                     <div className={'btn-goToSubDep-behind'} aria-hidden={true}>{t('miniValgomat')}</div>
                 </div>
             )}
@@ -84,7 +86,7 @@ export const InfoCard = ({
                 singlePageLink ?
                 <Link to={link}>{linkText ? linkText : link.toString()}</Link> :
                 <div className='linkWrapper'>
-                    <a href={link} target={'_blank'} rel="noopener noreferrer" className='linkText' tabIndex={tabIndex}>{linkText ? linkText : link.toString()}</a>
+                    <a href={link} target={'_blank'} rel="noopener noreferrer" className='linkText' tabIndex={tabIndex === -1 ? tabIndex : tabIndexDropDown}>{linkText ? linkText : link.toString()}</a>
                     <div className='linkToNewPage'/>
                 </div>
             )}

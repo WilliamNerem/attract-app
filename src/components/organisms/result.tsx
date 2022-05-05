@@ -33,6 +33,10 @@ export const Result = ({totalPointsArray
     const [classNameSubSC, setClassNameSubSC] = useState('subInfoClosed');
     const [classNameSubTech, setClassNameSubTech] = useState('subInfoClosed');
     const [classNameSubInt, setClassNameSubInt] = useState('subInfoClosed');
+    const [tabIndexSC, setTabIndexSC] = useState(-1);
+    const [tabIndexTech, setTabIndexTech] = useState(-1);
+    const [tabIndexSong, setTabIndexSong] = useState(-1);
+    const [tabIndex, setTabIndex] = useState(0);
     const [wrapperHeight, setWrapperHeight] = useState('auto');
 
     useEffect(() => {
@@ -79,6 +83,8 @@ export const Result = ({totalPointsArray
             setTimeout(() => {
                 setWrapperHeight('100vh');
             }, 500);
+            setTabIndexSC(0);
+            setTabIndex(-1);
         }
         if(department === 'Song') {
             setOpenSubDep(true);
@@ -87,6 +93,8 @@ export const Result = ({totalPointsArray
             setTimeout(() => {
                 setWrapperHeight('100vh');
             }, 500);
+            setTabIndexSong(0);
+            setTabIndex(-1);
         }
         if(department === 'Technology') {
             setOpenSubDep(true);
@@ -95,6 +103,8 @@ export const Result = ({totalPointsArray
             setTimeout(() => {
                 setWrapperHeight('100vh');
             }, 500);
+            setTabIndexTech(0);
+            setTabIndex(-1);
         }
 
     };
@@ -123,8 +133,10 @@ export const Result = ({totalPointsArray
                     setWrapperHeight('auto');
                     setTimeout(() => {
                         setOpenSubDep(false);
+                        setTabIndexSC(-1);
+                        setTabIndex(0);
                     }, 300);
-                }}/>
+                }} tabIndex={tabIndexSC}/>
             </div>
             <div className={classNameSubTech}>
                 <TechnologySubDepartments close={() => {
@@ -132,8 +144,10 @@ export const Result = ({totalPointsArray
                     setWrapperHeight('auto');
                     setTimeout(() => {
                         setOpenSubDep(false);
+                        setTabIndexTech(-1);
+                        setTabIndex(0);
                     }, 300);
-                }}/>
+                }} tabIndex={tabIndexTech}/>
             </div>
             <div className={classNameSubInt}>
                 <InteractiveSubDepartments close={() => {
@@ -141,8 +155,10 @@ export const Result = ({totalPointsArray
                     setWrapperHeight('auto');
                     setTimeout(() => {
                         setOpenSubDep(false);
+                        setTabIndexSong(-1);
+                        setTabIndex(0);
                     }, 300);
-                }}/>
+                }} tabIndex={tabIndexSong}/>
             </div>
             <div className='result'>
                 <div className='gradientDiv'>
@@ -160,6 +176,7 @@ export const Result = ({totalPointsArray
                             subText={depAtPlacement(1).infoSubText}
                             linkText={t('resultSubText') + depAtPlacement(1).title}
                             onButtonClick={() => onButtonClick(depAtPlacement(1).title)}
+                            tabIndex={tabIndex}
                         />
                     </div>
                     <div className={carousel.second + ' middleCarouselItem'} data-testid={'carouselFront'}>
@@ -171,6 +188,7 @@ export const Result = ({totalPointsArray
                             subText={depAtPlacement(0).firstInfoSubText}
                             linkText={t('resultSubText') + depAtPlacement(0).title}
                             onButtonClick={() => onButtonClick(depAtPlacement(0).title)}
+                            tabIndex={tabIndex}
                         />
                     </div>
                     <div className={carousel.third + ' rightCarouselItem'}>
@@ -182,14 +200,15 @@ export const Result = ({totalPointsArray
                             subText={depAtPlacement(2).infoSubText}
                             linkText={t('resultSubText') + depAtPlacement(2).title}
                             onButtonClick={() => onButtonClick(depAtPlacement(2).title)}
+                            tabIndex={tabIndex}
                         />
                     </div>
                     <a className={disabledButtons + ' leftArrow'} onClick={handleLeftArrow}/>
                     <a className={disabledButtons + ' rightArrow'} onClick={handleRightArrow} data-testid={'rightArrow'}/>
                 </div>
-                <EmailDepSender totalPointsArray={totalPointsArray}/>
+                <EmailDepSender totalPointsArray={totalPointsArray} tabIndex={tabIndex}/>
                 <div className='buttonDiv'>
-                    <Button href='/' text={t('resultHome')}/>
+                    <Button href='/' text={t('resultHome')} tabIndex={tabIndex}/>
                 </div>
             </div>
         </div>
