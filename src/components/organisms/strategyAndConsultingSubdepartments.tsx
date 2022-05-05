@@ -21,27 +21,6 @@ export const StrategyAndConsultingSubDepartments = ({close}: props) => {
                 </div>
                 <div className={'info-wrapper'}>
                     <div className='infoCards firstValgomatCard'>
-                        <InfoCard heading='Communications Media & Technology' text={t('subDepScCMT')} isDropdown={true}/>
-                    </div>
-                    <div className='infoCards'>
-                        <InfoCard heading='Financial Services' text={t('subDepScFinancialServices')} isDropdown={true}/>
-                    </div>
-                    <div className='infoCards'>
-                        <InfoCard heading='Health & Public Services' text={t('subDepScHPS')} isDropdown={true}/>
-                    </div>
-                    <div className='infoCards'>
-                        <InfoCard heading='Products' text={t('subDepScProducts')} isDropdown={true}/>
-                    </div>
-                    <div className='infoCards'>
-                        <InfoCard heading='Resources' text={t('subDepScResources')} isDropdown={true}/>
-                    </div>
-                </div>
-                <div className='gradientDiv'>
-                    <h1 className='infoText'>{t('subDepScIndustryHeader')}</h1>
-                    <p className='infoSubText'>{t('subDepScIndustryText')}</p>
-                </div>
-                <div className={'info-wrapper'}>
-                    <div className='infoCards firstValgomatCard'>
                         <InfoCard heading='Applied Intelligence' text={t('subDepScAppliedIntelligence')} isDropdown={true}/>
                     </div>
                     <div className='infoCards'>
@@ -64,6 +43,27 @@ export const StrategyAndConsultingSubDepartments = ({close}: props) => {
                     </div>
                     <div className='infoCards'>
                         <InfoCard heading='Technology, Strategy and Advisory' text={t('subDepScTSA')} isDropdown={true}/>
+                    </div>
+                </div>
+                <div className='gradientDiv'>
+                    <h1 className='infoText'>{t('subDepScIndustryHeader')}</h1>
+                    <p className='infoSubText'>{t('subDepScIndustryText')}</p>
+                </div>
+                <div className={'info-wrapper'}>
+                    <div className='infoCards firstValgomatCard'>
+                        <InfoCard heading='Communications Media & Technology' text={t('subDepScCMT')} isDropdown={true}/>
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard heading='Financial Services' text={t('subDepScFinancialServices')} isDropdown={true}/>
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard heading='Health & Public Services' text={t('subDepScHPS')} isDropdown={true}/>
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard heading='Products' text={t('subDepScProducts')} isDropdown={true}/>
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard heading='Resources' text={t('subDepScResources')} isDropdown={true}/>
                     </div>
                 </div>
             </div>
