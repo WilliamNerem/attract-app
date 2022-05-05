@@ -79,30 +79,27 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
                 onChange={() => handleChange(1, pointAllocater[0])}
                 data-testid={'firstInput'}
             />
-            <label htmlFor="firstImageSelection">
+            <label htmlFor="firstImageSelection" onKeyPress={() => handleChange(1, pointAllocater[0])} tabIndex={0}>
                 <div className='imageSelectionLabel'>
-                    {isTransitionDone ?
-                        <div className={'image-wrapper'} id={'firstImage'}>
-                            <img
-                                src={pictures[0]}
-                                className={`imageSelectionImage ${showImages ? 'imageVisible' : 'imageHidden'}`}
-                                data-testid={'firstImage'}
-                                alt={pictures[0]}
-                                onLoad={() => setFirstImgIsLoading(false)}
+                    <div className={'image-wrapper'} id={'firstImage'} style={{display: showImages && isTransitionDone ? 'block' : 'none'}}>
+                        <img
+                            src={pictures[0]}
+                            className={`imageSelectionImage ${showImages ? 'imageVisible' : 'imageHidden'}`}
+                            data-testid={'firstImage'}
+                            alt={pictures[0]}
+                            onLoad={() => setFirstImgIsLoading(false)}
+                        />
+                    </div>
+                    <div className='imageLoaderWrapper' style={{display: showImages && isTransitionDone ? 'none' : 'block'}}>
+                        <div className='imageLoader'>
+                            <PulseLoader
+                                size={15}
+                                margin={2}
+                                speedMultiplier={0.7}
+                                color={'#a100ff'}
                             />
                         </div>
-                        :
-                        <div className='imageLoaderWrapper'>
-                            <div className='imageLoader'>
-                                <PulseLoader
-                                    size={15}
-                                    margin={2}
-                                    speedMultiplier={0.7}
-                                    color={'#a100ff'}
-                                />
-                            </div>
-                        </div>
-                    }
+                    </div>
                     <div className='imageSelectionRadio'/>
                 </div>
             </label>
@@ -117,30 +114,27 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
                 onChange={() => handleChange(2, pointAllocater[1])}
                 data-testid={'secondInput'}
             />
-            <label htmlFor="secondImageSelection">
+            <label htmlFor="secondImageSelection" onKeyPress={() => handleChange(2, pointAllocater[1])} tabIndex={0}>
                 <div className='imageSelectionLabel'>
-                    {isTransitionDone ?
-                        <div className={'image-wrapper'} id={'secondImage'}>
-                            <img
-                                src={pictures[1]}
-                                className={`imageSelectionImage ${showImages ? 'imageVisible' : 'imageHidden'}`}
-                                data-testid={'secondImage'}
-                                alt={pictures[1]}
-                                onLoad={() => setSecondImgIsLoading(false)}
+                    <div className={'image-wrapper'} id={'secondImage'} style={{display: showImages && isTransitionDone ? 'block' : 'none'}}>
+                        <img
+                            src={pictures[1]}
+                            className={`imageSelectionImage ${showImages ? 'imageVisible' : 'imageHidden'}`}
+                            data-testid={'secondImage'}
+                            alt={pictures[1]}
+                            onLoad={() => setSecondImgIsLoading(false)}
+                        />
+                    </div>
+                    <div className='imageLoaderWrapper' style={{display: showImages && isTransitionDone ? 'none' : 'block'}}>
+                        <div className='imageLoader'>
+                            <PulseLoader
+                                size={15}
+                                margin={2}
+                                speedMultiplier={0.7}
+                                color={'#a100ff'}
                             />
                         </div>
-                        :
-                        <div className='imageLoaderWrapper'>
-                            <div className='imageLoader'>
-                                <PulseLoader
-                                    size={15}
-                                    margin={2}
-                                    speedMultiplier={0.7}
-                                    color={'#a100ff'}
-                                />
-                            </div>
-                        </div>
-                    }
+                    </div>
                     <div className='imageSelectionRadio'/>
                 </div>
             </label>
@@ -155,30 +149,27 @@ export const ImageSelection = ({pictures, pointAllocater}: imageSelectionProps) 
                 onChange={() => handleChange(3, pointAllocater[2])}
                 data-testid={'thirdInput'}
             />
-            <label htmlFor="thirdImageSelection">
+            <label htmlFor="thirdImageSelection" onKeyPress={() => handleChange(3, pointAllocater[2])} tabIndex={0}>
                 <div className='imageSelectionLabel'>
-                    {isTransitionDone ?
-                        <div className={'image-wrapper'} id={'thirdImage'}>
-                            <img
-                                src={pictures[2]}
-                                className={`imageSelectionImage ${showImages ? 'imageVisible' : 'imageHidden'}`}
-                                data-testid={'thirdImage'}
-                                alt={pictures[2]}
-                                onLoad={() => setThirdImgIsLoading(false)}
+                    <div className={'image-wrapper'} id={'thirdImage'} style={{display: showImages && isTransitionDone ? 'block' : 'none'}}>
+                        <img
+                            src={pictures[2]}
+                            className={`imageSelectionImage ${showImages ? 'imageVisible' : 'imageHidden'}`}
+                            data-testid={'thirdImage'}
+                            alt={pictures[2]}
+                            onLoad={() => setThirdImgIsLoading(false)}
+                        />
+                    </div>
+                    <div className='imageLoaderWrapper' style={{display: showImages && isTransitionDone ? 'none' : 'block'}}>
+                        <div className='imageLoader'>
+                            <PulseLoader
+                                size={15}
+                                margin={2}
+                                speedMultiplier={0.7}
+                                color={'#a100ff'}
                             />
                         </div>
-                        :
-                        <div className='imageLoaderWrapper'>
-                            <div className='imageLoader'>
-                                <PulseLoader
-                                    size={15}
-                                    margin={2}
-                                    speedMultiplier={0.7}
-                                    color={'#a100ff'}
-                                />
-                            </div>
-                        </div>
-                    }
+                    </div>
                     <div className='imageSelectionRadio'/>
                 </div>
             </label>

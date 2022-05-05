@@ -17,6 +17,10 @@ const Info = () => {
     const [classNameSubTech, setClassNameSubTech] = useState('subInfoClosed');
     const [classNameSubInt, setClassNameSubInt] = useState('subInfoClosed');
     const [wrapperHeight, setWrapperHeight] = useState('auto');
+    const [tabIndexSC, setTabIndexSC] = useState(-1);
+    const [tabIndexTech, setTabIndexTech] = useState(-1);
+    const [tabIndexSong, setTabIndexSong] = useState(-1);
+    const [tabIndex, setTabIndex] = useState(0);
     const [imageLanguage, setImageLanguage] = useState({
         likert: 'likertScaleExampleImage',
         statementOrder: 'statementOrderExampleImage',
@@ -37,6 +41,8 @@ const Info = () => {
             setTimeout(() => {
                 setWrapperHeight('95vh');
             }, 500);
+            setTabIndexSC(0);
+            setTabIndex(-1);
         }
         if(department === 'Song') {
             setOpenSubDep(true);
@@ -45,6 +51,8 @@ const Info = () => {
             setTimeout(() => {
                 setWrapperHeight('95vh');
             }, 500);
+            setTabIndexSong(0);
+            setTabIndex(-1);
         }
         if(department === 'Technology') {
             setOpenSubDep(true);
@@ -53,6 +61,8 @@ const Info = () => {
             setTimeout(() => {
                 setWrapperHeight('95vh');
             }, 500);
+            setTabIndexTech(0);
+            setTabIndex(-1);
         }
 
     };
@@ -84,7 +94,9 @@ const Info = () => {
                         setTimeout(() => {
                             setOpenSubDep(false);
                         }, 300);
-                    }}/>
+                        setTabIndexSC(-1);
+                        setTabIndex(0);
+                    }} tabIndex={tabIndexSC}/>
                 </div>
                 <div className={classNameSubTech}>
                     <TechnologySubDepartments close={() => {
@@ -93,7 +105,9 @@ const Info = () => {
                         setTimeout(() => {
                             setOpenSubDep(false);
                         }, 300);
-                    }}/>
+                        setTabIndexTech(-1);
+                        setTabIndex(0);
+                    }} tabIndex={tabIndexTech}/>
                 </div>
                 <div className={classNameSubInt}>
                     <InteractiveSubDepartments close={() => {
@@ -102,7 +116,9 @@ const Info = () => {
                         setTimeout(() => {
                             setOpenSubDep(false);
                         }, 300);
-                    }}/>
+                        setTabIndexSong(-1);
+                        setTabIndex(0);
+                    }} tabIndex={tabIndexSong}/>
                 </div>
                 <div className='gradientDiv'>
                     <h1 className='infoText'>{t('infoH1')}</h1>
@@ -117,6 +133,7 @@ const Info = () => {
                             link='https://www.accenture.com/no-en/about/consulting-index'
                             isDropdown={true}
                             onButtonClick={() => onButtonClick('Strategy & Consulting')}
+                            tabIndex={tabIndex}
                         />
                     </div>
                     <div className='infoCards'>
@@ -127,6 +144,7 @@ const Info = () => {
                             link='https://www.accenture.com/no-en/about/technology-index'
                             isDropdown={true}
                             onButtonClick={() => onButtonClick('Technology')}
+                            tabIndex={tabIndex}
                         />
                     </div>
                     <div className='infoCards'>
@@ -137,54 +155,57 @@ const Info = () => {
                             link='https://www.accenture.com/no-en/about/accenture-interactive-index'
                             isDropdown={true}
                             onButtonClick={() => onButtonClick('Song')}
+                            tabIndex={tabIndex}
                         />
                     </div>
                 </div>
-                <div className='grayBackgroundInfo'>
-                    <div className='headingValgomatInfo'>
-                        <h1 className='infoText'>{t('infoH1Answer')}</h1>
-                        <p className='infoSubText'>{t('infoH1AnswerSub')}</p>
-                    </div>
-                    <div className={'valgomatInfo-wrapper'}>
-                        <div className='infoCards firstValgomatCard'>
-                            <InfoCard
-                                heading={t('explanationLikertHeading')}
-                                text={t('explanationLikert')}
-                                exampleImage={imageLanguage.likert}
-                                subHeading={t('explanationExample')}
-                                isDropdown={true}
-                            />
-                        </div>
-                        <div className='infoCards'>
-                            <InfoCard
-                                heading={t('explanationStatementHeading')}
-                                text={t('explanationStatement')}
-                                subHeading={t('explanationExample')}
-                                exampleImage={imageLanguage.statementOrder}
-                                isDropdown={true}
-                            />
-                        </div>
-                        <div className='infoCards'>
-                            <InfoCard
-                                heading={t('explanationImageHeading')}
-                                text={t('explanationImage')}
-                                subHeading={t('explanationExample')}
-                                exampleImage='imageSelectionExampleImage'
-                                isDropdown={true}
-                            />
-                        </div>
-                        <div className='infoCards'>
-                            <InfoCard
-                                heading={t('explanationResultHeading')}
-                                text={t('explanationResult')}
-                                subHeading={t('explanationExample')}
-                                exampleImage={imageLanguage.result}
-                                isDropdown={true}
-                            />
-                        </div>
-                    </div>
-                    <Footer/>
+                <div className='gradientDiv'>
+                    <h1 className='infoText'>{t('infoH1Answer')}</h1>
+                    <p className='infoSubText'>{t('infoH1AnswerSub')}</p>
                 </div>
+                <div className={'valgomatInfo-wrapper'}>
+                    <div className='infoCards firstValgomatCard'>
+                        <InfoCard
+                            heading={t('explanationLikertHeading')}
+                            text={t('explanationLikert')}
+                            exampleImage={imageLanguage.likert}
+                            subHeading={t('explanationExample')}
+                            isDropdown={true}
+                            tabIndex={tabIndex}
+                        />
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard
+                            heading={t('explanationStatementHeading')}
+                            text={t('explanationStatement')}
+                            subHeading={t('explanationExample')}
+                            exampleImage={imageLanguage.statementOrder}
+                            isDropdown={true}
+                            tabIndex={tabIndex}
+                        />
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard
+                            heading={t('explanationImageHeading')}
+                            text={t('explanationImage')}
+                            subHeading={t('explanationExample')}
+                            exampleImage='imageSelectionExampleImage'
+                            isDropdown={true}
+                            tabIndex={tabIndex}
+                        />
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard
+                            heading={t('explanationResultHeading')}
+                            text={t('explanationResult')}
+                            subHeading={t('explanationExample')}
+                            exampleImage={imageLanguage.result}
+                            isDropdown={true}
+                            tabIndex={tabIndex}
+                        />
+                    </div>
+                </div>
+                <Footer tabIndex={tabIndex}/>
             </div>
             <Backdrop
                 open={openSubDep}

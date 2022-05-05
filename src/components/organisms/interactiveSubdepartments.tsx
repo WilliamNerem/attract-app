@@ -4,15 +4,16 @@ import {useTranslation} from "react-i18next";
 
 interface props {
     close: Function;
+    tabIndex: number;
 }
 
-export const InteractiveSubDepartments = ({close}: props) => {
+export const InteractiveSubDepartments = ({close, tabIndex}: props) => {
     const { t } = useTranslation();
     return (
         <>
             <div className='info'>
                 <div className='gradientDiv'>
-                    <div className={'backToResult'} onClick={() => close()}>
+                    <div className={'backToResult'} onClick={() => close()} onKeyPress={() => close()} tabIndex={tabIndex}>
                         <div className={'backArrowWhite'}/>
                         <p className={'backText'}>{t('subDepBack')}</p>
                     </div>
@@ -21,13 +22,13 @@ export const InteractiveSubDepartments = ({close}: props) => {
                 </div>
                 <div className={'info-wrapper'}>
                     <div className='infoCards firstValgomatCard'>
-                        <InfoCard heading='Build' text={t('subDepInteractiveBuild')} isDropdown={true}/>
+                        <InfoCard heading='Build' text={t('subDepInteractiveBuild')} isDropdown={true} tabIndex={tabIndex}/>
                     </div>
                     <div className='infoCards'>
-                        <InfoCard heading='Design' text={t('subDepInteractiveDesign')} isDropdown={true}/>
+                        <InfoCard heading='Design' text={t('subDepInteractiveDesign')} isDropdown={true} tabIndex={tabIndex}/>
                     </div>
                     <div className='infoCards'>
-                        <InfoCard heading='Communications' text={t('subDepInteractiveCommunications')} isDropdown={true}/>
+                        <InfoCard heading='Communications' text={t('subDepInteractiveCommunications')} isDropdown={true} tabIndex={tabIndex}/>
                     </div>
                 </div>
             </div>

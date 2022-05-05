@@ -41,18 +41,6 @@ export const Navbar = () => {
         }
     };
 
-    // Function for key press down for tab index
-    const handleKeyPress = (e: KeyboardEvent, isInfo: boolean) => {
-        if (e.key === "Enter" || e.key === "Space") {
-            if (inProgress) {
-                showAlertDialog(true);
-                isInfoClicked(isInfo);
-            } else {
-                isInfo ? navigate('/info') : navigate('/');
-            }
-        }
-    };
-
     useEffect(() => {
         if (hamburgerToggled) {
             setHeight('auto');
@@ -75,6 +63,7 @@ export const Navbar = () => {
                 <a
                     className={'navbar-item-logo'}
                     onClick={() => handleClick(false)}
+                    onKeyPress={() => handleClick(false)}
                     data-testid={'navLogo'}
                 >
                     <img
@@ -87,6 +76,7 @@ export const Navbar = () => {
                 <a
                     className={'navbar-item'}
                     onClick={() => handleClick(false)}
+                    onKeyPress={() => handleClick(false)}
                     tabIndex={0}
                 >
                     {t('home')}
@@ -94,6 +84,7 @@ export const Navbar = () => {
                 <a
                     className={'navbar-item'}
                     onClick={() => handleClick(true)}
+                    onKeyPress={() => handleClick(true)}
                     tabIndex={0}
                 >
                     {t('information')}
@@ -111,7 +102,12 @@ export const Navbar = () => {
                 />
                 <div className={'countryFlagsDesktop navbar-item'} data-testid={'hamburgerItemLanguage'}>
                     <div className={'flagdivider'}/>
-                    <div className={`flagWrapper ${isEnglish ? 'languageActive' : ''}`} onClick={() => changeLocale('en')}>
+                    <div
+                        className={`flagWrapper ${isEnglish ? 'languageActive' : ''}`}
+                        onClick={() => changeLocale('en')}
+                        onKeyPress={() => changeLocale('en')}
+                        tabIndex={0}
+                    >
                         <img
                             alt="English"
                             src="http://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg"
@@ -119,7 +115,12 @@ export const Navbar = () => {
                         />
                     </div>
                     <div className={'flagdivider'}/>
-                    <div className={`flagWrapper ${isEnglish ? '' : 'languageActive'}`} onClick={() => changeLocale('no')}>
+                    <div
+                        className={`flagWrapper ${isEnglish ? '' : 'languageActive'}`}
+                        onClick={() => changeLocale('no')}
+                        onKeyPress={() => changeLocale('no')}
+                        tabIndex={0}
+                    >
                         <img
                             alt="Norwegian"
                             src="http://purecatamphetamine.github.io/country-flag-icons/3x2/NO.svg"

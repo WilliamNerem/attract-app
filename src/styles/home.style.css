@@ -1,10 +1,15 @@
+.homeWrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .home{
     position: relative;
     display: inline-block;
-    margin: auto;
     width: 100%;
     text-align: center;
-    height: 90vh;
+    height: fit-content;
 }
 
 .imageDiv{
@@ -20,37 +25,52 @@
     padding-bottom: 40px;
     margin: auto;
     width: 95vw;
-    font-family: "Graphik Semibold", Arial, sans-serif;
+    font-family: "Graphik Light", Arial, sans-serif;
+    font-weight: normal;
 }
 
 .startWrapper{
     position: relative;
-    border-radius: 9px;
-    border: 2px solid #05f0a5;
-    width: 200px;
-    height: 50px;
-    text-align: center;
+    width: fit-content;
     margin: auto;
+    line-height: 32px;
+    height: 32px;
+    text-align: center;
+}
+
+.startWrapper:hover .startCircle{
+    width: 100%;
+    transition: .3s ease-in-out;
+}
+
+.startCircle{
+    position: absolute;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 100px;
+    height: 30px;
+    width: 30px;
+    transition: .3s ease-in-out;
+}
+
+.startArrow{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 20px;
+    width: 22px;
 }
 
 .start{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
-    width: 195px;
-    height: 45px;
-    line-height: 45px;
-    background-color: #05ffb2;
+    display: inline-block;
     text-decoration: none;
-    text-align: center;
-    font-family: "Graphik Black", Arial, sans-serif;
+    margin: auto 20px auto 60px;
+    font-family: Arial, sans-serif;
     color: white;
-    -webkit-text-stroke: 1px darkgreen;
-    font-size: 17px;
-    border: 0 solid #05ffb2;
+    font-size: 21px;
     transition: all 0.2s ease-out;
+    font-weight: 700;
 }
 
 .bottomSpace{
@@ -61,7 +81,6 @@
 @media screen and (min-width: 1420px){
 
     .headerHome {
-        font-family: "Graphik Black", Arial, sans-serif;
         font-size: 65px;
     }
 }
