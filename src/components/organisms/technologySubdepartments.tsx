@@ -21,16 +21,13 @@ export const TechnologySubDepartments = ({close}: props) => {
                 </div>
                 <div className={'info-wrapper'}>
                     <div className='infoCards firstValgomatCard'>
-                        <InfoCard heading='CIE' text={t('subDepScProducts')} isDropdown={true}/>
+                        <InfoCard heading='CIE' text={t('subDepTechCIE')} isDropdown={true}/>
                     </div>
                     <div className='infoCards'>
-                        <InfoCard heading='IPS' text={t('subDepScProducts')} isDropdown={true}/>
+                        <InfoCard heading='Security' text={t('subDepTechSecurity')} isDropdown={true}/>
                     </div>
                     <div className='infoCards'>
-                        <InfoCard heading='IPD' text={t('subDepScProducts')} isDropdown={true}/>
-                    </div>
-                    <div className='infoCards'>
-                        <InfoCard heading='Security' text={t('subDepScProducts')} isDropdown={true}/>
+                        <InfoCard heading='Salesforce' text={t('subDepTechSalesforce')} isDropdown={true}/>
                     </div>
                 </div>
             </div>
