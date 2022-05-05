@@ -140,51 +140,49 @@ const Info = () => {
                         />
                     </div>
                 </div>
-                <div className='grayBackgroundInfo'>
-                    <div className='headingValgomatInfo'>
-                        <h1 className='infoText'>{t('infoH1Answer')}</h1>
-                        <p className='infoSubText'>{t('infoH1AnswerSub')}</p>
-                    </div>
-                    <div className={'valgomatInfo-wrapper'}>
-                        <div className='infoCards firstValgomatCard'>
-                            <InfoCard
-                                heading={t('explanationLikertHeading')}
-                                text={t('explanationLikert')}
-                                exampleImage={imageLanguage.likert}
-                                subHeading={t('explanationExample')}
-                                isDropdown={true}
-                            />
-                        </div>
-                        <div className='infoCards'>
-                            <InfoCard
-                                heading={t('explanationStatementHeading')}
-                                text={t('explanationStatement')}
-                                subHeading={t('explanationExample')}
-                                exampleImage={imageLanguage.statementOrder}
-                                isDropdown={true}
-                            />
-                        </div>
-                        <div className='infoCards'>
-                            <InfoCard
-                                heading={t('explanationImageHeading')}
-                                text={t('explanationImage')}
-                                subHeading={t('explanationExample')}
-                                exampleImage='imageSelectionExampleImage'
-                                isDropdown={true}
-                            />
-                        </div>
-                        <div className='infoCards'>
-                            <InfoCard
-                                heading={t('explanationResultHeading')}
-                                text={t('explanationResult')}
-                                subHeading={t('explanationExample')}
-                                exampleImage={imageLanguage.result}
-                                isDropdown={true}
-                            />
-                        </div>
-                    </div>
-                    <Footer/>
+                <div className='gradientDiv'>
+                    <h1 className='infoText'>{t('infoH1Answer')}</h1>
+                    <p className='infoSubText'>{t('infoH1AnswerSub')}</p>
                 </div>
+                <div className={'valgomatInfo-wrapper'}>
+                    <div className='infoCards firstValgomatCard'>
+                        <InfoCard
+                            heading={t('explanationLikertHeading')}
+                            text={t('explanationLikert')}
+                            exampleImage={imageLanguage.likert}
+                            subHeading={t('explanationExample')}
+                            isDropdown={true}
+                        />
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard
+                            heading={t('explanationStatementHeading')}
+                            text={t('explanationStatement')}
+                            subHeading={t('explanationExample')}
+                            exampleImage={imageLanguage.statementOrder}
+                            isDropdown={true}
+                        />
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard
+                            heading={t('explanationImageHeading')}
+                            text={t('explanationImage')}
+                            subHeading={t('explanationExample')}
+                            exampleImage='imageSelectionExampleImage'
+                            isDropdown={true}
+                        />
+                    </div>
+                    <div className='infoCards'>
+                        <InfoCard
+                            heading={t('explanationResultHeading')}
+                            text={t('explanationResult')}
+                            subHeading={t('explanationExample')}
+                            exampleImage={imageLanguage.result}
+                            isDropdown={true}
+                        />
+                    </div>
+                </div>
+                <Footer/>
             </div>
             <Backdrop
                 open={openSubDep}
