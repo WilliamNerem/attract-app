@@ -1,13 +1,3 @@
 .valgomatFooter{
-    position: absolute;
-    bottom: 0;
-    height: 13.5vh;
-}
-
-/* styling for desktop */
-@media screen and (min-width: 1200px){
-
-    .valgomatFooter {
-        height: 15vh;
-    }
+    margin-top: auto;
 }

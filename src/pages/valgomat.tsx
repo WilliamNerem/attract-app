@@ -106,27 +106,25 @@ const Valgomat = () => {
         if (counter === questions.questionNumber) {
             return (
                 <div className='bodyValgomat' data-testid={'valgomat'}>
+                    <Navbar/>
                     <div className={'valgomat'}>
-                        <Navbar/>
-                        {
-                            <div className={className} data-testid={'valgomatComponent'}>
-                                <InfoButton handleClick={handleClick}/>
-                                <h1 className='questionNumber'>{t('questionPreText')} {counter}</h1>
-                                <Questions questionTxt={questions.questionTxt}/>
-                                {questions.isStatement ?
-                                    <StatementOrder sharedWords={questions.sharedWords}/> : ''
-                                }
-                                {questions.isImageSelection ?
-                                    <ImageSelection
-                                        pictures={[questions.images[0], questions.images[1], questions.images[2]]}
-                                        pointAllocater={[questions.allocatePoints[0], questions.allocatePoints[1], questions.allocatePoints[2]]}
-                                    /> : ''
-                                }
-                                {questions.characteristic ?
-                                    <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/> : ''
-                                }
-                            </div>
-                        }
+                        <div className={className} style={{height: "auto"}} data-testid={'valgomatComponent'}>
+                            <InfoButton handleClick={handleClick}/>
+                            <h1 className='questionNumber'>{t('questionPreText')} {counter}</h1>
+                            <Questions questionTxt={questions.questionTxt}/>
+                            {questions.isStatement ?
+                                <StatementOrder sharedWords={questions.sharedWords}/> : ''
+                            }
+                            {questions.isImageSelection ?
+                                <ImageSelection
+                                    pictures={[questions.images[0], questions.images[1], questions.images[2]]}
+                                    pointAllocater={[questions.allocatePoints[0], questions.allocatePoints[1], questions.allocatePoints[2]]}
+                                /> : ''
+                            }
+                            {questions.characteristic ?
+                                <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/> : ''
+                            }
+                        </div>
                     </div>
                     <ValgomatFooter completed={questions.progress} nextTransition={handleTransition}/>
                     <Backdrop

@@ -1,5 +1,8 @@
 .bodyValgomat{
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .questionNumber{
@@ -18,7 +21,8 @@
 }
 
 .valgomat {
-    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
     position: relative;
 }
 
@@ -33,33 +37,28 @@
 }
 
 .initializeTransition{
-    position: absolute;
     width: 100vw;
     left: 0;
     transition: 350ms;
 }
 
 .fromLeft{
-    position: absolute;
     width: 100vw;
-    left: -100vw;
+    transform: translateX(-100vw);
 }
 
 .fromRight{
-    position: absolute;
     width: 100vw;
-    left: 100vw;
+    transform: translateX(100vw);
 }
 
 .animatedDivLeaveNext{
-    position: absolute;
     width: 100vw;
     transform: translateX(-100vw);
     transition: 350ms;
 }
 
 .animatedDivLeaveLast{
-    position: absolute;
     width: 100vw;
     transform: translateX(100vw);
     transition: 350ms;
@@ -271,5 +270,21 @@
 
     .dynamicText {
         width: 35vw;
+    }
+}
+
+@media screen and (max-height: 730px){
+    .statementOrderMargin{
+        margin: 0;
+    }
+
+    .container{
+        margin: 0;
+    }
+
+    .statementOrderSharedWords {
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
     }
 }
