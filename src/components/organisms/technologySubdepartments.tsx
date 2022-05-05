@@ -22,16 +22,13 @@ export const TechnologySubDepartments = ({close, tabIndex}: props) => {
                 </div>
                 <div className={'info-wrapper'}>
                     <div className='infoCards firstValgomatCard'>
-                        <InfoCard heading='CIE' text={t('subDepScProducts')} isDropdown={true} tabIndex={tabIndex}/>
+                        <InfoCard heading='CIE' text={t('subDepTechCIE')} isDropdown={true} tabIndex={tabIndex} />
                     </div>
                     <div className='infoCards'>
-                        <InfoCard heading='IPS' text={t('subDepScProducts')} isDropdown={true} tabIndex={tabIndex}/>
+                        <InfoCard heading='Security' text={t('subDepTechSecurity')} isDropdown={true} tabIndex={tabIndex} />
                     </div>
                     <div className='infoCards'>
-                        <InfoCard heading='IPD' text={t('subDepScProducts')} isDropdown={true} tabIndex={tabIndex}/>
-                    </div>
-                    <div className='infoCards'>
-                        <InfoCard heading='Security' text={t('subDepScProducts')} isDropdown={true} tabIndex={tabIndex}/>
+                        <InfoCard heading='Salesforce' text={t('subDepTechSalesforce')} isDropdown={true} tabIndex={tabIndex} />
                     </div>
                 </div>
             </div>

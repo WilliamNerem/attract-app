@@ -2,7 +2,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 97vh;
 }
 
 .questionNumber{
@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .statementOrderMargin{

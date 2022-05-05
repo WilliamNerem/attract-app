@@ -5,6 +5,7 @@
     width: 100%;
     text-align: center;
     height: fit-content;
+    min-height: 100vh;
 }
 
 .imageDiv{
