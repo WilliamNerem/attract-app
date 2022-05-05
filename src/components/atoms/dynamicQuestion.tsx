@@ -55,8 +55,8 @@ export const DynamicQuestion = ({firstDep, secondDep}: DynamicQuestionProps) => 
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <a className='alertButton' onClick={() => setAlert(<></>)}>{t('alertDeny')}</a>
-                    <a className='alertButton' onClick={() => {handleClick(department)}}>{t('alertConfirm')}</a>
+                    <a className='alertButton' onClick={() => setAlert(<></>)} onKeyPress={() => setAlert(<></>)} tabIndex={0}>{t('alertDeny')}</a>
+                    <a className='alertButton' onClick={() => {handleClick(department)}} onKeyPress={() => {handleClick(department)}} tabIndex={0}>{t('alertConfirm')}</a>
                 </DialogActions>
             </Dialog>
         </div>);

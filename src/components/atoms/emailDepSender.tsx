@@ -8,10 +8,11 @@ import {useTranslation} from "react-i18next";
 
 
 interface emailDepSenderProps {
-    totalPointsArray: any[]
+    totalPointsArray: any[],
+    tabIndex?: number
 }
 
-export const EmailDepSender = ({totalPointsArray} : emailDepSenderProps) => {
+export const EmailDepSender = ({totalPointsArray, tabIndex} : emailDepSenderProps) => {
     const [checked, setChecked] = useState(false);
     const [email, setEmail] = useState("");
     const [isDisabled, setIsDisabled] = useState(true);
@@ -79,7 +80,7 @@ export const EmailDepSender = ({totalPointsArray} : emailDepSenderProps) => {
     return (
         <div className="emailSender" data-testid='emailSender'>
             <div className='emailDivider'/>
-            <label htmlFor="emailCheckBox" id="checkLabel">
+            <label htmlFor="emailCheckBox" id="checkLabel" onKeyPress={handleChange} tabIndex={tabIndex ? tabIndex : 0}>
                 <div className='emailTitleWrapper' data-testid='emailCheckbox'>
                     <p className='emailTitle'> {t('emailCheckBox')}</p>
                     <input id="emailCheckBox" type="checkbox" onChange={handleChange}/>

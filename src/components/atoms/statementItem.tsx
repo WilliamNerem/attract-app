@@ -105,8 +105,18 @@ export const StatementItem = ({index, positionInStatementOrder, position, transi
                 </animated.div>
             )}
             <div className={'buttonsContainer'}>
-                <a className={upArrow} onClick={() => handleUp(statementNumber)}/>
-                <a className={downArrow} onClick={() => handleDown(statementNumber)}/>
+                <a
+                    className={upArrow}
+                    onClick={() => handleUp(statementNumber)}
+                    onKeyPress={() => handleUp(statementNumber)}
+                    tabIndex={0}
+                />
+                <a
+                    className={downArrow}
+                    onClick={() => handleDown(statementNumber)}
+                    onKeyPress={() => handleDown(statementNumber)}
+                    tabIndex={0}
+                />
             </div>
         </div >
     );
