@@ -42,7 +42,7 @@ export const Navbar = () => {
     };
 
     // Function for key press down for tab index
-    const handleKeyPress = (e: KeyboardEvent, isInfo: boolean) => {
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLAnchorElement>, isInfo: boolean) => {
         if (e.key === "Enter" || e.key === "Space") {
             if (inProgress) {
                 showAlertDialog(true);
@@ -69,12 +69,22 @@ export const Navbar = () => {
         }
     };
 
+    // Function for key press down for tab index
+    const handleKeyPressChangeLocale = (e: React.KeyboardEvent<HTMLDivElement>, l: string) => {
+        if (e.key === "Enter" || e.key === "Space") {
+            if (locale !== l) {
+                i18n.changeLanguage(l);
+            }
+        }
+    };
+
     return(
         <div className='navMargin' data-testid={'navbar'}>
             <div className='nav'>
                 <a
                     className={'navbar-item-logo'}
                     onClick={() => handleClick(false)}
+                    onKeyPress={(key => {handleKeyPress(key, false)})}
                     data-testid={'navLogo'}
                 >
                     <img
@@ -87,6 +97,7 @@ export const Navbar = () => {
                 <a
                     className={'navbar-item'}
                     onClick={() => handleClick(false)}
+                    onKeyPress={(key => {handleKeyPress(key, false)})}
                     tabIndex={0}
                 >
                     {t('home')}
@@ -94,6 +105,7 @@ export const Navbar = () => {
                 <a
                     className={'navbar-item'}
                     onClick={() => handleClick(true)}
+                    onKeyPress={(key => {handleKeyPress(key, true)})}
                     tabIndex={0}
                 >
                     {t('information')}
@@ -111,7 +123,12 @@ export const Navbar = () => {
                 />
                 <div className={'countryFlagsDesktop navbar-item'} data-testid={'hamburgerItemLanguage'}>
                     <div className={'flagdivider'}/>
-                    <div className={`flagWrapper ${isEnglish ? 'languageActive' : ''}`} onClick={() => changeLocale('en')}>
+                    <div
+                        className={`flagWrapper ${isEnglish ? 'languageActive' : ''}`}
+                        onClick={() => changeLocale('en')}
+                        onKeyPress={(key => {handleKeyPressChangeLocale(key, 'en')})}
+                        tabIndex={0}
+                    >
                         <img
                             alt="English"
                             src="http://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg"
@@ -119,7 +136,12 @@ export const Navbar = () => {
                         />
                     </div>
                     <div className={'flagdivider'}/>
-                    <div className={`flagWrapper ${isEnglish ? '' : 'languageActive'}`} onClick={() => changeLocale('no')}>
+                    <div
+                        className={`flagWrapper ${isEnglish ? '' : 'languageActive'}`}
+                        onClick={() => changeLocale('no')}
+                        onKeyPress={(key => {handleKeyPressChangeLocale(key, 'no')})}
+                        tabIndex={0}
+                    >
                         <img
                             alt="Norwegian"
                             src="http://purecatamphetamine.github.io/country-flag-icons/3x2/NO.svg"
