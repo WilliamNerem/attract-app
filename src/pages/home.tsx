@@ -6,6 +6,7 @@ import { ResetStates } from "../resetStates";
 import { Footer } from "../components/molecule/footer";
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
+import arrow from "../Icons/Accenture_arrow_homepage.png"
 
 const Home = () => {
     ResetStates();
@@ -18,9 +19,14 @@ const Home = () => {
             <div className='home'>
                 <div className='imageDiv'>
                     <h1 className='headerHome'>{t('headerHome')}</h1>
-                    <div className='startWrapper'>
-                        <Link to="/valgomat" className='start' >{t('start')}</Link>
-                    </div>
+                        <div className='startWrapper'>
+                            <Link to="/valgomat" >
+                                <div className='startCircle'>
+                                    <img src={arrow} alt='Arrow' className='startArrow'/>
+                                </div>
+                                <p className='start'>{t('start')}</p>
+                            </Link>
+                        </div>
                 </div>
                 <div className='infoCards firstValgomatCard'>
                     <InfoCard
