@@ -23,28 +23,21 @@ interface alertDialogProps {
 
 export const AlertDialog = ({
     end,
-    backToResult,
     totalPointsArray,
     setIsDepClicked,
-    setBackToResult,
-    currentDep
+    setBackToResult
 }: alertDialogProps) => {
     const pointsArray = totalPointsArray;
     const dispatch = useDispatch();
-    const {increaseCounter, decreaseCounter, showAlertDialog, increaseCounterPartTwo, resetStratSubDivision, resetIntSubDivision, subValgomatIsInProgress, setCounterPartTwo, isInfoClicked} = bindActionCreators(actionCreators, dispatch);
+    const {increaseCounter, decreaseCounter, showAlertDialog, isInfoClicked} = bindActionCreators(actionCreators, dispatch);
     const [update, setUpdate] = useState(false);
     const counter = useSelector((state: State) => state.questionCounter);
-    const counterPartTwo = useSelector((state: State) => state.questionCounterPartTwo);
     const isInfo = useSelector((state: State) => state.isInfoClicked);
-    const subValgomatInProgress = useSelector((state: State) => state.subValgomatInProgress);
-    const isShowAlertDialog = useSelector((state: State) => state.showAlertDialog);
     const { t } = useTranslation();
 
     const handleClose = () => {
         if (counter === 0) {
             increaseCounter();
-        } else if(counterPartTwo === 0) {
-            increaseCounterPartTwo();
         }
         isInfoClicked(false);
         showAlertDialog(false);
@@ -54,83 +47,15 @@ export const AlertDialog = ({
     };
 
     const handleDecrease = () => {
-        if (counterPartTwo !== 0){
-            decreaseCounter();
-        } else {
-            increaseCounterPartTwo();
-        }
+        decreaseCounter();
     };
 
     if(update && pointsArray !== undefined) {
-        if (counterPartTwo === 0 && setIsDepClicked){
-            increaseCounterPartTwo();
+        if (setIsDepClicked){
             setIsDepClicked({ strat: false, interactive: false, tech: false})
         }
         return (
             <Result totalPointsArray={pointsArray}/>
-        )
-    }
-
-    const handleBackToResult = () => {
-        if (counterPartTwo === 0 && setIsDepClicked){
-            increaseCounterPartTwo();
-            if (currentDep === 'strat') {
-                resetStratSubDivision();
-            } else if (currentDep === 'int') {
-                resetIntSubDivision();
-            } else if (currentDep === 'tech') {
-                console.log('add reset tech states here');
-            }
-            subValgomatIsInProgress(false);
-            setIsDepClicked({ strat: false, interactive: false, tech: false})
-        } else if (subValgomatInProgress && isShowAlertDialog) {
-            setCounterPartTwo(1);
-            subValgomatIsInProgress(false);
-        } else if (setBackToResult) {
-            setCounterPartTwo(1);
-            setBackToResult(false);
-            subValgomatIsInProgress(false);
-            if (setIsDepClicked) {
-                setIsDepClicked({strat: false, interactive: false, tech: false})
-            }
-        }
-    };
-
-    if(backToResult) {
-        return (
-            <div data-testid={'endAlertDialog'}>
-                <Dialog
-                    open={true}
-                    onClose={handleClose}
-                    aria-labelledby="alert-dialog-title"
-                    aria-describedby="alert-dialog-description"
-                >
-                    <DialogTitle id="alert-dialog-title">
-                        {t('alertBackTitle')}
-                    </DialogTitle>
-                    <DialogContent>
-                        <DialogContentText id="alert-dialog-description" data-testid={'backToResultAlertDialogText'}>
-                            {t('alertBack')}
-                        </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <a
-                            data-testid={'noButton'}
-                            className='alertButton'
-                            onClick={() => handleClose()}
-                            onKeyPress={() => handleClose()}
-                            tabIndex={0}
-                        >{t('alertDeny')}</a>
-                        <a
-                            data-testid={'yesButton'}
-                            className='alertButton'
-                            onClick={() => {handleBackToResult()}}
-                            onKeyPress={() => {handleBackToResult()}}
-                            tabIndex={0}
-                        >{t('alertConfirm')}</a>
-                    </DialogActions>
-                </Dialog>
-            </div>
         )
     }
 

@@ -1,12 +1,12 @@
 import React from 'react';
+/*
 import ReactDOM from "react-dom";
 import {Provider} from "react-redux";
 import {BrowserRouter as Router} from "react-router-dom";
 import {fireEvent, render} from "@testing-library/react";
 import {applyMiddleware, createStore} from "redux";
 import {ValgomatPartTwo} from "../../components/organisms/valgomatPartTwo";
-import {QuestionsDataSC} from "../../questions";
-import rootReducer from "../../redux/reducers";
+import rootReducer from "../redux/reducers";
 import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
@@ -112,3 +112,5 @@ describe('Valgomat part two render', () => {
     });
 
 });
+
+ */

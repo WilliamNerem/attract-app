@@ -32,4 +32,43 @@ describe('Info render', () => {
         fireEvent.click(getAllByTestId('infoCardDropdown')[0]);
         expect(getAllByTestId('infoCard')[0]).toHaveClass('expanded infoCard');
     });
+
+    it('should open S&C subdepartments on button click',  () => {
+        const { getAllByTestId } = render(
+            <Provider store={store}>
+                <Router>
+                    <Info />
+                </Router>
+            </Provider>
+        );
+        expect(getAllByTestId('subdepartmentWrapper')[0]).toHaveClass('subInfoClosed');
+        fireEvent.click(getAllByTestId('subdepartmentButton')[0]);
+        expect(getAllByTestId('subdepartmentWrapper')[0]).toHaveClass('subInfoOpen');
+    });
+
+    it('should open technology subdepartments on button click',  () => {
+        const { getAllByTestId } = render(
+            <Provider store={store}>
+                <Router>
+                    <Info />
+                </Router>
+            </Provider>
+        );
+        expect(getAllByTestId('subdepartmentWrapper')[1]).toHaveClass('subInfoClosed');
+        fireEvent.click(getAllByTestId('subdepartmentButton')[1]);
+        expect(getAllByTestId('subdepartmentWrapper')[1]).toHaveClass('subInfoOpen');
+    });
+
+    it('should open interactive subdepartments on button click',  () => {
+        const { getAllByTestId } = render(
+            <Provider store={store}>
+                <Router>
+                    <Info />
+                </Router>
+            </Provider>
+        );
+        expect(getAllByTestId('subdepartmentWrapper')[2]).toHaveClass('subInfoClosed');
+        fireEvent.click(getAllByTestId('subdepartmentButton')[2]);
+        expect(getAllByTestId('subdepartmentWrapper')[2]).toHaveClass('subInfoOpen');
+    });
 });

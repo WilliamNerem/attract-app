@@ -1,5 +1,7 @@
+import React from "react";
+/*
 import React, {useEffect, useState} from "react";
-import '../../styles/result.style.css';
+import '../styles/result.style.css';
 import {Navbar} from "../molecule/navbar";
 import {SubDepartments} from "../../subDepartments";
 import {ResultText} from "../atoms/resultText";
@@ -123,3 +125,5 @@ export const ResultSubDepartment = ({information, setIsDepClicked
         </div>
     );
 };
+
+ */

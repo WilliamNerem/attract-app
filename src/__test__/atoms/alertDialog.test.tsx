@@ -22,18 +22,6 @@ describe('Alert Dialog render', () => {
 
     });
 
-    it('should render back to result alert dialog with correct information', () => {
-
-        const {getByTestId} = render(
-            <Provider store={store}>
-                <AlertDialog end={false} backToResult={true} />
-            </Provider>
-        );
-
-        expect(getByTestId('backToResultAlertDialogText')).toHaveTextContent('alertBack')
-
-    });
-
     it('should render alert dialog with correct information when end is false', () => {
 
         const {getByTestId} = render(

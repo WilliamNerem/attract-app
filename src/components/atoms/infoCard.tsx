@@ -78,7 +78,7 @@ export const InfoCard = ({
             <p className={'infoCardText'}>{subText}</p>
             {onButtonClick && (
                 <div className='btn-goToSubDep-wrapper'>
-                    <button className={'btn-goToSubDep'} onClick={onButtonClick} tabIndex={tabIndex === -1 ? tabIndex : tabIndexDropDown}>{t('miniValgomat')}</button>
+                    <button className={'btn-goToSubDep'} onClick={onButtonClick} tabIndex={tabIndex === -1 ? tabIndex : tabIndexDropDown} data-testid={'subdepartmentButton'}>{t('miniValgomat')}</button>
                     <div className={'btn-goToSubDep-behind'} aria-hidden={true}>{t('miniValgomat')}</div>
                 </div>
             )}

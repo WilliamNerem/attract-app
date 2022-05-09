@@ -1,10 +1,11 @@
 import React from 'react';
+/*
 import ReactDOM from "react-dom";
 import {BrowserRouter as Router} from "react-router-dom";
-import {actionCreators, State, store} from "../../redux";
+import {actionCreators, State, store} from "../redux";
 import {Provider, useDispatch, useSelector} from "react-redux";
 import {fireEvent, render} from "@testing-library/react";
-import {ResultSubDepartment} from "../../components/organisms/resultSubDepartment";
+import {ResultSubDepartment} from "./resultSubDepartment";
 import {bindActionCreators} from "redux";
 
 const WrapperStrategy = () => {
@@ -58,3 +59,5 @@ describe('Result sub department render', () => {
     });
 
 });
+
+ */

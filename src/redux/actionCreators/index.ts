@@ -4,18 +4,13 @@ import { DepartmentsAction, DepartmentsActionType } from '../reducers/department
 import { ImageSelectorType, ImageSelectorAction } from '../reducers/imageSelector';
 import { ImageSelectorAnswerType, ImageSelectorAnswerAction } from '../reducers/imageSelectorAnswers';
 import { InitializeStatementOrderActionType, InitializeStatementOrderAction } from '../reducers/initializeStatementOrder';
-import { InteractiveSubdivisionActionType, InteractiveSubDivisionActions } from '../reducers/interactiveSubdivision';
 import { IsInfoClickedActionType, IsInfoClickedAction } from '../reducers/isInfoClicked';
 import { LikertActionType, LikertAction } from '../reducers/likert';
 import { QuestionActionType, QuestionAction } from '../reducers/questions';
 import { ShowAlertDialogActionType, ShowAlertDialogAction } from '../reducers/showAlertDialog';
 import { StatementOrderActionType, StatementOrderAction } from '../reducers/statementOrder';
-import { StratSubdivisionActionType, StratSubDivisionActions } from '../reducers/stratSubdivision';
 import { ValgomatInProgressActionType, ValgomatInProgressAction } from '../reducers/valgomatInProgress';
 import { ResetStatesAction, ResetStatesActionType } from "../reducers";
-import { QuestionPartTwoAction, QuestionPartTwoActionType } from "../reducers/questionCounterPartTwo";
-import {SubValgomatInProgressAction, SubValgomatInProgressActionType} from "../reducers/subValgomatInProgress";
-import {TechnologySubDivisionActions, TechnologySubdivisionActionType} from "../reducers/technologySubdivision";
 
 export const increaseCounter = () => {
     return (dispatch: Dispatch<QuestionAction>) => {
@@ -39,33 +34,6 @@ export const setCounter = (counter: number) => {
     return (dispatch: Dispatch<QuestionAction>) => {
         dispatch({
             type: QuestionActionType.SETCOUNTER,
-            payload: counter
-        })
-    }
-};
-
-export const increaseCounterPartTwo = () => {
-    return (dispatch: Dispatch<QuestionPartTwoAction>) => {
-        dispatch({
-            type: QuestionPartTwoActionType.INCREASE,
-            payload: 1
-        })
-    }
-};
-
-export const decreaseCounterPartTwo = () => {
-    return (dispatch: Dispatch<QuestionPartTwoAction>) => {
-        dispatch({
-            type: QuestionPartTwoActionType.DECREASE,
-            payload: 1
-        })
-    }
-};
-
-export const setCounterPartTwo = (counter: number) => {
-    return (dispatch: Dispatch<QuestionPartTwoAction>) => {
-        dispatch({
-            type: QuestionPartTwoActionType.SETCOUNTER,
             payload: counter
         })
     }
@@ -333,15 +301,6 @@ export const valgomatIsInProgress = (inAction: boolean) => {
     }
 };
 
-export const subValgomatIsInProgress = (inAction: boolean) => {
-    return (dispatch: Dispatch<SubValgomatInProgressAction>) => {
-        dispatch({
-            type: SubValgomatInProgressActionType.SUBVALGOMATINPROGRESS,
-            payload: inAction
-        })
-    }
-};
-
 export const showAlertDialog = (inAction: boolean) => {
     return (dispatch: Dispatch<ShowAlertDialogAction>) => {
         dispatch({
@@ -356,114 +315,6 @@ export const isInfoClicked = (inAction: boolean) => {
         dispatch({
             type: IsInfoClickedActionType.ISINFOCLICKED,
             payload: inAction
-        })
-    }
-};
-
-export const allocateStrat_CMTPoints = (points: number) => {
-    return (dispatch: Dispatch<StratSubDivisionActions>) => {
-        dispatch({
-            type: StratSubdivisionActionType.CMT,
-            payload: points
-        })
-    }
-};
-
-export const allocateStrat_FinancePoints = (points: number) => {
-    return (dispatch: Dispatch<StratSubDivisionActions>) => {
-        dispatch({
-            type: StratSubdivisionActionType.FINANCE,
-            payload: points
-        })
-    }
-};
-
-export const allocateStrat_Health_PublicPoints = (points: number) => {
-    return (dispatch: Dispatch<StratSubDivisionActions>) => {
-        dispatch({
-            type: StratSubdivisionActionType.HEALTH_PUBLIC,
-            payload: points
-        })
-    }
-};
-
-export const allocateStrat_ProductsPoints = (points: number) => {
-    return (dispatch: Dispatch<StratSubDivisionActions>) => {
-        dispatch({
-            type: StratSubdivisionActionType.PRODUCTS,
-            payload: points
-        })
-    }
-};
-
-export const allocateStrat_ResourcesPoints = (points: number) => {
-    return (dispatch: Dispatch<StratSubDivisionActions>) => {
-        dispatch({
-            type: StratSubdivisionActionType.RESOURCES,
-            payload: points
-        })
-    }
-};
-
-export const allocateInteractive_DesignPoints = (points: number) => {
-    return (dispatch: Dispatch<InteractiveSubDivisionActions>) => {
-        dispatch({
-            type: InteractiveSubdivisionActionType.DESIGN,
-            payload: points
-        })
-    }
-};
-
-export const allocateInteractive_BuildPoints = (points: number) => {
-    return (dispatch: Dispatch<InteractiveSubDivisionActions>) => {
-        dispatch({
-            type: InteractiveSubdivisionActionType.BUILD,
-            payload: points
-        })
-    }
-};
-
-export const allocateInteractive_CommunicationsPoints = (points: number) => {
-    return (dispatch: Dispatch<InteractiveSubDivisionActions>) => {
-        dispatch({
-            type: InteractiveSubdivisionActionType.COMMUNICATIONS,
-            payload: points
-        })
-    }
-};
-
-export const allocateTechnology_CIEPoints = (points: number) => {
-    return (dispatch: Dispatch<TechnologySubDivisionActions>) => {
-        dispatch({
-            type: TechnologySubdivisionActionType.CIE,
-            payload: points
-        })
-    }
-};
-
-export const allocateTechnology_IPSPoints = (points: number) => {
-    return (dispatch: Dispatch<TechnologySubDivisionActions>) => {
-        dispatch({
-            type: TechnologySubdivisionActionType.IPS,
-            payload: points
-        })
-    }
-};
-
-export const allocateTechnology_IPDPoints = (points: number) => {
-    return (dispatch: Dispatch<TechnologySubDivisionActions>) => {
-        dispatch({
-            type: TechnologySubdivisionActionType.IPD,
-            payload: points
-        })
-    }
-};
-
-export const allocateTechnology_SecurityPoints = (points: number) => {
-    return (dispatch: Dispatch<TechnologySubDivisionActions>) => {
-        dispatch({
-            type: TechnologySubdivisionActionType.SECURITY,
-            payload: points
         })
     }
 };
