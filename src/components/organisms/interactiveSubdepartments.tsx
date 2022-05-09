@@ -21,11 +21,11 @@ export const InteractiveSubDepartments = ({close, tabIndex}: props) => {
                     <p className='infoSubText'>{t('subDepInteractiveText')}</p>
                 </div>
                 <div className={'info-wrapper'}>
-                    <div className='infoCards firstValgomatCard'>
-                        <InfoCard heading='Build' text={t('subDepInteractiveBuild')} isDropdown={true} tabIndex={tabIndex}/>
-                    </div>
                     <div className='infoCards'>
                         <InfoCard heading='Design' text={t('subDepInteractiveDesign')} isDropdown={true} tabIndex={tabIndex}/>
+                    </div>
+                    <div className='infoCards firstValgomatCard'>
+                        <InfoCard heading='Build' text={t('subDepInteractiveBuild')} isDropdown={true} tabIndex={tabIndex}/>
                     </div>
                     <div className='infoCards'>
                         <InfoCard heading='Communications' text={t('subDepInteractiveCommunications')} isDropdown={true} tabIndex={tabIndex}/>
