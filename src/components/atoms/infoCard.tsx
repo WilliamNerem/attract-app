@@ -84,11 +84,16 @@ export const InfoCard = ({
             )}
             {link && (
                 singlePageLink ?
-                <Link to={link}>{linkText ? linkText : link.toString()}</Link> :
-                <div className='linkWrapper'>
-                    <a href={link} target={'_blank'} rel="noopener noreferrer" className='linkText' tabIndex={tabIndex === -1 ? tabIndex : tabIndexDropDown}>{linkText ? linkText : link.toString()}</a>
-                    <div className='linkToNewPage'/>
-                </div>
+                    <div style={{textAlign: "center"}}>
+                        <Link to={link}>{linkText ? linkText : link.toString()}</Link>
+                        <div className='bottomSpace'/>
+                    </div>
+                    :
+                    <div className='linkWrapper'>
+                        <a href={link} target={'_blank'} rel="noopener noreferrer" className='linkText' tabIndex={tabIndex === -1 ? tabIndex : tabIndexDropDown}>{linkText ? linkText : link.toString()}</a>
+                        <div className='linkToNewPage'/>
+                        <div className='bottomSpace'/>
+                    </div>
             )}
         </div>
     );

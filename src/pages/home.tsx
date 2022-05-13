@@ -39,6 +39,16 @@ const Home = () => {
                     />
                 </div>
                 <div className='infoCards'>
+                    <InfoCard
+                        heading={t('heading')}
+                        text={t('aboutValgomat')}
+                        subText={t('aboutValgomatSubText')}
+                        linkText={t('linkTextValgomat')}
+                        link={'/info'}
+                        singlePageLink={true}
+                    />
+                </div>
+                <div className='infoCards'>
                     {i18n.language === 'en' ?
                         < InfoCard
                             heading = {t('headingImageCard')}
@@ -52,16 +62,6 @@ const Home = () => {
                             exampleImage={'homePageImage'}
                         />
                     }
-                </div>
-                <div className='infoCards'>
-                    <InfoCard
-                        heading={t('heading')}
-                        text={t('aboutValgomat')}
-                        subText={t('aboutValgomatSubText')}
-                        linkText={t('linkTextValgomat')}
-                        link={'/info'}
-                        singlePageLink={true}
-                    />
                 </div>
             </div>
             <div className='bottomSpace'/>
