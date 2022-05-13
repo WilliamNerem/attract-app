@@ -1,3 +1,5 @@
+import React, {} from "react";
+/*
 import {Navbar} from "../molecule/navbar";
 import {InfoButton} from "../atoms/infoButton";
 import {Questions} from "../atoms/questions";
@@ -125,3 +127,5 @@ export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive, 
 
     return null;
 };
+
+ */
