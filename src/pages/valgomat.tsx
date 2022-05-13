@@ -121,7 +121,7 @@ const Valgomat = () => {
                                 /> : ''
                             }
                             {questions.characteristic ?
-                                <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} isReversed={questions.isReversed}/> : ''
+                                <LikertScale questionNumber={questions.questionNumber} characteristic={questions.characteristic} /> : ''
                             }
                         </div>
                     </div>

@@ -13,7 +13,7 @@ export const StrategyAndConsultingSubDepartments = ({close, tabIndex}: props) =>
         <>
             <div className='info'>
                 <div className='gradientDiv'>
-                    <div className={'backToResult'} onClick={() => close()} onKeyPress={() => close()} tabIndex={tabIndex}>
+                    <div className={'backToResult'} onClick={() => close()} onKeyPress={() => close()} tabIndex={tabIndex} data-testid={'backSC'}>
                         <div className={'backArrowWhite'}/>
                         <p className={'backText'}>{t('subDepBack')}</p>
                     </div>

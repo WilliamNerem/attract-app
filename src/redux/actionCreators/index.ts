@@ -97,38 +97,29 @@ export const reset = () => {
     }
 };
 
-export const social = (value: number, isReversed: boolean) => {
+export const social = (value: number) => {
     return (dispatch: Dispatch<AlgorithmAction>) => {
         dispatch({
             type: AlgorithmActionType.SOCIAL,
-            payload : {
-                value,
-                isReversed
-            }
+            payload: value
         })
     }
 };
 
-export const creative = (value: number, isReversed: boolean) => {
+export const creative = (value: number) => {
     return (dispatch: Dispatch<AlgorithmAction>) => {
         dispatch({
             type: AlgorithmActionType.CREATIVE,
-            payload : {
-                value,
-                isReversed
-            }
+            payload: value
         })
     }
 };
 
-export const practical = (value: number, isReversed: boolean) => {
+export const practical = (value: number) => {
     return (dispatch: Dispatch<AlgorithmAction>) => {
         dispatch({
             type: AlgorithmActionType.PRACTICAL,
-            payload : {
-                value,
-                isReversed
-            }
+            payload: value
         })
     }
 };

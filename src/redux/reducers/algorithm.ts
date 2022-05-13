@@ -6,26 +6,17 @@ export enum AlgorithmActionType {
 
 interface socialAction {
     type: AlgorithmActionType.SOCIAL
-    payload: {
-        value: number
-        isReversed: boolean
-    }
+    payload: number
 }
 
 interface creativeAction {
     type: AlgorithmActionType.CREATIVE
-    payload: {
-        value: number
-        isReversed: boolean
-    }
+    payload: number
 }
 
 interface practicalAction {
     type: AlgorithmActionType.PRACTICAL
-    payload: {
-        value: number
-        isReversed: boolean
-    }
+    payload: number
 }
 
 export type AlgorithmAction = socialAction | creativeAction | practicalAction;
@@ -37,28 +28,13 @@ const initialState = {
 export const algorithmReducer = (state: number[] = initialState.algorithmArr, action: AlgorithmAction) => {
     switch (action.type) {
         case AlgorithmActionType.SOCIAL:
-            if(action.payload.isReversed) {
-                state[0] = state[0] - action.payload.value;
-            }
-            else {
-                state[0] = state[0] + action.payload.value;
-            }
+            state[0] = state[0] + action.payload;
             return [...state];
         case AlgorithmActionType.CREATIVE:
-            if(action.payload.isReversed) {
-                state[1] = state[1] - action.payload.value;
-            }
-            else {
-                state[1] = state[1] + action.payload.value;
-            }
+            state[1] = state[1] + action.payload;
             return [...state];
         case AlgorithmActionType.PRACTICAL:
-            if(action.payload.isReversed) {
-                state[2] = state[2] - action.payload.value;
-            }
-            else {
-                state[2] = state[2] + action.payload.value;
-            }
+            state[2] = state[2] + action.payload;
             return [...state];
         default:
             return state

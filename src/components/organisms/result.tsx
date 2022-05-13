@@ -127,7 +127,7 @@ export const Result = ({totalPointsArray
                 style={{zIndex: 8}}
             />
             <Navbar/>
-            <div className={classNameSubSC}>
+            <div className={classNameSubSC} data-testid={'resultSubdepSC'}>
                 <StrategyAndConsultingSubDepartments close={() => {
                     setClassNameSubSC('subInfoClosed');
                     setWrapperHeight('auto');
@@ -138,7 +138,7 @@ export const Result = ({totalPointsArray
                     }, 300);
                 }} tabIndex={tabIndexSC}/>
             </div>
-            <div className={classNameSubTech}>
+            <div className={classNameSubTech} data-testid={'resultSubdepTech'}>
                 <TechnologySubDepartments close={() => {
                     setClassNameSubTech('subInfoClosed');
                     setWrapperHeight('auto');
@@ -149,7 +149,7 @@ export const Result = ({totalPointsArray
                     }, 300);
                 }} tabIndex={tabIndexTech}/>
             </div>
-            <div className={classNameSubInt}>
+            <div className={classNameSubInt}  data-testid={'resultSubdepInteractive'}>
                 <InteractiveSubDepartments close={() => {
                     setClassNameSubInt('subInfoClosed');
                     setWrapperHeight('auto');
@@ -203,7 +203,7 @@ export const Result = ({totalPointsArray
                             tabIndex={tabIndex}
                         />
                     </div>
-                    <a className={disabledButtons + ' leftArrow'} onClick={handleLeftArrow}/>
+                    <a className={disabledButtons + ' leftArrow'} onClick={handleLeftArrow} data-testid={'leftArrow'}/>
                     <a className={disabledButtons + ' rightArrow'} onClick={handleRightArrow} data-testid={'rightArrow'}/>
                 </div>
                 <EmailDepSender totalPointsArray={totalPointsArray} tabIndex={tabIndex}/>

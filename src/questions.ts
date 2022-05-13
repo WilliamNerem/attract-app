@@ -71,8 +71,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             questionType: 'likertScale',
             questionTxt: t('q1'),
             progress: 10,
-            characteristic: practical,
-            isReversed: false
+            characteristic: practical
         },
         {
             questionNumber: 2,
@@ -88,8 +87,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             questionType: 'likertScale',
             questionTxt: t('q3'),
             progress: 30,
-            characteristic: creative,
-            isReversed: false
+            characteristic: creative
         },
         {
             questionNumber: 4,
@@ -105,16 +103,14 @@ export const QuestionsPartOne = (t: TFunction) => {
             questionType: 'likertScale',
             questionTxt: t('q5'),
             progress: 50,
-            characteristic: social,
-            isReversed: false
+            characteristic: social
         },
         {
             questionNumber: 6,
             questionType: 'likertScale',
             questionTxt: t('q6'),
             progress: 60,
-            characteristic: creative,
-            isReversed: false
+            characteristic: creative
         },
         {
             questionNumber: 7,
@@ -130,8 +126,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             questionType: 'likertScale',
             questionTxt: t('q8'),
             progress: 80,
-            characteristic: practical,
-            isReversed: false
+            characteristic: practical
         },
         {
             questionNumber: 9,
@@ -147,8 +142,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             questionType: 'likertScale',
             questionTxt: t('q10'),
             progress: 100,
-            characteristic: social,
-            isReversed: false
+            characteristic: social
         },
     ];
 };

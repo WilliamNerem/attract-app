@@ -33,42 +33,51 @@ describe('Info render', () => {
         expect(getAllByTestId('infoCard')[0]).toHaveClass('expanded infoCard');
     });
 
-    it('should open S&C subdepartments on button click',  () => {
-        const { getAllByTestId } = render(
+    it('should display Strategy & Consulting sub departments when button is clicked', async () => {
+        const { getAllByTestId, getByTestId } = render(
             <Provider store={store}>
                 <Router>
                     <Info />
                 </Router>
             </Provider>
         );
-        expect(getAllByTestId('subdepartmentWrapper')[0]).toHaveClass('subInfoClosed');
+
         fireEvent.click(getAllByTestId('subdepartmentButton')[0]);
-        expect(getAllByTestId('subdepartmentWrapper')[0]).toHaveClass('subInfoOpen');
+        expect(getByTestId('infoSubdepSC')).toHaveClass('subInfoOpen');
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        expect(getByTestId('infoPage')).toHaveStyle('height: 95vh');
+        expect(getByTestId('backSC')).toHaveAttribute('tabindex', "0");
     });
 
-    it('should open technology subdepartments on button click',  () => {
-        const { getAllByTestId } = render(
+    it('should display Technology sub departments when button is clicked', async () => {
+        const { getAllByTestId, getByTestId } = render(
             <Provider store={store}>
                 <Router>
                     <Info />
                 </Router>
             </Provider>
         );
-        expect(getAllByTestId('subdepartmentWrapper')[1]).toHaveClass('subInfoClosed');
+
         fireEvent.click(getAllByTestId('subdepartmentButton')[1]);
-        expect(getAllByTestId('subdepartmentWrapper')[1]).toHaveClass('subInfoOpen');
+        expect(getByTestId('infoSubdepTech')).toHaveClass('subInfoOpen');
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        expect(getByTestId('infoPage')).toHaveStyle('height: 95vh');
+        expect(getByTestId('backTech')).toHaveAttribute('tabindex', "0");
     });
 
-    it('should open interactive subdepartments on button click',  () => {
-        const { getAllByTestId } = render(
+    it('should display Song sub departments when button is clicked', async () => {
+        const { getAllByTestId, getByTestId } = render(
             <Provider store={store}>
                 <Router>
                     <Info />
                 </Router>
             </Provider>
         );
-        expect(getAllByTestId('subdepartmentWrapper')[2]).toHaveClass('subInfoClosed');
+
         fireEvent.click(getAllByTestId('subdepartmentButton')[2]);
-        expect(getAllByTestId('subdepartmentWrapper')[2]).toHaveClass('subInfoOpen');
+        expect(getByTestId('infoSubdepInteractive')).toHaveClass('subInfoOpen');
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        expect(getByTestId('infoPage')).toHaveStyle('height: 95vh');
+        expect(getByTestId('backInteractive')).toHaveAttribute('tabindex', "0");
     });
 });
