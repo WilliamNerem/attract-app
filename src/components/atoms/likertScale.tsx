@@ -8,10 +8,9 @@ import {useTranslation} from "react-i18next";
 interface likertScaleProps {
     questionNumber: number
     characteristic: Function
-    isReversed: boolean
 }
 
-export const LikertScale = ({questionNumber, characteristic, isReversed}: likertScaleProps) => {
+export const LikertScale = ({questionNumber, characteristic}: likertScaleProps) => {
     const likertState = useSelector((state: State) => state.likertAnswer);
     const dispatch = useDispatch();
     const { t } = useTranslation();
@@ -27,8 +26,8 @@ export const LikertScale = ({questionNumber, characteristic, isReversed}: likert
         const lastChecked = likertState[questionNumber-1];
         answer(questionNumber);
         const currChecked = likertState[questionNumber-1];
-        characteristic(-(lastChecked-3), isReversed);
-        characteristic(currChecked-3, isReversed);
+        characteristic(-(lastChecked-3));
+        characteristic(currChecked-3);
     };
 
     const handleChecked = (radioValue: number) => {

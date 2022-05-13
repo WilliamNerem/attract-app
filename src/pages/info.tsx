@@ -87,7 +87,7 @@ const Info = () => {
         <>
             <Navbar/>
             <div className='info' data-testid={'infoPage'} style={{height: wrapperHeight}}>
-                <div className={classNameSubSC}>
+                <div className={classNameSubSC} data-testid={'infoSubdepSC'}>
                     <StrategyAndConsultingSubDepartments close={() => {
                         setClassNameSubSC('subInfoClosed');
                         setWrapperHeight('auto');
@@ -98,7 +98,7 @@ const Info = () => {
                         setTabIndex(0);
                     }} tabIndex={tabIndexSC}/>
                 </div>
-                <div className={classNameSubTech}>
+                <div className={classNameSubTech} data-testid={'infoSubdepTech'}>
                     <TechnologySubDepartments close={() => {
                         setClassNameSubTech('subInfoClosed');
                         setWrapperHeight('auto');
@@ -109,7 +109,7 @@ const Info = () => {
                         setTabIndex(0);
                     }} tabIndex={tabIndexTech}/>
                 </div>
-                <div className={classNameSubInt}>
+                <div className={classNameSubInt} data-testid={'infoSubdepInteractive'}>
                     <InteractiveSubDepartments close={() => {
                         setClassNameSubInt('subInfoClosed');
                         setWrapperHeight('auto');

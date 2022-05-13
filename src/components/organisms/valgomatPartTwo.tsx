@@ -100,7 +100,7 @@ export const ValgomatPartTwo = ({questionArray, isTech, isStrat, isInteractive, 
                                 {questions.isStatement ? <StatementOrder questionArray={questionArray} sharedWords={questions.sharedWords}/> :
                                     <LikertScale questionNumber={questions.questionNumber}
                                                  characteristic={questions.characteristic} // This is not characteristic, will be a subdepartment
-                                                 isReversed={questions.isReversed}/>}
+                                    />}
                             </div>
                         }
                     </div>

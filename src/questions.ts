@@ -71,8 +71,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             questionType: 'likertScale',
             questionTxt: t('q1'),
             progress: 10,
-            characteristic: practical,
-            isReversed: false
+            characteristic: practical
         },
         {
             questionNumber: 2,
@@ -88,8 +87,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             questionType: 'likertScale',
             questionTxt: t('q3'),
             progress: 30,
-            characteristic: creative,
-            isReversed: false
+            characteristic: creative
         },
         {
             questionNumber: 4,
@@ -105,16 +103,14 @@ export const QuestionsPartOne = (t: TFunction) => {
             questionType: 'likertScale',
             questionTxt: t('q5'),
             progress: 50,
-            characteristic: social,
-            isReversed: false
+            characteristic: social
         },
         {
             questionNumber: 6,
             questionType: 'likertScale',
             questionTxt: t('q6'),
             progress: 60,
-            characteristic: creative,
-            isReversed: false
+            characteristic: creative
         },
         {
             questionNumber: 7,
@@ -130,8 +126,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             questionType: 'likertScale',
             questionTxt: t('q8'),
             progress: 80,
-            characteristic: practical,
-            isReversed: false
+            characteristic: practical
         },
         {
             questionNumber: 9,
@@ -147,8 +142,7 @@ export const QuestionsPartOne = (t: TFunction) => {
             questionType: 'likertScale',
             questionTxt: t('q10'),
             progress: 100,
-            characteristic: social,
-            isReversed: false
+            characteristic: social
         },
     ];
 };
@@ -183,16 +177,14 @@ export const QuestionsDataTech = () => {    // Not added new questions for part 
             questionType: 'likertScale',
             questionTxt: "Dette er om Tech sin første underavdeling",
             progress: 25,
-            characteristic: social,
-            isReversed: true
+            characteristic: social
         },
         {
             questionNumber: 2,
             questionType: 'likertScale',
             questionTxt: "Dette er om Tech sin andre underavdeling",
             progress: 50,
-            characteristic: social,
-            isReversed: false
+            characteristic: social
         },
         {
             questionNumber: 3,
@@ -208,8 +200,7 @@ export const QuestionsDataTech = () => {    // Not added new questions for part 
             questionType: 'likertScale',
             questionTxt: "Dette er om Tech sin tredje",
             progress: 100,
-            characteristic: social,
-            isReversed: false
+            characteristic: social
         },
     ];
 };
@@ -266,8 +257,7 @@ export const QuestionsDataSC = () => {      // Not added new questions for part 
             questionType: 'likertScale',
             questionTxt: "Dette er om Products",
             progress: 14,
-            characteristic: allocateStrat_ProductsPoints,
-            isReversed: true
+            characteristic: allocateStrat_ProductsPoints
         },
         {
             questionNumber: 2,
@@ -283,24 +273,21 @@ export const QuestionsDataSC = () => {      // Not added new questions for part 
             questionType: 'likertScale',
             questionTxt: "Dette er om Resources",
             progress: 43,
-            characteristic: allocateStrat_ResourcesPoints,
-            isReversed: true
+            characteristic: allocateStrat_ResourcesPoints
         },
         {
             questionNumber: 4,
             questionType: 'likertScale',
             questionTxt: "Dette er om Health & Public Service",
             progress: 58,
-            characteristic: allocateStrat_Health_PublicPoints,
-            isReversed: false
+            characteristic: allocateStrat_Health_PublicPoints
         },
         {
             questionNumber: 5,
             questionType: 'likertScale',
             questionTxt: "Dette er om Financial Services",
             progress: 72,
-            characteristic: allocateStrat_FinancePoints,
-            isReversed: true
+            characteristic: allocateStrat_FinancePoints
         },
         {
             questionNumber: 6,
@@ -316,8 +303,7 @@ export const QuestionsDataSC = () => {      // Not added new questions for part 
             questionType: 'likertScale',
             questionTxt: "Dette er om Communcation Media & Technology",
             progress: 100,
-            characteristic: allocateStrat_CMTPoints,
-            isReversed: false
+            characteristic: allocateStrat_CMTPoints
         },
     ];
 };
@@ -373,16 +359,14 @@ export const QuestionsDataInteractive = () => {  // Questions ok for now
             questionType: 'likertScale',
             questionTxt: "eg synes det er spennende å innhente innsikt om mennesker og bedrifter",
             progress: 20,
-            characteristic: allocateInteractive_BuildPoints,
-            isReversed: false
+            characteristic: allocateInteractive_BuildPoints
         },
         {
             questionNumber: 2,
             questionType: 'likertScale',
             questionTxt: "Jeg jobber gjerne tett opp med kunden for å forbedre kundeopplevelsen",
             progress: 40,
-            characteristic: allocateInteractive_DesignPoints,
-            isReversed: false
+            characteristic: allocateInteractive_DesignPoints
         },
         {
             questionNumber: 3,
@@ -398,8 +382,7 @@ export const QuestionsDataInteractive = () => {  // Questions ok for now
             questionType: 'likertScale',
             questionTxt: "Jeg har lyst å jobbe med utvikling av kundereiser",
             progress: 80,
-            characteristic: allocateInteractive_CommunicationsPoints,
-            isReversed: false
+            characteristic: allocateInteractive_CommunicationsPoints
         },
         {
             questionNumber: 5,
