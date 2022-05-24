@@ -49,7 +49,7 @@ const Home = () => {
                     />
                 </div>
                 <div className='infoCards'>
-                    {i18n.language === 'en' ?
+                    {(i18n.language === 'en' || i18n.language === 'en-US') ?
                         < InfoCard
                             heading = {t('headingImageCard')}
                             text={t('aboutImageCard')}

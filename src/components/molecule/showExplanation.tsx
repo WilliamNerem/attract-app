@@ -20,7 +20,7 @@ export const ShowExplanation = ({questionType}: showExplanationProps) => {
     }, [i18n.language]);
 
     const changeImageLanguage = () => {
-        if (i18n.language === 'en'){
+        if (i18n.language === 'en' || i18n.language === 'en-US'){
             setImageLanguages({
                 likert: 'likertScaleExampleImageEnglish',
                 statementOrder: 'statementOrderExampleImageEnglish',

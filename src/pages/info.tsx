@@ -68,7 +68,7 @@ const Info = () => {
     };
 
     const changeImageLanguage = () => {
-        if (i18n.language === 'en'){
+        if (i18n.language === 'en' || i18n.language === 'en-US'){
             setImageLanguage({
                 likert: 'likertScaleExampleImageEnglish',
                 statementOrder: 'statementOrderExampleImageEnglish',
